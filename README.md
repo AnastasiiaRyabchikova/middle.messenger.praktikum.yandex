@@ -1,5 +1,5 @@
 **Netlify:** https://determined-pare-26635e.netlify.app/
-
+**Figma:** https://www.figma.com/file/plWTradeVJ4ur1v6IR8vq9/Chat-Y.Praktikum?node-id=0%3A1
 ### Ветка, в которой делаете задания спринта, должна называться sprint_i, где i - номер спринта. Не переименовывайте её.
 
 ### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main. Название pull request может быть любое.
