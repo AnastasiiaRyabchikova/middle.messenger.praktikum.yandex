@@ -1,6 +1,6 @@
 import isObject from './isObject.js';
 
-const get = (object, path) => {
+export default (object, path) => {
   const keys = path.split('.');
   let value = object;
   for (key of keys) {
@@ -11,15 +11,3 @@ const get = (object, path) => {
   }
   return value
 };
-
-const obj = {
-  lorem: {
-    foo: {
-      bar: 1
-    },
-  },
-};
-
-const string = 'lore.f.bar';
-
-console.log(get(obj, string));
