@@ -2,7 +2,7 @@ import Templator from '../templator/Templator';
 
 const tpl = `
 <div
-  class={{wrapper}}
+  className={{wrapper}}
 >
   {{name}}
   <div>
