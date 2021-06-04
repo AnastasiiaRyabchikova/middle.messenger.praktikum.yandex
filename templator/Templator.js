@@ -1,6 +1,19 @@
+import get from './utils/get';
+
 const isTag = (string) => {
   const regExp = /^<(.*?)>$/;
   return regExp.test(string);
+};
+
+const isVariable = (string) => {
+  const regExp = /^{{(.*?)}}$/;
+  return regExp.test(string);
+};
+
+const getVariable = (string) => {
+  const regExp = /^{{(.*?)}}$/;
+  const result = string.match(regExp);
+  return result && result[1] ;
 };
 
 const isClosedTag = (tag) => {
@@ -8,17 +21,41 @@ const isClosedTag = (tag) => {
 };
 
 const compileTemplate = (template, ctx) => {
+  const result = null;
+
   const elements = template
     .replace(/\s+/g, ' ')
     .split(/(?<=>)|(?=<)/g)
     .map((item) => item.trim())
     .filter((item) => item);
 
-  console.log(elements);
-
   elements.forEach((item) => {
-    console.log(item, isTag(item));
-    console.log(item, isClosedTag(item));
+    if (isTag(item) ) {
+      if (!isClosedTag(item)) {
+        if (!result) {
+
+          const attributes = item
+            .replace(/(<|>)/g, '')
+            .split(' ')
+            .map((item) => item.trim())
+            .filter((item) => item);
+
+          const tag = attributes.shift();
+          const element = document.createElement(tag);
+
+          attributes.forEach((item) => {
+            const [key, value] = item.split('=');
+            if (isVariable(value)) {
+              element[key] = get(ctx, getVariable(value)) || '';
+            } else {
+              element[key] = value || true;
+            }
+          });
+
+          console.log(element);
+        }
+      }
+    }
   })
 };
 
