@@ -66,6 +66,11 @@ const compileTemplate = (template, ctx) => {
       } else {
         current = current.parentNode;
       }
+    } else {
+      const text = isVariable(item)
+        ? get(ctx, getVariable(item))
+        : item;
+      current.append(document.createTextNode(text));
     }
   })
 
