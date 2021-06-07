@@ -5,16 +5,27 @@ const isTag = (string) => {
   return regExp.test(string);
 };
 
-const isVariable = (string) => {
+const isEval = (string) => {
   const regExp = /^{{(.*?)}}$/;
   return regExp.test(string);
 };
 
-const getVariable = (string) => {
+const getValue = (ctx, string) => {
   const regExp = /^{{(.*?)}}$/;
   const result = string.match(regExp);
-  return result && result[1] ;
+
+  if (!result) {
+    return;
+  }
+
+  const expression = result[1].match(/a-zA-Z/);
+
+
+
+  return expression;
 };
+
+
 
 const isClosedTag = (tag) => {
   return tag && tag[1] === '/';
@@ -32,8 +43,8 @@ const parseElement = (ctx, string) => {
 
   attributes.forEach((item) => {
     const [key, value] = item.split('=');
-    if (isVariable(value)) {
-      element[key] = get(ctx, getVariable(value)) || '';
+    if (isEval(value)) {
+      element[key] = getValue(ctx, value) || '';
     } else {
       element[key] = value || true;
     }
@@ -67,8 +78,8 @@ const compileTemplate = (template, ctx) => {
         current = current.parentNode;
       }
     } else {
-      const text = isVariable(item)
-        ? get(ctx, getVariable(item))
+      const text = isEval(item)
+        ? getValue(ctx, item)
         : item;
       current.append(document.createTextNode(text));
     }
