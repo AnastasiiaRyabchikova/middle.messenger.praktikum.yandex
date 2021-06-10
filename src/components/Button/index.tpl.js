@@ -1,9 +1,10 @@
-import styles from './styles.module.scss';
+import styles from './styles.module.css';
+console.log(styles);
 
 const template =`
   <button
     type={{type}}
-    className={{className}}
+    className="${styles.button}"
   >
     {{children}}
   </button>
