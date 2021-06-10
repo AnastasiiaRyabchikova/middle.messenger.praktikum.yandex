@@ -2,8 +2,13 @@ import template from './index.tpl';
 import styles from './styles.module.css';
 import Templator from '../../../templator/Templator';
 
-const componentWithProps = {
-  className: `${styles.button} `
-}
+const Button = (ctx) => {
+  const props = {
+    className: `${styles.button} ${ctx.className}`,
+    type: ctx.type || 'button',
+  };
 
-export default new Templator(template);
+  return new Templator(template).compile(props);
+};
+
+export default Button;
