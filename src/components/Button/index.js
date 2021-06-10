@@ -1,4 +1,7 @@
 import template from './index.tpl';
+import styles from './styles.module.css';
 import Templator from '../../../templator/Templator';
 
-export default new Templator(template)
+const componentWithProps = 
+
+export default new Templator(template);
