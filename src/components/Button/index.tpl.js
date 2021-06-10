@@ -1,7 +1,7 @@
 const template =`
   <button
     type={{type}}
-    className={className}
+    className={{className}}
   >
     {{$children}}
   </button>
