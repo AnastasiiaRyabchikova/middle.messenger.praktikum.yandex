@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "parcel serve ./src/index.html --port=3000",
+    "start": "parcel serve ./src/index.html --port=3000 --no-cache",
     "build": "parcel build ./src/index.html"
   },
   "devDependencies": {
