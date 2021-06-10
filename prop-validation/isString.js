@@ -1,3 +1,3 @@
-const isString = (value) => (typeof value === 'string');
+const string = (value) => typeof value === 'string');
 
-export default isString;
+export default string;
