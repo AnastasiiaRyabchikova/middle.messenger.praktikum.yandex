@@ -4,7 +4,7 @@ import Templator from '../../../templator/Templator';
 
 const Button = (ctx) => {
   const props = {
-    className: `${styles.button} ${ctx.className}`,
+    className: `${styles.button} ${ctx.className || ''}`,
     type: ctx.type || 'button',
   };
 
