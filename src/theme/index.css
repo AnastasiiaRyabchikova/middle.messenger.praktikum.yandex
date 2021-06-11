@@ -1,0 +1,12 @@
+@import './fonts.css';
+@import './variables.css';
+@import './general.css';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-general);
+  margin: 0;
+}
