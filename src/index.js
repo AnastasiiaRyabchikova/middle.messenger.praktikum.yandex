@@ -1,5 +1,6 @@
-import Button from './components/Button';
+import './theme/index.css';
+import Authorization from './pages/Authorization';
 import render from '../templator/render';
 
-render(document.getElementById('root'), Button({}));
+render(document.getElementById('root'), Authorization());
 
