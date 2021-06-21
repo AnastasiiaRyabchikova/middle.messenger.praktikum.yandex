@@ -30,8 +30,8 @@ const isClosedTag = (tag) => {
 const parseElement = (ctx, string) => {
   const attributes = string
     .replace(/(<|>)/g, '')
-    .split(' ')
-    .map((item) => item.trim())
+    .split(/(?=\s[a-zA-Z]*\=".*?")/)
+    .map((item) => item.trim().replace(/['|"]/g, ''))
     .filter((item) => item);
 
   const tag = attributes.shift();
