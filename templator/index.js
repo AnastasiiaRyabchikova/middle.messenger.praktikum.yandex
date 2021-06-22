@@ -10,6 +10,10 @@ const isVariable = (string) => {
   return regExp.test(string);
 };
 
+const isComponent = (string) => {
+  return string[0].toLowerCase() !== string[0];
+};
+
 const getVariable = (string) => {
   const regExp = /^{{(.*?)}}$/;
   const result = string.match(regExp);
@@ -33,20 +37,25 @@ const parseElement = (ctx, string) => {
     .split(/(?=\s[a-zA-Z]*\=".*?")/)
     .map((item) => item.trim().replace(/['|"]/g, ''))
     .filter((item) => item);
-
+  
   const tag = attributes.shift();
-  const element = document.createElement(tag);
 
-  attributes.forEach((item) => {
-    const [key, value] = item.split('=');
-    if (isVariable(value)) {
-      element[key] = get(ctx, getVariable(value))|| '';
-    } else {
-      element[key] = value || true;
-    }
-  });
+  if (isComponent(tag)) {
+    return document.createElement('div');
+  } else {
+    const element = document.createElement(tag);
 
-  return element;
+    attributes.forEach((item) => {
+      const [key, value] = item.split('=');
+      if (isVariable(value)) {
+        element[key] = get(ctx, getVariable(value))|| '';
+      } else {
+        element[key] = value || true;
+      }
+    });
+  
+    return element;
+  }
 };
 
 const compileTemplate = (template, ctx) => {
