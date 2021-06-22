@@ -1,5 +1,5 @@
 import template from './index.tpl';
-import Templator from '../../../templator/Templator';
+import Templator from '~/templator';
 
 const Page = (ctx) => {
   return new Templator(template).compile();

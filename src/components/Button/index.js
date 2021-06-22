@@ -1,6 +1,6 @@
 import template from './index.tpl';
 import styles from './styles.module.css';
-import Templator from '../../../templator/Templator';
+import Templator from '~/templator';
 
 const Button = (ctx) => {
   const props = {
