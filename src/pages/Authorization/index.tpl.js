@@ -1,7 +1,5 @@
 import styles from './styles.module.css';
 
-console.log(styles);
-
 const template = `
 <div
   className="${styles.page}"
