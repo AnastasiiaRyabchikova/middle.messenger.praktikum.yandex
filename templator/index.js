@@ -1,9 +1,8 @@
+import {
+  isClosedTag,
+  isTag,
+} from './utils/tag';
 import get from './utils/get';
-
-const isTag = (string) => {
-  const regExp = /^<(.*?)>$/;
-  return regExp.test(string);
-};
 
 const isVariable = (string) => {
   const regExp = /^{{(.*?)}}$/;
@@ -25,13 +24,11 @@ const getVariable = (string) => {
   return result[1];
 };
 
-
-
-const isClosedTag = (tag) => {
-  return tag && tag[1] === '/';
-};
-
-const parseElement = (ctx, string) => {
+const parseElement = (string, {
+  ctx,
+  components,
+  name,
+}) => {
   const attributes = string
     .replace(/(<|>)/g, '')
     .split(/(?=\s[a-zA-Z]*\=".*?")/)
@@ -40,10 +37,19 @@ const parseElement = (ctx, string) => {
   
   const tag = attributes.shift();
 
+  let element = null;
+
   if (isComponent(tag)) {
-    return document.createElement('div');
+    const component = components[tag];
+    
+    if (!component) {
+      throw new Error(`Found an unregistered component ${tag} in ${name}`);
+    }
+    
+    element = component(ctx);
+
   } else {
-    const element = document.createElement(tag);
+    element = document.createElement(tag);
 
     attributes.forEach((item) => {
       const [key, value] = item.split('=');
@@ -53,52 +59,58 @@ const parseElement = (ctx, string) => {
         element[key] = value || true;
       }
     });
-  
-    return element;
   }
+  return element;
 };
-
-const compileTemplate = (template, ctx) => {
-  let result = null;
-  let current = null;
-
-  const elements = template
-    .replace(/\s+/g, ' ')
-    .split(/(?<=>)|(?=<)/g)
-    .map((item) => item.trim())
-    .filter((item) => item);
-
-  elements.forEach((item) => {
-    if (isTag(item)) {
-      if (!isClosedTag(item)) {
-        if (!result) {
-          result = parseElement(ctx, item);
-          current = result;
-        } else {
-          const element = parseElement(ctx, item);
-          current.append(element);
-          current = element;
-        }
-      } else {
-        current = current.parentNode;
-      }
-    } else {
-      const text = isVariable(item)
-        ? get(ctx, getVariable(item))
-        : item;
-      current.append(document.createTextNode(text));
-    }
-  })
-
-  return result;
-};
-
 export default class Templator {
-  constructor (template) {
-    this._template = template;
+
+  constructor ({
+    name,
+    template,
+    components,
+  }) {
+    this.template = template;
+    this.components = components || {};
+    this.name = name || 'nameless component';
   }
 
   compile(ctx) {
-    return compileTemplate(this._template, ctx);
+    return this.compileTemplate(ctx);
   }
+
+  compileTemplate = (ctx) => {
+    let result = null;
+    let current = null;
+    const { components, name, template } = this;
+  
+    const elements = template
+      .replace(/\s+/g, ' ')
+      .split(/(?<=>)|(?=<)/g)
+      .map((item) => item.trim())
+      .filter((item) => item);
+  
+    elements.forEach((item) => {
+      if (isTag(item)) {
+        if (!isClosedTag(item)) {
+          if (!result) {
+            result = parseElement(item, { ctx, components, name });
+            current = result;
+          } else {
+            const element = parseElement(item, { ctx, components, name });
+            current.append(element);
+            current = element;
+          }
+        } else {
+          current = current.parentNode;
+        }
+      } else {
+        const text = isVariable(item)
+          ? get(ctx, getVariable(item))
+          : item;
+        current.append(document.createTextNode(text));
+      }
+    })
+  
+    return result;
+  };
 };
