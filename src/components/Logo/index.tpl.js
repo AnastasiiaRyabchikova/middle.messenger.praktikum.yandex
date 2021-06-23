@@ -1,3 +1,5 @@
+import styles from './styles.module.css';
+
 const template =`
   <a
     href="/"
