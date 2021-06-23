@@ -2,8 +2,12 @@ import Templator from '~/templator';
 
 import template from './index.tpl';
 
+const component = {
+  template,
+};
+
 const Logo = (ctx) => {
-  return new Templator(template).compile(ctx);
+  return new Templator(component).compile(ctx);
 };
 
 export default Logo;
