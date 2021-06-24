@@ -3,6 +3,9 @@
   --color-gray: #e5e5e5;
   --color-black: #000000;
 
+  --outer-indent-vertical: 1rem;
+  --outer-indent-horizontal: 2rem;
+
   --font-general: 'Ruda', sans-serif;
 }
 
