@@ -7,8 +7,7 @@ const template = `
   <header>
     <Logo
       className="{{className}}"
-    >
-    </Logo>
+    />
   </header>
   <main
     className="${styles.main}"
@@ -18,6 +17,7 @@ const template = `
     >
       Авторизация
     </h1>
+    <UIInput />
   </main>
 </div>
 `;

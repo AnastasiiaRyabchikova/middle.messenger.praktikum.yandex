@@ -1,6 +1,7 @@
 import Templator from '~/templator';
 
 import Logo from '../../components/Logo';
+import UIInput from '../../components/UIInput';
 
 import template from './index.tpl';
 
@@ -9,6 +10,7 @@ const component = {
   template,
   components: {
     Logo,
+    UIInput,
   },
 };
 
