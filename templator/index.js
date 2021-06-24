@@ -1,5 +1,6 @@
 import {
   isClosedTag,
+  isSelfClosingTag,
   isTag,
 } from './utils/tag';
 import get from './utils/get';
@@ -30,7 +31,7 @@ const parseElement = (string, {
   name,
 }) => {
   const attributes = string
-    .replace(/(<|>)/g, '')
+    .replace(/(<|\/{0,1}>)/g, '')
     .split(/(?=\s[a-zA-Z]*\=".*?")/)
     .map((item) => item.trim().replace(/['|"]/g, ''))
     .filter((item) => item);
@@ -88,21 +89,26 @@ export default class Templator {
       .split(/(?<=>)|(?=<)/g)
       .map((item) => item.trim())
       .filter((item) => item);
-  
+
     elements.forEach((item) => {
       if (isTag(item)) {
         if (!isClosedTag(item)) {
-          if (!result) {
-            result = parseElement(item, { ctx, components, name });
-            current = result;
-          } else {
-            const element = parseElement(item, { ctx, components, name });
+          const element = parseElement(item, { ctx, components, name });
+
+          if (result) {
             current.append(element);
+          } else {
+            result = element;
+          }
+
+          if (!isSelfClosingTag(item)) {
             current = element;
           }
+
         } else {
           current = current.parentNode;
         }
+
       } else {
         const text = isVariable(item)
           ? get(ctx, getVariable(item))
