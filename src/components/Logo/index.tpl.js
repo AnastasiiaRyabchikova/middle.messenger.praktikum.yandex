@@ -1,12 +1,11 @@
 import styles from './styles.module.css';
 
 const template =`
-  <a
-    href="/"
-    className=${styles.logo}
+  <span
+    className="${styles.logo}"
   >
     Довекот
-  </a>
+  </span>
 `;
 
 export default template;
