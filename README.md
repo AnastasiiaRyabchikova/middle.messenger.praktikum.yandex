@@ -1,3 +1,6 @@
+// TODO: Добавить style-lint;
+// TODO: Добавить es-lint;
+
 **Netlify:** https://determined-pare-26635e.netlify.app/
 
 **Figma:** https://www.figma.com/file/plWTradeVJ4ur1v6IR8vq9/Chat-Y.Praktikum?node-id=0%3A1
