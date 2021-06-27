@@ -1,0 +1,25 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  --padding: 0.5em 1.5em;
+}
+
+.label {
+  padding: var(--padding);
+  pointer-events: none;
+  position: absolute;
+  order: -1;
+  top: 0;
+  left: 0;
+}
+
+.input {
+  padding: var(--padding);
+  border: 0;
+}
+
+.input:focus + .label {
+  position: relative;
+}

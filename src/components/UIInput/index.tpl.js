@@ -1,13 +1,17 @@
 import styles from './styles.module.css';
 
 const template =`
-  <label>
-    <span>
-      {{label}}
-    </span>
+  <label className="${styles.wrapper}">
     <input
       type="{{type}}"
+      placeholder="{{placeholder}}"
+      className="${styles.input}"
     />
+    <span
+      className="${styles.label}"
+    >
+      {{label}}
+    </span>
   </label>
 `;
 
