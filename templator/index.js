@@ -47,7 +47,19 @@ const parseElement = (string, {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
     }
     
-    element = component(ctx);
+    const componentCtx = attributes.reduce((acc, cur) => {
+      const [key, value] = cur.split('=');
+      const prop = isVariable(value)
+        ? get(ctx, getVariable(value)) || ''
+        : value || true;
+
+      return {
+        ...acc,
+        [key]: prop,
+      }
+    }, {});
+    element = component(componentCtx);
+
 
   } else {
     element = document.createElement(tag);
