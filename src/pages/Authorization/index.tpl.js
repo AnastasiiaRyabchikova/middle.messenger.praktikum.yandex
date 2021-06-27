@@ -17,7 +17,9 @@ const template = `
     >
       Авторизация
     </h1>
-    <UIInput />
+    <UIInput
+      label="Логин"
+    />
   </main>
 </div>
 `;
