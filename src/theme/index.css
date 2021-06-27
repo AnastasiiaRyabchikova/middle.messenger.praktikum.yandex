@@ -1,6 +1,6 @@
-@import './fonts.css';
-@import './variables.css';
-@import './general.css';
+@import "./fonts.css";
+@import "./variables.css";
+@import "./general.css";
 
 * {
   box-sizing: inherit;
@@ -10,7 +10,9 @@ html {
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 

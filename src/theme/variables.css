@@ -1,11 +1,8 @@
 :root {
   --color-gray-lighter: #f3f3f3;
   --color-gray: #e5e5e5;
-  --color-black: #000000;
-
+  --color-black: #000;
   --outer-indent-vertical: 1rem;
   --outer-indent-horizontal: 2rem;
-
-  --font-general: 'Ruda', sans-serif;
+  --font-general: "Ruda", sans-serif;
 }
-
