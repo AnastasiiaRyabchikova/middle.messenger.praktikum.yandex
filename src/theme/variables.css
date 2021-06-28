@@ -1,8 +1,16 @@
 :root {
+  /* color variables */
   --color-gray-lighter: #f3f3f3;
   --color-gray: #e5e5e5;
   --color-black: #000;
+
+  /* block variables */
   --outer-indent-vertical: 1rem;
   --outer-indent-horizontal: 2rem;
+
+  /* font variables */
   --font-general: "Ruda", sans-serif;
+
+  /* decoration variables */
+  --border-radius: 0.25rem;
 }

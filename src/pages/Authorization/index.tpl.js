@@ -19,6 +19,7 @@ const template = `
     </h1>
     <UIInput
       label="Логин"
+      placeholder="Your login"
     />
   </main>
 </div>
