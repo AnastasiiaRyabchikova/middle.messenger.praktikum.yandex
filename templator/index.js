@@ -101,7 +101,7 @@ export default class Templator {
       .split(/(?<=>)|(?=<)/g)
       .map((item) => item.trim())
       .filter((item) => item);
-
+    
     elements.forEach((item) => {
       if (isTag(item)) {
         if (!isClosedTag(item)) {
@@ -122,10 +122,15 @@ export default class Templator {
         }
 
       } else {
-        const text = isVariable(item)
-          ? get(ctx, getVariable(item))
-          : item;
-        current.append(document.createTextNode(text));
+        const strings = item
+          .split(/(?=\{{2})|(?<=\}{2})/g)
+
+        strings.forEach((string) => {
+          const text = isVariable(string)
+            ? get(ctx, getVariable(string))
+            : string;
+          current.append(document.createTextNode(text));
+        });
       }
     })
   
