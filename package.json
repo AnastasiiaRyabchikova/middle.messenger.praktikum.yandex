@@ -2,8 +2,8 @@
   "scripts": {
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
     "stylelint": "stylelint '**/*{.css,.scss}'",
-    "start": "stylelint:fix parcel serve ./src/index.html --port=3000 --no-cache",
-    "build": "stylelint parcel build ./src/index.html"
+    "start": "parcel serve ./src/index.html --port=3000 --no-cache",
+    "build": "parcel build ./src/index.html"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
