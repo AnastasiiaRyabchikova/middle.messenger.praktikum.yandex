@@ -1,8 +1,10 @@
 :root {
   /* color variables */
+  --color-white: #fff;
   --color-gray-lighter: #f3f3f3;
   --color-gray: #e5e5e5;
   --color-black: #000;
+  --color-primary: #6d3f8a;
 
   /* block variables */
   --outer-indent-vertical: 1rem;
