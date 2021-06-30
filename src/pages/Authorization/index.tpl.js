@@ -19,7 +19,11 @@ const template = `
     </h1>
     <UIInput
       label="Логин"
-      placeholder="Your login"
+      placeholder="Ваш логин"
+    />
+    <UIInput
+      label="Пароль"
+      placeholder="Ваш пароль"
     />
   </main>
 </div>
