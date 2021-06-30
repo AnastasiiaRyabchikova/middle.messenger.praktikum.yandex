@@ -7,7 +7,12 @@ const component = {
 };
 
 const UIInput = (ctx) => {
-  return new Templator(component).compile(ctx);
+  const context = {
+    label: ctx.label,
+    type: ctx.type || 'text',
+    placeholder: ctx.placeholder,
+  };
+  return new Templator(component).compile(context);
 };
 
 export default UIInput;

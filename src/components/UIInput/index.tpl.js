@@ -6,7 +6,6 @@ const template =`
       className="${styles.label}"
     >
       {{label}}
-      Your login
     </span>
     <input
       type="{{type}}"
