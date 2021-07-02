@@ -17,6 +17,11 @@ body,
 }
 
 body {
-  font-family: var(--font-general);
   margin: 0;
+  font-family: var(--font-general);
+}
+
+a,
+button {
+  cursor: pointer;
 }
