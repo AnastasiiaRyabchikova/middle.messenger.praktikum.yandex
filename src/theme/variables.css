@@ -5,6 +5,7 @@
   --color-gray: #e5e5e5;
   --color-black: #000;
   --color-primary: #6d3f8a;
+  --color-primary-opacity: rgba(109, 63, 138, 0.5);
 
   /* block variables */
   --outer-indent-vertical: 1rem;
