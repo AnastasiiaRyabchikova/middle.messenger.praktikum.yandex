@@ -6,6 +6,7 @@
   --color-black: #000;
   --color-primary: #6d3f8a;
   --color-primary-opacity: rgba(109, 63, 138, 0.5);
+  --color-error: #f00;
 
   /* block variables */
   --outer-indent-vertical: 1rem;
