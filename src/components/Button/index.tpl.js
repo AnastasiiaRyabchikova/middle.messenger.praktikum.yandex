@@ -1,9 +1,11 @@
+import styles from './styles.module.css';
+
 const template =`
   <button
-    type={{type}}
-    className={{className}}
+    type="{{type}}"
+    className="{{className}}"
   >
-    {{$children}}
+    {{label}}
   </button>
 `;
 
