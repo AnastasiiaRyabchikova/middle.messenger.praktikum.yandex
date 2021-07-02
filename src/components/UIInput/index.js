@@ -11,6 +11,9 @@ const UIInput = (ctx) => {
     label: ctx.label,
     type: ctx.type || 'text',
     placeholder: ctx.placeholder,
+    name: ctx.name,
+    error: ctx.error,
+    shouldShowError: Boolean(ctx.error),
   };
   return new Templator(component).compile(context);
 };

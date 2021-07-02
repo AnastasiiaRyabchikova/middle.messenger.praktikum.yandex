@@ -10,8 +10,16 @@ const template =`
     <input
       type="{{type}}"
       placeholder="{{placeholder}}"
+      name="{{name}}"
       className="${styles.input}"
     />
+    <t-if={{shouldShowError}}>
+      <span
+        className="${styles.error}"
+      >
+        Неверный логин
+      </span>
+    </t-if>
   </label>
 `;
 
