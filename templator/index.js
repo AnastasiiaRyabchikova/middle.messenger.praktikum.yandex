@@ -95,9 +95,12 @@ export default class Templator {
     let result = null;
     let current = null;
     const { components, name, template } = this;
-  
+
     const elements = template
       .replace(/\s+/g, ' ')
+      .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/, (match, p1, p2) => (
+        get(ctx, p1) ? p2 : ''
+      ))
       .split(/(?<=>)|(?=<)/g)
       .map((item) => item.trim())
       .filter((item) => item);
