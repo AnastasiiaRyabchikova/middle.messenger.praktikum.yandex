@@ -16,3 +16,8 @@
   max-width: 25rem;
   margin: 0 auto;
 }
+
+.submit {
+  display: block;
+  margin: 3em auto 0;
+}

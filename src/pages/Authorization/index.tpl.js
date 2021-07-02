@@ -17,14 +17,21 @@ const template = `
     >
       Авторизация
     </h1>
-    <UIInput
-      label="Логин"
-      placeholder="Ваш логин"
-    />
-    <UIInput
-      label="Пароль"
-      placeholder="Ваш пароль"
-    />
+    <form>
+      <UIInput
+        label="Логин"
+        placeholder="Ваш логин"
+      />
+      <UIInput
+        label="Пароль"
+        placeholder="Ваш пароль"
+      />
+      <Button
+        type="submit"
+        className="${styles.submit}"
+        label="Войти"
+      />
+    </form>
   </main>
 </div>
 `;
