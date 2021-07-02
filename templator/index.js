@@ -32,10 +32,10 @@ const parseElement = (string, {
 }) => {
   const attributes = string
     .replace(/(<|\/{0,1}>)/g, '')
-    .split(/(?=\s[a-zA-Z]*\=".*?")/)
+    .split(/(?=\s[a-zA-Z\-]*\=".*?")/)
     .map((item) => item.trim().replace(/['|"]/g, ''))
     .filter((item) => item);
-  
+
   const tag = attributes.shift();
 
   let element = null;
