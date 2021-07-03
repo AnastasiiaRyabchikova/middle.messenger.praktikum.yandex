@@ -21,8 +21,6 @@ export default (value) => {
     return stringFromObject(value)
   }
   
-  console.log(1111, value);
-
   if (isArray(value)) {
     return value
     .reduce((acc, cur) => {
