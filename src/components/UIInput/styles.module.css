@@ -7,7 +7,7 @@
   --indent-horizontal: 1em;
 }
 
-.error {
+.errorMessage {
   display: block;
   margin-top: 0.5em;
   color: var(--color-error);
@@ -32,6 +32,10 @@
 .input:hover {
   border: thin solid var(--color-primary);
   outline: 0;
+}
+
+.input.error {
+  border-color: var(--color-error);
 }
 
 .input:focus::placeholder {

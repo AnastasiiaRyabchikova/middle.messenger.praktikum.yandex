@@ -1,6 +1,7 @@
 import Templator from '~/templator';
-
+import cx from '../../utils/classnames';
 import template from './index.tpl';
+import styles from './styles.module.css';
 
 const component = {
   template,
@@ -14,6 +15,7 @@ const UIInput = (ctx) => {
     name: ctx.name,
     error: ctx.error,
     shouldShowError: Boolean(ctx.error),
+    inputClassName: cx([styles.input, { [styles.error]: ctx.error }]),
   };
   return new Templator(component).compile(context);
 };

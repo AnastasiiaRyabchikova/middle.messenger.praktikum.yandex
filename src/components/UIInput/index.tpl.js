@@ -11,11 +11,11 @@ const template =`
       type="{{type}}"
       placeholder="{{placeholder}}"
       name="{{name}}"
-      className="${styles.input}"
+      className="{{inputClassName}}"
     />
     <t-if={{shouldShowError}}>
       <span
-        className="${styles.error}"
+        className="${styles.errorMessage}"
       >
         Неверный логин
       </span>
