@@ -31,6 +31,12 @@ const template = `
         className="${styles.submit}"
         label="Войти"
       />
+      <a
+        href="#"
+        className="${styles.join}"
+      >
+        Присоединиться
+      </a>
     </form>
   </main>
 </div>
