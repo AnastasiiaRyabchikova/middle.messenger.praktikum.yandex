@@ -18,24 +18,22 @@ const template = `
       Знакомство
     </h1>
     <form>
-      <UIInput
-        label="Логин"
-        placeholder="Ваш логин"
-      />
-      <UIInput
-        label="Пароль"
-        placeholder="Ваш пароль"
-      />
+      <t-for={{input of inputs}}>
+        <UIInput
+          label="{{input.label}}"
+          placeholder="{{input.placeholder}}"
+        />
+      </t-for>
       <Button
         type="submit"
         className="${styles.submit}"
-        label="Войти"
+        label="Присоединиться"
       />
       <a
         href="#"
         className="${styles.join}"
       >
-        Присоединиться
+        Войти
       </a>
     </form>
   </main>
