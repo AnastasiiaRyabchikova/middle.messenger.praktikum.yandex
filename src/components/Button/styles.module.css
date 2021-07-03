@@ -1,6 +1,7 @@
 .button {
-  padding: 1em 3em;
+  padding: 0.75em 3em;
   color: var(--color-white);
+  font-size: 1rem;
   font-family: var(--font-general);
   background-color: var(--color-primary);
   border: thin solid var(--color-primary);
