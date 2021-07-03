@@ -101,6 +101,18 @@ export default class Templator {
       .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/, (match, p1, p2) => (
         get(ctx, p1) ? p2 : ''
       ))
+      .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (match, p1, p2) => {
+        const [item, key] = p1.split(' of ');
+        const values = get(ctx, key) || [];
+        const result = values
+          .map((value, index) => {
+            return p2.replace(new RegExp('{{' + item + '\.(.*?)}}', 'g'), (match2, p12) => {
+              return `{{${key}[${index}].${p12}}}`
+            })
+          })
+          .join('');
+        return result;
+      })
       .split(/(?<=>)|(?=<)/g)
       .map((item) => item.trim())
       .filter((item) => item);
