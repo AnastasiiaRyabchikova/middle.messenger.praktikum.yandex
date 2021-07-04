@@ -1,6 +1,6 @@
 import './theme/index.css';
-import Acquaintance from './pages/Acquaintance';
+import Chats from './pages/Chats';
 import render from '~/templator/render';
 
-render(document.getElementById('root'), Acquaintance());
+render(document.getElementById('root'), Chats());
 
