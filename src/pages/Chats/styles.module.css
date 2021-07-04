@@ -1,35 +1,9 @@
 .page {
   display: flex;
-  flex-direction: column;
   height: 100%;
-  padding: var(--outer-indent-vertical) var(--outer-indent-horizontal);
+}
+
+.companions {
+  flex-basis: 15rem;
   background-color: var(--color-gray);
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 25rem;
-  margin: 0 auto;
-}
-
-.submit {
-  display: block;
-  margin: 3em auto 0;
-}
-
-.join {
-  display: block;
-  width: fit-content;
-  margin: 1em auto 0;
-  color: inherit;
-  text-decoration: none;
-}
-
-.join:hover {
-  text-decoration: underline;
 }
