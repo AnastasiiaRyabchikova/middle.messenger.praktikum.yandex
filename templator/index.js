@@ -98,9 +98,35 @@ export default class Templator {
 
     const elements = template
       .replace(/\s+/g, ' ')
-      .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/, (match, p1, p2) => (
-        get(ctx, p1) ? p2 : ''
-      ))
+      .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/, (match, p1, p2) => {
+        const values = match.split(/(?=\<t-(?:if|else|else-if))/)
+          .reduce((acc, cur) => {
+            let key = null;
+            let value = null;
+
+            if (/(?=\<t-(?:if|else-if))/.test(cur)) {
+              [, key, value] = cur.match(/<t-(?:if|else-if)={{(.*?)}}>([\s\S]*)/);
+            } else if (/(?=\<t-else)/.test(cur)) {
+              key = '$default';
+              const temp = cur.match(/<t-else>([\s\S]*)/);
+              value = temp && temp[1];
+            };
+            value = value.replace('</t-if>', '')
+            return {
+              ...acc,
+              [key]: value,
+            };
+
+          }, {});
+        
+        return Object.entries(values)
+          .map(([key, value]) => {
+            if (key === '$default') {
+              return value;
+            }
+            return get(ctx, key) ? value : '';
+          }).filter((item) => (item))[0]
+      })
       .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (match, p1, p2) => {
         const [item, key] = p1.split(' of ');
         const values = get(ctx, key) || [];
