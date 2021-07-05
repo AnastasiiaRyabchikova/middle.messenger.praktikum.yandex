@@ -7,7 +7,24 @@ const template = `
   <Avatar
     src="{{src}}"
   />
-  {{name}} {{surname}}
+  <div>
+    <div>
+      {{name}} {{surname}}
+    </div>
+    <div>
+      {{message}}
+    </div>
+  </div>
+  <div>
+    <div>
+      {{date}}
+    </div>
+    <t-if={{unreadMessagesCount}}>
+      <span>
+        {{unreadMessagesCount}}
+      </span>
+    </t-if>
+  </div>
 </div>
 `;
 

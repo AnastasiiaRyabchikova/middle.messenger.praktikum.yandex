@@ -13,8 +13,14 @@ const component = {
 
 const Page = (props) => {
   const context = {
-    ...props,
+    src: props.src,
+    name: props.name,
+    surname: props.surname,
+    unreadMessagesCount: props.unreadMessagesCount,
+    message: props.message,
+    date: props.date,
   };
+  console.log(props);
   return new Templator(component).compile(context);
 };
 
