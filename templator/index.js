@@ -125,7 +125,7 @@ export default class Templator {
               return value;
             }
             return get(ctx, key) ? value : '';
-          }).filter((item) => (item))[0]
+          }).filter((item) => (item))[0] || ''
       })
       .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (match, p1, p2) => {
         const [item, key] = p1.split(' of ');
@@ -142,7 +142,7 @@ export default class Templator {
       .split(/(?<=>)|(?=<)/g)
       .map((item) => item.trim())
       .filter((item) => item);
-    
+
     elements.forEach((item) => {
       if (isTag(item)) {
         if (!isClosedTag(item)) {
