@@ -4,6 +4,9 @@ const template = `
 <div
   className="${styles.companion}"
 >
+  <Avatar
+    src="{{src}}"
+  />
   {{name}} {{surname}}
 </div>
 `;
