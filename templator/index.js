@@ -168,7 +168,7 @@ export default class Templator {
 
         strings.forEach((string) => {
           const text = isVariable(string)
-            ? get(ctx, getVariable(string))
+            ? get(ctx, getVariable(string)) || ''
             : string;
           current.append(document.createTextNode(text));
         });
