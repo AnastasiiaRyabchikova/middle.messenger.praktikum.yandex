@@ -98,7 +98,7 @@ export default class Templator {
 
     const elements = template
       .replace(/\s+/g, ' ')
-      .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/, (match, p1, p2) => {
+      .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/g, (match, p1, p2) => {
         const values = match.split(/(?=\<t-(?:if|else|else-if))/)
           .reduce((acc, cur) => {
             let key = null;
