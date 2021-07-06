@@ -8,21 +8,29 @@ const template = `
     src="{{src}}"
   />
   <div>
-    <div>
+    <div
+       className="${styles.name}"
+    >
       {{name}} {{surname}}
     </div>
-    <div>
+    <div
+      className="${styles.message}"
+    >
       {{message}}
     </div>
   </div>
   <div>
-    <div>
+    <div
+      className="${styles.date}"
+    >
       {{date}}
     </div>
     <t-if={{unreadMessagesCount}}>
-      <span>
+      <div
+        className="${styles.indicator}"
+      >
         {{unreadMessagesCount}}
-      </span>
+      </div>
     </t-if>
   </div>
 </div>

@@ -12,8 +12,8 @@ const template = `
         name="{{companion.name}}"
         surname="{{companion.surname}}"
         unreadMessagesCount="{{companion.unreadMessagesCount}}"
-        date="{{date}}"
-        message="{{message}}"
+        date="{{companion.date}}"
+        message="{{companion.message}}"
       />
     </t-for>
   </div>

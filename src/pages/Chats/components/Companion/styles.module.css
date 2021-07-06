@@ -1,3 +1,60 @@
 .companion {
-  padding: 0.5em;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25em 1em;
+}
+
+.companion::after {
+  position: absolute;
+  bottom: 0;
+  left: calc(5% + 1em);
+  width: calc(90% - 2em);
+  height: 0;
+  border-bottom: thin solid var(--color-gray);
+  content: "";
+}
+
+.avatar {
+  --size: 2.5em;
+
+  width: var(--size);
+  height: var(--size);
+  color: var(--color-white);
+  font-size: 1rem;
+  line-height: var(--size);
+  text-align: center;
+  background-color: var(--color-gray-darker);
+  border-radius: 50%;
+}
+
+.name {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.message {
+  color: var(--color-gray-darkest);
+  font-size: 0.75rem;
+}
+
+.date {
+  margin-bottom: 0.5em;
+  font-size: 0.75rem;
+}
+
+.indicator {
+  --size: 1.5em;
+
+  width: var(--size);
+  height: var(--size);
+  margin: 0 auto;
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  line-height: var(--size);
+  text-align: center;
+  background-color: var(--color-white);
+  border: thin solid currentColor;
+  border-radius: 50%;
 }

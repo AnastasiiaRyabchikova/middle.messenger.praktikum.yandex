@@ -1,7 +1,10 @@
 import Templator from '~/templator';
+import styles from './styles.module.css';
 
 const template = `
-<div>
+<div
+  className="${styles.avatar}"
+>
   <t-if={{src}}>
     <img
       src="{{src}}"
