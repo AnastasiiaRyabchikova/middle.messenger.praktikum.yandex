@@ -1,6 +1,6 @@
 import Templator from '~/templator';
 
-import Avatar from './Avatar';
+import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';
 
 const component = {

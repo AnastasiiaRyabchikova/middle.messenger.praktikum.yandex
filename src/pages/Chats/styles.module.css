@@ -3,7 +3,21 @@
   height: 100%;
 }
 
-.companions {
+.side {
   flex-basis: 17rem;
   background-color: var(--color-gray-lighter);
+}
+
+.header {
+  display: flex;
+  padding: 2em 0.75em 1.25em;
+  border-bottom: thin solid var(--color-gray-darker);
+}
+
+.search {
+  flex-grow: 1;
+}
+
+.avatar {
+  margin-left: 1em;
 }

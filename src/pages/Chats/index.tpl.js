@@ -5,17 +5,31 @@ const template = `
   className="${styles.page}"
 >
   <div
-    className="${styles.companions}"
+    className="${styles.side}"
   >
-    <t-for={{companion of companions}}>
-      <Companion
-        name="{{companion.name}}"
-        surname="{{companion.surname}}"
-        unreadMessagesCount="{{companion.unreadMessagesCount}}"
-        date="{{companion.date}}"
-        message="{{companion.message}}"
+    <div
+      className="${styles.header}"
+    >
+      <Search
+        className="${styles.search}"  
       />
-    </t-for>
+      <Avatar
+        className="${styles.avatar}"  
+      />
+    </div>
+    <div
+      className="${styles.companions}"
+    >
+      <t-for={{companion of companions}}>
+        <Companion
+          name="{{companion.name}}"
+          surname="{{companion.surname}}"
+          unreadMessagesCount="{{companion.unreadMessagesCount}}"
+          date="{{companion.date}}"
+          message="{{companion.message}}"
+        />
+      </t-for>
+    </div>
   </div>
 
   <div
