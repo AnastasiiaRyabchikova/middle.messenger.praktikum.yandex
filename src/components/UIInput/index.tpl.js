@@ -2,11 +2,13 @@ import styles from './styles.module.css';
 
 const template =`
   <label className="${styles.wrapper}">
-    <span
-      className="${styles.label}"
-    >
-      {{label}}
-    </span>
+    <t-if={{label}}>
+      <span
+        className="${styles.label}"
+      >
+        {{label}}
+      </span>
+    </t-if>
     <input
       type="{{type}}"
       placeholder="{{placeholder}}"
