@@ -15,19 +15,6 @@
   content: "";
 }
 
-.avatar {
-  --size: 2.5em;
-
-  width: var(--size);
-  height: var(--size);
-  color: var(--color-white);
-  font-size: 1rem;
-  line-height: var(--size);
-  text-align: center;
-  background-color: var(--color-gray-darker);
-  border-radius: 50%;
-}
-
 .name {
   margin-bottom: 0.5em;
   font-weight: bold;
