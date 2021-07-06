@@ -2,7 +2,7 @@ import styles from './styles.module.css';
 
 const template = `
   <div
-    className="${styles.avatar}"
+    className="{{className}}"
   >
     <t-if={{src}}>
       <img
