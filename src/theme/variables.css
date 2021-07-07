@@ -1,6 +1,7 @@
 :root {
   /* color variables */
   --color-white: #fff;
+  --color-gray-lightest: #f9f9f9;
   --color-gray-lighter: #f3f3f3;
   --color-gray: #e5e5e5;
   --color-gray-darker: #c4c4c4;
@@ -8,6 +9,7 @@
   --color-black: #000;
   --color-primary: #6d3f8a;
   --color-primary-opacity: rgba(109, 63, 138, 0.5);
+  --color-primary-opacitier: rgba(109, 63, 138, 0.1);
   --color-error: #f00;
 
   /* block variables */
