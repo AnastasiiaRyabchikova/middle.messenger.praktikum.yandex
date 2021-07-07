@@ -1,6 +1,8 @@
 const template = `
 <div>
-  <Chat />
+  <Chat
+    messages="{{messages}}"
+  />
 </div>
 `;
 
