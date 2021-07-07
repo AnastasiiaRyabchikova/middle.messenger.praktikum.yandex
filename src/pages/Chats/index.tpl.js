@@ -31,12 +31,24 @@ const template = `
       </t-for>
     </div>
   </div>
-
-  <div
-    className="${styles.empty}"
-  >
-    Выберите чат для начала общения
-  </div>
+  <t-if={{selectedChat}}>
+    <div>
+      <Chat />
+    </div>
+  <t-else>
+    <div
+      className="${styles.content}"
+    >
+      <div>
+        Выберите чат или 
+        <a
+          className="${styles.link}"
+        >
+          cоздайте новый
+        </a>
+      </div>
+    </div>
+  </t-if>
 </div>
 `;
 
