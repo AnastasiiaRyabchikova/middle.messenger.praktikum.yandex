@@ -1,6 +1,6 @@
 const template = `
 <div>
-  <Chat />
+  Чат
 </div>
 `;
 
