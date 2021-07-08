@@ -34,9 +34,6 @@
 }
 
 .isMine .text {
-  flex-direction: row-reverse;
-  margin-right: 0;
-  margin-left: 1rem;
   background-color: var(--color-primary-opacitier);
 }
 
