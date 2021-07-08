@@ -16,6 +16,13 @@
   margin-right: 1rem;
 }
 
+.time {
+  margin-top: 0.5em;
+  margin-left: auto;
+  color: var(--color-gray-darkest);
+  font-size: 0.75rem;
+}
+
 .isMine.message {
   flex-direction: row-reverse;
 }
@@ -31,4 +38,8 @@
   margin-right: 0;
   margin-left: 1rem;
   background-color: var(--color-primary-opacitier);
+}
+
+.isMine .time {
+  margin-left: 0;
 }

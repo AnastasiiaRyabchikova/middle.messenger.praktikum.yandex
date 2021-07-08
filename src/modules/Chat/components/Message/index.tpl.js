@@ -11,7 +11,14 @@ const template = `
   <div
     className="${styles.text}"
   >
-    {{text}}
+    <div>
+      {{text}}
+    </div>
+    <div
+      className="${styles.time}"
+    >
+      {{time}}
+    </div>
   </div>
 </div>
 `;

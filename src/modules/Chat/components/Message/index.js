@@ -23,6 +23,7 @@ const Page = (props) => {
     src: props.src,
     text: props.text,
     isMine: props.isMine,
+    time: props.time,
   };
   return new Templator(component).compile(context);
 };

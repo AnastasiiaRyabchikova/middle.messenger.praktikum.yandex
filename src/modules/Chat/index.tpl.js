@@ -4,6 +4,7 @@ const template = `
     <Message
       text="{{message.text}}"
       isMine="{{message.isMine}}"
+      time="{{message.time}}"
     />
   </t-for>
 </div>
