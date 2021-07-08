@@ -1,6 +1,6 @@
 import Templator from '~/templator';
 
-import Chat from '~/src/modules/Chat';
+import ChatHistory from '~/src/modules/ChatHistory';
 
 import template from './index.tpl';
 
@@ -8,7 +8,7 @@ const component = {
   name: 'ChatPage',
   template,
   components: {
-    Chat,
+    ChatHistory,
   },
 };
 

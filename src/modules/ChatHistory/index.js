@@ -5,7 +5,7 @@ import Message from './components/Message';
 import template from './index.tpl';
 
 const component = {
-  name: 'ChatModule',
+  name: 'ChatHistoryModule',
   template,
   components: {
     Message,
