@@ -23,9 +23,9 @@ export default (value) => {
   
   if (isArray(value)) {
     return value
-    .reduce((acc, cur) => {
-      const rezult = isObject(cur) ? stringFromObject(cur) : cur || '';
-      return `${acc} ${rezult}`;
-    }, '')
+      .reduce((acc, cur) => {
+        const rezult = isObject(cur) ? stringFromObject(cur) : cur || '';
+        return `${acc} ${rezult}`;
+      }, '')
   }
 };
