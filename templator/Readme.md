@@ -33,10 +33,10 @@ const Сomponent = (ctx) => {
 ```javascript
 const template = `
   <div
-    className="${styles.page}"
+    class="${styles.page}"
   >
     <h1
-      className="title ${styles.title}"
+      class="title ${styles.title}"
     >
       Заголовок страницы
     </h1>

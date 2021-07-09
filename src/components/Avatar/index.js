@@ -12,7 +12,7 @@ const component = {
 const Avatar = (props) => {
   const context = {
     ...props,
-    className: cx([styles.avatar, props.className]),
+    class: cx([styles.avatar, props.class]),
   };
   return new Templator(component).compile(context);
 };

@@ -15,9 +15,9 @@ const component = {
 
 const Page = (props) => {
   const context = {
-    className: cx([
+    class: cx([
       styles.message,
-      props.className,
+      props.class,
       { [styles.isMine]: props.isMine },
     ]),
     src: props.src,

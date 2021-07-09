@@ -2,32 +2,32 @@ import styles from './styles.module.css';
 
 const template = `
 <div
-  className="${styles.companion}"
+  class="${styles.companion}"
 >
   <Avatar
     src="{{src}}"
   />
   <div>
     <div
-       className="${styles.name}"
+       class="${styles.name}"
     >
       {{name}} {{surname}}
     </div>
     <div
-      className="${styles.message}"
+      class="${styles.message}"
     >
       {{message}}
     </div>
   </div>
   <div>
     <div
-      className="${styles.date}"
+      class="${styles.date}"
     >
       {{date}}
     </div>
     <t-if={{unreadMessagesCount}}>
       <div
-        className="${styles.indicator}"
+        class="${styles.indicator}"
       >
         {{unreadMessagesCount}}
       </div>

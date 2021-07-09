@@ -2,20 +2,20 @@ import styles from './styles.module.css';
 
 const template = `
 <div
-  className="{{className}}"
+  class="{{class}}"
 >
   <Avatar
     src="{{src}}"
-    className="${styles.avatar}"
+    class="${styles.avatar}"
   />
   <div
-    className="${styles.text}"
+    class="${styles.text}"
   >
     <div>
       {{text}}
     </div>
     <div
-      className="${styles.time}"
+      class="${styles.time}"
     >
       {{time}}
     </div>

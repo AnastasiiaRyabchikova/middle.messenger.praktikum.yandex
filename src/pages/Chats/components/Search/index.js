@@ -13,7 +13,7 @@ const component = {
 
 const Search = (props) => {
   const context = {
-    className: props.className,
+    class: props.class,
     ...props,
   };
   return new Templator(component).compile(context);

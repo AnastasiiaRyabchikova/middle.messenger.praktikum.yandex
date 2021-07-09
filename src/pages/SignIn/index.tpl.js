@@ -2,18 +2,18 @@ import styles from './styles.module.css';
 
 const template = `
 <div
-  className="${styles.page}"
+  class="${styles.page}"
 >
   <header>
     <Logo
-      className="{{className}}"
+      class="{{class}}"
     />
   </header>
   <main
-    className="${styles.main}"
+    class="${styles.main}"
   >
     <h1
-      className="title title_h1 ${styles.title}"
+      class="title title_h1 ${styles.title}"
     >
       Знакомство
     </h1>
@@ -26,12 +26,12 @@ const template = `
       </t-for>
       <Button
         type="submit"
-        className="${styles.submit}"
+        class="${styles.submit}"
         label="Присоединиться"
       />
       <a
         href="#"
-        className="${styles.join}"
+        class="${styles.join}"
       >
         Войти
       </a>

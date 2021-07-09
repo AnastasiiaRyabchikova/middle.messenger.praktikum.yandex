@@ -2,7 +2,7 @@ import styles from './styles.module.css';
 
 const template =`
   <span
-    className="${styles.logo}"
+    class="${styles.logo}"
   >
     Довекот
   </span>

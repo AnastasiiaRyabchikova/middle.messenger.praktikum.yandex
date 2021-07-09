@@ -2,23 +2,23 @@ import styles from './styles.module.css';
 
 const template = `
 <div
-  className="${styles.page}"
+  class="${styles.page}"
 >
   <div
-    className="${styles.side}"
+    class="${styles.side}"
   >
     <div
-      className="${styles.header}"
+      class="${styles.header}"
     >
       <Search
-        className="${styles.search}"  
+        class="${styles.search}"  
       />
       <Avatar
-        className="${styles.avatar}"  
+        class="${styles.avatar}"  
       />
     </div>
     <div
-      className="${styles.companions}"
+      class="${styles.companions}"
     >
       <t-for={{companion of companions}}>
         <Companion
@@ -37,12 +37,12 @@ const template = `
     </div>
   <t-else>
     <div
-      className="${styles.content}"
+      class="${styles.content}"
     >
       <div>
         Выберите чат или 
         <a
-          className="${styles.link}"
+          class="${styles.link}"
         >
           cоздайте новый
         </a>

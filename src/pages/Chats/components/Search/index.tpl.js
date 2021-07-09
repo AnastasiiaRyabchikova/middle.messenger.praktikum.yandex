@@ -1,6 +1,6 @@
 const template = `
 <div
-  className="{{className}}"
+  class="{{class}}"
 >
   <UIInput
     placeholder="Поиск"

@@ -1,10 +1,10 @@
 import styles from './styles.module.css';
 
 const template =`
-  <label className="${styles.wrapper}">
+  <label class="${styles.wrapper}">
     <t-if={{label}}>
       <span
-        className="${styles.label}"
+        class="${styles.label}"
       >
         {{label}}
       </span>
@@ -13,11 +13,11 @@ const template =`
       type="{{type}}"
       placeholder="{{placeholder}}"
       name="{{name}}"
-      className="{{inputClassName}}"
+      class="{{inputClass}}"
     />
     <t-if={{shouldShowError}}>
       <span
-        className="${styles.errorMessage}"
+        class="${styles.errorMessage}"
       >
         Неверный логин
       </span>
