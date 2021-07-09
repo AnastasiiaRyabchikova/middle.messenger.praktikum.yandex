@@ -20,7 +20,6 @@ const Page = (props) => {
     message: props.message,
     date: props.date,
   };
-  console.log(props);
   return new Templator(component).compile(context);
 };
 
