@@ -2,6 +2,7 @@ import {
   isClosedTag,
   isSelfClosingTag,
   isTag,
+  isSvgTag,
 } from './utils/tag';
 import get from './utils/get';
 
@@ -62,14 +63,16 @@ const parseElement = (string, {
 
 
   } else {
-    element = document.createElement(tag);
+    element = isSvgTag(tag)
+      ? document.createElementNS('http://www.w3.org/2000/svg', tag)
+      : document.createElement(tag);
 
     attributes.forEach((item) => {
       const [key, value] = item.split('=');
       if (isVariable(value)) {
-        element[key] = get(ctx, getVariable(value))|| '';
+        element.setAttribute(key, get(ctx, getVariable(value)) || '');
       } else {
-        element[key] = value || true;
+        element.setAttribute(key, value || true);
       }
     });
   }
