@@ -5,3 +5,12 @@
 .title_h1 {
   font-size: 2rem;
 }
+
+.button-reset {
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
