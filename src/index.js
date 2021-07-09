@@ -1,6 +1,6 @@
 import './theme/index.css';
-import Chats from './pages/Chats';
+import UserForm from './pages/UserForm';
 import render from '~/templator/render';
 
-render(document.getElementById('root'), Chats());
+render(document.getElementById('root'), UserForm());
 
