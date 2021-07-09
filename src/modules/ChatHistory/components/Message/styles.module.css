@@ -1,6 +1,7 @@
 .message {
   display: flex;
   align-items: flex-start;
+  width: clamp(200px, 70%, 1000px);
 }
 
 .text {
@@ -25,6 +26,7 @@
 
 .isMine.message {
   flex-direction: row-reverse;
+  margin-left: auto;
 }
 
 .isMine .avatar {
