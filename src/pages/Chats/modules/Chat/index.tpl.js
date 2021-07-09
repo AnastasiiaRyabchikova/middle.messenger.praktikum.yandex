@@ -2,7 +2,7 @@ import styles from './styles.module.css';
 
 const template = `
 <div
-  class="${styles.chat}"
+  class="{{class}}"
 >
   <div
     class="${styles.chatHistoryWrapper}"

@@ -6,6 +6,7 @@ import { companions } from './mocks';
 import Search from './components/Search';
 import Companion from './components/Companion';
 import Chat from './modules/Chat';
+import Header from './modules/Header';
 
 import template from './index.tpl';
 
@@ -17,6 +18,7 @@ const component = {
     Avatar,
     Search,
     Chat,
+    Header,
   },
 };
 

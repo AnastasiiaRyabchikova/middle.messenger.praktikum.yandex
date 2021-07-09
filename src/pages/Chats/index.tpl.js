@@ -32,8 +32,13 @@ const template = `
     </div>
   </div>
   <t-if={{selectedChat}}>
-    <div>
-      <Chat />
+    <div
+      class="${styles.chatWrapper}"
+    >
+      <Header />
+      <Chat
+        class="${styles.chat}"
+      />
     </div>
   <t-else>
     <div
