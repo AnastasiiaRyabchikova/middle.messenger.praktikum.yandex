@@ -1,9 +1,17 @@
-const template = `
-<div>
-  <ChatHistory
-    messages="{{messages}}"
-  />
+import styles from './styles.module.css';
 
+const template = `
+<div
+  class="${styles.chat}"
+>
+  <div
+    class="${styles.chatHistoryWrapper}"
+  >
+    <ChatHistory
+      messages="{{messages}}"
+    />
+  </div>
+  <MessageTextarea />
 </div>
 `;
 
