@@ -1,0 +1,12 @@
+.wrapper {
+  padding: 1rem;
+  background-color: var(--color-gray-lighter);
+  border-top: thin solid var(--color-gray-darker);
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: var(--border-radius);
+}
