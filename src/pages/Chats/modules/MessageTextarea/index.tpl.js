@@ -1,18 +1,21 @@
 import styles from './styles.module.css';
 
 const template = `
-<div
+<form
   class="${styles.wrapper}"
 >
   <textarea
     class="${styles.textarea}"
   />
   <button
-    type="button"
+    type="submit"
+    class="button-reset ${styles.submit}"
   >
-    <IconArrow />
+    <IconArrow
+      class="${styles.icon}"
+    />
   </button>
-</div>
+</form>
 `;
 
 export default template;
