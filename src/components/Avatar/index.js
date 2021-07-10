@@ -2,7 +2,7 @@ import Templator from '~/templator';
 import cx from '~/src/utils/classnames';
 
 import template from './index.tpl';
-import * as style from './styles.module.css';
+import * as styles from './styles.module.css';
 
 const component = {
   name: 'Avatar',

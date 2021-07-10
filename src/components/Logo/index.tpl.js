@@ -1,4 +1,4 @@
-import * as style from './styles.module.css';
+import * as styles from './styles.module.css';
 
 const template =`
   <span
