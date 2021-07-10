@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75em 1em;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+}
+
+.label {
+  font-size: 1em;
+}
+
+.button {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.button:hover {
+  text-decoration: underline;
+}

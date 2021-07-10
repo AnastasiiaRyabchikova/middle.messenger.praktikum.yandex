@@ -1,15 +1,10 @@
 import Templator from '~/templator';
+import cx from '~/src/utils/classnames';
 
-import { IconArrowLeft } from '~/src/icons';
-
-import Logo from '~/src/components/Logo';
 import UIInput from '~/src/components/UIInput';
-import Button from '~/src/components/Button';
-import Avatar from '~/src/components/Avatar';
-
-import PasswordChanging from './modules/PasswordChanging';
 
 import template from './index.tpl';
+import styles from './styles.module.css';
 
 const inputs = [
   {
@@ -50,15 +45,10 @@ const inputs = [
 ];
 
 const component = {
-  name: 'UserFormPage',
+  name: 'AuthorizationPage',
   template,
   components: {
-    Logo,
     UIInput,
-    Button,
-    Avatar,
-    PasswordChanging,
-    IconArrowLeft,
   },
 };
 
@@ -66,6 +56,10 @@ const Page = (props) => {
   const context = {
     ...props,
     inputs,
+    class: cx([
+      styles.wrapper,
+      props.class,
+    ]),
   };
   return new Templator(component).compile(context);
 };

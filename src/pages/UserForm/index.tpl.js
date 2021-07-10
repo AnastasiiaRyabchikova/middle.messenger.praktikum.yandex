@@ -12,30 +12,48 @@ const template = `
   <main
     class="${styles.main}"
   >
-    <h1
-      class="title title_h1 ${styles.title}"
+    <div
+      class="${styles.side}"
     >
-      Знакомство
-    </h1>
-    <form>
-      <t-for={{input of inputs}}>
-        <UIInput
-          label="{{input.label}}"
-          placeholder="{{input.placeholder}}"
-        />
-      </t-for>
-      <Button
-        type="submit"
-        class="${styles.submit}"
-        label="Присоединиться"
-      />
       <a
         href="#"
-        class="${styles.join}"
+        class="${styles.left}"
       >
-        Войти
+        <IconArrowLeft />
       </a>
-    </form>
+    </div>
+    <div
+      class="${styles.account}"
+    >
+      <Avatar
+        class="${styles.avatar}"
+      />
+      <form>
+        <t-for={{input of inputs}}>
+          <UIInput
+            class="${styles.field}"
+            label="{{input.label}}"
+            placeholder="{{input.placeholder}}"
+            appearance="solid"
+            value="{{input.value}}"
+          />
+        </t-for>
+        <PasswordChanging
+          class="${styles.field}"
+        />
+        <Button
+          type="submit"
+          class="${styles.submit}"
+          label="Сохранить"
+        />
+      </form>
+      <a
+        href="#"
+        class="${styles.logout}"
+      >
+        Выйти
+      </a>
+    </div>
   </main>
 </div>
 `;
