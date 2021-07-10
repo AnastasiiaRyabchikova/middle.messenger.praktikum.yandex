@@ -25,9 +25,7 @@ const template = `
       >
         Error {{code}}
       </div>
-      <div
-        class="${styles.message}"
-      >
+      <div>
         {{message}}
       </div>
       <a
