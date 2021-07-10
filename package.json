@@ -3,10 +3,15 @@
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "serve": "parcel serve ./src/index.html --port=3000 --no-cache",
-    "start": "parcel build ./src/index.html"
+    "start": "parcel build ./src/index.html",
+    "eslint": "eslint ./ --ext .js",
+    "lint": "npm run eslint && npm run stylelint"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
     "express": "^4.17.1",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
