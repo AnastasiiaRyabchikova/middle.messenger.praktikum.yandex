@@ -1,8 +1,6 @@
-const isSvgTag = (tag) => {
-  return [
-    'svg',
-    'path'
-  ].includes(tag);
-};
+const isSvgTag = (tag) => ([
+  'svg',
+  'path',
+].includes(tag));
 
 export default isSvgTag;

@@ -162,3 +162,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
 ];
+
+export default {
+  companions,
+};

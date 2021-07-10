@@ -16,8 +16,8 @@ const component = {
   },
 };
 
-const Page = (ctx) => {
-  return new Templator(component).compile(ctx);
-};
+const Page = (ctx) => (
+  new Templator(component).compile(ctx)
+);
 
 export default Page;

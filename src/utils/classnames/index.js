@@ -18,14 +18,16 @@ export default (value) => {
   }
 
   if (isObject(value)) {
-    return stringFromObject(value)
+    return stringFromObject(value);
   }
-  
+
   if (isArray(value)) {
     return value
       .reduce((acc, cur) => {
         const rezult = isObject(cur) ? stringFromObject(cur) : cur || '';
         return `${acc} ${rezult}`;
-      }, '')
+      }, '');
   }
+
+  return false;
 };

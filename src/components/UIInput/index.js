@@ -22,7 +22,7 @@ const UIInput = (ctx) => {
     class: cx([
       styles.wrapper,
       ctx.class,
-      { [styles.solid]: ctx.appearance === 'solid' }
+      { [styles.solid]: ctx.appearance === 'solid' },
     ]),
     value: ctx.value,
   };

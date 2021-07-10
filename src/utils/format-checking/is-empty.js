@@ -1,5 +1,5 @@
-import isObject from 'isobject';
-import { isArray } from '../format-checking';
+import isObject from './is-object';
+import isArray from './is-array';
 
 export default (value) => {
   if (!value) {

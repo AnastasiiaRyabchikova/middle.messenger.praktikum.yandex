@@ -1,5 +1,3 @@
-import * as styles from './styles.module.css';
-
 const template = `
   <label class="{{class}}">
     <Avatar />

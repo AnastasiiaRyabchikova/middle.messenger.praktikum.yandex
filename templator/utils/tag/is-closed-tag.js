@@ -1,5 +1,5 @@
-const isClosedTag = (tag) => {
-  return tag && tag[1] === '/';
-};
+const isClosedTag = (tag) => (
+  tag && tag[1] === '/'
+);
 
 export default isClosedTag;

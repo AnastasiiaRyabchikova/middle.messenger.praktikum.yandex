@@ -1,4 +1,4 @@
-import isObject from './isObject.js';
+import isObject from './isObject';
 
 export default (object, path) => {
   const keys = path
@@ -6,13 +6,11 @@ export default (object, path) => {
     .map((item) => item.trim())
     .filter((item) => item);
   let value = object;
-  for (key of keys) {
-    
+  keys.forEach((element) => {
     if (!isObject(value)) {
       return;
     }
-
-    value = value[key];
-  }
-  return value
+    value = value[element];
+  });
+  return value;
 };
