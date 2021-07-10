@@ -1,7 +1,7 @@
 import Templator from '~/templator';
 import cx from '~/src/utils/classnames';
 import template from './index.tpl';
-import styles from './styles.module.css';
+import * as style from './styles.module.css';
 
 const component = {
   template,

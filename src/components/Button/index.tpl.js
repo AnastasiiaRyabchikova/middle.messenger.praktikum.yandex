@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import * as style from './styles.module.css';
 
 const template =`
   <button

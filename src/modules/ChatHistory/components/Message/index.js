@@ -3,7 +3,7 @@ import cx from '~/src/utils/classnames';
 
 import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';
-import styles from './styles.module.css';
+import * as style from './styles.module.css';
 
 const component = {
   name: 'ChatCompanion',
