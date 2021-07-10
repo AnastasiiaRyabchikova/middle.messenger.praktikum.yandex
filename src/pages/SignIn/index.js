@@ -8,8 +8,8 @@ import template from './index.tpl';
 
 const inputs = [
   {
-    id: 'mail',
-    name: 'mail',
+    id: 'email',
+    name: 'email',
     label: 'Почта',
     placeholder: 'Ваша почта',
   },
@@ -20,16 +20,28 @@ const inputs = [
     placeholder: 'Ваша логин',
   },
   {
-    id: 'name',
-    name: 'name',
+    id: 'first_name',
+    name: 'first_name',
     label: 'Имя',
     placeholder: 'Ваше имя',
   },
   {
-    id: 'surname',
-    name: 'surname',
+    id: 'second_name',
+    name: 'second_name',
     label: 'Фамилия',
     placeholder: 'Ваша фамилия',
+  },
+  {
+    id: 'display_name',
+    name: 'display_name',
+    label: 'Ник',
+    placeholder: 'Ваш ник',
+  },
+  {
+    id: 'phone',
+    name: 'phone',
+    label: 'Номер телефона',
+    placeholder: '+7(985)126-42-45',
   },
   {
     id: 'password',
@@ -39,7 +51,7 @@ const inputs = [
   },
   {
     id: 'password-repeat',
-    name: 'password-repeat',
+    name: '',
     label: 'Повторите пароль',
     placeholder: 'Пароль',
   },
