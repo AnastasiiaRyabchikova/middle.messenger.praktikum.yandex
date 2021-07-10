@@ -2,8 +2,8 @@
   "scripts": {
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
     "stylelint": "stylelint '**/*{.css,.scss}'",
-    "start": "parcel serve ./src/index.html --port=3000 --no-cache",
-    "build": "parcel build ./src/index.html"
+    "serve": "parcel serve ./src/index.html --port=3000 --no-cache",
+    "start": "parcel build ./src/index.html"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.7",
