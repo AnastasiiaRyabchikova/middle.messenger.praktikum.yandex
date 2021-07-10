@@ -25,7 +25,7 @@ const template = `
     <form
       class="${styles.account}"
     >
-      <AddAvatar
+      <Avatar
         class="${styles.avatar}"
       />
       
