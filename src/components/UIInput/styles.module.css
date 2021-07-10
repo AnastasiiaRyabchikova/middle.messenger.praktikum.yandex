@@ -16,11 +16,13 @@
 .label {
   left: 0;
   padding: 0.75em 0 0.5em;
+  font-size: 1em;
   pointer-events: none;
 }
 
 .input {
   padding: 0.75em var(--indent-horizontal);
+  font-size: 1em;
   border: thin solid var(--color-white);
   border-radius: var(--border-radius);
 }
@@ -44,4 +46,25 @@
 
 .input:focus {
   outline: 0;
+}
+
+.wrapper.solid {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+}
+
+.solid .label {
+  padding: 0.75em var(--indent-horizontal);
+}
+
+.solid .input {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.solid .input:hover {
+  border-color: var(--color-white);
 }

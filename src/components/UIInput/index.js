@@ -15,7 +15,16 @@ const UIInput = (ctx) => {
     name: ctx.name,
     error: ctx.error,
     shouldShowError: Boolean(ctx.error),
-    inputClass: cx([styles.input, { [styles.error]: ctx.error }]),
+    inputClass: cx([
+      styles.input,
+      { [styles.error]: ctx.error },
+    ]),
+    class: cx([
+      styles.wrapper,
+      ctx.class,
+      { [styles.solid]: ctx.appearance === 'solid' }
+    ]),
+    value: ctx.value,
   };
   return new Templator(component).compile(context);
 };
