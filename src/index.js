@@ -1,6 +1,6 @@
 import './theme/index.css';
-import Error from './pages/Error';
+import ErrorPage from './pages/Error';
 import render from '~/templator/render';
 
-render(document.getElementById('root'), Error());
+render(document.getElementById('root'), ErrorPage());
 
