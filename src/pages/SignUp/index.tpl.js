@@ -19,10 +19,12 @@ const template = `
     </h1>
     <form>
       <UIInput
+        name="login"
         label="Логин"
         placeholder="Ваш логин"
       />
       <UIInput
+        name="password"
         label="Пароль"
         placeholder="Ваш пароль"
       />
