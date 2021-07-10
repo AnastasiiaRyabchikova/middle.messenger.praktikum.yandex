@@ -6,13 +6,6 @@
     "start": "parcel build ./src/index.html"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.14.7",
-    "@parcel/babel-plugin-transform-runtime": "^2.0.0-nightly.1823",
-    "@parcel/babel-preset-env": "^2.0.0-alpha.3",
-    "@parcel/transformer-babel": "^2.0.0-beta.3.1",
-    "@parcel/transformer-html": "^2.0.0-alpha.3",
-    "@parcel/transformer-js": "^2.0.0-beta.3.1",
-    "@parcel/transformer-posthtml": "^2.0.0-alpha.3",
     "autoprefixer": "^10.2.6",
     "express": "^4.17.1",
     "husky": "^6.0.0",
