@@ -18,7 +18,6 @@ const component = {
   template,
 };
 
-
 const Icon = (props) => {
   const context = {
     ...props,

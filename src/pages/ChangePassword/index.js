@@ -7,8 +7,6 @@ import UIInput from '~/src/components/UIInput';
 import Button from '~/src/components/Button';
 import Avatar from '~/src/components/Avatar';
 
-import PasswordChanging from './modules/PasswordChanging';
-
 import template from './index.tpl';
 
 const inputs = [
@@ -40,7 +38,6 @@ const component = {
     UIInput,
     Button,
     Avatar,
-    PasswordChanging,
     IconArrowLeft,
   },
 };

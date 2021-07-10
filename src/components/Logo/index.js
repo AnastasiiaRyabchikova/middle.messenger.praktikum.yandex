@@ -6,8 +6,8 @@ const component = {
   template,
 };
 
-const Logo = (ctx) => {
-  return new Templator(component).compile(ctx);
-};
+const Logo = (ctx) => (
+  new Templator(component).compile(ctx)
+);
 
 export default Logo;

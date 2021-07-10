@@ -1,6 +1,4 @@
-import * as styles from './styles.module.css';
-
-const template =`
+const template = `
   <button
     type="{{type}}"
     class="{{class}}"

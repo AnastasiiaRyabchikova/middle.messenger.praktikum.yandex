@@ -4,7 +4,6 @@ import Templator from '~/templator';
 import cx from '~/src/utils/classnames';
 
 const Button = (ctx) => {
-
   const props = {
     class: cx([styles.button, ctx.class]),
     type: ctx.type || 'button',
