@@ -13,39 +13,40 @@ import template from './index.tpl';
 
 const inputs = [
   {
-    id: 'name',
-    name: 'name',
-    label: 'Имя',
-    placeholder: 'Ваше имя',
-    value: 'Глаша',
-  },
-  {
-    id: 'mail',
-    name: 'mail',
+    id: 'email',
+    name: 'email',
     label: 'Почта',
     placeholder: 'Ваша почта',
-    value: 'Птичьева',
   },
   {
     id: 'login',
     name: 'login',
     label: 'Логин',
     placeholder: 'Ваша логин',
-    value: 'tyetya_glasha',
   },
   {
-    id: 'about',
-    name: 'about',
-    label: 'О себе',
-    placeholder: 'Радость ваша',
-    value: 'Радость ваша',
+    id: 'first_name',
+    name: 'first_name',
+    label: 'Имя',
+    placeholder: 'Ваше имя',
+  },
+  {
+    id: 'second_name',
+    name: 'second_name',
+    label: 'Фамилия',
+    placeholder: 'Ваша фамилия',
+  },
+  {
+    id: 'display_name',
+    name: 'display_name',
+    label: 'Ник',
+    placeholder: 'Ваш ник',
   },
   {
     id: 'phone',
     name: 'phone',
     label: 'Номер телефона',
-    placeholder: '+7(___) ___-__-__',
-    value: '+7(985) 126-11-22',
+    placeholder: '+7(985)126-42-45',
   },
 ];
 
