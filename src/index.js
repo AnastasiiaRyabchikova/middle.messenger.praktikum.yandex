@@ -1,6 +1,6 @@
 import './theme/index.css';
-import UserForm from './pages/UserForm';
+import ChangePassword from './pages/ChangePassword';
 import render from '~/templator/render';
 
-render(document.getElementById('root'), UserForm());
+render(document.getElementById('root'), ChangePassword());
 
