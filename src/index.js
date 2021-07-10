@@ -1,6 +1,6 @@
 import './theme/index.css';
-import ChangePassword from './pages/ChangePassword';
+import Error from './pages/Error';
 import render from '~/templator/render';
 
-render(document.getElementById('root'), ChangePassword());
+render(document.getElementById('root'), Error());
 
