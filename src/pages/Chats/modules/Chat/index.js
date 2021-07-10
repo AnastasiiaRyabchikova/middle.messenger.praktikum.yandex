@@ -9,7 +9,7 @@ import Header from '../Header';
 
 import template from './index.tpl';
 import { messages } from './mocks.js';
-import * as style from './styles.module.css';
+import * as styles from './styles.module.css';
 
 const component = {
   name: 'ChatPage',

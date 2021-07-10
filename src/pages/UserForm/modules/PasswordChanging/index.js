@@ -4,7 +4,7 @@ import cx from '~/src/utils/classnames';
 import UIInput from '~/src/components/UIInput';
 
 import template from './index.tpl';
-import * as style from './styles.module.css';
+import * as styles from './styles.module.css';
 
 const inputs = [
   {
