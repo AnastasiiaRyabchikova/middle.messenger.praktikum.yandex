@@ -5,8 +5,8 @@ import { IconArrowLeft } from '~/src/icons';
 import Logo from '~/src/components/Logo';
 import UIInput from '~/src/components/UIInput';
 import Button from '~/src/components/Button';
-import Avatar from '~/src/components/Avatar';
 
+import AddAvatar from './modules/AddAvatar';
 import PasswordChanging from './modules/PasswordChanging';
 
 import template from './index.tpl';
@@ -57,7 +57,7 @@ const component = {
     Logo,
     UIInput,
     Button,
-    Avatar,
+    AddAvatar,
     PasswordChanging,
     IconArrowLeft,
   },

@@ -22,13 +22,14 @@ const template = `
         <IconArrowLeft />
       </a>
     </div>
-    <div
+    <form
       class="${styles.account}"
     >
-      <Avatar
+      <AddAvatar
         class="${styles.avatar}"
       />
-      <form>
+      
+      <div>
         <t-for={{input of inputs}}>
           <UIInput
             class="${styles.field}"
@@ -46,14 +47,14 @@ const template = `
           class="${styles.submit}"
           label="Сохранить"
         />
-      </form>
+      </div>
       <a
         href="#"
         class="${styles.logout}"
       >
         Выйти
       </a>
-    </div>
+    </form>
   </main>
 </div>
 `;
