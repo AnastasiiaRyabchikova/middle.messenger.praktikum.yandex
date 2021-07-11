@@ -19,9 +19,7 @@ const template = `
   <button
     class="button-reset"
   >
-    <IconEllipsisVAlt
-      class="${styles.menuIcon}"
-    />
+    <IconEllipsisVAlt />
   </button>
 </div>
 `;
