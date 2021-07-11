@@ -14,7 +14,7 @@ const template = `
     class="${styles.main}"
   >
     <h1
-      class="title title_h1 ${styles.title}"
+      class="title title_h1"
     >
       Авторизация
     </h1>
