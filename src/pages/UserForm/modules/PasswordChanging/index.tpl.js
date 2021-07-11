@@ -1,3 +1,4 @@
+import routes from '~/src/constants/routes';
 import * as styles from './styles.module.css';
 
 const template = `
@@ -7,12 +8,12 @@ const template = `
     >
       Пароль
     </span>
-    <button
-      type="button"
-      class="button-reset ${styles.button}"
+    <a
+      href="${routes.changePassword}"
+      class="${styles.link}"
     >
       Изменить пароль
-    </button>
+    </a>
   </div>
 `;
 

@@ -1,3 +1,4 @@
+import routes from '~/src/constants/routes';
 import * as styles from './styles.module.css';
 
 const template = `
@@ -17,7 +18,9 @@ const template = `
     >
       Знакомство
     </h1>
-    <form>
+    <form
+      action="/${routes.chats}"
+    >
       <t-for={{input of inputs}}>
         <UIInput
           label="{{input.label}}"
@@ -30,7 +33,7 @@ const template = `
         label="Присоединиться"
       />
       <a
-        href="#"
+        href="/${routes.signUp}"
         class="${styles.join}"
       >
         Войти

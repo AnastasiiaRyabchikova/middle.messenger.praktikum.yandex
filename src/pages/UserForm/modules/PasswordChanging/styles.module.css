@@ -11,11 +11,11 @@
   font-size: 1em;
 }
 
-.button {
+.link {
   color: var(--color-primary);
   text-decoration: none;
 }
 
-.button:hover {
+.link:hover {
   text-decoration: underline;
 }

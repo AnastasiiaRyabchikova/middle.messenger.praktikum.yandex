@@ -1,3 +1,4 @@
+import routes from '~/src/constants/routes';
 import * as styles from './styles.module.css';
 
 const template = `
@@ -16,7 +17,7 @@ const template = `
       class="${styles.side}"
     >
       <a
-        href="#"
+        href="${routes.chats}"
         class="${styles.left}"
       >
         <IconArrowLeft />
@@ -49,7 +50,7 @@ const template = `
         />
       </div>
       <a
-        href="#"
+        href="/${routes.signUp}"
         class="${styles.logout}"
       >
         Выйти

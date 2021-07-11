@@ -1,3 +1,5 @@
+import routes from '~/src/constants/routes';
+
 import * as styles from './styles.module.css';
 
 const template = `
@@ -13,21 +15,31 @@ const template = `
       <Search
         class="${styles.search}"  
       />
-      <Avatar
-        class="${styles.avatar}"  
-      />
+      <a
+        href="/${routes.userForm}"
+        class="${styles.avatarLink}"
+      >
+        <Avatar
+          class="${styles.avatar}"  
+        />
+      </a>
     </div>
     <div
       class="${styles.companions}"
     >
       <t-for={{companion of companions}}>
-        <Companion
-          name="{{companion.name}}"
-          surname="{{companion.surname}}"
-          unreadMessagesCount="{{companion.unreadMessagesCount}}"
-          date="{{companion.date}}"
-          message="{{companion.message}}"
-        />
+        <a
+          href="{{companion.link}}"
+          class="${styles.companionLink}"
+        >
+          <Companion
+            name="{{companion.name}}"
+            surname="{{companion.surname}}"
+            unreadMessagesCount="{{companion.unreadMessagesCount}}"
+            date="{{companion.date}}"
+            message="{{companion.message}}"
+          />
+        </a>
       </t-for>
     </div>
   </div>

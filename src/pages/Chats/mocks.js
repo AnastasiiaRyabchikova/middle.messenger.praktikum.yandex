@@ -9,7 +9,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '2',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -18,7 +18,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '3',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -27,7 +27,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '4',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -36,7 +36,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '5',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -45,7 +45,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '6',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -54,7 +54,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '7',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -63,7 +63,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '8',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -72,7 +72,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '9',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -81,7 +81,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '10',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -90,7 +90,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '11',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -99,7 +99,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '12',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -108,7 +108,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '13',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -117,7 +117,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '14',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -126,7 +126,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '15',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -135,7 +135,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '16',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -144,7 +144,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '17',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
@@ -153,7 +153,7 @@ export const companions = [
     message: 'Очень важное сообщение',
   },
   {
-    id: '1',
+    id: '18',
     name: 'Николай',
     surname: 'Иванов',
     login: 'nik_ivanov',
