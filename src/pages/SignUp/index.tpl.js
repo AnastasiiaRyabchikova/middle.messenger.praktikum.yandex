@@ -1,3 +1,4 @@
+import routes from '~/src/constants/routes';
 import * as styles from './styles.module.css';
 
 const template = `
@@ -17,7 +18,9 @@ const template = `
     >
       Авторизация
     </h1>
-    <form>
+    <form
+      action="/${routes.chats}"
+    >
       <UIInput
         name="login"
         label="Логин"
@@ -34,7 +37,7 @@ const template = `
         label="Войти"
       />
       <a
-        href="#"
+        href="${routes.signIn}"
         class="${styles.join}"
       >
         Присоединиться

@@ -1,4 +1,6 @@
 import Templator from '~/templator';
+import routes from '~/src/constants/routes';
+
 import Avatar from '~/src/components/Avatar';
 
 import { companions } from './mocks';
@@ -9,6 +11,17 @@ import Chat from './modules/Chat';
 import Header from './modules/Header';
 
 import template from './index.tpl';
+
+const temp = window.location.search.match(/selectedChat=(.*)?/);
+const selectedChat = temp && temp[1];
+
+const companionsMapped = companions
+  .map((item) => (
+    {
+      ...item,
+      link: `/${routes.chats}?selectedChat=${item.id}`,
+    }
+  ));
 
 const component = {
   name: 'ChatPage',
@@ -25,8 +38,8 @@ const component = {
 const Page = (props) => {
   const context = {
     ...props,
-    companions,
-    selectedChat: 1,
+    companions: companionsMapped,
+    selectedChat,
   };
   return new Templator(component).compile(context);
 };
