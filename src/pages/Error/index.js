@@ -5,7 +5,8 @@ import Logo from '~/src/components/Logo';
 import template from './index.tpl';
 
 const messages = {
-  404: 'Страница не найдена'
+  404: 'Страница не найдена',
+  500: 'Ошибка сервера',
 };
 
 const component = {
@@ -18,8 +19,8 @@ const component = {
 
 const Page = (props) => {
   const context = {
-    code: 404,
-    message: messages[404],
+    code: props.code,
+    message: messages[props.code],
     ...props,
   };
   return new Templator(component).compile(context);

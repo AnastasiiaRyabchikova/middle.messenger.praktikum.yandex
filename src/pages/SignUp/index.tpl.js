@@ -45,6 +45,12 @@ const template = `
         Присоединиться
       </a>
     </form>
+    <a
+      class="${styles.shredinger}"
+      href="i-am-exist"
+    >
+      Страница Шредингера
+    </a>
   </main>
 </div>
 `;

@@ -22,6 +22,10 @@
   margin: 3em auto 0;
 }
 
+.shredinger {
+  margin-top: 1em;
+}
+
 .join {
   display: block;
   width: fit-content;
