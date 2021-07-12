@@ -23,6 +23,8 @@ const template = `
     >
       <t-for={{input of inputs}}>
         <UIInput
+          class="${styles.input}"
+          appearance="solid"
           label="{{input.label}}"
           placeholder="{{input.placeholder}}"
         />
