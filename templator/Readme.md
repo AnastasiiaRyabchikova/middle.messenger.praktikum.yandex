@@ -54,3 +54,16 @@ const template = `
     </span>
   </t-if>
 `;
+```
+
+Рендеринг списка
+
+```javascript
+const template = `
+  <t-for={{item of items}}>
+    <span>
+      {{item}}
+    </span>
+  </t-for>
+`;
+```
