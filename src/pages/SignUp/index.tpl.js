@@ -45,6 +45,18 @@ const template = `
         Присоединиться
       </a>
     </form>
+    <a
+      class="${styles.shredinger}"
+      href="/i-am-exist"
+    >
+      Страница Шредингера
+    </a>
+    <a
+      class="${styles.shredinger}"
+      href="/${routes.error500}"
+    >
+      Страница с ошибкой 500
+    </a>
   </main>
 </div>
 `;

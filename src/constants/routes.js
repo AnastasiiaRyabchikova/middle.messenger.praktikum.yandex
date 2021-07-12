@@ -3,5 +3,6 @@ export default {
   signUp: '',
   changePassword: 'change-password',
   chats: 'chats',
-  userForm: 'userForm',
+  userForm: 'user-form',
+  error500: 'error-500',
 };
