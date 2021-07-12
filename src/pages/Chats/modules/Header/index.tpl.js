@@ -1,3 +1,5 @@
+import * as general from '~/src/theme/general.css';
+
 import * as styles from './styles.module.css';
 
 const template = `
@@ -12,12 +14,12 @@ const template = `
   </div>
   <button
     type="button"
-    class="button-reset ${styles.search}"
+    class="${general.buttonReset} ${styles.search}"
   >
     Поиск
   </button>
   <button
-    class="button-reset"
+    class="${general.buttonReset}"
   >
     <IconEllipsisVAlt />
   </button>

@@ -32,12 +32,6 @@ const inputs = [
     placeholder: 'Ваша фамилия',
   },
   {
-    id: 'display_name',
-    name: 'display_name',
-    label: 'Ник',
-    placeholder: 'Ваш ник',
-  },
-  {
     id: 'phone',
     name: 'phone',
     label: 'Номер телефона',
