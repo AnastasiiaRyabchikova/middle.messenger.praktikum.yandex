@@ -1,3 +1,5 @@
+import * as general from '~/src/theme/general.css';
+
 import * as styles from './styles.module.css';
 
 const template = `
@@ -9,7 +11,7 @@ const template = `
   />
   <button
     type="submit"
-    class="button-reset ${styles.submit}"
+    class="${general.buttonReset} ${styles.submit}"
   >
     <IconArrow
       class="${styles.icon}"

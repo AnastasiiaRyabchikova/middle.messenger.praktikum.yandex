@@ -2,11 +2,11 @@
   margin: 0 0 1em;
 }
 
-.title_h1 {
+.titleH1 {
   font-size: 2rem;
 }
 
-.button-reset {
+.buttonReset {
   padding: 0;
   color: inherit;
   font: inherit;
@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-.visually-hidden {
+.visuallyHidden {
   position: absolute;
   width: 1px;
   height: 1px;

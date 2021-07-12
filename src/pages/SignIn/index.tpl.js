@@ -1,4 +1,6 @@
 import routes from '~/src/constants/routes';
+import * as general from '~/src/theme/general.css';
+
 import * as styles from './styles.module.css';
 
 const template = `
@@ -14,7 +16,7 @@ const template = `
     class="${styles.main}"
   >
     <h1
-      class="title title_h1"
+      class="${general.title} ${general.titleH1}"
     >
       Знакомство
     </h1>
