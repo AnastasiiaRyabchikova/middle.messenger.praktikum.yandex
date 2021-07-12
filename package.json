@@ -3,7 +3,8 @@
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "serve": "parcel serve ./src/index.html --port=3000 --no-cache",
-    "start": "parcel build ./src/index.html",
+    "start": "npm run clean-dist && parcel build index.html --dist-dir dist && cp _redirects ./dist",
+    "clean-dist": "rm -rf ./dist",
     "eslint": "eslint ./ --ext .js",
     "lint": "npm run eslint && npm run stylelint"
   },
