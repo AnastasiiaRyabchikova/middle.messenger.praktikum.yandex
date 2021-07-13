@@ -8,3 +8,4 @@
 [build]
   publish = "dist" 
   command = "npm run start"
+  port = 3000
