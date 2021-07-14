@@ -11,7 +11,7 @@ export default (value) => {
   }
 
   if (isObject(value)) {
-    return !Object.keys(value);
+    return !Object.keys(value).length;
   }
 
   return true;
