@@ -1,0 +1,27 @@
+.title {
+  margin: 0 0 1em;
+}
+
+.titleH1 {
+  font-size: 2rem;
+}
+
+.buttonReset {
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}

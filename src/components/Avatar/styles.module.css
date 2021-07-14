@@ -1,0 +1,11 @@
+.avatar {
+  --size: 2.5em;
+
+  width: var(--size);
+  height: var(--size);
+  color: var(--color-white);
+  line-height: var(--size);
+  text-align: center;
+  background-color: var(--color-gray-darker);
+  border-radius: 50%;
+}

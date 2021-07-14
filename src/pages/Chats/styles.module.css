@@ -1,0 +1,71 @@
+.page {
+  display: flex;
+  height: 100vh;
+}
+
+.side {
+  display: flex;
+  flex-basis: 17rem;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-gray-lighter);
+  border-right: thin solid var(--color-gray-darker);
+}
+
+.header {
+  display: flex;
+  padding: 2em 0.75em 1.25em;
+  background-color: var(--color-gray-lighter);
+  border-bottom: thin solid var(--color-gray-darker);
+}
+
+.companions {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.search {
+  flex-grow: 1;
+}
+
+.avatar {
+  margin-left: 1em;
+}
+
+.avatarLink {
+  text-decoration: none;
+}
+
+.chatWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat {
+  flex-grow: 1;
+  height: 0;
+  padding-top: 2rem;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  padding-left: 0.5em;
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.link:hover {
+  text-decoration: none;
+}
+
+.companionLink {
+  color: inherit;
+  text-decoration: none;
+}

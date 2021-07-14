@@ -1,0 +1,11 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatHistoryWrapper {
+  flex-grow: 1;
+  height: 100%;
+  padding: 1rem 2rem 3rem;
+  overflow: auto;
+}

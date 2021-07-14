@@ -1,0 +1,22 @@
+import Templator from '~/src/templator';
+
+import Message from './components/Message';
+
+import template from './index.tpl';
+
+const component = {
+  name: 'ChatHistoryModule',
+  template,
+  components: {
+    Message,
+  },
+};
+
+const Page = (props) => {
+  const context = {
+    messages: props.messages,
+  };
+  return new Templator(component).compile(context);
+};
+
+export default Page;

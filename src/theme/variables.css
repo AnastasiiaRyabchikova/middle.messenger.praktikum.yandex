@@ -1,0 +1,24 @@
+:root {
+  /* color variables */
+  --color-white: #fff;
+  --color-gray-lightest: #f9f9f9;
+  --color-gray-lighter: #f3f3f3;
+  --color-gray: #e5e5e5;
+  --color-gray-darker: #c4c4c4;
+  --color-gray-darkest: #6b6b6b;
+  --color-black: #000;
+  --color-primary: #6d3f8a;
+  --color-primary-opacity: rgba(109, 63, 138, 0.5);
+  --color-primary-opacitier: rgba(109, 63, 138, 0.1);
+  --color-error: #f00;
+
+  /* block variables */
+  --outer-indent-vertical: 1rem;
+  --outer-indent-horizontal: 2rem;
+
+  /* font variables */
+  --font-general: "Ruda", sans-serif;
+
+  /* decoration variables */
+  --border-radius: 0.25rem;
+}

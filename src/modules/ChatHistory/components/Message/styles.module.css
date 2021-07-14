@@ -1,0 +1,44 @@
+.message {
+  display: flex;
+  align-items: flex-start;
+  width: clamp(200px, 70%, 1000px);
+}
+
+.text {
+  flex-grow: 1;
+  padding: 0.75em 1em;
+  font-size: 0.875rem;
+  background-color: var(--color-gray-lighter);
+  border-radius: var(--border-radius);
+}
+
+.avatar {
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.time {
+  margin-top: 0.5em;
+  margin-left: auto;
+  color: var(--color-gray-darkest);
+  font-size: 0.75rem;
+}
+
+.isMine.message {
+  flex-direction: row-reverse;
+  margin-left: auto;
+}
+
+.isMine .avatar {
+  flex-direction: row-reverse;
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+.isMine .text {
+  background-color: var(--color-primary-opacitier);
+}
+
+.isMine .time {
+  margin-left: 0;
+}

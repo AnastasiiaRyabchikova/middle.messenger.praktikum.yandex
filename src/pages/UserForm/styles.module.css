@@ -1,0 +1,61 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--outer-indent-vertical) var(--outer-indent-horizontal);
+  background-color: var(--color-gray);
+
+  --account-width: 35rem;
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  max-width: var(--account-width);
+}
+
+.avatar {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.field {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.submit {
+  display: block;
+  margin-top: 2rem;
+  margin-left: auto;
+}
+
+.logout {
+  margin-top: 1rem;
+  margin-left: auto;
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+.logout:hover {
+  text-decoration: underline;
+}
+
+.side {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: calc(50% - var(--account-width) / 2);
+}
+
+.left {
+  font-size: 3rem;
+}

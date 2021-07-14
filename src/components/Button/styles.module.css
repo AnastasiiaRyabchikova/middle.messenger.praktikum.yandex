@@ -1,0 +1,19 @@
+.button {
+  padding: 0.75em 3em;
+  color: var(--color-white);
+  font-size: 1rem;
+  font-family: var(--font-general);
+  background-color: var(--color-primary);
+  border: thin solid var(--color-primary);
+  border-radius: 0.25em;
+}
+
+.button:hover {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.button:focus {
+  color: var(--color-white);
+  background-color: var(--color-primary-opacity);
+}
