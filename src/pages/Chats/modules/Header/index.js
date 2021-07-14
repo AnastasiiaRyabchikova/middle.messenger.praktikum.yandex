@@ -1,4 +1,4 @@
-import Templator from '~/templator';
+import Templator from '~/src/templator';
 
 import Avatar from '~/src/components/Avatar';
 import { IconEllipsisVAlt } from '~/src/icons';

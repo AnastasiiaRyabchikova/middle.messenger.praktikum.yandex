@@ -1,4 +1,4 @@
-import Templator from '~/templator';
+import Templator from '~/src/templator';
 
 import { IconArrowLeft } from '~/src/icons';
 

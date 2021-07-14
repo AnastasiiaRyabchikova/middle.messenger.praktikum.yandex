@@ -1,5 +1,5 @@
 const isClosedTag = (tag) => (
-  tag && tag[1] === '/'
+  tag.slice(0, 2) === '</'
 );
 
 export default isClosedTag;

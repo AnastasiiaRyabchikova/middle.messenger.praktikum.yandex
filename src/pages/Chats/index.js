@@ -1,5 +1,5 @@
-import Templator from '~/templator';
-import routes from '~/src/constants/routes';
+import Templator from '~/src/templator';
+import routes from '~/src/constants/pathnames';
 
 import Avatar from '~/src/components/Avatar';
 
