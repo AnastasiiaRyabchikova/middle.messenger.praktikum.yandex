@@ -1,4 +1,4 @@
-import Templator from '~/templator';
+import Templator from '~/src/templator';
 import routes from '~/src/constants/pathnames';
 
 import Avatar from '~/src/components/Avatar';

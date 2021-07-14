@@ -1,5 +1,5 @@
 import './theme/index.css';
-import render from '~/templator/render';
+import render from '~/src/templator/render';
 
 import ErrorPage from '~/src/pages/Error';
 

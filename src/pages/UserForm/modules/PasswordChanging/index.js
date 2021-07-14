@@ -1,4 +1,4 @@
-import Templator from '~/templator';
+import Templator from '~/src/templator';
 import cx from '~/src/utils/classnames';
 
 import UIInput from '~/src/components/UIInput';
