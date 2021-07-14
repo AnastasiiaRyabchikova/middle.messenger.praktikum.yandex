@@ -1,4 +1,4 @@
-import routes from '~/src/constants/routes';
+import routes from '~/src/constants/pathnames';
 import * as styles from './styles.module.css';
 
 const template = `
