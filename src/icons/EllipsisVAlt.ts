@@ -1,4 +1,4 @@
-import Templator from '~/src/templator';
+import Templator from 'templator';
 
 const template = `
 <svg

@@ -7,7 +7,7 @@
 ## Начало работы
 
 ```javascript
-import Templator from '~/src/templator';
+import Templator from 'templator';
 ```
 
 ## Инициализация компонента

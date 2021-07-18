@@ -1,4 +1,4 @@
-import Templator from '~/src/templator';
+import Templator from 'templator';
 
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';

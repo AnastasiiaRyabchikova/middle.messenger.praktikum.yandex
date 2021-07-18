@@ -1,6 +1,6 @@
-import Templator from '~/src/templator';
+import Templator from 'templator';
 
-import cx from '~/src/utils/classnames';
+import cx from 'classnames';
 import ChatHistory from '~/src/modules/ChatHistory';
 
 import MessageTextarea from '../MessageTextarea';
@@ -8,7 +8,7 @@ import Header from '../Header';
 
 
 import template from './index.tpl';
-import { messages } from './mocks.js';
+import { messages } from './mocks';
 import * as styles from './styles.module.css';
 
 const component = {

@@ -1,5 +1,5 @@
-import Templator from '~/src/templator';
-import cx from '~/src/utils/classnames';
+import Templator from 'templator';
+import cx from 'classnames';
 
 import template from './index.tpl';
 import * as styles from './styles.module.css';

@@ -1,5 +1,5 @@
-import Templator from '~/src/templator';
-import cx from '~/src/utils/classnames';
+import Templator from 'templator';
+import cx from 'classnames';
 
 import Avatar from '~/src/components/Avatar';
 

@@ -1,4 +1,4 @@
-import Templator from '~/src/templator';
+import Templator from 'templator';
 
 import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';

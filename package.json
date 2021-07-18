@@ -24,6 +24,10 @@
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.2.0"
   },
+  "alias": {
+    "templator": "./src/templator",
+    "classnames": "./src/utils/classnames"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
