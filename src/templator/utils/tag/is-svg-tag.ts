@@ -1,4 +1,4 @@
-const isSvgTag = (tag) => ([
+const isSvgTag = (tag: string): boolean => ([
   'svg',
   'path',
 ].includes(tag));

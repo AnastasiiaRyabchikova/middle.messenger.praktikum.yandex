@@ -1,4 +1,4 @@
-const isSelfClosingTag = (string) => {
+const isSelfClosingTag = (string: string): boolean => {
   const regExp = /^<(.*?)\/>$/;
   return regExp.test(string);
 };

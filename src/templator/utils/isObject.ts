@@ -1,3 +1,3 @@
-export default (value) => (
-  value && typeof value === 'object'
+export default (value: any): boolean => (
+  Boolean(value) && typeof value === 'object'
 );

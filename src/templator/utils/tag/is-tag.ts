@@ -1,4 +1,4 @@
-const isTag = (string) => {
+const isTag = (string: string): boolean => {
   const regExp = /^<(.*?)>$/;
   return regExp.test(string);
 };

@@ -6,18 +6,18 @@ import {
 } from './utils/tag';
 import get from './utils/get';
 
-const isVariable = (string) => {
+const isVariable = (string: string): boolean => {
   const regExp = /^{{(.*?)}}$/;
   return regExp.test(string);
 };
 
-const isComponent = (string) => {
-  return string[0].toLowerCase() !== string[0];
-};
+const isComponent = (string: string): boolean => (
+  string[0].toLowerCase() !== string[0]
+);
 
-const getVariable = (string) => {
+const getVariable = (string: string): string => {
   const regExp = /^{{(.*?)}}$/;
-  const result = string.match(regExp);
+  const result: Array<string> | null = string.match(regExp);
 
   if (!result) {
     return;
@@ -26,7 +26,7 @@ const getVariable = (string) => {
   return result[1];
 };
 
-const parseElement = (string, {
+const parseElement = (string: string, {
   ctx,
   components,
   name,

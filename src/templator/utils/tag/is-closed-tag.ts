@@ -1,4 +1,4 @@
-const isClosedTag = (tag) => (
+const isClosedTag = (tag: string): boolean => (
   tag.slice(0, 2) === '</'
 );
 

@@ -1,12 +1,12 @@
 import isObject from './isObject';
 
-export default (object, path) => {
-  const keys = path
+export default (object: object, path: string): any => {
+  const keys: Array<String> = path
     .split(/[.\[\]]/)
     .map((item) => item.trim())
     .filter((item) => item);
-  let value = object;
-  keys.forEach((element) => {
+  let value: any = object;
+  keys.forEach((element: string) => {
     if (!isObject(value)) {
       return;
     }
