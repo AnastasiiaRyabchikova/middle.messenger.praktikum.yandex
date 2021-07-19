@@ -3,17 +3,11 @@
     "dev": "parcel serve ./src/index.html --port=3000 --no-cache",
     "start": "npm run clean-dist && parcel build ./src/index.html && cp _redirects ./dist",
     "clean-dist": "rm -rf ./dist",
-    "stylelint": "stylelint '**/*{.css,.scss}'",
-    "eslint": "eslint ./ --ext .js",
-    "lint": "npm run eslint && npm run stylelint"
+    "stylelint": "stylelint '**/*{.css,.scss}'"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
-    "eslint": "^7.30.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.23.4",
     "express": "^4.17.1",
-    "lint-staged": "^11.0.0",
     "parcel": "^2.0.0-beta.3.1",
     "postcss-modules": "^3.2.2",
     "prettier": "^2.3.2",
@@ -27,16 +21,6 @@
   "alias": {
     "templator": "./src/templator",
     "classnames": "./src/utils/classnames"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.(css|scss)": [
-      "stylelint --fix"
-    ]
   },
   "browserslist": [
     "> 1%"
