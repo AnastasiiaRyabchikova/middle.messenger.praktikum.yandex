@@ -3,5 +3,12 @@
   "noUnusedLocals": true,
   "noUnusedParameters": true,
   "sourceMap": true,
-  "strictNullChecks": false
+  "strictNullChecks": false,
+  "compilerOptions": {
+    "paths": {
+      "templator": ["./src/templator"],
+      "classnames": ["./src/utils/classnames"],
+      "@*": ["./src/*"]
+    }
+  }
 }
