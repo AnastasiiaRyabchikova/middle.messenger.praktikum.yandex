@@ -1,7 +1,7 @@
 import Templator from 'templator';
 
-import Avatar from '~src/components/Avatar';
-import { IconEllipsisVAlt } from '~src/icons';
+import Avatar from '~/src/components/Avatar';
+import { IconEllipsisVAlt } from '~/src/icons';
 
 import template from './index.tpl';
 

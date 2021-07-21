@@ -1,8 +1,8 @@
-import * as general from '~src/theme/general.css';
+import * as general from '~/src/theme/general.css';
 
 import * as styles from './styles.module.css';
 
-const template = `
+const template: string = `
 <form
   class="${styles.wrapper}"
 >

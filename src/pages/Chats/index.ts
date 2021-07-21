@@ -1,7 +1,7 @@
 import Templator from 'templator';
-import routes from '~src/constants/pathnames';
+import routes from '~/src/constants/pathnames';
 
-import Avatar from '~src/components/Avatar';
+import Avatar from '~/src/components/Avatar';
 
 import { companions } from './mocks';
 

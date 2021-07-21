@@ -1,7 +1,7 @@
-import routes from '~src/constants/pathnames';
+import routes from '~/src/constants/pathnames';
 import * as styles from './styles.module.css';
 
-const template = `
+const template: string = `
   <div class="{{class}}">
     <span
       class="${styles.label}"

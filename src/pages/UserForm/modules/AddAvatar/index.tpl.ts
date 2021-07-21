@@ -1,6 +1,6 @@
-import * as general from '~src/theme/general.css';
+import * as general from '~/src/theme/general.css';
 
-const template = `
+const template: string = `
   <label class="{{class}}">
     <Avatar />
     <input

@@ -1,4 +1,4 @@
-const template = `
+const template: string = `
   <div
     class="{{class}}"
   >

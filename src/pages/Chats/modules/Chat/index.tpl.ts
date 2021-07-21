@@ -1,6 +1,6 @@
 import * as styles from './styles.module.css';
 
-const template = `
+const template: string = `
 <div
   class="{{class}}"
 >

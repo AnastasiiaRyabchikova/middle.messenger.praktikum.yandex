@@ -1,11 +1,11 @@
 import Templator from 'templator';
 
-import { IconArrowLeft } from '~src/icons';
+import { IconArrowLeft } from '~/src/icons';
 
-import Logo from '~src/components/Logo';
-import UIInput from '~src/components/UIInput';
-import Button from '~src/components/Button';
-import Avatar from '~src/components/Avatar';
+import Logo from '~/src/components/Logo';
+import UIInput from '~/src/components/UIInput';
+import Button from '~/src/components/Button';
+import Avatar from '~/src/components/Avatar';
 
 import template from './index.tpl';
 
