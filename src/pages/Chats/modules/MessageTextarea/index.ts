@@ -1,6 +1,6 @@
 import Templator from 'templator';
 
-import { IconArrow } from '~/src/icons';
+import { IconArrow } from '@/icons';
 
 import template from './index.tpl';
 

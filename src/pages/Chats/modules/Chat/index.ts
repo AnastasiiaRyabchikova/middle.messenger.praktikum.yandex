@@ -1,7 +1,7 @@
 import Templator from 'templator';
 
 import cx from 'classnames';
-import ChatHistory from '~/src/modules/ChatHistory';
+import ChatHistory from '@/modules/ChatHistory';
 
 import MessageTextarea from '../MessageTextarea';
 import Header from '../Header';

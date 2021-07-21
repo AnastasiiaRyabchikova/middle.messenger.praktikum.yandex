@@ -1,9 +1,10 @@
-import './theme/index.css';
-import render from '~/src/templator/render';
+import { render } from 'templator';
 
-import ErrorPage from '~/src/pages/Error';
+import ErrorPage from '@/pages/Error';
 
 import routes from './routes';
+
+import './theme/index.css';
 
 const { pathname } = window.location;
 

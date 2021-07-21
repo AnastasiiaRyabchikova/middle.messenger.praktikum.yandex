@@ -1,4 +1,4 @@
-import pathnames from '~/src/constants/pathnames';
+import pathnames from '@/constants/pathnames';
 
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';

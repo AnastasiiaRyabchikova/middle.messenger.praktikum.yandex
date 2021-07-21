@@ -1,7 +1,7 @@
 import Templator from 'templator';
 import cx from 'classnames';
 
-import UIInput from '~/src/components/UIInput';
+import UIInput from '@/components/UIInput';
 
 import template from './index.tpl';
 import * as styles from './styles.module.css';

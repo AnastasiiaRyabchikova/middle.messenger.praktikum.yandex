@@ -1,6 +1,6 @@
 import Templator from 'templator';
 
-import UIInput from '~/src/components/UIInput';
+import UIInput from '@/components/UIInput';
 import template from './index.tpl';
 
 const component = {

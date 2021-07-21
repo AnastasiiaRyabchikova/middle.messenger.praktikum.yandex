@@ -30,14 +30,14 @@ const parseElement = (string: string, {
   ctx,
   components,
   name,
-}) => {
-  const attributes = string
+}): object => {
+  const attributes: Array<string> = string
     .replace(/(<|\/{0,1}>)/g, '')
     .split(/(?=\s[a-zA-Z\-]*\=".*?")/)
     .map((item) => item.trim().replace(/['|"]/g, ''))
     .filter((item) => item);
 
-  const tag = attributes.shift();
+  const tag: string = attributes.shift();
 
   let element = null;
 
@@ -48,7 +48,7 @@ const parseElement = (string: string, {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
     }
     
-    const componentCtx = attributes.reduce((acc, cur) => {
+    const componentCtx: object = attributes.reduce((acc: object, cur: string): object => {
       const [key, value] = cur.split('=');
       const prop = isVariable(value)
         ? get(ctx, getVariable(value)) || ''
@@ -80,6 +80,11 @@ const parseElement = (string: string, {
 };
 export default class Templator {
 
+  public name: string;
+  public template: string;
+  public components: object;
+
+
   constructor ({
     name,
     template,
@@ -90,7 +95,7 @@ export default class Templator {
     this.name = name || 'nameless component';
   }
 
-  compile(ctx) {
+  compile(ctx: object): object {
     return this.compileTemplate(ctx);
   }
 
@@ -99,10 +104,10 @@ export default class Templator {
     let current = null;
     const { components, name, template } = this;
 
-    const elements = template
+    const elements: string[] = template
       .replace(/\s+/g, ' ')
-      .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/g, (match, p1, p2) => {
-        const values = match.split(/(?=\<t-(?:if|else|else-if))/)
+      .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/g, (match: string): string => {
+        const values: object = match.split(/(?=\<t-(?:if|else|else-if))/)
           .reduce((acc, cur) => {
             let key = null;
             let value = null;
@@ -149,7 +154,7 @@ export default class Templator {
     elements.forEach((item) => {
       if (isTag(item)) {
         if (!isClosedTag(item)) {
-          const element = parseElement(item, { ctx, components, name });
+          const element: object | null = parseElement(item, { ctx, components, name });
 
           if (result) {
             current.append(element);
@@ -166,7 +171,7 @@ export default class Templator {
         }
 
       } else {
-        const strings = item
+        const strings: string[] = item
           .split(/(?=\{{2})|(?<=\}{2})/g)
 
         strings.forEach((string) => {
@@ -181,3 +186,5 @@ export default class Templator {
     return result;
   };
 };
+
+export { default as render } from './render';

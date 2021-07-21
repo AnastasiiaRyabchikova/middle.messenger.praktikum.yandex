@@ -1,10 +1,10 @@
 import Templator from 'templator';
 
-import { IconArrowLeft } from '~/src/icons';
+import { IconArrowLeft } from '@/icons';
 
-import Logo from '~/src/components/Logo';
-import UIInput from '~/src/components/UIInput';
-import Button from '~/src/components/Button';
+import Logo from '@/components/Logo';
+import UIInput from '@/components/UIInput';
+import Button from '@/components/Button';
 
 import AddAvatar from './modules/AddAvatar';
 import PasswordChanging from './modules/PasswordChanging';

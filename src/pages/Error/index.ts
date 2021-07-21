@@ -1,6 +1,6 @@
 import Templator from 'templator';
 
-import Logo from '~/src/components/Logo';
+import Logo from '@/components/Logo';
 
 import template from './index.tpl';
 

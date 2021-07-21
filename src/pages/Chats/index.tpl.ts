@@ -1,4 +1,4 @@
-import routes from '~/src/constants/pathnames';
+import routes from '@/constants/pathnames';
 
 import * as styles from './styles.module.css';
 
