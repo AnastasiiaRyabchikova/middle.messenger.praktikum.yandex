@@ -1,7 +1,7 @@
 import Templator from 'templator';
 import cx from 'classnames';
 
-import Avatar from '@/components/Avatar';
+import Avatar from '~src/components/Avatar';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 

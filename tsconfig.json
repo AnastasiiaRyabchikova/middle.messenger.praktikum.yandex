@@ -5,10 +5,11 @@
   "sourceMap": true,
   "strictNullChecks": false,
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "templator": ["./src/templator"],
       "classnames": ["./src/utils/classnames"],
-      "@*": ["./src/*"]
+      "~*": ["./*"]
     }
   }
 }

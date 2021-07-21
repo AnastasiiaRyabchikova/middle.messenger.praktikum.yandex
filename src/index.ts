@@ -1,6 +1,6 @@
 import { render } from 'templator';
 
-import ErrorPage from '@/pages/Error';
+import ErrorPage from '~src/pages/Error';
 
 import routes from './routes';
 

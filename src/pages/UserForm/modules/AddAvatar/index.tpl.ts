@@ -1,4 +1,4 @@
-import * as general from '@/theme/general.css';
+import * as general from '~src/theme/general.css';
 
 const template = `
   <label class="{{class}}">
