@@ -1,3 +1,4 @@
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 
 const template: string = `
@@ -11,7 +12,7 @@ const template: string = `
   </svg>
 `;
 
-const component = {
+const component: Component = {
   name: 'IconArrowLeft',
   template,
 };

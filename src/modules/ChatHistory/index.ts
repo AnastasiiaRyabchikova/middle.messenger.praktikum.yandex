@@ -1,10 +1,11 @@
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 
 import Message from './components/Message';
 
 import template from './index.tpl';
 
-const component = {
+const component: Component = {
   name: 'ChatHistoryModule',
   template,
   components: {

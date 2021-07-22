@@ -1,3 +1,4 @@
+import { Component } from '~src/types/component';
 import {
   isClosedTag,
   isSelfClosingTag,
@@ -82,17 +83,13 @@ export default class Templator {
 
   public name: string;
   public template: string;
-  public components: object;
+  public components?: object;
 
 
-  constructor ({
-    name,
-    template,
-    components,
-  }) {
-    this.template = template;
-    this.components = components || {};
-    this.name = name || 'nameless component';
+  constructor (settings: Component) {
+    this.template = settings.template;
+    this.components = settings.components || {};
+    this.name = settings.name || 'nameless component';
   }
 
   compile(ctx: object): object {

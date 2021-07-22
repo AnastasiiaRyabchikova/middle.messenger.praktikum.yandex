@@ -1,3 +1,4 @@
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 import routes from '~/src/constants/pathnames';
 
@@ -23,7 +24,7 @@ const companionsMapped = companions
     }
   ));
 
-const component = {
+const component: Component = {
   name: 'ChatPage',
   template,
   components: {

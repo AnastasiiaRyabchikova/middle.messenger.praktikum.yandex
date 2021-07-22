@@ -1,3 +1,4 @@
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 
@@ -44,7 +45,7 @@ const inputs = [
   },
 ];
 
-const component = {
+const component: Component = {
   name: 'AuthorizationPage',
   template,
   components: {

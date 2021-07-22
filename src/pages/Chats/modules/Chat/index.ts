@@ -1,3 +1,4 @@
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 
 import cx from 'classnames';
@@ -11,7 +12,7 @@ import template from './index.tpl';
 import { messages } from './mocks';
 import * as styles from './styles.module.css';
 
-const component = {
+const component: Component = {
   name: 'ChatPage',
   template,
   components: {

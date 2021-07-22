@@ -1,3 +1,4 @@
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 
@@ -5,7 +6,7 @@ import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-const component = {
+const component: Component = {
   name: 'ChatCompanion',
   template,
   components: {

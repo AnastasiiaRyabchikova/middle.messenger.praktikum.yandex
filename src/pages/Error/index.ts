@@ -1,3 +1,4 @@
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 
 import Logo from '~/src/components/Logo';
@@ -9,7 +10,7 @@ const messages = {
   500: 'Ошибка сервера',
 };
 
-const component = {
+const component: Component = {
   name: 'UserFormPage',
   template,
   components: {

@@ -1,3 +1,4 @@
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 
 import Logo from '../../components/Logo';
@@ -6,7 +7,7 @@ import Button from '../../components/Button';
 
 import template from './index.tpl';
 
-const component = {
+const component: Component = {
   name: 'AuthorizationPage',
   template,
   components: {

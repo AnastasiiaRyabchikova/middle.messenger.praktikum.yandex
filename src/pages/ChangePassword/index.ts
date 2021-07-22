@@ -1,3 +1,4 @@
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 
 import { IconArrowLeft } from '~/src/icons';
@@ -30,7 +31,7 @@ const inputs = [
   },
 ];
 
-const component = {
+const component: Component = {
   name: 'UserFormPage',
   template,
   components: {
