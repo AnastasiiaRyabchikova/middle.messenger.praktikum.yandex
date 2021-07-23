@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { Component, Props } from '~/src/types/component';
 import Templator from 'templator';
 
 const template: string = `
@@ -19,7 +19,7 @@ const component: Component = {
   template,
 };
 
-const Icon = (props) => {
+const Icon = (props: Props) => {
   const context = {
     ...props,
   };

@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { Component, Props } from '~/src/types/component';
 import Templator from 'templator';
 
 import Avatar from '~/src/components/Avatar';
@@ -12,7 +12,7 @@ const component: Component = {
   },
 };
 
-const Page = (props) => {
+const Page = (props: Props) => {
   const context = {
     src: props.src,
     name: props.name,

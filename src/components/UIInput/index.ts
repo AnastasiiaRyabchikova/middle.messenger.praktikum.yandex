@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { Component, Props } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 import template from './index.tpl';
@@ -9,26 +9,26 @@ const component: Component = {
   template,
 };
 
-const UIInput = (ctx) => {
-  const context = {
-    label: ctx.label,
-    type: ctx.type || 'text',
-    placeholder: ctx.placeholder,
-    name: ctx.name,
-    error: ctx.error,
-    shouldShowError: Boolean(ctx.error),
+const UIInput = (props: Props) => {
+  const ctx = {
+    label: props.label,
+    type: props.type || 'text',
+    placeholder: props.placeholder,
+    name: props.name,
+    error: props.error,
+    shouldShowError: Boolean(props.error),
     inputClass: cx([
       styles.input,
-      { [styles.error]: ctx.error },
+      { [styles.error]: props.error },
     ]),
     class: cx([
       styles.wrapper,
-      ctx.class,
-      { [styles.solid]: ctx.appearance === 'solid' },
+      props.class,
+      { [styles.solid]: props.appearance === 'solid' },
     ]),
-    value: ctx.value,
+    value: props.value,
   };
-  return new Templator(component).compile(context);
+  return new Templator(component).compile(ctx);
 };
 
 export default UIInput;

@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { Component, Props } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 
@@ -10,12 +10,12 @@ const component: Component = {
   template,
 };
 
-const Avatar = (props) => {
-  const context = {
+const Avatar = (props: Props) => {
+  const ctx = {
     ...props,
     class: cx([styles.avatar, props.class]),
   };
-  return new Templator(component).compile(context);
+  return new Templator(component).compile(ctx);
 };
 
 export default Avatar;

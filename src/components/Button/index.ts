@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { Component, Props } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 import template from './index.tpl';
@@ -9,14 +9,14 @@ const component: Component = {
   template,
 };
 
-const Button = (ctx) => {
-  const props = {
-    class: cx([styles.button, ctx.class]),
-    type: ctx.type || 'button',
-    label: ctx.label,
+const Button = (props: Props) => {
+  const ctx = {
+    class: cx([styles.button, props.class]),
+    type: props.type || 'button',
+    label: props.label,
   };
 
-  return new Templator(component).compile(props);
+  return new Templator(component).compile(ctx);
 };
 
 export default Button;

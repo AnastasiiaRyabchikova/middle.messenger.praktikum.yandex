@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { Component, Props } from '~/src/types/component';
 import Templator from 'templator';
 
 import cx from 'classnames';
@@ -22,7 +22,7 @@ const component: Component = {
   },
 };
 
-const Page = (props) => {
+const Page = (props: Props) => {
   const context = {
     ...props,
     messages,

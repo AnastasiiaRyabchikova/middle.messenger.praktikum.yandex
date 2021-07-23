@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { Component, Props } from '~/src/types/component';
 import Templator from 'templator';
 
 import Message from './components/Message';
@@ -13,7 +13,7 @@ const component: Component = {
   },
 };
 
-const Page = (props) => {
+const Page = (props: Props) => {
   const context = {
     messages: props.messages,
   };

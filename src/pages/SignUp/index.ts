@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { Component, Props } from '~/src/types/component';
 import Templator from 'templator';
 
 import Logo from '../../components/Logo';
@@ -17,8 +17,11 @@ const component: Component = {
   },
 };
 
-const Page = (ctx) => (
-  new Templator(component).compile(ctx)
-);
+const Page = (props: Props) => {
+  const ctx = {
+    ...props,
+  };
+  return new Templator(component).compile(ctx);
+};
 
 export default Page;
