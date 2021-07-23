@@ -132,12 +132,12 @@ export default class Templator {
             return get(ctx, key) ? value : '';
           }).filter((item) => (item))[0] || ''
       })
-      .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (match, p1, p2) => {
+      .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1, p2) => {
         const [item, key] = p1.split(' of ');
         const values = get(ctx, key) || [];
         const result = values
-          .map((value, index) => {
-            return p2.replace(new RegExp('{{' + item + '\.(.*?)}}', 'g'), (match2, p12) => {
+          .map((_, index) => {
+            return p2.replace(new RegExp('{{' + item + '\.(.*?)}}', 'g'), (_, p12) => {
               return `{{${key}[${index}].${p12}}}`
             })
           })

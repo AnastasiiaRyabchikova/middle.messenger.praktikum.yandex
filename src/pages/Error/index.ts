@@ -1,9 +1,14 @@
-import { Component, Props } from '~/src/types/component';
+import { Component } from '~/src/types/component';
 import Templator from 'templator';
 
 import Logo from '~/src/components/Logo';
 
 import template from './index.tpl';
+
+type Props = {
+  code: number,
+  [key: string]: any,
+};
 
 const messages = {
   404: 'Страница не найдена',
@@ -18,7 +23,7 @@ const component: Component = {
   },
 };
 
-const Page = (props: Props = {}) => {
+const Page = (props: Props) => {
   const context = {
     code: props.code,
     message: messages[props.code],
