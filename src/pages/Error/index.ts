@@ -10,7 +10,9 @@ type Props = {
   [key: string]: any,
 };
 
-const messages = {
+const messages: {
+  [key: string]: string,
+} = {
   404: 'Страница не найдена',
   500: 'Ошибка сервера',
 };
