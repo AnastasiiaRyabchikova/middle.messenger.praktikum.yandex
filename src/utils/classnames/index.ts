@@ -4,7 +4,7 @@ import {
   isEmpty,
 } from '../format-checking';
 
-const stringFromObject = (value) => (
+const stringFromObject = (value: object): string => (
   Object.keys(value)
     .map((key) => (
       value[key] ? key : ''
@@ -12,7 +12,7 @@ const stringFromObject = (value) => (
     .join(' ')
 );
 
-export default (value) => {
+export default (value: unknown) => {
   if (isEmpty(value)) {
     return '';
   }
@@ -23,7 +23,7 @@ export default (value) => {
 
   if (isArray(value)) {
     return value
-      .reduce((acc, cur) => {
+      .reduce((acc: object, cur: object | string | null) => {
         const rezult = isObject(cur) ? stringFromObject(cur) : cur || '';
         return `${acc} ${rezult}`;
       }, '');

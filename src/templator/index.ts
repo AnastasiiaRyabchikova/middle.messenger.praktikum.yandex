@@ -27,11 +27,17 @@ const getVariable = (string: string): string => {
   return result[1];
 };
 
+type parseElementProps = {
+  ctx: object,
+  components: object,
+  name: string,
+};
+
 const parseElement = (string: string, {
   ctx,
   components,
   name,
-}): object => {
+}: parseElementProps): object => {
   const attributes: Array<string> = string
     .replace(/(<|\/{0,1}>)/g, '')
     .split(/(?=\s[a-zA-Z\-]*\=".*?")/)
@@ -97,15 +103,15 @@ export default class Templator {
   }
 
   compileTemplate = (ctx) => {
-    let result = null;
-    let current = null;
+    let result: HTMLElement | null = null;
+    let current: HTMLElement | null = null;
     const { components, name, template } = this;
 
     const elements: string[] = template
       .replace(/\s+/g, ' ')
       .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/g, (match: string): string => {
         const values: object = match.split(/(?=\<t-(?:if|else|else-if))/)
-          .reduce((acc, cur) => {
+          .reduce((acc: object, cur: string) => {
             let key = null;
             let value = null;
 
@@ -132,12 +138,12 @@ export default class Templator {
             return get(ctx, key) ? value : '';
           }).filter((item) => (item))[0] || ''
       })
-      .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1, p2) => {
+      .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1: string, p2: string) => {
         const [item, key] = p1.split(' of ');
         const values = get(ctx, key) || [];
         const result = values
           .map((_, index) => {
-            return p2.replace(new RegExp('{{' + item + '\.(.*?)}}', 'g'), (_, p12) => {
+            return p2.replace(new RegExp('{{' + item + '\.(.*?)}}', 'g'), (_, p12: string) => {
               return `{{${key}[${index}].${p12}}}`
             })
           })
