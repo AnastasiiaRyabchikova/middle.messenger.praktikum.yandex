@@ -16,7 +16,7 @@ const component: Component = {
 };
 
 
-const Page = (props: Props) => {
+const Page = (props: Props = {}) => {
   const context = {
     ...props,
   };

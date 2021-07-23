@@ -18,7 +18,7 @@ const component: Component = {
   },
 };
 
-const Page = (props: Props) => {
+const Page = (props: Props = {}) => {
   const context = {
     code: props.code,
     message: messages[props.code],

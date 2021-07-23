@@ -14,7 +14,7 @@ const component: Component = {
   },
 };
 
-const Page = (props: Props) => {
+const Page = (props: Props = {}) => {
   const ctx = {
     class: cx([
       styles.message,

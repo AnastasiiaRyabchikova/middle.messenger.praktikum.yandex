@@ -8,7 +8,7 @@ const component: Component = {
   template,
 };
 
-const Logo = (props: Props) => {
+const Logo = (props: Props = {}) => {
   const ctx = {
     ...props,
   };

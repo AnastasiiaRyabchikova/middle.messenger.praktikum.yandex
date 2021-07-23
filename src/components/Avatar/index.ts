@@ -10,7 +10,7 @@ const component: Component = {
   template,
 };
 
-const Avatar = (props: Props) => {
+const Avatar = (props: Props = {}) => {
   const ctx = {
     ...props,
     class: cx([styles.avatar, props.class]),

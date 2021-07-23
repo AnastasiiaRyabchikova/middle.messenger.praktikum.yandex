@@ -19,7 +19,7 @@ const component: Component = {
   template,
 };
 
-const Icon = (props: Props) => {
+const Icon = (props: Props = {}) => {
   const context = {
     ...props,
   };

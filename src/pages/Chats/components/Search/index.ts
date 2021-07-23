@@ -12,7 +12,7 @@ const component: Component = {
   },
 };
 
-const Search = (props: Props) => {
+const Search = (props: Props = {}) => {
   const context = {
     class: props.class,
     ...props,

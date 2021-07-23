@@ -9,7 +9,7 @@ const component: Component = {
   template,
 };
 
-const UIInput = (props: Props) => {
+const UIInput = (props: Props = {}) => {
   const ctx = {
     label: props.label,
     type: props.type || 'text',

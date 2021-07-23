@@ -9,7 +9,7 @@ const component: Component = {
   template,
 };
 
-const Button = (props: Props) => {
+const Button = (props: Props = {}) => {
   const ctx = {
     class: cx([styles.button, props.class]),
     type: props.type || 'button',
