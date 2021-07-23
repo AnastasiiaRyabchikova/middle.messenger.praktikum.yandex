@@ -1,4 +1,4 @@
-import { Component } from '~src/types/component';
+import { Component } from '~/src/types/component';
 import {
   isClosedTag,
   isSelfClosingTag,
