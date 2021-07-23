@@ -13,4 +13,4 @@ export type Components = {
   [key: string]: Function,
 };
 
-export type compiledComponent = HTMLElement | SVGElement;
+export type compiledComponent = HTMLElement | SVGElement | null;

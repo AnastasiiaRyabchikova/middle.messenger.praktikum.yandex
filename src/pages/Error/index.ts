@@ -17,6 +17,11 @@ const messages: {
   500: 'Ошибка сервера',
 };
 
+type ctxType = {
+  code: number,
+  message: string,
+};
+
 const component: Component = {
   name: 'UserFormPage',
   template,
@@ -26,10 +31,11 @@ const component: Component = {
 };
 
 const Page = (props: Props) => {
-  const context = {
-    code: props.code,
-    message: messages[props.code],
+  const { code } = props;
+  const context: ctxType = {
     ...props,
+    code,
+    message: messages[code],
   };
   return new Templator(component).compile(context);
 };

@@ -12,4 +12,7 @@ const { pathname } = window.location;
 const name = pathname.slice(1);
 const Page: compiledComponent = routes[name] || ErrorPage({ code: 404 });
 
-render(document.getElementById('root'), Page);
+if (Page) {
+  render(document.getElementById('root'), Page);
+}
+

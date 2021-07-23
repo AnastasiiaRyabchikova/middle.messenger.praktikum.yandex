@@ -21,7 +21,7 @@ const getVariable = (string: string): string => {
   const result: Array<string> | null = string.match(regExp);
 
   if (!result) {
-    return;
+    return '';
   }
 
   return result[1];
@@ -44,9 +44,13 @@ const parseElement = (string: string, {
     .map((item) => item.trim().replace(/['|"]/g, ''))
     .filter((item) => item);
 
-  const tag: string = attributes.shift();
+  if (attributes.length === 0) {
+    return null;
+  };
 
-  let element: compiledComponent | null = null;
+  const tag: string | undefined = attributes.shift();
+
+  let element: compiledComponent = null;
 
   if (isComponent(tag)) {
     const component = components[tag];
@@ -102,7 +106,7 @@ export default class Templator {
     return this.compileTemplate(ctx);
   }
 
-  compileTemplate = (ctx: object): compiledComponent => {
+  compileTemplate = (ctx: object): compiledComponent | null => {
     let result: compiledComponent | null = null;
     let current: compiledComponent | Node | null = null;
     const { components, name, template } = this;
@@ -154,10 +158,10 @@ export default class Templator {
       .map((item) => item.trim())
       .filter((item) => item);
 
-    elements.forEach((item) => {
+    elements.forEach((item: string): void => {
       if (isTag(item)) {
         if (!isClosedTag(item)) {
-          const element: compiledComponent | null = parseElement(item, { ctx, components, name });
+          const element: compiledComponent = parseElement(item, { ctx, components, name });
 
           if (result) {
             current.appendChild(element);

@@ -16,7 +16,7 @@ const stringFromObject = (value: ClassnameObject): string => (
     .join(' ')
 );
 
-export default (value: ClassnameObject | Array<ClassnameObject | string>): string => {
+export default (value: ClassnameObject | Array<ClassnameObject | string | undefined>): string => {
   if (isEmpty(value)) {
     return '';
   }

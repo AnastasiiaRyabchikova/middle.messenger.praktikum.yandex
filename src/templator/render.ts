@@ -1,6 +1,6 @@
 import { compiledComponent } from '~/src/types/component';
 
-const render = (root: HTMLElement, Component: compiledComponent): void => {
+const render = (root: HTMLElement | null, Component: compiledComponent): void => {
   if (!root) {
     throw new Error('Не определен корень проекта');
   }
