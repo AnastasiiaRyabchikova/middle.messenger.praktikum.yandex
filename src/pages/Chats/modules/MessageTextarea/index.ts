@@ -1,6 +1,6 @@
 import Templator from 'templator';
 
-import { Component, Props } from '~/src/types/component';
+import { Component, Props, compiledComponent } from '~/src/types/component';
 
 import { IconArrow } from '~/src/icons';
 
@@ -15,7 +15,7 @@ const component: Component = {
 };
 
 
-const Page = (props: Props = {}) => {
+const Page: Function = (props: Props = {}): compiledComponent => {
   const context = {
     ...props,
   };

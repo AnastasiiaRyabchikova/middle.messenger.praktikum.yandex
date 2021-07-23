@@ -1,4 +1,4 @@
-import { Component, Props } from '~/src/types/component';
+import { Component, Props, compiledComponent } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 
@@ -14,12 +14,12 @@ const component: Component = {
   },
 };
 
-const Page = (props: Props = {}) => {
+const Page: Function = (props: Props = {}): compiledComponent => {
   const ctx = {
     class: cx([
       styles.message,
       props.class,
-      { [styles.isMine]: props.isMine },
+      { [styles.isMine]: Boolean(props.isMine) },
     ]),
     src: props.src,
     text: props.text,

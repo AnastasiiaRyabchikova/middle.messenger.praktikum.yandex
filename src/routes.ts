@@ -7,7 +7,11 @@ import Chats from './pages/Chats';
 import UserForm from './pages/UserForm';
 import ErrorPage from './pages/Error';
 
-export default {
+type pageByRoutes = {
+  [pathname: string]: HTMLElement
+};
+
+const routes: pageByRoutes = {
   [pathnames.signIn]: SignIn(),
   [pathnames.signUp]: SignUp(),
   [pathnames.changePassword]: ChangePassword(),
@@ -15,3 +19,5 @@ export default {
   [pathnames.userForm]: UserForm(),
   [pathnames.error500]: ErrorPage({ code: 500 }),
 };
+
+export default routes;

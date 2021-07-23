@@ -1,4 +1,4 @@
-import { Component, Props } from '~/src/types/component';
+import { Component, Props, compiledComponent } from '~/src/types/component';
 import Templator from 'templator';
 import routes from '~/src/constants/pathnames';
 
@@ -36,7 +36,7 @@ const component: Component = {
   },
 };
 
-const Page = (props: Props = {}) => {
+const Page: Function = (props: Props = {}): compiledComponent => {
   const context = {
     ...props,
     companions: companionsMapped,

@@ -1,4 +1,4 @@
-import { Component, Props } from '~/src/types/component';
+import { Component, Props, compiledComponent } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 import template from './index.tpl';
@@ -9,7 +9,7 @@ const component: Component = {
   template,
 };
 
-const UIInput = (props: Props = {}) => {
+const UIInput: Function = (props: Props = {}): compiledComponent => {
   const ctx = {
     label: props.label,
     type: props.type || 'text',
@@ -19,7 +19,7 @@ const UIInput = (props: Props = {}) => {
     shouldShowError: Boolean(props.error),
     inputClass: cx([
       styles.input,
-      { [styles.error]: props.error },
+      { [styles.error]: Boolean(props.error) },
     ]),
     class: cx([
       styles.wrapper,

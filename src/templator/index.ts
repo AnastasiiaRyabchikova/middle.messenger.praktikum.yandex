@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { Component, Components, compiledComponent } from '~/src/types/component';
 import {
   isClosedTag,
   isSelfClosingTag,
@@ -29,7 +29,7 @@ const getVariable = (string: string): string => {
 
 type parseElementProps = {
   ctx: object,
-  components: object,
+  components: Components,
   name: string,
 };
 
@@ -37,7 +37,7 @@ const parseElement = (string: string, {
   ctx,
   components,
   name,
-}: parseElementProps): object => {
+}: parseElementProps): compiledComponent => {
   const attributes: Array<string> = string
     .replace(/(<|\/{0,1}>)/g, '')
     .split(/(?=\s[a-zA-Z\-]*\=".*?")/)
@@ -46,7 +46,7 @@ const parseElement = (string: string, {
 
   const tag: string = attributes.shift();
 
-  let element = null;
+  let element: compiledComponent | null = null;
 
   if (isComponent(tag)) {
     const component = components[tag];
@@ -74,12 +74,12 @@ const parseElement = (string: string, {
       ? document.createElementNS('http://www.w3.org/2000/svg', tag)
       : document.createElement(tag);
 
-    attributes.forEach((item) => {
+    attributes.forEach((item: string) => {
       const [key, value] = item.split('=');
       if (isVariable(value)) {
         element.setAttribute(key, get(ctx, getVariable(value)) || '');
       } else {
-        element.setAttribute(key, value || true);
+        element.setAttribute(key, value);
       }
     });
   }
@@ -89,7 +89,7 @@ export default class Templator {
 
   public name: string;
   public template: string;
-  public components?: object;
+  public components?: Components;
 
 
   constructor (settings: Component) {
@@ -98,13 +98,13 @@ export default class Templator {
     this.name = settings.name || 'nameless component';
   }
 
-  compile(ctx: object): object {
+  compile(ctx: object): compiledComponent {
     return this.compileTemplate(ctx);
   }
 
-  compileTemplate = (ctx) => {
-    let result: HTMLElement | null = null;
-    let current: HTMLElement | null = null;
+  compileTemplate = (ctx: object): compiledComponent => {
+    let result: compiledComponent | null = null;
+    let current: compiledComponent | Node | null = null;
     const { components, name, template } = this;
 
     const elements: string[] = template
@@ -141,8 +141,8 @@ export default class Templator {
       .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1: string, p2: string) => {
         const [item, key] = p1.split(' of ');
         const values = get(ctx, key) || [];
-        const result = values
-          .map((_, index) => {
+        const result: string = values
+          .map((_: unknown, index: number) => {
             return p2.replace(new RegExp('{{' + item + '\.(.*?)}}', 'g'), (_, p12: string) => {
               return `{{${key}[${index}].${p12}}}`
             })
@@ -157,10 +157,10 @@ export default class Templator {
     elements.forEach((item) => {
       if (isTag(item)) {
         if (!isClosedTag(item)) {
-          const element: object | null = parseElement(item, { ctx, components, name });
+          const element: compiledComponent | null = parseElement(item, { ctx, components, name });
 
           if (result) {
-            current.append(element);
+            current.appendChild(element);
           } else {
             result = element;
           }
@@ -181,7 +181,7 @@ export default class Templator {
           const text = isVariable(string)
             ? get(ctx, getVariable(string)) || ''
             : string;
-          current.append(document.createTextNode(text));
+          current.appendChild(document.createTextNode(text));
         });
       }
     })

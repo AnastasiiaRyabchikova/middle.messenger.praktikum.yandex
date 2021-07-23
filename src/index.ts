@@ -1,3 +1,4 @@
+import { compiledComponent } from './types/component';
 import { render } from 'templator';
 
 import ErrorPage from '~/src/pages/Error';
@@ -9,6 +10,6 @@ import './theme/index.css';
 const { pathname } = window.location;
 
 const name = pathname.slice(1);
-const Page = routes[name] || ErrorPage({ code: 404 });
+const Page: compiledComponent = routes[name] || ErrorPage({ code: 404 });
 
 render(document.getElementById('root'), Page);

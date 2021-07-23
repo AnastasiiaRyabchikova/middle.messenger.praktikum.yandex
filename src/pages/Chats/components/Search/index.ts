@@ -1,4 +1,4 @@
-import { Component, Props } from '~/src/types/component';
+import { Component, Props, compiledComponent } from '~/src/types/component';
 import Templator from 'templator';
 
 import UIInput from '~/src/components/UIInput';
@@ -12,7 +12,7 @@ const component: Component = {
   },
 };
 
-const Search = (props: Props = {}) => {
+const Search: Function = (props: Props = {}): compiledComponent => {
   const context = {
     class: props.class,
     ...props,

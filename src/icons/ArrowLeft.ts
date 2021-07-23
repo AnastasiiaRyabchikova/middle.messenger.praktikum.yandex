@@ -1,4 +1,4 @@
-import { Component, Props } from '~/src/types/component';
+import { Component, Props, compiledComponent } from '~/src/types/component';
 import Templator from 'templator';
 
 const template: string = `
@@ -17,7 +17,7 @@ const component: Component = {
   template,
 };
 
-const Icon = (props: Props = {}) => {
+const Icon: Function = (props: Props = {}): compiledComponent => {
   const context = {
     ...props,
   };

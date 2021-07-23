@@ -1,4 +1,4 @@
-import { Component, Props } from '~/src/types/component';
+import { Component, Props, compiledComponent } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 
@@ -10,7 +10,7 @@ const component: Component = {
   template,
 };
 
-const Avatar = (props: Props = {}) => {
+const Avatar: Function = (props: Props = {}): compiledComponent => {
   const ctx = {
     ...props,
     class: cx([styles.avatar, props.class]),

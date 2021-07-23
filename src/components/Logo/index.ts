@@ -1,4 +1,4 @@
-import { Component, Props } from '~/src/types/component';
+import { Component, Props, compiledComponent } from '~/src/types/component';
 import Templator from 'templator';
 
 import template from './index.tpl';
@@ -8,7 +8,7 @@ const component: Component = {
   template,
 };
 
-const Logo = (props: Props = {}) => {
+const Logo: Function = (props: Props = {}): compiledComponent => {
   const ctx = {
     ...props,
   };
