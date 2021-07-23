@@ -1,3 +1,3 @@
-export default (value) => (
+export default (value: unknown): boolean => (
   value && typeof value === 'object' && !Array.isArray(value)
 );
