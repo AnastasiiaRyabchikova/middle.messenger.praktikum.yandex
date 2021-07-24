@@ -11,6 +11,6 @@ export type Props = {
 
 export type Components = {
   [key: string]: Function,
-};
+} | undefined;
 
 export type compiledComponent = HTMLElement | SVGElement | null;

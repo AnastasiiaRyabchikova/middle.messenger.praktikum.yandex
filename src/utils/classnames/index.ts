@@ -21,16 +21,16 @@ export default (value: ClassnameObject | Array<ClassnameObject | string | undefi
     return '';
   }
 
+  if (isObject(value)) {
+    return stringFromObject(value);
+  }
+
   if (isArray(value)) {
     return value
       .reduce((acc: string, cur: ClassnameObject | string) => {
         const rezult = isObject(cur) ? stringFromObject(cur) : cur;
         return `${acc} ${rezult}`;
       }, '');
-  }
-
-  if (isObject(value)) {
-    return stringFromObject(value);
   }
 
   return '';

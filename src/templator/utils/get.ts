@@ -5,12 +5,11 @@ export default (object: object, path: string): any => {
     .split(/[.\[\]]/)
     .map((item) => item.trim())
     .filter((item) => item);
-  let value: any = object;
+  let value: object = object;
   keys.forEach((element: string) => {
-    if (!isObject(value)) {
-      return;
+    if (isObject(value)) {
+      value = value[element];
     }
-    value = value[element];
   });
   return value;
 };

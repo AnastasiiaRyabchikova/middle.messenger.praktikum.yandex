@@ -5,6 +5,7 @@ import {
   isTag,
   isSvgTag,
 } from './utils/tag';
+import isObject from './utils/isObject';
 import get from './utils/get';
 
 const isVariable = (string: string): boolean => {
@@ -44,15 +45,15 @@ const parseElement = (string: string, {
     .map((item) => item.trim().replace(/['|"]/g, ''))
     .filter((item) => item);
 
-  if (attributes.length === 0) {
-    return null;
-  };
-
   const tag: string | undefined = attributes.shift();
+
+  if (!tag) {
+    return null;
+  }
 
   let element: compiledComponent = null;
 
-  if (isComponent(tag)) {
+  if (isComponent(tag) && isObject(components)) {
     const component = components[tag];
     
     if (!component) {
@@ -80,6 +81,9 @@ const parseElement = (string: string, {
 
     attributes.forEach((item: string) => {
       const [key, value] = item.split('=');
+      if (!element) {
+        return null;
+      }
       if (isVariable(value)) {
         element.setAttribute(key, get(ctx, getVariable(value)) || '');
       } else {
@@ -106,9 +110,9 @@ export default class Templator {
     return this.compileTemplate(ctx);
   }
 
-  compileTemplate = (ctx: object): compiledComponent | null => {
-    let result: compiledComponent | null = null;
-    let current: compiledComponent | Node | null = null;
+  compileTemplate = (ctx: object): compiledComponent => {
+    let result: compiledComponent = null;
+    let current: compiledComponent | Node = null;
     const { components, name, template } = this;
 
     const elements: string[] = template
@@ -163,7 +167,7 @@ export default class Templator {
         if (!isClosedTag(item)) {
           const element: compiledComponent = parseElement(item, { ctx, components, name });
 
-          if (result) {
+          if (result && current && element) {
             current.appendChild(element);
           } else {
             result = element;
@@ -174,7 +178,9 @@ export default class Templator {
           }
 
         } else {
-          current = current.parentNode;
+          if (current) {
+            current = current.parentNode;
+          }
         }
 
       } else {
@@ -185,7 +191,9 @@ export default class Templator {
           const text = isVariable(string)
             ? get(ctx, getVariable(string)) || ''
             : string;
-          current.appendChild(document.createTextNode(text));
+          if (current) {
+            current.appendChild(document.createTextNode(text));
+          }
         });
       }
     })

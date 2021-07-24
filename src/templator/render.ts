@@ -5,6 +5,10 @@ const render = (root: HTMLElement | null, Component: compiledComponent): void =>
     throw new Error('Не определен корень проекта');
   }
 
+  if (!Component) {
+    throw new Error('Нет корневого компонента');
+  }
+
   root.appendChild(Component);
 };
 
