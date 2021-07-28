@@ -1,15 +1,15 @@
-import { Component, Props, compiledComponent } from '~/src/types/component';
+import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-const component: Component = {
+const component: ComponentType = {
   name: 'UIInput',
   template,
 };
 
-const UIInput: Function = (props: Props = {}): compiledComponent => {
+const UIInput: Function = (props: PropsType = {}): compiledComponentType => {
   const ctx = {
     label: props.label,
     type: props.type || 'text',

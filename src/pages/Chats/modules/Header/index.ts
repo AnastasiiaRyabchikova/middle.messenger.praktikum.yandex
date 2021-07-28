@@ -1,4 +1,4 @@
-import { Component, Props, compiledComponent } from '~/src/types/component';
+import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
 import Templator from 'templator';
 
 import Avatar from '~/src/components/Avatar';
@@ -6,7 +6,7 @@ import { IconEllipsisVAlt } from '~/src/icons';
 
 import template from './index.tpl';
 
-const component: Component = {
+const component: ComponentType = {
   name: 'ChatPageHeader',
   template,
   components: {
@@ -16,7 +16,7 @@ const component: Component = {
 };
 
 
-const Page: Function = (props: Props = {}): compiledComponent => {
+const Page: Function = (props: PropsType = {}): compiledComponentType => {
   const context = {
     ...props,
   };

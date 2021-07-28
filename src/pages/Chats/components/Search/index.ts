@@ -1,10 +1,10 @@
-import { Component, Props, compiledComponent } from '~/src/types/component';
+import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
 import Templator from 'templator';
 
 import UIInput from '~/src/components/UIInput';
 import template from './index.tpl';
 
-const component: Component = {
+const component: ComponentType = {
   name: 'SearchCompanion',
   template,
   components: {
@@ -12,7 +12,7 @@ const component: Component = {
   },
 };
 
-const Search: Function = (props: Props = {}): compiledComponent => {
+const Search: Function = (props: PropsType = {}): compiledComponentType => {
   const context = {
     class: props.class,
     ...props,

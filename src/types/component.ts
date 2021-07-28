@@ -1,16 +1,16 @@
-export interface Component {
+export interface ComponentType {
   name: string,
   template: string,
-  components?: Components
+  components?: ComponentsType,
 };
 
-export type Props = {
+export type PropsType = {
   class?: string,
   [key: string]: unknown,
 };
 
-export type Components = {
+export type ComponentsType = {
   [key: string]: Function,
 } | undefined;
 
-export type compiledComponent = HTMLElement | SVGElement | null;
+export type compiledComponentType = HTMLElement | SVGElement | null;

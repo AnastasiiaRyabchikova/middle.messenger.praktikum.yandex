@@ -1,16 +1,16 @@
-import { Component, Props, compiledComponent } from '~/src/types/component';
+import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
 import Templator from 'templator';
 import cx from 'classnames';
 
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-const component: Component = {
+const component: ComponentType = {
   name: 'Avatar',
   template,
 };
 
-const Avatar: Function = (props: Props = {}): compiledComponent => {
+const Avatar: Function = (props: PropsType = {}): compiledComponentType => {
   const ctx = {
     ...props,
     class: cx([styles.avatar, props.class]),

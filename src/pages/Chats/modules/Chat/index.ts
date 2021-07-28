@@ -1,4 +1,4 @@
-import { Component, Props, compiledComponent } from '~/src/types/component';
+import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
 import Templator from 'templator';
 
 import cx from 'classnames';
@@ -12,7 +12,7 @@ import template from './index.tpl';
 import { messages } from './mocks';
 import * as styles from './styles.module.css';
 
-const component: Component = {
+const component: ComponentType = {
   name: 'ChatPage',
   template,
   components: {
@@ -22,7 +22,7 @@ const component: Component = {
   },
 };
 
-const Page: Function = (props: Props = {}): compiledComponent => {
+const Page: Function = (props: PropsType = {}): compiledComponentType => {
   const context = {
     ...props,
     messages,

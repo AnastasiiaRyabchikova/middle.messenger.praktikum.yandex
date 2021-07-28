@@ -1,4 +1,4 @@
-import { Component } from '~/src/types/component';
+import { ComponentType } from '~/src/types/component';
 import Templator from 'templator';
 
 import Logo from '~/src/components/Logo';
@@ -22,7 +22,7 @@ type ctxType = {
   message: string,
 };
 
-const component: Component = {
+const component: ComponentType = {
   name: 'UserFormPage',
   template,
   components: {

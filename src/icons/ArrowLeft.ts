@@ -1,4 +1,4 @@
-import { Component, Props, compiledComponent } from '~/src/types/component';
+import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
 import Templator from 'templator';
 
 const template: string = `
@@ -12,12 +12,12 @@ const template: string = `
   </svg>
 `;
 
-const component: Component = {
+const component: ComponentType = {
   name: 'IconArrowLeft',
   template,
 };
 
-const Icon: Function = (props: Props = {}): compiledComponent => {
+const Icon: Function = (props: PropsType = {}): compiledComponentType => {
   const context = {
     ...props,
   };

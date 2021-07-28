@@ -1,12 +1,12 @@
 import Templator from 'templator';
 
-import { Component, Props, compiledComponent } from '~/src/types/component';
+import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
 
 import { IconArrow } from '~/src/icons';
 
 import template from './index.tpl';
 
-const component: Component = {
+const component: ComponentType = {
   name: 'MessageTextarea',
   template,
   components: {
@@ -15,7 +15,7 @@ const component: Component = {
 };
 
 
-const Page: Function = (props: Props = {}): compiledComponent => {
+const Page: Function = (props: PropsType = {}): compiledComponentType => {
   const context = {
     ...props,
   };

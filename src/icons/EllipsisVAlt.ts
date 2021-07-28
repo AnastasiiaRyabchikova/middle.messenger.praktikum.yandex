@@ -1,4 +1,4 @@
-import { Component, Props, compiledComponent } from '~/src/types/component';
+import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
 import Templator from 'templator';
 
 const template: string = `
@@ -10,12 +10,12 @@ const template: string = `
   <path d="M96 152c39.8 0 72-32.2 72-72S135.8 8 96 8 24 40.2 24 80s32.2 72 72 72zm0-112c22.1 0 40 17.9 40 40s-17.9 40-40 40-40-17.9-40-40 17.9-40 40-40zm0 144c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm0 112c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm0 64c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm0 112c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z" />
 </svg>`;
 
-const component: Component = {
+const component: ComponentType = {
   name: 'IconEllipsisVAlt',
   template,
 };
 
-const Icon: Function = (props: Props = {}): compiledComponent => {
+const Icon: Function = (props: PropsType = {}): compiledComponentType => {
   const context = {
     ...props,
   };

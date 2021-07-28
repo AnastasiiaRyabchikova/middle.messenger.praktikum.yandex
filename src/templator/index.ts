@@ -1,4 +1,4 @@
-import { Component, Components, compiledComponent } from '~/src/types/component';
+import { ComponentType, ComponentsType, compiledComponentType } from '~/src/types/component';
 import {
   isClosedTag,
   isSelfClosingTag,
@@ -30,7 +30,7 @@ const getVariable = (string: string): string => {
 
 type parseElementProps = {
   ctx: object,
-  components: Components,
+  components: ComponentsType,
   name: string,
 };
 
@@ -38,7 +38,7 @@ const parseElement = (string: string, {
   ctx,
   components,
   name,
-}: parseElementProps): compiledComponent => {
+}: parseElementProps): compiledComponentType => {
   const attributes: Array<string> = string
     .replace(/(<|\/{0,1}>)/g, '')
     .split(/(?=\s[a-zA-Z\-]*\=".*?")/)
@@ -51,7 +51,7 @@ const parseElement = (string: string, {
     return null;
   }
 
-  let element: compiledComponent = null;
+  let element: compiledComponentType = null;
 
   if (isComponent(tag) && isObject(components)) {
     const component = components[tag];
@@ -97,22 +97,22 @@ export default class Templator {
 
   public name: string;
   public template: string;
-  public components?: Components;
+  public components?: ComponentsType;
 
 
-  constructor (settings: Component) {
+  constructor (settings: ComponentType) {
     this.template = settings.template;
     this.components = settings.components || {};
     this.name = settings.name || 'nameless component';
   }
 
-  compile(ctx: object): compiledComponent {
+  compile(ctx: object): compiledComponentType {
     return this.compileTemplate(ctx);
   }
 
-  compileTemplate = (ctx: object): compiledComponent => {
-    let result: compiledComponent = null;
-    let current: compiledComponent | Node = null;
+  compileTemplate = (ctx: object): compiledComponentType => {
+    let result: compiledComponentType = null;
+    let current: compiledComponentType | Node = null;
     const { components, name, template } = this;
 
     const elements: string[] = template
@@ -165,7 +165,7 @@ export default class Templator {
     elements.forEach((item: string): void => {
       if (isTag(item)) {
         if (!isClosedTag(item)) {
-          const element: compiledComponent = parseElement(item, { ctx, components, name });
+          const element: compiledComponentType = parseElement(item, { ctx, components, name });
 
           if (result && current && element) {
             current.appendChild(element);

@@ -1,4 +1,4 @@
-import { Component, Props, compiledComponent } from '~/src/types/component';
+import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
 import Templator from 'templator';
 
 import Logo from '../../components/Logo';
@@ -7,7 +7,7 @@ import Button from '../../components/Button';
 
 import template from './index.tpl';
 
-const component: Component = {
+const component: ComponentType = {
   name: 'AuthorizationPage',
   template,
   components: {
@@ -17,7 +17,7 @@ const component: Component = {
   },
 };
 
-const Page: Function = (props: Props = {}): compiledComponent => {
+const Page: Function = (props: PropsType = {}): compiledComponentType => {
   const ctx = {
     ...props,
   };
