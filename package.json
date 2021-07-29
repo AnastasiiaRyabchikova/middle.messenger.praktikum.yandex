@@ -22,7 +22,8 @@
   },
   "alias": {
     "templator": "./src/templator",
-    "classnames": "./src/utils/classnames"
+    "classnames": "./src/utils/classnames",
+    "ryabact": "./src/Ryabact"
   },
   "browserslist": [
     "> 1%"

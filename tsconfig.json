@@ -14,6 +14,7 @@
     "paths": {
       "templator": ["./src/templator"],
       "classnames": ["./src/utils/classnames"],
+      "ryabact": ["./src/Ryabact"],
       "~/*": ["./*"]
     },
     "typeRoots": ["node_modules/@types"],
