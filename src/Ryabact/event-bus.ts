@@ -1,4 +1,4 @@
-export default class EventBus {
+class EventBus {
   listeners: {
     [key: string]: Function[],
   };
@@ -10,22 +10,30 @@ export default class EventBus {
     if (!this.listeners[eventName]) {
       this.listeners[eventName] = [];
     }
+
     this.listeners[eventName].push(callback);
   }
 
-  emit(eventName: string): void {
-    this.listeners[eventName].forEach(listener => {
-      listener();
+  emit(eventName: string, ...args: any[]) {
+    if (!this.listeners[eventName]) {
+      throw new Error(`Нет события: ${eventName}`);
+    }
+    
+    this.listeners[eventName].forEach((listener) => {
+      listener(...args);
     });
   }
 
   detach(eventName: string, callback: Function): void {
-    const listeners = this.listeners[eventName]
-      .filter((listener: Function) => listener === callback);
-
-    this.listeners[eventName] = listeners;
-    if (!listeners.length) {
+    if (!this.listeners[eventName]) {
+      throw new Error(`Нет события: ${eventName}`);
+    }
+    
+    this.listeners[eventName] = this.listeners[eventName]
+        .filter((item) => item !== callback);
+    
+    if (this.listeners[eventName].length === 0) {
       delete this.listeners[eventName];
     }
   }
-};
+}
