@@ -1,22 +1,32 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
-import cx from 'classnames';
-import template from './index.tpl';
-import * as styles from './styles.module.css';
+import { PropsType } from '~/src/types/component';
+// import Templator from 'templator';
+// import cx from 'classnames';
+import * as Ryabact from 'ryabact';
+// import template from './index.tpl';
+// import * as styles from './styles.module.css';
 
-const component: ComponentType = {
-  name: 'Button',
-  template,
+export default class Button extends Ryabact.Component {
+  constructor (props: PropsType) {
+    super({
+      props,
+      name: 'Button',
+    });
+  }
 };
 
-const Button: Function = (props: PropsType = {}): compiledComponentType => {
-  const ctx = {
-    class: cx([styles.button, props.class]),
-    type: props.type || 'button',
-    label: props.label,
-  };
+// const component: ComponentType = {
+//   name: 'Button',
+//   template,
+// };
 
-  return new Templator(component).compile(ctx);
-};
+// const Button: Function = (props: PropsType = {}): compiledComponentType => {
+//   const ctx = {
+//     class: cx([styles.button, props.class]),
+//     type: props.type || 'button',
+//     label: props.label,
+//   };
 
-export default Button;
+//   return new Templator(component).compile(ctx);
+// };
+
+// export default Button;
