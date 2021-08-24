@@ -16,6 +16,7 @@ export type ComponentsType = {
 export interface ComponentSettingsInterface {
   props: PropsType,
   name: string,
+  template: string,
 };
 
 export type compiledComponentType = HTMLElement | SVGElement | null;
