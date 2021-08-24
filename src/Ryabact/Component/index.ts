@@ -1,4 +1,4 @@
-import { compiledComponentType } from '~/src/types/component';
+import { compiledComponentType, ComponentSettingsInterface } from '~/src/types/component';
 import EventBus from '../event-bus';
 
 export default class Component {
@@ -8,6 +8,7 @@ export default class Component {
     FLOW_RENDER: "flow:render"
   };
 
+  _name: string = '';
   _element: compiledComponentType = null;
   _meta: {
     [key: string]: any,
@@ -16,11 +17,12 @@ export default class Component {
   props: object;
   eventBus: Function;
 
-  constructor(tagName: string = "div", props: object = {}) {
+  constructor({ props = {}, name } : ComponentSettingsInterface) {
+    this._name = name;
     const eventBus = new EventBus();
 
     this._meta = {
-      tagName,
+      tagName: 'div',
       props,
     };
 
@@ -102,6 +104,16 @@ export default class Component {
 
   _makePropsProxy(props: object): object {
     // Здесь вам предстоит реализовать метод
+    return new Proxy(props, {
+      get(target: object, prop: string) {
+        const value: any = target[prop];
+        return typeof value === "function" ? value.bind(target) : value;
+      },
+      set(target: object, prop: string, value: any) {
+        target[prop] = value;
+        return true;
+      },
+    });
     return props;
   }
 
