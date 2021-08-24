@@ -13,4 +13,9 @@ export type ComponentsType = {
   [key: string]: Function,
 } | undefined;
 
+export interface ComponentSettingsInterface {
+  props: PropsType,
+  name: string,
+};
+
 export type compiledComponentType = HTMLElement | SVGElement | null;
