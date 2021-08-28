@@ -16,5 +16,6 @@ import './theme/index.css';
 //   render(document.getElementById('root'), Page);
 // }
 
-render(document.getElementById('root'), new Button());
+const MyButton = new Button({ label: 'Кнопка' });
 
+render(document.getElementById('root'), MyButton.element);
