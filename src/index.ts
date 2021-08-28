@@ -1,7 +1,6 @@
 import { render } from 'templator';
-import Button from '~/src/components/Button';
 // import { compiledComponentType } from './types/component';
-// import ErrorPage from '~/src/pages/Error';
+import ErrorPage from '~/src/pages/Error';
 
 // import routes from './routes';
 
@@ -16,6 +15,6 @@ import './theme/index.css';
 //   render(document.getElementById('root'), Page);
 // }
 
-const MyButton = new Button({ label: 'Кнопка' });
+const Page = new ErrorPage({ label: 'Кнопка' });
 
-render(document.getElementById('root'), MyButton.element);
+render(document.getElementById('root'), Page.element);

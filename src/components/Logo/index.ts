@@ -1,19 +1,17 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
-
+import { PropsType } from '~/src/types/component';
+import * as Ryabact from 'ryabact';
 import template from './index.tpl';
 
-const component: ComponentType = {
-  name: 'Logo',
-  template,
+export default class Logo extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+    };
+
+    super({
+      props,
+      name: 'Logo',
+      template,
+    });
+  }
 };
-
-const Logo: Function = (props: PropsType = {}): compiledComponentType => {
-  const ctx = {
-    ...props,
-  };
-
-  return new Templator(component).compile(ctx)
-};
-
-export default Logo;

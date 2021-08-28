@@ -1,5 +1,5 @@
 import Templator from 'templator';
-import { compiledComponentType, ComponentSettingsInterface } from '~/src/types/component';
+import { compiledComponentType, ComponentSettingsInterface, ComponentsType } from '~/src/types/component';
 
 import EventBus from '../event-bus';
 
@@ -18,12 +18,14 @@ export default class Component {
     [key: string]: any,
     tagName: string,
   } | null = null;
+  _components: ComponentsType;
   props: object;
   eventBus: Function;
 
-  constructor({ props = {}, name, template } : ComponentSettingsInterface) {
+  constructor({ props = {}, name, template, components } : ComponentSettingsInterface) {
     this._name = name;
     this._template = template;
+    this._components = components;
     const eventBus = new EventBus();
 
     this._meta = {
@@ -110,6 +112,7 @@ export default class Component {
     const component = {
       name: this._name,
       template: this._template,
+      components: this._components,
     }
     return new Templator(component).compile(this.props);
   }

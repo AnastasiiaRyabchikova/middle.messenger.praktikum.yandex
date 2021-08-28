@@ -1,4 +1,4 @@
-import { ComponentType, ComponentsType, compiledComponentType } from '~/src/types/component';
+import { ComponentType, ComponentsType, compiledComponentType, PropsType } from '~/src/types/component';
 import {
   isClosedTag,
   isSelfClosingTag,
@@ -54,13 +54,13 @@ const parseElement = (string: string, {
   let element: compiledComponentType = null;
 
   if (isComponent(tag) && isObject(components)) {
-    const component = components[tag];
+    const Component: ClassDecorator = components[tag];
     
-    if (!component) {
+    if (!Component) {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
     }
     
-    const componentCtx: object = attributes.reduce((acc: object, cur: string): object => {
+    const componentCtx: PropsType = attributes.reduce((acc: object, cur: string): object => {
       const [key, value] = cur.split('=');
       const prop = isVariable(value)
         ? get(ctx, getVariable(value)) || ''
@@ -71,8 +71,7 @@ const parseElement = (string: string, {
         [key]: prop,
       }
     }, {});
-    element = component(componentCtx);
-
+    element = new Component(componentCtx).element;
 
   } else {
     element = isSvgTag(tag)

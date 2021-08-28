@@ -10,13 +10,14 @@ export type PropsType = {
 };
 
 export type ComponentsType = {
-  [key: string]: Function,
+  [key: string]: ClassDecorator,
 } | undefined;
 
 export interface ComponentSettingsInterface {
   props: PropsType,
   name: string,
   template: string,
+  components?: ComponentsType,
 };
 
 export type compiledComponentType = HTMLElement | SVGElement | null;

@@ -1,14 +1,10 @@
-import { ComponentType } from '~/src/types/component';
-import Templator from 'templator';
-
+import { PropsType } from '~/src/types/component';
+import cx from 'classnames';
+import * as Ryabact from 'ryabact';
 import Logo from '~/src/components/Logo';
-
 import template from './index.tpl';
+import * as styles from './styles.module.css';
 
-type Props = {
-  code: number,
-  [key: string]: any,
-};
 
 const messages: {
   [key: string]: string,
@@ -17,27 +13,22 @@ const messages: {
   500: 'Ошибка сервера',
 };
 
-type ctxType = {
-  code: number,
-  message: string,
-};
+export default class PageError extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const { code = 404 }: { code?: string } = context;
+    const props: PropsType = {
+      ...context,
+      code,
+      message: messages[code],
+    };
 
-const component: ComponentType = {
-  name: 'UserFormPage',
-  template,
-  components: {
-    Logo,
-  },
+    super({
+      props,
+      name: 'PageError',
+      template,
+      components: {
+        Logo,
+      },
+    });
+  }
 };
-
-const Page = (props: Props) => {
-  const { code } = props;
-  const context: ctxType = {
-    ...props,
-    code,
-    message: messages[code],
-  };
-  return new Templator(component).compile(context);
-};
-
-export default Page;
