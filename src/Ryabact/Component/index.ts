@@ -1,5 +1,10 @@
 import Templator from 'templator';
-import { compiledComponentType, ComponentSettingsInterface, ComponentsType } from '~/src/types/component';
+import {
+  compiledComponentType,
+  ComponentSettingsInterface,
+  ComponentsType,
+  PropsType,
+} from '~/src/types/component';
 
 import EventBus from '../event-bus';
 
@@ -19,7 +24,7 @@ export default class Component {
     tagName: string,
   } | null = null;
   _components: ComponentsType;
-  props: object;
+  props: PropsType;
   eventBus: Function;
 
   constructor({ props = {}, name, template, components } : ComponentSettingsInterface) {
@@ -54,6 +59,12 @@ export default class Component {
     }
     const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
+  }
+
+  _addEvents() {
+    const { events } = this.props;
+
+    console.log(events);
   }
 
   init() {
@@ -121,9 +132,9 @@ export default class Component {
     return this.element;
   }
 
-  _makePropsProxy(props: object): object {
-    // Здесь вам предстоит реализовать метод
+  _makePropsProxy(props: PropsType): PropsType {
     const eventBus = this.eventBus();
+
     return new Proxy(props, {
       get(target: object, prop: string) {
         const value: any = target[prop];
