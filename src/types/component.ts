@@ -4,8 +4,13 @@ export interface ComponentType {
   components?: ComponentsType,
 };
 
+export type eventsType = {
+  [key: string]: Function,
+} | undefined;
+
 export type PropsType = {
   class?: string,
+  events?: eventsType,
   [key: string]: unknown,
 };
 
