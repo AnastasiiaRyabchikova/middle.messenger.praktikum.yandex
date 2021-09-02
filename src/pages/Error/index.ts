@@ -2,6 +2,7 @@ import { PropsType } from '~/src/types/component';
 import cx from 'classnames';
 import * as Ryabact from 'ryabact';
 import Logo from '~/src/components/Logo';
+import Button from '~/src/components/Button';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -28,6 +29,7 @@ export default class PageError extends Ryabact.Component {
       template,
       components: {
         Logo,
+        Button,
       },
     });
   }
