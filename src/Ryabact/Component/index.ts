@@ -17,11 +17,10 @@ export default class Component {
   };
 
   _name: string = '';
-  _element: compiledComponentType = null;
+  _element: DocumentFragment | null = null;
   _template: string = '';
   _meta: {
     [key: string]: any,
-    tagName: string,
   } | null = null;
   _components: ComponentsType;
   props: PropsType;
@@ -34,7 +33,6 @@ export default class Component {
     const eventBus = new EventBus();
 
     this._meta = {
-      tagName: 'div',
       props,
     };
     
@@ -54,17 +52,29 @@ export default class Component {
   }
 
   _createResources() {
-    if (!this._meta) {
-      return;
-    }
-    const { tagName } = this._meta;
-    this._element = this._createDocumentElement(tagName);
+    this._element = document.createDocumentFragment();
   }
 
   _addEvents() {
     const { events } = this.props;
+    const current = this.element?.firstChild;
 
-    console.log(events);
+    if (events && current) {
+      Object.keys(events).forEach((eventName) => {
+        current.addEventListener(eventName, events[eventName]);
+      });
+    }
+  }
+
+  _removeEvents() {
+    const { events } = this.props;
+    const current = this.element?.firstChild;
+
+    if (events && current) {
+      Object.keys(events).forEach((eventName) => {
+        current.removeEventListener(eventName, events[eventName]);
+      });
+    }
   }
 
   init() {
@@ -82,6 +92,7 @@ export default class Component {
   _componentDidUpdate(oldProps: object = {}, newProps: object = {}) {
     //
     if (this.componentDidUpdate(oldProps, newProps)) {
+      this._removeEvents();
       this._render();
     }
   }
@@ -109,6 +120,8 @@ export default class Component {
       this._clearElement();
       this._element.appendChild(block);
     }
+
+    this._addEvents();
   }
 
   _clearElement() {
@@ -147,11 +160,6 @@ export default class Component {
         return true;
       },
     });
-  }
-
-  _createDocumentElement(tagName: string) {
-    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
-    return document.createElement(tagName);
   }
 
   show() {
