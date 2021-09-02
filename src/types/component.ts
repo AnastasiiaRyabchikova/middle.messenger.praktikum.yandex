@@ -5,7 +5,7 @@ export interface ComponentType {
 };
 
 export type eventsType = {
-  [key: string]: Function,
+  [key: string]: EventHandlerNonNull,
 } | undefined;
 
 export type PropsType = {
