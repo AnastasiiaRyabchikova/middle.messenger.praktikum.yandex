@@ -12,6 +12,7 @@ export default class Logo extends Ryabact.Component {
       props,
       name: 'Logo',
       template,
+      containerTemplate: '<span />',
     });
   }
 };

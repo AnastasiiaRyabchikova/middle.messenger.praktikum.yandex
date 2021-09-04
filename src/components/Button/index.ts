@@ -11,15 +11,14 @@ export default class Button extends Ryabact.Component {
       class: cx([styles.button, context.class]),
       type: context.type || 'button',
       label: context.label,
-      events: {
-        click: (e: Event) => console.log('button-click', e)
-      },
+      events: context.events,
     };
 
     super({
       props,
       name: 'Button',
       template,
+      containerTemplate: '<span />',
     });
   }
 };
