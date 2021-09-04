@@ -1,27 +1,27 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
-
+import * as Ryabact from 'ryabact';
+import { PropsType } from '~/src/types/component';
 import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';
+import * as styles from './styles.module.css';
+export default class Component extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      src: context.src,
+      name: context.name,
+      surname: context.surname,
+      unreadMessagesCount: context.unreadMessagesCount,
+      message: context.message,
+      date: context.date,
+    };
 
-const component: ComponentType = {
-  name: 'ChatCompanion',
-  template,
-  components: {
-    Avatar,
-  },
+    super({
+      props,
+      name: 'ChatCompanion',
+      template,
+      components: {
+        Avatar,
+      },
+      containerTemplate: `<div class="${styles.container}" />`,
+    });
+  }
 };
-
-const Page: Function = (props: PropsType = {}): compiledComponentType => {
-  const context = {
-    src: props.src,
-    name: props.name,
-    surname: props.surname,
-    unreadMessagesCount: props.unreadMessagesCount,
-    message: props.message,
-    date: props.date,
-  };
-  return new Templator(component).compile(context);
-};
-
-export default Page;

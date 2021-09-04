@@ -8,7 +8,9 @@ import {
 
 import EventBus from '../event-bus';
 
-export default class Component {
+import { interfaceRyabactComponents } from '~/src/types/component';
+
+export default class Component implements interfaceRyabactComponents {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
@@ -16,16 +18,14 @@ export default class Component {
     FLOW_RENDER: "flow:render"
   };
 
-  _name: string = '';
-  _element: compiledComponentType | null = null;
-  _template: string = '';
-  _meta: {
-    [key: string]: any,
-  } | null = null;
-  _components: ComponentsType;
-  _containerTemplate: string;
-  props: PropsType;
-  eventBus: Function;
+  _name = '';
+  _element = null;
+  _template = '';
+  _meta = null;
+  _components;
+  _containerTemplate;
+  props;
+  eventBus;
 
   constructor({
     props = {},

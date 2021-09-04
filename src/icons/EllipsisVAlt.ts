@@ -1,5 +1,5 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
+import { PropsType } from '~/src/types/component';
+import * as Ryabact from 'ryabact';
 
 const template: string = `
 <svg
@@ -10,16 +10,17 @@ const template: string = `
   <path d="M96 152c39.8 0 72-32.2 72-72S135.8 8 96 8 24 40.2 24 80s32.2 72 72 72zm0-112c22.1 0 40 17.9 40 40s-17.9 40-40 40-40-17.9-40-40 17.9-40 40-40zm0 144c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm0 112c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm0 64c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm0 112c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z" />
 </svg>`;
 
-const component: ComponentType = {
-  name: 'IconEllipsisVAlt',
-  template,
-};
+export default class Icon extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+    };
 
-const Icon: Function = (props: PropsType = {}): compiledComponentType => {
-  const context = {
-    ...props,
-  };
-  return new Templator(component).compile(context);
+    super({
+      props,
+      name: 'IconEllipsisVAlt',
+      template,
+      containerTemplate: `<span />`,
+    });
+  }
 };
-
-export default Icon;

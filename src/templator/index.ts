@@ -72,7 +72,6 @@ const parseElement = (string: string, {
       }
     }, {});
     element = new Component(componentCtx).element;
-
   } else {
     element = isSvgTag(tag)
       ? document.createElementNS('http://www.w3.org/2000/svg', tag)

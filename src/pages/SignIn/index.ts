@@ -1,6 +1,5 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
-
+import { PropsType } from '~/src/types/component';
+import * as Ryabact from 'ryabact';
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
@@ -52,22 +51,24 @@ const inputs = [
   },
 ];
 
-const component: ComponentType = {
-  name: 'AuthorizationPage',
-  template,
-  components: {
-    Logo,
-    UIInput,
-    Button,
-  },
+export default class Component extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+      inputs,
+    };
+
+    super({
+      props,
+      name: 'SignInPage',
+      template,
+      components: {
+        Logo,
+        UIInput,
+        Button,
+      },
+      containerTemplate: `<div />`,
+    });
+  }
 };
 
-const Page: Function = (props: PropsType = {}): compiledComponentType => {
-  const context = {
-    ...props,
-    inputs,
-  };
-  return new Templator(component).compile(context);
-};
-
-export default Page;

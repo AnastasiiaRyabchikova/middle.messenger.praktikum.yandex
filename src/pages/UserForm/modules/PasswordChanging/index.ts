@@ -1,9 +1,7 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '~/src/types/component';
 import cx from 'classnames';
-
 import UIInput from '~/src/components/UIInput';
-
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -45,24 +43,26 @@ const inputs = [
   },
 ];
 
-const component: ComponentType = {
-  name: 'AuthorizationPage',
-  template,
-  components: {
-    UIInput,
-  },
+export default class Component extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+      inputs,
+      class: cx([
+        styles.wrapper,
+        context.class,
+      ]),
+    };
+
+    super({
+      props,
+      name: 'PasswordChangingPage',
+      template,
+      components: {
+        UIInput,
+      },
+      containerTemplate: `<span />`,
+    });
+  }
 };
 
-const Page: Function = (props: PropsType = {}): compiledComponentType => {
-  const context = {
-    ...props,
-    inputs,
-    class: cx([
-      styles.wrapper,
-      props.class,
-    ]),
-  };
-  return new Templator(component).compile(context);
-};
-
-export default Page;

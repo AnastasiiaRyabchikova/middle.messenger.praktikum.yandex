@@ -1,5 +1,5 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
+import { PropsType } from '~/src/types/component';
+import * as Ryabact from 'ryabact';
 
 import { IconArrowLeft } from '~/src/icons';
 
@@ -9,6 +9,7 @@ import Button from '~/src/components/Button';
 import Avatar from '~/src/components/Avatar';
 
 import template from './index.tpl';
+import * as styles from './styles.module.css';
 
 const inputs = [
   {
@@ -30,25 +31,25 @@ const inputs = [
     placeholder: 'password',
   },
 ];
+export default class Page extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+      inputs,
+    };
 
-const component: ComponentType = {
-  name: 'UserFormPage',
-  template,
-  components: {
-    Logo,
-    UIInput,
-    Button,
-    Avatar,
-    IconArrowLeft,
-  },
+    super({
+      props,
+      name: 'ChangePasswordPage',
+      template,
+      components: {
+        Logo,
+        UIInput,
+        Button,
+        Avatar,
+        IconArrowLeft,
+      },
+      containerTemplate: `<div class="${styles.container}" />`,
+    });
+  }
 };
-
-const Page: Function = (props: PropsType = {}): compiledComponentType => {
-  const context = {
-    ...props,
-    inputs,
-  };
-  return new Templator(component).compile(context);
-};
-
-export default Page;

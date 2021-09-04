@@ -1,11 +1,8 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
+import { PropsType } from '~/src/types/component';
+import * as Ryabact from 'ryabact';
 import routes from '~/src/constants/pathnames';
-
 import Avatar from '~/src/components/Avatar';
-
 import { companions } from './mocks';
-
 import Search from './components/Search';
 import Companion from './components/Companion';
 import Chat from './modules/Chat';
@@ -24,25 +21,26 @@ const companionsMapped = companions
     }
   ));
 
-const component: ComponentType = {
-  name: 'ChatPage',
-  template,
-  components: {
-    Companion,
-    Avatar,
-    Search,
-    Chat,
-    Header,
-  },
-};
+export default class Component extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+      companions: companionsMapped,
+      selectedChat,
+    };
 
-const Page: Function = (props: PropsType = {}): compiledComponentType => {
-  const context = {
-    ...props,
-    companions: companionsMapped,
-    selectedChat,
-  };
-  return new Templator(component).compile(context);
+    super({
+      props,
+      name: 'ChatPage',
+      template,
+      components: {
+        Companion,
+        Avatar,
+        Search,
+        Chat,
+        Header,
+      },
+      containerTemplate: `<div />`,
+    });
+  }
 };
-
-export default Page;

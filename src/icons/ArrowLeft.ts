@@ -1,5 +1,5 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
+import { PropsType } from '~/src/types/component';
+import * as Ryabact from 'ryabact';
 
 const template: string = `
   <svg
@@ -12,16 +12,17 @@ const template: string = `
   </svg>
 `;
 
-const component: ComponentType = {
-  name: 'IconArrowLeft',
-  template,
-};
+export default class Icon extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+    };
 
-const Icon: Function = (props: PropsType = {}): compiledComponentType => {
-  const context = {
-    ...props,
-  };
-  return new Templator(component).compile(context);
+    super({
+      props,
+      name: 'IconArrowLeft',
+      template,
+      containerTemplate: `<span />`,
+    });
+  }
 };
-
-export default Icon;

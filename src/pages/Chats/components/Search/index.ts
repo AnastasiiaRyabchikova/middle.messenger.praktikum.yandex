@@ -1,23 +1,23 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
-
+import * as Ryabact from 'ryabact';
+import { PropsType } from '~/src/types/component';
 import UIInput from '~/src/components/UIInput';
 import template from './index.tpl';
 
-const component: ComponentType = {
-  name: 'SearchCompanion',
-  template,
-  components: {
-    UIInput,
-  },
-};
+export default class Component extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+      class: context.class,
+    };
 
-const Search: Function = (props: PropsType = {}): compiledComponentType => {
-  const context = {
-    class: props.class,
-    ...props,
-  };
-  return new Templator(component).compile(context);
+    super({
+      props,
+      name: 'SearchCompanion',
+      template,
+      components: {
+        UIInput,
+      },
+      containerTemplate: `<span />`,
+    });
+  }
 };
-
-export default Search;

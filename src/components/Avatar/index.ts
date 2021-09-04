@@ -1,21 +1,21 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
+import { PropsType } from '~/src/types/component';
+import * as Ryabact from 'ryabact';
 import cx from 'classnames';
-
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-const component: ComponentType = {
-  name: 'Avatar',
-  template,
-};
+export default class Component extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+      class: cx([styles.avatar, context.class]),
+    };
 
-const Avatar: Function = (props: PropsType = {}): compiledComponentType => {
-  const ctx = {
-    ...props,
-    class: cx([styles.avatar, props.class]),
-  };
-  return new Templator(component).compile(ctx);
+    super({
+      props,
+      name: 'Avatar',
+      template,
+      containerTemplate: `<span />`,
+    });
+  }
 };
-
-export default Avatar;

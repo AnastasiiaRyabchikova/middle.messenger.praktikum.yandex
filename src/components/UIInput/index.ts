@@ -1,34 +1,36 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
+import { PropsType } from '~/src/types/component';
+import * as Ryabact from 'ryabact';
 import cx from 'classnames';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-const component: ComponentType = {
-  name: 'UIInput',
-  template,
-};
+export default class Component extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+      label: context.label,
+      type: context.type || 'text',
+      placeholder: context.placeholder,
+      name: context.name,
+      error: context.error,
+      shouldShowError: Boolean(context.error),
+      inputClass: cx([
+        styles.input,
+        { [styles.error]: Boolean(context.error) },
+      ]),
+      class: cx([
+        styles.wrapper,
+        context.class,
+        { [styles.solid]: context.appearance === 'solid' },
+      ]),
+      value: context.value,
+    };
 
-const UIInput: Function = (props: PropsType = {}): compiledComponentType => {
-  const ctx = {
-    label: props.label,
-    type: props.type || 'text',
-    placeholder: props.placeholder,
-    name: props.name,
-    error: props.error,
-    shouldShowError: Boolean(props.error),
-    inputClass: cx([
-      styles.input,
-      { [styles.error]: Boolean(props.error) },
-    ]),
-    class: cx([
-      styles.wrapper,
-      props.class,
-      { [styles.solid]: props.appearance === 'solid' },
-    ]),
-    value: props.value,
-  };
-  return new Templator(component).compile(ctx);
+    super({
+      props,
+      name: 'UIInput',
+      template,
+      containerTemplate: `<span />`,
+    });
+  }
 };
-
-export default UIInput;

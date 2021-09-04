@@ -1,26 +1,24 @@
-import { ComponentType, PropsType, compiledComponentType } from '~/src/types/component';
-import Templator from 'templator';
-
+import * as Ryabact from 'ryabact';
+import { PropsType } from '~/src/types/component';
 import Avatar from '~/src/components/Avatar';
 import { IconEllipsisVAlt } from '~/src/icons';
-
 import template from './index.tpl';
 
-const component: ComponentType = {
-  name: 'ChatPageHeader',
-  template,
-  components: {
-    Avatar,
-    IconEllipsisVAlt,
+export default class Component extends Ryabact.Component {
+  constructor (context: PropsType = {}) {
+    const props: PropsType = {
+      ...context,
+    };
+
+    super({
+      props,
+      name: 'ChatPageHeaderModule',
+      template,
+      components: {
+        Avatar,
+        IconEllipsisVAlt,
+      },
+      containerTemplate: `<span />`,
+    });
   }
 };
-
-
-const Page: Function = (props: PropsType = {}): compiledComponentType => {
-  const context = {
-    ...props,
-  };
-  return new Templator(component).compile(context);
-};
-
-export default Page;

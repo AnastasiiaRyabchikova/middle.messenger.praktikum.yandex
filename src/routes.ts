@@ -1,3 +1,4 @@
+import { interfaceRyabactComponents } from './types/component';
 import pathnames from '~/src/constants/pathnames';
 
 import SignIn from './pages/SignIn';
@@ -8,16 +9,16 @@ import UserForm from './pages/UserForm';
 import ErrorPage from './pages/Error';
 
 type pageByRoutes = {
-  [pathname: string]: HTMLElement
+  [pathname: string]: interfaceRyabactComponents,
 };
 
 const routes: pageByRoutes = {
-  [pathnames.signIn]: SignIn(),
-  [pathnames.signUp]: SignUp(),
-  [pathnames.changePassword]: ChangePassword(),
-  [pathnames.chats]: Chats(),
-  [pathnames.userForm]: UserForm(),
-  [pathnames.error500]: ErrorPage({ code: 500 }),
+  [pathnames.signIn]: new SignIn(),
+  [pathnames.signUp]: new SignUp(),
+  [pathnames.changePassword]: new ChangePassword(),
+  [pathnames.chats]: new Chats(),
+  [pathnames.userForm]: new UserForm(),
+  [pathnames.error500]: new ErrorPage({ code: 500 }),
 };
 
 export default routes;
