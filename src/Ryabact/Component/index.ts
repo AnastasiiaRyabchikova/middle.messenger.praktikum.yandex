@@ -17,19 +17,27 @@ export default class Component {
   };
 
   _name: string = '';
-  _element: DocumentFragment | null = null;
+  _element: compiledComponentType | null = null;
   _template: string = '';
   _meta: {
     [key: string]: any,
   } | null = null;
   _components: ComponentsType;
+  _containerTemplate: string;
   props: PropsType;
   eventBus: Function;
 
-  constructor({ props = {}, name, template, components } : ComponentSettingsInterface) {
+  constructor({
+    props = {},
+    name,
+    template,
+    components,
+    containerTemplate,
+  } : ComponentSettingsInterface) {
     this._name = name;
     this._template = template;
     this._components = components;
+    this._containerTemplate = containerTemplate;
     const eventBus = new EventBus();
 
     this._meta = {
@@ -52,7 +60,11 @@ export default class Component {
   }
 
   _createResources() {
-    this._element = document.createDocumentFragment();
+    const component = {
+      name: `${this._name} container`,
+      template: this._containerTemplate,
+    }
+    this._element = new Templator(component).compile();
   }
 
   _addEvents() {
