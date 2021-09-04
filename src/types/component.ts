@@ -23,6 +23,7 @@ export interface ComponentSettingsInterface {
   name: string,
   template: string,
   components?: ComponentsType,
+  containerTemplate: string,
 };
 
 export type compiledComponentType = HTMLElement | SVGElement | null;
