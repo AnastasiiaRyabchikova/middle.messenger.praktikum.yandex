@@ -8,9 +8,6 @@ const template: string = `
     <Logo
       class="{{class}}"
     />
-    <Button
-      label="Кнопка"
-    />
   </header>
   <main
     class="${styles.main}"
