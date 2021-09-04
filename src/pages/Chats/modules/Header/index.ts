@@ -18,7 +18,7 @@ export default class Component extends Ryabact.Component {
         Avatar,
         IconEllipsisVAlt,
       },
-      containerTemplate: `<span />`,
+      containerTemplate: `<div />`,
     });
   }
 };

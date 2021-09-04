@@ -3,8 +3,8 @@ import * as Ryabact from 'ryabact';
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
-
 import template from './index.tpl';
+import * as styles from './styles.module.css';
 
 const inputs = [
   {
@@ -67,7 +67,7 @@ export default class Component extends Ryabact.Component {
         UIInput,
         Button,
       },
-      containerTemplate: `<div />`,
+      containerTemplate: `<div class="${styles.container}" />`,
     });
   }
 };

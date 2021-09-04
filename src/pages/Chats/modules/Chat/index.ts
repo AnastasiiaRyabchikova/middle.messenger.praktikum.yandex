@@ -25,7 +25,7 @@ export default class Component extends Ryabact.Component {
         ChatHistory,
         MessageTextarea,
       },
-      containerTemplate: `<span />`,
+      containerTemplate: `<div class="${styles.container}" />`,
     });
   }
 };
