@@ -28,6 +28,11 @@ const getVariable = (string: string): string => {
   return result[1];
 };
 
+const isEventHandler = (string: string): boolean => {
+  const regExp = /^on[A-Z]\w/;
+  return regExp.test(string);
+};
+
 type parseElementProps = {
   ctx: object,
   components: ComponentsType,
@@ -60,16 +65,25 @@ const parseElement = (string: string, {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
     }
     
-    const componentCtx: PropsType = attributes.reduce((acc: object, cur: string): object => {
+    const componentCtx: PropsType = attributes.reduce((acc: object, cur: string): PropsType => {
       const [key, value] = cur.split('=');
+
       const prop = isVariable(value)
         ? get(ctx, getVariable(value)) || ''
         : value || true;
+        
+      if (isEventHandler(key)) {
+        const events = acc.events || {};
+        const eventKeyTemp = key.slice(2);
+        const eventKey = eventKeyTemp[0].toLowerCase() + eventKeyTemp.slice(1);
 
-      return {
-        ...acc,
-        [key]: prop,
+        events[eventKey] = prop;
+        acc.events = events;
+      } else {
+        acc[key] = prop;
       }
+
+      return acc;
     }, {});
     element = new Component(componentCtx).element;
   } else {
