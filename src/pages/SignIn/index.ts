@@ -5,57 +5,16 @@ import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
-
-const inputs = [
-  {
-    id: 'email',
-    name: 'email',
-    label: 'Почта',
-    placeholder: 'Ваша почта',
-  },
-  {
-    id: 'login',
-    name: 'login',
-    label: 'Логин',
-    placeholder: 'Ваша логин',
-  },
-  {
-    id: 'first_name',
-    name: 'first_name',
-    label: 'Имя',
-    placeholder: 'Ваше имя',
-  },
-  {
-    id: 'second_name',
-    name: 'second_name',
-    label: 'Фамилия',
-    placeholder: 'Ваша фамилия',
-  },
-  {
-    id: 'phone',
-    name: 'phone',
-    label: 'Номер телефона',
-    placeholder: '+7(985)126-42-45',
-  },
-  {
-    id: 'password',
-    name: 'password',
-    label: 'Пароль',
-    placeholder: 'Пароль',
-  },
-  {
-    id: 'password-repeat',
-    name: '',
-    label: 'Повторите пароль',
-    placeholder: 'Пароль',
-  },
-];
+import Form from './components/Form';
 
 export default class Component extends Ryabact.Component {
   constructor (context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      inputs,
+      handleFormSubmit: (e: Event) => {
+        e.preventDefault();
+        console.log('handleFormSubmit');
+      },
     };
 
     super({
@@ -66,6 +25,7 @@ export default class Component extends Ryabact.Component {
         Logo,
         UIInput,
         Button,
+        Form,
       },
       containerTemplate: `<div class="${styles.container}" />`,
     });

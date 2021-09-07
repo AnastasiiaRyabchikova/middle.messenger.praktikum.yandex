@@ -20,29 +20,13 @@ const template: string = `
     >
       Знакомство
     </h1>
-    <form
-      action="/${routes.chats}"
+    <Form />
+    <a
+      href="/${routes.signUp}"
+      class="${styles.join}"
     >
-      <t-for={{input of inputs}}>
-        <UIInput
-          class="${styles.input}"
-          appearance="solid"
-          label="{{input.label}}"
-          placeholder="{{input.placeholder}}"
-        />
-      </t-for>
-      <Button
-        type="submit"
-        class="${styles.submit}"
-        label="Присоединиться"
-      />
-      <a
-        href="/${routes.signUp}"
-        class="${styles.join}"
-      >
-        Войти
-      </a>
-    </form>
+      Войти
+    </a>
   </main>
 </div>
 `;
