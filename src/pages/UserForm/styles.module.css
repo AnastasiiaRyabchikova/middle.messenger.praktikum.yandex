@@ -13,12 +13,10 @@
   flex-grow: 1;
 }
 
-.account {
+.form_wrapper {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  align-items: center;
-  justify-content: center;
   max-width: var(--account-width);
 }
 
@@ -40,6 +38,7 @@
 }
 
 .logout {
+  display: block;
   margin-top: 1rem;
   margin-left: auto;
   color: var(--color-black);
