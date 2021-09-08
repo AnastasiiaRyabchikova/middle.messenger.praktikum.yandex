@@ -7,13 +7,24 @@ import template from './index.tpl';
 import * as styles from './styles.module.css';
 import Form from './components/Form';
 
+const formName = 'registration';
+
 export default class Component extends Ryabact.Component {
   constructor (context: PropsType = {}) {
     const props: PropsType = {
       ...context,
+      formName,
       handleFormSubmit: (e: Event) => {
         e.preventDefault();
-        console.log('handleFormSubmit');
+
+        const form = document.forms.namedItem(formName) || undefined;
+        const formData = new FormData(form);
+        const params = [...formData].reduce((acc: object, cur: [string, any]): object => {
+          const [key, value]: [string, any] = cur;
+          acc[key] = value;
+          return acc;
+        }, {});
+        console.log(params);
       },
     };
 

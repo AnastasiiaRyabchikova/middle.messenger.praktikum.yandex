@@ -20,31 +20,16 @@ const template: string = `
     >
       Авторизация
     </h1>
-    <form
-      action="/${routes.chats}"
+    <Form
+      name="{{formName}}"
+      onSubmit="{{handleFormSubmit}}"
+    />
+    <a
+      href="${routes.signIn}"
+      class="${styles.join}"
     >
-      <UIInput
-        name="login"
-        label="Логин"
-        placeholder="Ваш логин"
-      />
-      <UIInput
-        name="password"
-        label="Пароль"
-        placeholder="Ваш пароль"
-      />
-      <Button
-        type="submit"
-        class="${styles.submit}"
-        label="Войти"
-      />
-      <a
-        href="${routes.signIn}"
-        class="${styles.join}"
-      >
-        Присоединиться
-      </a>
-    </form>
+      Присоединиться
+    </a>
     <a
       class="${styles.shredinger}"
       href="/i-am-exist"

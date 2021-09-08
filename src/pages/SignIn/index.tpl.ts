@@ -20,7 +20,10 @@ const template: string = `
     >
       Знакомство
     </h1>
-    <Form />
+    <Form
+      name="{{formName}}"
+      onSubmit="{{handleFormSubmit}}"
+    />
     <a
       href="/${routes.signUp}"
       class="${styles.join}"

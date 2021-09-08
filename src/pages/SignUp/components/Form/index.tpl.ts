@@ -16,7 +16,7 @@ const template: string = `
   <Button
     type="submit"
     class="${styles.submit}"
-    label="Присоединиться"
+    label="Войти"
   />
 </form>
 `;
