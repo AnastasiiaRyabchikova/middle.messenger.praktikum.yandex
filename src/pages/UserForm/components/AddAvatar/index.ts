@@ -22,7 +22,7 @@ export default class Component extends Ryabact.Component {
       components: {
         Avatar,
       },
-      containerTemplate: `<div />`,
+      containerTemplate: `<div class="${styles.container}" />`,
     });
   }
 };
