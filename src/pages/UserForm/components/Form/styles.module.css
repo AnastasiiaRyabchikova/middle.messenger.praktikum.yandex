@@ -1,0 +1,16 @@
+.avatar {
+  display: block;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.field {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.submit {
+  display: block;
+  margin-top: 2rem;
+  margin-left: auto;
+}
