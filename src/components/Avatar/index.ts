@@ -15,7 +15,7 @@ export default class Component extends Ryabact.Component {
       props,
       name: 'Avatar',
       template,
-      containerTemplate: `<span />`,
+      containerTemplate: `<div />`,
     });
   }
 };
