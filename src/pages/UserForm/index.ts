@@ -4,8 +4,8 @@ import { IconArrowLeft } from '~/src/icons';
 import Logo from '~/src/components/Logo';
 import UIInput from '~/src/components/UIInput';
 import Button from '~/src/components/Button';
-import AddAvatar from './modules/AddAvatar';
-import PasswordChanging from './modules/PasswordChanging';
+import AddAvatar from './components/AddAvatar';
+import PasswordChanging from './components/PasswordChanging';
 import template from './index.tpl';
 
 const inputs = [
