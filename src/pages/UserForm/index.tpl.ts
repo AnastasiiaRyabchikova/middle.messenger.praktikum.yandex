@@ -24,28 +24,10 @@ const template: string = `
       </a>
     </div>
     <div class="${styles.form_wrapper}">
-      <form>
-        <AddAvatar
-          class="${styles.avatar}"
-        />
-        <t-for={{input of inputs}}>
-          <UIInput
-            class="${styles.field}"
-            label="{{input.label}}"
-            placeholder="{{input.placeholder}}"
-            appearance="solid"
-            value="{{input.value}}"
-          />
-        </t-for>
-        <PasswordChanging
-          class="${styles.field}"
-        />
-        <Button
-          type="submit"
-          class="${styles.submit}"
-          label="Сохранить"
-        />
-      </form>
+      <Form
+        name="{{formName}}"
+        onSubmit="{{handleFormSubmit}}"
+      />
       <a
         href="/${routes.signUp}"
         class="${styles.logout}"
