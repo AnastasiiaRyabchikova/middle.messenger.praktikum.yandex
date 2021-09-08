@@ -22,30 +22,10 @@ const template: string = `
         <IconArrowLeft />
       </a>
     </div>
-    <form
-      class="${styles.account}"
-    >
-      <Avatar
-        class="${styles.avatar}"
-      />
-      
-      <div>
-        <t-for={{input of inputs}}>
-          <UIInput
-            class="${styles.field}"
-            label="{{input.label}}"
-            placeholder="{{input.placeholder}}"
-            appearance="solid"
-            value="{{input.value}}"
-          />
-        </t-for>
-        <Button
-          type="submit"
-          class="${styles.submit}"
-          label="Сохранить"
-        />
-      </div>
-    </form>
+    <Form
+      name="{{formName}}"
+      onSubmit="{{handleFormSubmit}}"
+    />
   </main>
 </div>
 `;

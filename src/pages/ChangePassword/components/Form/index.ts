@@ -1,11 +1,8 @@
 import { PropsType } from '~/src/types/component';
 import * as Ryabact from 'ryabact';
-
-import { IconArrowLeft } from '~/src/icons';
-
-import Logo from '~/src/components/Logo';
-import Form from './components/Form';
-
+import UIInput from '~/src/components/UIInput';
+import Button from '~/src/components/Button';
+import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -29,36 +26,22 @@ const inputs = [
     placeholder: 'password',
   },
 ];
-
-const formName = 'changePassword';
 export default class Page extends Ryabact.Component {
   constructor (context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       inputs,
-      formName,
-      handleFormSubmit: (e: Event) => {
-        e.preventDefault();
-
-        const form = document.forms.namedItem(formName) || undefined;
-        const formData = new FormData(form);
-        const params = [...formData].reduce((acc: object, cur: [string, any]): object => {
-          const [key, value]: [string, any] = cur;
-          acc[key] = value;
-          return acc;
-        }, {});
-        console.log(params);
-      },
+      name: context.name,
     };
 
     super({
       props,
-      name: 'ChangePasswordPage',
+      name: 'ChangePasswordPageForm',
       template,
       components: {
-        Logo,
-        Form,
-        IconArrowLeft,
+        UIInput,
+        Button,
+        Avatar,
       },
       containerTemplate: `<div class="${styles.container}" />`,
     });
