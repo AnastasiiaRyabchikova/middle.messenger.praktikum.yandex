@@ -24,6 +24,7 @@ export default class Component extends Ryabact.Component {
         { [styles.solid]: context.appearance === 'solid' },
       ]),
       value: context.value,
+      required: context.required,
     };
 
     super({

@@ -15,6 +15,7 @@ const template: string = `
       name="{{name}}"
       class="{{inputClass}}"
       value="{{value}}"
+      required="{{required}}"
     />
     <t-if={{shouldShowError}}>
       <span
