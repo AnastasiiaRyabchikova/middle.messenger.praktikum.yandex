@@ -21,7 +21,6 @@ export default class Component implements interfaceRyabactComponents {
   _name = '';
   _element = null;
   _template = '';
-  _meta = null;
   _components;
   _containerTemplate;
   props;
@@ -40,10 +39,6 @@ export default class Component implements interfaceRyabactComponents {
     this._containerTemplate = containerTemplate;
     const eventBus = new EventBus();
 
-    this._meta = {
-      props,
-    };
-    
     this.eventBus = () => eventBus;
 
     this.props = this._makePropsProxy(props);
