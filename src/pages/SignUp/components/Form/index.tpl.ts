@@ -11,6 +11,8 @@ const template: string = `
       name="{{input.name}}"
       label="{{input.label}}"
       placeholder="{{input.placeholder}}"
+      type="{{input.type}}"
+      required="{{input.required}}"
     />
   </t-for>
   <Button

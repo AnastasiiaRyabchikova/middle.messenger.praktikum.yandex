@@ -8,14 +8,18 @@ const inputs = [
   {
     id: 'login',
     name: 'login',
+    type: 'text',
     label: 'Логин',
     placeholder: 'Ваша логин',
+    required: true,
   },
   {
     id: 'password',
     name: 'password',
+    type: 'password',
     label: 'Пароль',
     placeholder: 'Пароль',
+    required: true,
   },
 ];
 
