@@ -68,7 +68,9 @@ export default class Component implements interfaceRyabactComponents {
 
     if (events && current) {
       Object.keys(events).forEach((eventName) => {
-        current.addEventListener(eventName, events[eventName]);
+        if (typeof events[eventName] === 'function') {
+          current.addEventListener(eventName, events[eventName]);
+        }
       });
     }
   }
