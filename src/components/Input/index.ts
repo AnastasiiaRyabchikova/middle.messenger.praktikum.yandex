@@ -4,7 +4,6 @@ import template from './index.tpl';
 
 export default class Component extends Ryabact.Component {
   constructor (context: PropsType = {}) {
-    console.log(context.class);
     const props: PropsType = {
       ...context,
       type: context.type || 'text',
