@@ -9,13 +9,14 @@ const template: string = `
         {{label}}
       </span>
     </t-if>
-    <input
+    <Input
       type="{{type}}"
       placeholder="{{placeholder}}"
       name="{{name}}"
       class="{{inputClass}}"
       value="{{value}}"
       required="{{required}}"
+      onBlur="{{handleInputBlur}}"
     />
     <t-if={{shouldShowError}}>
       <span

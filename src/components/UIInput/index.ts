@@ -1,6 +1,7 @@
-import { PropsType } from '~/src/types/component';
 import * as Ryabact from 'ryabact';
 import cx from 'classnames';
+import { PropsType } from '~/src/types/component';
+import Input from '~/src/components/Input';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -25,12 +26,16 @@ export default class Component extends Ryabact.Component {
       ]),
       value: context.value,
       required: context.required,
+      handleInputBlur: context.evBlur,
     };
 
     super({
       props,
       name: 'UIInput',
       template,
+      components: {
+        Input,
+      },
       containerTemplate: `<span />`,
     });
   }
