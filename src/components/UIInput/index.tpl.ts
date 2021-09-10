@@ -18,6 +18,7 @@ const template: string = `
         value="{{value}}"
         required="{{required}}"
         onBlur="{{handleInputBlur}}"
+        onInput="{{handleInput}}"
       />
     </label>
     <t-if={{shouldShowError}}>

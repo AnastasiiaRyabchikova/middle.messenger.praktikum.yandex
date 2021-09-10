@@ -24,6 +24,7 @@ export default class Component extends Ryabact.Component {
       value: context.value,
       required: context.required,
       handleInputBlur: context.evBlur,
+      handleInput: context.evInput,
     };
 
     super({
