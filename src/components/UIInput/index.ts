@@ -15,14 +15,11 @@ export default class Component extends Ryabact.Component {
       name: context.name,
       error: context.error,
       shouldShowError: Boolean(context.error),
-      inputClass: cx([
-        styles.input,
-        { [styles.error]: Boolean(context.error) },
-      ]),
+      inputClass: styles.input,
       class: cx([
-        styles.wrapper,
         context.class,
         { [styles.solid]: context.appearance === 'solid' },
+        { [styles.error]: Boolean(context.error) },
       ]),
       value: context.value,
       required: context.required,

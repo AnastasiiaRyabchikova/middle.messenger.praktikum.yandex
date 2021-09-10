@@ -1,31 +1,33 @@
 import * as styles from './styles.module.css';
 
 const template: string = `
-  <label class="{{class}}">
-    <t-if={{label}}>
-      <span
-        class="${styles.label}"
-      >
-        {{label}}
-      </span>
-    </t-if>
-    <Input
-      type="{{type}}"
-      placeholder="{{placeholder}}"
-      name="{{name}}"
-      class="{{inputClass}}"
-      value="{{value}}"
-      required="{{required}}"
-      onBlur="{{handleInputBlur}}"
-    />
+  <div class="{{class}}">
+    <label class="${styles.wrapper}">
+      <t-if={{label}}>
+        <span
+          class="${styles.label}"
+        >
+          {{label}}
+        </span>
+      </t-if>
+      <Input
+        type="{{type}}"
+        placeholder="{{placeholder}}"
+        name="{{name}}"
+        class="{{inputClass}}"
+        value="{{value}}"
+        required="{{required}}"
+        onBlur="{{handleInputBlur}}"
+      />
+    </label>
     <t-if={{shouldShowError}}>
       <span
         class="${styles.errorMessage}"
       >
-        Неверный логин
+        {{error}}
       </span>
     </t-if>
-  </label>
+  </div>
 `;
 
 export default template;
