@@ -8,7 +8,11 @@ import template from './index.tpl';
 
 const requiredMessage = 'Заполните это поле';
 
-const getRequiredMessage = (required, value) => {
+const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => {
+  return Object.values(errors).filter(Boolean).length > 0;
+};
+
+const getRequiredMessage = (required: boolean, value: string): string => {
   if (required && !value) {
     return requiredMessage;
   }
@@ -85,6 +89,7 @@ export default class Component extends Ryabact.Component {
       },
       events: {
         submit: (e: Event) => {
+          e.preventDefault();
           const { required, params } = this.props;
           const {
             first_name,
@@ -98,7 +103,7 @@ export default class Component extends Ryabact.Component {
 
           this.setProps({
             errors: {
-              ...(this?.props?.errors || {}),
+              ...this.props.errors,
               first_name: getRequiredMessage(required.first_name, first_name) || validation.name(first_name),
               second_name: getRequiredMessage(required.second_name, second_name) || validation.name(second_name),
               login: getRequiredMessage(required.login, login) || validation.login(login),
@@ -109,9 +114,12 @@ export default class Component extends Ryabact.Component {
             }
           });
 
-          e.preventDefault();
 
-          context.events.submit({
+          if (hasErrorsCheck(this.props.errors)) {
+            return;
+          }
+
+          context.events?.submit({
             first_name,
             second_name,
             login,
