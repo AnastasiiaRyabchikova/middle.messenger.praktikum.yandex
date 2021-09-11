@@ -30,6 +30,7 @@ export default class Component extends Ryabact.Component {
         email: true,
         phone: true,
         password: true,
+        password_repeat: true,
       },
       handleInputBlur: (e: Event) => {
         const name: string = (<HTMLInputElement>e.target).name;
@@ -92,6 +93,7 @@ export default class Component extends Ryabact.Component {
             email,
             phone,
             password,
+            password_repeat,
           } = params;
 
           this.setProps({
@@ -103,10 +105,21 @@ export default class Component extends Ryabact.Component {
               email: getRequiredMessage(required.email, email) || validation.email(email),
               phone: getRequiredMessage(required.phone, phone) || validation.phone(phone),
               password: getRequiredMessage(required.password, password) || validation.password(password),
+              password_repeat: getRequiredMessage(required.password_repeat, password_repeat),
             }
           });
 
           e.preventDefault();
+
+          context.events.submit({
+            first_name,
+            second_name,
+            login,
+            email,
+            phone,
+            password,
+          });
+
         },
       }
     };
