@@ -8,9 +8,10 @@
 }
 
 .errorMessage {
-  display: block;
   margin-top: 0.5em;
   color: var(--color-error);
+  font-weight: lighter;
+  font-size: 0.75rem;
 }
 
 .label {
@@ -38,6 +39,10 @@
 
 .error .input {
   border-color: var(--color-error);
+}
+
+.success .input {
+  border-color: var(--color-success);
 }
 
 .input:focus::placeholder {
@@ -72,4 +77,8 @@
 
 .error.solid .wrapper {
   border: thin solid var(--color-error);
+}
+
+.success.solid .wrapper {
+  border: thin solid var(--color-success);
 }
