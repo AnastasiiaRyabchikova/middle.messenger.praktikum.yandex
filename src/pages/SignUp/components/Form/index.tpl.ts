@@ -3,18 +3,33 @@ import * as styles from './styles.module.css';
 const template: string = `
 <form
   name="{{name}}"
+  novalidate=""
 >
-  <t-for={{input of inputs}}>
-    <UIInput
-      class="${styles.input}"
-      appearance="solid"
-      name="{{input.name}}"
-      label="{{input.label}}"
-      placeholder="{{input.placeholder}}"
-      type="{{input.type}}"
-      required="{{input.required}}"
-    />
-  </t-for>
+  <UIInput
+    class="${styles.input}"
+    appearance="solid"
+    name="login"
+    label="Логин"
+    placeholder="Ваша логин"
+    required="required"
+    error="{{errors.login}}"
+    value="{{params.login}}"
+    evBlur="{{handleInputBlur}}"
+    evInput="{{handleParamsInput}}"
+  />
+  <UIInput
+    class="${styles.input}"
+    appearance="solid"
+    name="password"
+    label="Пароль"
+    placeholder="*********"
+    type="password"
+    required="required"
+    error="{{errors.password}}"
+    value="{{params.password}}"
+    evBlur="{{handleInputBlur}}"
+    evInput="{{handleParamsInput}}"
+  />
   <Button
     type="submit"
     class="${styles.submit}"
