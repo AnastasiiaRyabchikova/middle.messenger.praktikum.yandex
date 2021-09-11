@@ -16,17 +16,17 @@ const template: string = `
         name="{{name}}"
         class="{{inputClass}}"
         value="{{value}}"
-        required="{{required}}"
+        onFocus="{{handleInputFocus}}"
         onBlur="{{handleInputBlur}}"
         onInput="{{handleInput}}"
       />
     </label>
     <t-if={{shouldShowError}}>
-      <span
+      <div
         class="${styles.errorMessage}"
       >
         {{error}}
-      </span>
+      </div>
     </t-if>
   </div>
 `;
