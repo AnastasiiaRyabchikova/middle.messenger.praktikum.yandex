@@ -3,11 +3,14 @@
     "dev": "parcel serve ./src/index.html --port=3000 --no-cache",
     "start": "npm run clean-dist && parcel build ./src/index.html && cp _redirects ./dist",
     "clean-dist": "rm -rf ./dist",
-    "stylelint": "stylelint '**/*{.css,.scss}'"
+    "stylelint": "stylelint '**/*{.css,.scss}'",
+    "eslint": "eslint src/**/*.ts"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
     "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
     "express": "^4.17.1",
     "parcel": "^2.0.0-beta.3.1",
     "postcss-modules": "^3.2.2",
