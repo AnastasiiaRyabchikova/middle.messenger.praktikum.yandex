@@ -1,13 +1,15 @@
+import { typeEventCallback } from '~/src/types';
+
 export default class EventBus {
   listeners: {
-    [key: string]: Function[],
+    [key: string]: typeEventCallback[],
   };
 
   constructor() {
     this.listeners = {};
   }
 
-  on(eventName: string, callback: Function): void {
+  on(eventName: string, callback: typeEventCallback): void {
     if (!this.listeners[eventName]) {
       this.listeners[eventName] = [];
     }
@@ -25,7 +27,7 @@ export default class EventBus {
     });
   }
 
-  detach(eventName: string, callback: Function): void {
+  detach(eventName: string, callback: typeEventCallback): void {
     if (!this.listeners[eventName]) {
       throw new Error(`Нет события: ${eventName}`);
     }
