@@ -1,4 +1,3 @@
-import routes from '~/src/constants/pathnames';
 import * as styles from './styles.module.css';
 
 const template: string = `
@@ -8,16 +7,72 @@ const template: string = `
     <AddAvatar
       class="${styles.avatar}"
     />
-    <t-for={{input of inputs}}>
-      <UIInput
-        class="${styles.field}"
-        label="{{input.label}}"
-        placeholder="{{input.placeholder}}"
-        name="{{input.name}}"
-        appearance="solid"
-        value="{{input.value}}"
-      />
-    </t-for>
+    <UIInput
+      class="${styles.field}"
+      label="Почта"
+      placeholder="Ваша почта"
+      name="email"
+      appearance="solid"
+      error="{{errors.email}}"
+      value="{{params.email}}"
+      evBlur="{{handleInputBlur}}"
+      evInput="{{handleParamsInput}}"
+    />
+    <UIInput
+      class="${styles.field}"
+      label="Логин"
+      placeholder="Ваш логин"
+      name="login"
+      appearance="solid"
+      value="{{params.login}}"
+      error="{{errors.login}}"
+      evBlur="{{handleInputBlur}}"
+      evInput="{{handleParamsInput}}"
+    />
+    <UIInput
+      class="${styles.field}"
+      label="Имя"
+      placeholder="Ваше имя"
+      name="first_name"
+      appearance="solid"
+      value="{{params.first_name}}"
+      error="{{errors.first_name}}"
+      evBlur="{{handleInputBlur}}"
+      evInput="{{handleParamsInput}}"
+    />
+    <UIInput
+      class="${styles.field}"
+      label="Фамилия"
+      placeholder="Ваше фамилия"
+      name="second_name"
+      appearance="solid"
+      value="{{params.second_name}}"
+      error="{{errors.second_name}}"
+      evBlur="{{handleInputBlur}}"
+      evInput="{{handleParamsInput}}"
+    />
+    <UIInput
+      class="${styles.field}"
+      label="Ник"
+      placeholder="Ваш ник"
+      name="display_name"
+      appearance="solid"
+      value="{{params.display_name}}"
+      error="{{errors.display_name}}"
+      evBlur="{{handleInputBlur}}"
+      evInput="{{handleParamsInput}}"
+    />
+    <UIInput
+      class="${styles.field}"
+      label="Номер телефона"
+      placeholder="+7(___)___-___-__"
+      name="phone"
+      appearance="solid"
+      value="{{params.phone}}"
+      error="{{errors.phone}}"
+      evBlur="{{handleInputBlur}}"
+      evInput="{{handleParamsInput}}"
+    />
     <PasswordChanging
       class="${styles.field}"
     />
