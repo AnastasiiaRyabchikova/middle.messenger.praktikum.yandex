@@ -2,6 +2,7 @@ export default class EventBus {
   listeners: {
     [key: string]: Function[],
   };
+
   constructor() {
     this.listeners = {};
   }
@@ -18,7 +19,7 @@ export default class EventBus {
     if (!this.listeners[eventName]) {
       throw new Error(`Нет события: ${eventName}`);
     }
-    
+
     this.listeners[eventName].forEach((listener) => {
       listener(...args);
     });
@@ -28,10 +29,10 @@ export default class EventBus {
     if (!this.listeners[eventName]) {
       throw new Error(`Нет события: ${eventName}`);
     }
-    
+
     this.listeners[eventName] = this.listeners[eventName]
-        .filter((item) => item !== callback);
-    
+      .filter((item) => item !== callback);
+
     if (this.listeners[eventName].length === 0) {
       delete this.listeners[eventName];
     }
