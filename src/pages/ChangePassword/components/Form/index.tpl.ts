@@ -4,22 +4,46 @@ const template: string = `
 <form
   class="${styles.account}"
   name="{{name}}"
+  novalidate="novalidate"
 >
   <Avatar
     class="${styles.avatar}"
   />
   
   <div>
-    <t-for={{input of inputs}}>
-      <UIInput
-        class="${styles.field}"
-        label="{{input.label}}"
-        name="{{input.name}}"
-        placeholder="{{input.placeholder}}"
-        appearance="solid"
-        value="{{input.value}}"
-      />
-    </t-for>
+    <UIInput
+      class="${styles.field}"
+      label="Старый пароль"
+      name="old_password"
+      placeholder="********"
+      appearance="solid"
+      value="{{params.old_password}}"
+      error="{{errors.old_password}}"
+      evBlur="{{handleInputBlur}}"
+      evInput="{{handleParamsInput}}"
+    />
+    <UIInput
+      class="${styles.field}"
+      label="Новый пароль"
+      name="new_password"
+      placeholder="********"
+      appearance="solid"
+      value="{{params.new_password}}"
+      error="{{errors.new_password}}"
+      evBlur="{{handleInputBlur}}"
+      evInput="{{handleParamsInput}}"
+    />
+    <UIInput
+      class="${styles.field}"
+      label="Повторите пароль"
+      name="new_password_repeat"
+      placeholder="********"
+      appearance="solid"
+      value="{{params.new_password_repeat}}"
+      error="{{errors.new_password_repeat}}"
+      evBlur="{{handleInputBlur}}"
+      evInput="{{handleParamsInput}}"
+    />
     <Button
       type="submit"
       class="${styles.submit}"
