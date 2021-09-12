@@ -11,7 +11,9 @@ const template: string = `
       messages="{{messages}}"
     />
   </div>
-  <MessageTextarea />
+  <MessageTextarea
+    onSubmit="{{handleFormSubmit}}"
+  />
 </div>
 `;
 
