@@ -19,6 +19,5 @@
 
 .submit {
   display: block;
-  margin-top: 2rem;
-  margin-left: auto;
+  margin: 2rem auto 0;
 }
