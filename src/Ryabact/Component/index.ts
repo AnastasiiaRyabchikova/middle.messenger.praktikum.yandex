@@ -8,9 +8,9 @@ import {
 
 import EventBus from '../event-bus';
 
-import { interfaceRyabactComponents } from '~/src/types/component';
+import { interfaceRyabactComponent } from '~/src/types/component';
 
-export default class Component implements interfaceRyabactComponents {
+export default class Component implements interfaceRyabactComponent {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",

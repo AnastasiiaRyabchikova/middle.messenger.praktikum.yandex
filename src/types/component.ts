@@ -28,7 +28,7 @@ export interface ComponentSettingsInterface {
 
 export type compiledComponentType = HTMLElement | SVGElement | null;
 
-export interface interfaceRyabactComponents {
+export interface interfaceRyabactComponent {
   _name: string;
   _element: compiledComponentType | null;
   _template: string;

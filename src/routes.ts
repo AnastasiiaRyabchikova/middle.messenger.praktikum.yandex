@@ -1,4 +1,4 @@
-import { interfaceRyabactComponents } from './types/component';
+import { interfaceRyabactComponent } from './types/component';
 import pathnames from '~/src/constants/pathnames';
 
 import SignIn from './pages/SignIn';
@@ -9,7 +9,7 @@ import UserForm from './pages/UserForm';
 import ErrorPage from './pages/Error';
 
 type pageByRoutes = {
-  [pathname: string]: interfaceRyabactComponents,
+  [pathname: string]: interfaceRyabactComponent,
 };
 
 const routes: pageByRoutes = {
