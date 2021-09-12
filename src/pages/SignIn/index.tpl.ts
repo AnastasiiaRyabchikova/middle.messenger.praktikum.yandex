@@ -21,7 +21,6 @@ const template: string = `
       Знакомство
     </h1>
     <Form
-      name="{{formName}}"
       onSubmit="{{handleFormSubmit}}"
     />
     <a

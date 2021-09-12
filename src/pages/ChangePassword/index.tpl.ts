@@ -23,7 +23,6 @@ const template: string = `
       </a>
     </div>
     <Form
-      name="{{formName}}"
       onSubmit="{{handleFormSubmit}}"
     />
   </main>

@@ -25,7 +25,6 @@ const template: string = `
     </div>
     <div class="${styles.form_wrapper}">
       <Form
-        name="{{formName}}"
         onSubmit="{{handleFormSubmit}}"
       />
       <a

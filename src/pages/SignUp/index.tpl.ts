@@ -21,7 +21,6 @@ const template: string = `
       Авторизация
     </h1>
     <Form
-      name="{{formName}}"
       onSubmit="{{handleFormSubmit}}"
     />
     <a

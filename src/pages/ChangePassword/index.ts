@@ -30,13 +30,11 @@ const inputs = [
   },
 ];
 
-const formName = 'changePassword';
 export default class Page extends Ryabact.Component {
   constructor (context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       inputs,
-      formName,
       handleFormSubmit: (params: object) => {
         console.log(params);
       },

@@ -6,13 +6,10 @@ import Form from './components/Form';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-const formName = 'ChangeUser';
-
 export default class Component extends Ryabact.Component {
   constructor (context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      formName,
       handleFormSubmit: (params: object) => {
         console.log(params);
       },
