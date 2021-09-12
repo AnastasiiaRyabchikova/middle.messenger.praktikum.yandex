@@ -1,6 +1,16 @@
-export { default as name } from './name';
-export { default as login } from './login';
-export { default as email } from './email';
-export { default as phone } from './phone';
-export { default as password } from './password';
-export { default as passwordRepeat } from './password-repeat';
+import name from './name';
+import login from './login';
+import email from './email';
+import phone from './phone';
+import password from './password';
+import passwordRepeat from './password-repeat';
+export { default as getRequiredMessage } from './ger-requied-message';
+
+export default {
+  name,
+  login,
+  email,
+  phone,
+  password,
+  passwordRepeat,
+};

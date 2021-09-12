@@ -1,5 +1,5 @@
 import * as Ryabact from 'ryabact';
-import * as validation from '~/src/validation';
+import validation, { getRequiredMessage } from '~/src/validation';
 import { PropsType } from '~/src/types/component';
 import isEqual from '~/src/utils/is-equal';
 import UIInput from '~/src/components/UIInput';
@@ -8,18 +8,8 @@ import AddAvatar from '../AddAvatar';
 import PasswordChanging from '../PasswordChanging';
 import template from './index.tpl';
 
-const requiredMessage = 'Заполните это поле';
-
 const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => {
   return Object.values(errors).filter(Boolean).length > 0;
-};
-
-const getRequiredMessage = (required: boolean, value: string): string => {
-  if (required && !value) {
-    return requiredMessage;
-  }
-
-  return '';
 };
 
 export default class Component extends Ryabact.Component {
