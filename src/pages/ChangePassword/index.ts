@@ -9,32 +9,10 @@ import Form from './components/Form';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-const inputs = [
-  {
-    id: 'oldPassword',
-    name: 'oldPassword',
-    label: 'Старый пароль',
-    placeholder: 'password',
-  },
-  {
-    id: 'newPassword',
-    name: 'newPassword',
-    label: 'Новый пароль',
-    placeholder: 'password',
-  },
-  {
-    id: 'newPasswordRepeat',
-    name: '',
-    label: 'Повторите пароль',
-    placeholder: 'password',
-  },
-];
-
 export default class Page extends Ryabact.Component {
   constructor (context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      inputs,
       handleFormSubmit: (params: object) => {
         console.log(params);
       },
