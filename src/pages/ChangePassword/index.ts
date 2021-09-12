@@ -37,16 +37,7 @@ export default class Page extends Ryabact.Component {
       ...context,
       inputs,
       formName,
-      handleFormSubmit: (e: Event) => {
-        e.preventDefault();
-
-        const form = document.forms.namedItem(formName) || undefined;
-        const formData = new FormData(form);
-        const params = [...formData].reduce((acc: object, cur: [string, any]): object => {
-          const [key, value]: [string, any] = cur;
-          acc[key] = value;
-          return acc;
-        }, {});
+      handleFormSubmit: (params: object) => {
         console.log(params);
       },
     };
