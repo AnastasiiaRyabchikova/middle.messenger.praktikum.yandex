@@ -5,6 +5,9 @@
     "@typescript-eslint",
     "import"
   ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "extends": [
     "eslint-config-airbnb-base",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -32,7 +35,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": ["src"],
+        "paths": [""],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       },
       "alias": [
