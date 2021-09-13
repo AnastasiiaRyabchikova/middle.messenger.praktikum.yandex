@@ -11,10 +11,7 @@
   "extends": [
     "eslint-config-airbnb-base",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
     "no-extra-semi": "off",
@@ -32,19 +29,5 @@
         "tsx": "never"
       }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": [""],
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      },
-      "alias": [
-        [
-          "~",
-          "./"
-        ]
-      ]
-    }
   }
 }
