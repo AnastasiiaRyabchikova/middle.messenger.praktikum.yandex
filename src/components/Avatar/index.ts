@@ -1,6 +1,6 @@
-import { PropsType } from '~/src/types/component';
 import * as Ryabact from 'ryabact';
 import cx from 'classnames';
+import { PropsType } from '~/src/types/component';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -15,7 +15,7 @@ export default class Component extends Ryabact.Component {
       props,
       name: 'Avatar',
       template,
-      containerTemplate: `<div />`,
+      containerTemplate: '<div />',
     });
   }
 };
