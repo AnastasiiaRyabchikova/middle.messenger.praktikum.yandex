@@ -5,7 +5,7 @@ import { IconEllipsisVAlt } from '~/src/icons';
 import template from './index.tpl';
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
     };
@@ -18,7 +18,7 @@ export default class Component extends Ryabact.Component {
         Avatar,
         IconEllipsisVAlt,
       },
-      containerTemplate: `<div />`,
+      containerTemplate: '<div />',
     });
   }
 };

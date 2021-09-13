@@ -7,7 +7,7 @@ import Form from './components/Form';
 import template from './index.tpl';
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       handleFormSubmit: (params: object) => {
@@ -25,8 +25,7 @@ export default class Component extends Ryabact.Component {
         Button,
         Form,
       },
-      containerTemplate: `<span />`,
+      containerTemplate: '<span />',
     });
   }
 };
-

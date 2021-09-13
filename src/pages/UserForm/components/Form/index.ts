@@ -8,12 +8,14 @@ import AddAvatar from '../AddAvatar';
 import PasswordChanging from '../PasswordChanging';
 import template from './index.tpl';
 
-const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => {
-  return Object.values(errors).filter(Boolean).length > 0;
-};
+const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
+  Object.values(errors).filter(Boolean).length > 0
+);
+
+type valuesType = { name: string, value: string };
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       params: {
@@ -36,8 +38,7 @@ export default class Component extends Ryabact.Component {
       },
       errors: {},
       handleInputBlur: (e: Event) => {
-        const name: string = (<HTMLInputElement>e.target).name;
-        const value: string = (<HTMLInputElement>e.target).value;
+        const { name, value }: valuesType = (<HTMLInputElement>e.target);
         let message: string = '';
         if (value) {
           if (name === 'first_name' || name === 'second_name') {
@@ -55,17 +56,16 @@ export default class Component extends Ryabact.Component {
           errors: {
             ...this?.props?.errors,
             [name]: message,
-          }
+          },
         });
       },
       handleParamsInput: (e: Event) => {
-        const name: string = (<HTMLInputElement>e.target).name;
-        const value: string = (<HTMLInputElement>e.target).value;
+        const { name, value }: valuesType = (<HTMLInputElement>e.target);
         this.setProps({
           params: {
             ...this?.props?.params,
             [name]: value,
-          }
+          },
         });
       },
       events: {
@@ -89,9 +89,8 @@ export default class Component extends Ryabact.Component {
               login: getRequiredMessage(required.login, login) || validation.login(login),
               email: getRequiredMessage(required.email, email) || validation.email(email),
               phone: getRequiredMessage(required.phone, phone) || validation.phone(phone),
-            }
+            },
           });
-
 
           if (hasErrorsCheck(this.props.errors)) {
             return;
@@ -105,9 +104,8 @@ export default class Component extends Ryabact.Component {
             email,
             phone,
           });
-
         },
-      }
+      },
     };
 
     super({
@@ -120,11 +118,11 @@ export default class Component extends Ryabact.Component {
         AddAvatar,
         PasswordChanging,
       },
-      containerTemplate: `<div />`,
+      containerTemplate: '<div />',
     });
   }
 
-  componentDidUpdate (oldProps, newProps) {
+  componentDidUpdate(oldProps, newProps) {
     return !isEqual(oldProps.errors, newProps.errors);
   }
 };

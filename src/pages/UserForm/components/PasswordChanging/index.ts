@@ -1,12 +1,12 @@
 import * as Ryabact from 'ryabact';
-import { PropsType } from '~/src/types/component';
 import cx from 'classnames';
+import { PropsType } from '~/src/types/component';
 import UIInput from '~/src/components/UIInput';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       class: cx([
@@ -22,8 +22,7 @@ export default class Component extends Ryabact.Component {
       components: {
         UIInput,
       },
-      containerTemplate: `<span />`,
+      containerTemplate: '<span />',
     });
   }
 };
-

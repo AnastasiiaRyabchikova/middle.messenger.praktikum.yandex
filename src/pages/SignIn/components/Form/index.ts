@@ -6,12 +6,14 @@ import UIInput from '~/src/components/UIInput';
 import Button from '~/src/components/Button';
 import template from './index.tpl';
 
-const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => {
-  return Object.values(errors).filter(Boolean).length > 0;
-};
+const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
+  Object.values(errors).filter(Boolean).length > 0
+);
+
+type valuesType = { name: string, value: string };
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       name: context.name,
@@ -27,8 +29,8 @@ export default class Component extends Ryabact.Component {
         password_repeat: true,
       },
       handleInputBlur: (e: Event) => {
-        const name: string = (<HTMLInputElement>e.target).name;
-        const value: string = (<HTMLInputElement>e.target).value;
+        const { name, value }: valuesType = (<HTMLInputElement>e.target);
+
         let message: string = '';
         if (value) {
           if (name === 'first_name' || name === 'second_name') {
@@ -48,7 +50,7 @@ export default class Component extends Ryabact.Component {
                   ...(this?.props?.errors || {}),
                   [name]: message,
                   password_repeat: 'Значение должно совпадать с полем ПАРОЛЬ',
-                }
+                },
               });
               return;
             }
@@ -59,22 +61,21 @@ export default class Component extends Ryabact.Component {
           }
         }
 
-
         this.setProps({
           errors: {
             ...this?.props?.errors,
             [name]: message,
-          }
+          },
         });
       },
       handleParamsInput: (e: Event) => {
-        const name: string = (<HTMLInputElement>e.target).name;
-        const value: string = (<HTMLInputElement>e.target).value;
+        const { name, value }: valuesType = (<HTMLInputElement>e.target);
+
         this.setProps({
           params: {
-            ...(this?.props?.params || {}),
+            ...this?.props?.params,
             [name]: value,
-          }
+          },
         });
       },
       events: {
@@ -101,9 +102,8 @@ export default class Component extends Ryabact.Component {
               phone: getRequiredMessage(required.phone, phone) || validation.phone(phone),
               password: getRequiredMessage(required.password, password) || validation.password(password),
               password_repeat: getRequiredMessage(required.password_repeat, password_repeat),
-            }
+            },
           });
-
 
           if (hasErrorsCheck(this.props.errors)) {
             return;
@@ -117,9 +117,8 @@ export default class Component extends Ryabact.Component {
             phone,
             password,
           });
-
         },
-      }
+      },
     };
 
     super({
@@ -130,12 +129,11 @@ export default class Component extends Ryabact.Component {
         UIInput,
         Button,
       },
-      containerTemplate: `<div />`,
+      containerTemplate: '<div />',
     });
   }
 
-  componentDidUpdate (oldProps, newProps) {
+  componentDidUpdate(oldProps, newProps) {
     return !isEqual(oldProps.errors, newProps.errors);
   }
 };
-

@@ -4,7 +4,7 @@ import UIInput from '~/src/components/UIInput';
 import template from './index.tpl';
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       class: context.class,
@@ -17,7 +17,7 @@ export default class Component extends Ryabact.Component {
       components: {
         UIInput,
       },
-      containerTemplate: `<span />`,
+      containerTemplate: '<span />',
     });
   }
 };

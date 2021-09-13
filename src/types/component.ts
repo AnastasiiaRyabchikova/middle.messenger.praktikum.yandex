@@ -1,3 +1,6 @@
+export type ComponentsType = {
+  [key: string]: ClassDecorator,
+} | undefined;
 export interface ComponentType {
   name: string,
   template: string,
@@ -14,10 +17,6 @@ export type PropsType = {
   [key: string]: unknown,
 };
 
-export type ComponentsType = {
-  [key: string]: ClassDecorator,
-} | undefined;
-
 export interface ComponentSettingsInterface {
   props: PropsType,
   name: string,
@@ -26,15 +25,12 @@ export interface ComponentSettingsInterface {
   containerTemplate: string,
 };
 
-export type compiledComponentType = HTMLElement | SVGElement | null;
+export type compiledComponentType = HTMLElement | SVGElement;
 
 export interface interfaceRyabactComponent {
   _name: string;
-  _element: compiledComponentType | null;
+  _element: compiledComponentType;
   _template: string;
-  _meta: {
-    [key: string]: any,
-  } | null;
   _components: ComponentsType;
   _containerTemplate: string;
   props: PropsType;

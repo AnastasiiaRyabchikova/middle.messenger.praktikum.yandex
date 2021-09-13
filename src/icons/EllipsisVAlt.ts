@@ -1,5 +1,5 @@
-import { PropsType } from '~/src/types/component';
 import * as Ryabact from 'ryabact';
+import { PropsType } from '~/src/types/component';
 
 const template: string = `
 <svg
@@ -11,7 +11,7 @@ const template: string = `
 </svg>`;
 
 export default class Icon extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
     };
@@ -20,7 +20,7 @@ export default class Icon extends Ryabact.Component {
       props,
       name: 'IconEllipsisVAlt',
       template,
-      containerTemplate: `<span />`,
+      containerTemplate: '<span />',
     });
   }
 };

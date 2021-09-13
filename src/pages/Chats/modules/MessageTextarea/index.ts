@@ -6,12 +6,14 @@ import { PropsType } from '~/src/types/component';
 import { IconArrow } from '~/src/icons';
 import template from './index.tpl';
 
-const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => {
-  return Object.values(errors).filter(Boolean).length > 0;
-};
+const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
+  Object.values(errors).filter(Boolean).length > 0
+);
+
+type valuesType = { name: string, value: string };
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       name: context.name,
@@ -21,13 +23,13 @@ export default class Component extends Ryabact.Component {
         text: true,
       },
       handleParamsInput: (e: Event) => {
-        const name: string = (<HTMLInputElement>e.target).name;
-        const value: string = (<HTMLInputElement>e.target).value;
+        const { name, value }: valuesType = (<HTMLInputElement>e.target);
+
         this.setProps({
           params: {
-            ...(this?.props?.params || {}),
+            ...this?.props?.params,
             [name]: value,
-          }
+          },
         });
       },
       events: {
@@ -42,9 +44,8 @@ export default class Component extends Ryabact.Component {
             errors: {
               ...this.props.errors,
               text: getRequiredMessage(required.text, text),
-            }
+            },
           });
-
 
           if (hasErrorsCheck(this.props.errors)) {
             return;
@@ -53,9 +54,8 @@ export default class Component extends Ryabact.Component {
           context.events?.submit({
             text,
           });
-
         },
-      }
+      },
     };
 
     super({
@@ -66,11 +66,11 @@ export default class Component extends Ryabact.Component {
         IconArrow,
         UITextarea,
       },
-      containerTemplate: `<div />`,
+      containerTemplate: '<div />',
     });
   }
 
-  componentDidUpdate (oldProps, newProps) {
+  componentDidUpdate(oldProps, newProps) {
     return !isEqual(oldProps.errors, newProps.errors);
   }
 };

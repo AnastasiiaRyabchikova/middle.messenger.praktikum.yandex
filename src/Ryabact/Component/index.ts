@@ -2,28 +2,31 @@ import Templator from 'templator';
 import {
   compiledComponentType,
   ComponentSettingsInterface,
-  ComponentsType,
+  interfaceRyabactComponent,
   PropsType,
 } from '~/src/types/component';
-
 import EventBus from '../event-bus';
-
-import { interfaceRyabactComponent } from '~/src/types/component';
 
 export default class Component implements interfaceRyabactComponent {
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render"
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
+    FLOW_RENDER: 'flow:render',
   };
 
   _name = '';
+
   _element = null;
+
   _template = '';
+
   _components;
+
   _containerTemplate;
+
   props;
+
   eventBus;
 
   constructor({
@@ -58,7 +61,7 @@ export default class Component implements interfaceRyabactComponent {
     const component = {
       name: `${this._name} container`,
       template: this._containerTemplate,
-    }
+    };
     this._element = new Templator(component).compile();
   }
 
@@ -96,9 +99,9 @@ export default class Component implements interfaceRyabactComponent {
     this.eventBus().emit(Component.EVENTS.FLOW_RENDER);
   }
 
-  componentDidMount(oldProps: object = {}) {}
+  componentDidMount(oldProps: PropsType = {}) {}
 
-  _componentDidUpdate(oldProps: object = {}, newProps: object = {}) {
+  _componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}) {
     //
     if (this.componentDidUpdate(oldProps, newProps)) {
       this._removeEvents();
@@ -106,11 +109,11 @@ export default class Component implements interfaceRyabactComponent {
     }
   }
 
-  componentDidUpdate(oldProps: object = {}, newProps: object = {}) {
+  componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean {
     return true;
   }
 
-  setProps = (nextProps: object = {}) => {
+  setProps = (nextProps: PropsType = {}) => {
     if (!nextProps) {
       return;
     }
@@ -133,20 +136,18 @@ export default class Component implements interfaceRyabactComponent {
     this._addEvents();
   }
 
-  _clearElement() {
-    if (!this._element) {
-      return null;
+  _clearElement(): void {
+    if (this._element) {
+      this._element.textContent = '';
     }
-    this._element.textContent = '';
   }
 
-    // Переопределяется пользователем. Необходимо вернуть разметку
   render(): compiledComponentType {
     const component = {
       name: this._name,
       template: this._template,
       components: this._components,
-    }
+    };
     return new Templator(component).compile(this.props);
   }
 
@@ -160,7 +161,7 @@ export default class Component implements interfaceRyabactComponent {
     return new Proxy(props, {
       get(target: object, prop: string) {
         const value: any = target[prop];
-        return typeof value === "function" ? value.bind(target) : value;
+        return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target: object, prop: string, value: any) {
         const oldTarget = { ...target };
@@ -171,17 +172,17 @@ export default class Component implements interfaceRyabactComponent {
     });
   }
 
-  show() {
+  show(): void {
     const content = this.getContent();
     if (content) {
-      content.style.display = "block";
+      content.style.display = 'block';
     }
   }
 
-  hide() {
+  hide(): void {
     const content = this.getContent();
     if (content) {
-      content.style.display = "none";
+      content.style.display = 'none';
     }
   }
 }

@@ -1,6 +1,6 @@
-import { PropsType } from '~/src/types/component';
 import * as Ryabact from 'ryabact';
 import cx from 'classnames';
+import { PropsType } from '~/src/types/component';
 import ChatHistory from '~/src/modules/ChatHistory';
 import MessageTextarea from '../MessageTextarea';
 import Header from '../Header';
@@ -9,7 +9,7 @@ import { messages } from './mocks';
 import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       messages,

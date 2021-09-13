@@ -5,7 +5,7 @@ import template from './index.tpl';
 import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       class: cx([styles.avatar, context.class]),

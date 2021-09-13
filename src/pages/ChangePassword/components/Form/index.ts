@@ -6,14 +6,15 @@ import UIInput from '~/src/components/UIInput';
 import Button from '~/src/components/Button';
 import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
 
-const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => {
-  return Object.values(errors).filter(Boolean).length > 0;
-};
+const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
+  Object.values(errors).filter(Boolean).length > 0
+);
+
+type valuesType = { name: string, value: string };
 
 export default class Page extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       name: context.name,
@@ -29,8 +30,7 @@ export default class Page extends Ryabact.Component {
       },
       errors: {},
       handleInputBlur: (e: Event) => {
-        const name: string = (<HTMLInputElement>e.target).name;
-        const value: string = (<HTMLInputElement>e.target).value;
+        const { name, value }: valuesType = (<HTMLInputElement>e.target);
         const { params } = this.props;
         let message: string = '';
         if (value) {
@@ -42,7 +42,7 @@ export default class Page extends Ryabact.Component {
               errors: {
                 new_password: message,
                 [name]: message,
-              }
+              },
             });
           }
         }
@@ -51,17 +51,16 @@ export default class Page extends Ryabact.Component {
           errors: {
             ...this?.props?.errors,
             [name]: message,
-          }
+          },
         });
       },
       handleParamsInput: (e: Event) => {
-        const name: string = (<HTMLInputElement>e.target).name;
-        const value: string = (<HTMLInputElement>e.target).value;
+        const { name, value }: valuesType = (<HTMLInputElement>e.target);
         this.setProps({
           params: {
             ...this?.props?.params,
             [name]: value,
-          }
+          },
         });
       },
       events: {
@@ -80,10 +79,9 @@ export default class Page extends Ryabact.Component {
               old_password: getRequiredMessage(required.old_password, old_password),
               new_password: getRequiredMessage(required.new_password, new_password) || validation.password(new_password),
               new_password_repeat: getRequiredMessage(required.new_password_repeat, new_password_repeat)
-                || validation.passwordRepeat(new_password, new_password_repeat)
-            }
+                || validation.passwordRepeat(new_password, new_password_repeat),
+            },
           });
-
 
           if (hasErrorsCheck(this.props.errors)) {
             return;
@@ -93,9 +91,8 @@ export default class Page extends Ryabact.Component {
             old_password,
             new_password,
           });
-
         },
-      }
+      },
     };
 
     super({
@@ -107,11 +104,11 @@ export default class Page extends Ryabact.Component {
         Button,
         Avatar,
       },
-      containerTemplate: `<div class="${styles.container}" />`,
+      containerTemplate: '<div />',
     });
   }
 
-  componentDidUpdate (oldProps, newProps) {
+  componentDidUpdate(oldProps, newProps) {
     return !isEqual(oldProps.errors, newProps.errors);
   }
 };

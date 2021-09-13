@@ -1,12 +1,12 @@
-import { PropsType } from '~/src/types/component';
 import * as Ryabact from 'ryabact';
 import cx from 'classnames';
+import { PropsType } from '~/src/types/component';
 import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       class: cx([
@@ -27,7 +27,7 @@ export default class Component extends Ryabact.Component {
       components: {
         Avatar,
       },
-      containerTemplate: `<span />`,
+      containerTemplate: '<span />',
     });
   }
 };

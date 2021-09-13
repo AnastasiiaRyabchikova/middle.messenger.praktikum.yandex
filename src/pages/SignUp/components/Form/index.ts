@@ -6,12 +6,14 @@ import UIInput from '~/src/components/UIInput';
 import Button from '~/src/components/Button';
 import template from './index.tpl';
 
-const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => {
-  return Object.values(errors).filter(Boolean).length > 0;
-};
+const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
+  Object.values(errors).filter(Boolean).length > 0
+);
+
+type valuesType = { name: string, value: string };
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       name: context.name,
       errors: {},
@@ -21,13 +23,13 @@ export default class Component extends Ryabact.Component {
         password: true,
       },
       handleParamsInput: (e: Event) => {
-        const name: string = (<HTMLInputElement>e.target).name;
-        const value: string = (<HTMLInputElement>e.target).value;
+        const { name, value }: valuesType = (<HTMLInputElement>e.target);
+
         this.setProps({
           params: {
-            ...(this?.props?.params || {}),
+            ...this?.props?.params,
             [name]: value,
-          }
+          },
         });
       },
       events: {
@@ -44,9 +46,8 @@ export default class Component extends Ryabact.Component {
               ...this?.props?.errors,
               login: getRequiredMessage(required.login, login),
               password: getRequiredMessage(required.password, password),
-            }
+            },
           });
-
 
           if (hasErrorsCheck(this.props.errors)) {
             return;
@@ -56,9 +57,8 @@ export default class Component extends Ryabact.Component {
             login,
             password,
           });
-
         },
-      }
+      },
     };
 
     super({
@@ -69,12 +69,11 @@ export default class Component extends Ryabact.Component {
         UIInput,
         Button,
       },
-      containerTemplate: `<div />`,
+      containerTemplate: '<div />',
     });
   }
 
-  componentDidUpdate (oldProps, newProps) {
+  componentDidUpdate(oldProps, newProps) {
     return !isEqual(oldProps.errors, newProps.errors);
   }
 };
-

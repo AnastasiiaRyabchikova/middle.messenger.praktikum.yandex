@@ -1,7 +1,7 @@
 import isObject from './isObject';
 
 export default (object: object, path: string): any => {
-  const keys: Array<String> = path
+  const keys: Array<string> = path
     .split(/[.\[\]]/)
     .map((item) => item.trim())
     .filter((item) => item);

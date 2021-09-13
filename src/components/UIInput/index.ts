@@ -6,7 +6,7 @@ import template from './index.tpl';
 import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       label: context.label,
@@ -20,7 +20,7 @@ export default class Component extends Ryabact.Component {
         context.class,
         { [styles.solid]: context.appearance === 'solid' },
         { [styles.error]: Boolean(context.error) },
-        { [styles.success]: !Boolean(context.error) && Boolean(context.value) },
+        { [styles.success]: !context.error && Boolean(context.value) },
       ]),
       value: context.value,
       required: context.required,
@@ -36,7 +36,7 @@ export default class Component extends Ryabact.Component {
       components: {
         Input,
       },
-      containerTemplate: `<span />`,
+      containerTemplate: '<span />',
     });
   }
 };

@@ -1,4 +1,9 @@
-import { ComponentType, ComponentsType, compiledComponentType, PropsType } from '~/src/types/component';
+import {
+  ComponentType,
+  ComponentsType,
+  compiledComponentType,
+  PropsType,
+} from '~/src/types/component';
 import {
   isClosedTag,
   isSelfClosingTag,
@@ -60,18 +65,18 @@ const parseElement = (string: string, {
 
   if (isComponent(tag) && isObject(components)) {
     const Component: ClassDecorator = components[tag];
-    
+
     if (!Component) {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
     }
-    
+
     const componentCtx: PropsType = attributes.reduce((acc: object, cur: string): PropsType => {
       const [key, value] = cur.split('=');
 
       const prop = isVariable(value)
         ? get(ctx, getVariable(value)) || ''
         : value || true;
-        
+
       if (isEventHandler(key)) {
         const events = acc.events || {};
         const eventKeyTemp = key.slice(2);
@@ -106,13 +111,13 @@ const parseElement = (string: string, {
   return element;
 };
 export default class Templator {
-
   public name: string;
+
   public template: string;
+
   public components?: ComponentsType;
 
-
-  constructor (settings: ComponentType) {
+  constructor(settings: ComponentType) {
     this.template = settings.template;
     this.components = settings.components || {};
     this.name = settings.name || 'nameless component';
@@ -142,31 +147,26 @@ export default class Templator {
               const temp = cur.match(/<t-else>([\s\S]*)/);
               value = temp && temp[1];
             };
-            value = value.replace('</t-if>', '')
+            value = value.replace('</t-if>', '');
             return {
               ...acc,
               [key]: value,
             };
-
           }, {});
-        
+
         return Object.entries(values)
           .map(([key, value]) => {
             if (key === '$default') {
               return value;
             }
             return get(ctx, key) ? value : '';
-          }).filter((item) => (item))[0] || ''
+          }).filter((item) => (item))[0] || '';
       })
       .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1: string, p2: string) => {
         const [item, key] = p1.split(' of ');
         const values = get(ctx, key) || [];
         const result: string = values
-          .map((_: unknown, index: number) => {
-            return p2.replace(new RegExp('{{' + item + '\.(.*?)}}', 'g'), (_, p12: string) => {
-              return `{{${key}[${index}].${p12}}}`
-            })
-          })
+          .map((_: unknown, index: number) => p2.replace(new RegExp(`{{${item}\.(.*?)}}`, 'g'), (_, p12: string) => `{{${key}[${index}].${p12}}}`))
           .join('');
         return result;
       })
@@ -188,16 +188,12 @@ export default class Templator {
           if (!isSelfClosingTag(item)) {
             current = element;
           }
-
-        } else {
-          if (current) {
-            current = current.parentNode;
-          }
+        } else if (current) {
+          current = current.parentNode;
         }
-
       } else {
         const strings: string[] = item
-          .split(/(?=\{{2})|(?<=\}{2})/g)
+          .split(/(?=\{{2})|(?<=\}{2})/g);
 
         strings.forEach((string) => {
           const text = isVariable(string)
@@ -208,8 +204,7 @@ export default class Templator {
           }
         });
       }
-    })
-  
+    });
     return result;
   };
 };

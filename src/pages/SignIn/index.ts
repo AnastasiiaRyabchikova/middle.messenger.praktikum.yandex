@@ -1,5 +1,5 @@
-import { PropsType } from '~/src/types/component';
 import * as Ryabact from 'ryabact';
+import { PropsType } from '~/src/types/component';
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
@@ -8,7 +8,7 @@ import * as styles from './styles.module.css';
 import Form from './components/Form';
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       handleFormSubmit: (params: object) => {
@@ -30,4 +30,3 @@ export default class Component extends Ryabact.Component {
     });
   }
 };
-

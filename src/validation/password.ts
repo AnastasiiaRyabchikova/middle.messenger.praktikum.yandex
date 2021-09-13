@@ -7,7 +7,6 @@ export default function nameValidation(string: string): string {
     return 'Значение должно содержать хотя бы одну заглавную букву';
   }
 
-
   if (!/[0-9]/.test(string)) {
     return 'Значение должно содержать хотя бы одну цифру';
   }

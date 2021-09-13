@@ -1,13 +1,12 @@
-import { PropsType } from '~/src/types/component';
 import * as Ryabact from 'ryabact';
+import { PropsType } from '~/src/types/component';
 import routes from '~/src/constants/pathnames';
 import Avatar from '~/src/components/Avatar';
-import { companions } from './mocks';
 import Search from './components/Search';
 import Companion from './components/Companion';
 import Chat from './modules/Chat';
 import Header from './modules/Header';
-
+import { companions } from './mocks';
 import template from './index.tpl';
 
 const temp = window.location.search.match(/selectedChat=(.*)?/);
@@ -22,7 +21,7 @@ const companionsMapped = companions
   ));
 
 export default class Component extends Ryabact.Component {
-  constructor (context: PropsType = {}) {
+  constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       companions: companionsMapped,
@@ -40,7 +39,7 @@ export default class Component extends Ryabact.Component {
         Chat,
         Header,
       },
-      containerTemplate: `<div />`,
+      containerTemplate: '<div />',
     });
   }
 };
