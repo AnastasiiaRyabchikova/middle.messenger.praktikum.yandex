@@ -17,7 +17,7 @@ export default class Component implements interfaceRyabactComponent {
 
   _name = '';
 
-  _element = null;
+  _element = document.createElement('div');
 
   _template = '';
 
@@ -159,11 +159,11 @@ export default class Component implements interfaceRyabactComponent {
     const eventBus = this.eventBus();
 
     return new Proxy(props, {
-      get(target: object, prop: string) {
+      get(target: PropsType, prop: string) {
         const value: any = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set(target: object, prop: string, value: any) {
+      set(target: PropsType, prop: string, value: any) {
         const oldTarget = { ...target };
         target[prop] = value;
         eventBus.emit(Component.EVENTS.FLOW_CDU, oldTarget, target);

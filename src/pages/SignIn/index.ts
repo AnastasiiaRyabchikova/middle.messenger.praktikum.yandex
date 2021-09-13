@@ -11,7 +11,7 @@ export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      handleFormSubmit: (params: object) => {
+      handleFormSubmit: (params: Record<string, unknown>) => {
         console.log(params);
       },
     };

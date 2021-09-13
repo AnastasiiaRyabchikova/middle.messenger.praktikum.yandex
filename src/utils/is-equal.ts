@@ -1,4 +1,7 @@
-export default function isEqual(object1: object, object2: object): boolean {
+export default function isEqual(
+  object1: Record<string, unknown>,
+  object2: Record<string, unknown>,
+): boolean {
   const props1: string[] = Object.getOwnPropertyNames(object1);
   const props2: string[] = Object.getOwnPropertyNames(object2);
 

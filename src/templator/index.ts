@@ -39,7 +39,7 @@ const isEventHandler = (string: string): boolean => {
 };
 
 type parseElementProps = {
-  ctx: object,
+  ctx: PropsType,
   components: ComponentsType,
   name: string,
 };
@@ -70,26 +70,27 @@ const parseElement = (string: string, {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
     }
 
-    const componentCtx: PropsType = attributes.reduce((acc: object, cur: string): PropsType => {
-      const [key, value] = cur.split('=');
+    const componentCtx: PropsType = attributes
+      .reduce((acc: Record<string, unknown>, cur: string): PropsType => {
+        const [key, value] = cur.split('=');
 
-      const prop = isVariable(value)
-        ? get(ctx, getVariable(value)) || ''
-        : value || true;
+        const prop = isVariable(value)
+          ? get(ctx, getVariable(value)) || ''
+          : value || true;
 
-      if (isEventHandler(key)) {
-        const events = acc.events || {};
-        const eventKeyTemp = key.slice(2);
-        const eventKey = eventKeyTemp[0].toLowerCase() + eventKeyTemp.slice(1);
+        if (isEventHandler(key)) {
+          const events = acc.events || {};
+          const eventKeyTemp = key.slice(2);
+          const eventKey = eventKeyTemp[0].toLowerCase() + eventKeyTemp.slice(1);
 
-        events[eventKey] = prop;
-        acc.events = events;
-      } else {
-        acc[key] = prop;
-      }
+          events[eventKey] = prop;
+          acc.events = events;
+        } else {
+          acc[key] = prop;
+        }
 
-      return acc;
-    }, {});
+        return acc;
+      }, {});
     element = new Component(componentCtx).element;
   } else {
     element = isSvgTag(tag)
@@ -98,13 +99,12 @@ const parseElement = (string: string, {
 
     attributes.forEach((item: string) => {
       const [key, value] = item.split('=');
-      if (!element) {
-        return null;
-      }
-      if (isVariable(value)) {
-        element.setAttribute(key, get(ctx, getVariable(value)) || '');
-      } else {
-        element.setAttribute(key, value);
+      if (element) {
+        if (isVariable(value)) {
+          element.setAttribute(key, get(ctx, getVariable(value)) || '');
+        } else {
+          element.setAttribute(key, value);
+        }
       }
     });
   }
@@ -123,20 +123,20 @@ export default class Templator {
     this.name = settings.name || 'nameless component';
   }
 
-  compile(ctx: object): compiledComponentType {
+  compile(ctx: PropsType): compiledComponentType {
     return this.compileTemplate(ctx);
   }
 
-  compileTemplate = (ctx: object): compiledComponentType => {
-    let result: compiledComponentType = null;
-    let current: compiledComponentType | Node = null;
+  compileTemplate = (ctx: PropsType): compiledComponentType => {
+    let result: compiledComponentType | null = null;
+    let current: compiledComponentType | Node | null = null;
     const { components, name, template } = this;
 
     const elements: string[] = template
       .replace(/\s+/g, ' ')
       .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/g, (match: string): string => {
-        const values: object = match.split(/(?=\<t-(?:if|else|else-if))/)
-          .reduce((acc: object, cur: string) => {
+        const values: Record<string, string> = match.split(/(?=\<t-(?:if|else|else-if))/)
+          .reduce((acc: Record<string, unknown>, cur: string) => {
             let key = null;
             let value = null;
 
@@ -154,21 +154,23 @@ export default class Templator {
             };
           }, {});
 
-        return Object.entries(values)
+        return Object
+          .entries(values)
           .map(([key, value]) => {
             if (key === '$default') {
               return value;
             }
             return get(ctx, key) ? value : '';
-          }).filter((item) => (item))[0] || '';
+          })
+          .filter((item) => (item))[0] || '';
       })
       .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1: string, p2: string) => {
         const [item, key] = p1.split(' of ');
         const values = get(ctx, key) || [];
-        const result: string = values
-          .map((_: unknown, index: number) => p2.replace(new RegExp(`{{${item}\.(.*?)}}`, 'g'), (_, p12: string) => `{{${key}[${index}].${p12}}}`))
+        const resultOfreplace: string = values
+          .map((_1: unknown, index: number) => p2.replace(new RegExp(`{{${item}\.(.*?)}}`, 'g'), (_, p12: string) => `{{${key}[${index}].${p12}}}`))
           .join('');
-        return result;
+        return resultOfreplace;
       })
       .split(/(?<=>)|(?=<)/g)
       .map((item) => item.trim())

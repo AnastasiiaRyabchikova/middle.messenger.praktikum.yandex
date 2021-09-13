@@ -14,7 +14,7 @@ export default class Component extends Ryabact.Component {
       ...context,
       messages,
       class: cx([styles.chat, context.class]),
-      handleFormSubmit: (params: object) => {
+      handleFormSubmit: (params: Record<string, unknown>) => {
         console.log(params);
       },
     };
