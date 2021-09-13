@@ -12,6 +12,8 @@
     "autoprefixer": "^10.2.6",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-custom-alias": "^1.2.0",
+    "eslint-import-resolver-parcel": "^1.10.6",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.24.2",
     "express": "^4.17.1",
