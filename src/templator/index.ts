@@ -123,7 +123,7 @@ export default class Templator {
     this.name = settings.name || 'nameless component';
   }
 
-  compile(ctx: PropsType): compiledComponentType {
+  compile(ctx: PropsType = {}): compiledComponentType {
     return this.compileTemplate(ctx);
   }
 
