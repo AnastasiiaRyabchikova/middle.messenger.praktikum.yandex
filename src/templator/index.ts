@@ -51,7 +51,7 @@ const parseElement = (string: string, {
 }: parseElementProps): compiledComponentType => {
   const attributes: Array<string> = string
     .replace(/(<|\/{0,1}>)/g, '')
-    .split(/(?=\s[a-zA-Z\-]*\=".*?")/)
+    .split(/(?=\s[a-zA-Z-]*=".*?")/)
     .map((item) => item.trim().replace(/['|"]/g, ''))
     .filter((item) => item);
 
@@ -135,14 +135,14 @@ export default class Templator {
     const elements: string[] = template
       .replace(/\s+/g, ' ')
       .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/g, (match: string): string => {
-        const values: Record<string, string> = match.split(/(?=\<t-(?:if|else|else-if))/)
+        const values: Record<string, string> = match.split(/(?=<t-(?:if|else|else-if))/)
           .reduce((acc: Record<string, unknown>, cur: string) => {
             let key = null;
             let value = null;
 
-            if (/(?=\<t-(?:if|else-if))/.test(cur)) {
+            if (/(?=<t-(?:if|else-if))/.test(cur)) {
               [, key, value] = cur.match(/<t-(?:if|else-if)={{(.*?)}}>([\s\S]*)/);
-            } else if (/(?=\<t-else)/.test(cur)) {
+            } else if (/(?=<t-else)/.test(cur)) {
               key = '$default';
               const temp = cur.match(/<t-else>([\s\S]*)/);
               value = temp && temp[1];
@@ -168,7 +168,7 @@ export default class Templator {
         const [item, key] = p1.split(' of ');
         const values = get(ctx, key) || [];
         const resultOfreplace: string = values
-          .map((_1: unknown, index: number) => p2.replace(new RegExp(`{{${item}\.(.*?)}}`, 'g'), (_, p12: string) => `{{${key}[${index}].${p12}}}`))
+          .map((_1: unknown, index: number) => p2.replace(new RegExp(`{{${item}.(.*?)}}`, 'g'), (_, p12: string) => `{{${key}[${index}].${p12}}}`))
           .join('');
         return resultOfreplace;
       })
