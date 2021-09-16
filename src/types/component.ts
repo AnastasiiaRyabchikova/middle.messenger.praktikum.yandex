@@ -1,3 +1,5 @@
+import EventBus from "../Ryabact/event-bus";
+
 export type ComponentsType = {
   [key: string]: ClassDecorator,
 } | undefined;
@@ -8,7 +10,7 @@ export interface ComponentType {
 };
 
 export type eventsType = {
-  [key: string]: EventHandlerNonNull,
+  [key: string]: (e: Event) => void,
 } | undefined;
 
 export type PropsType = {
@@ -34,5 +36,5 @@ export interface interfaceRyabactComponent {
   _components: ComponentsType;
   _containerTemplate: string;
   props: PropsType;
-  eventBus: Function;
+  eventBus: () => EventBus;
 };
