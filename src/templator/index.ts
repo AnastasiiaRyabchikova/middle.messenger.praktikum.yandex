@@ -3,6 +3,7 @@ import {
   ComponentsType,
   compiledComponentType,
   PropsType,
+  eventsType,
 } from '~/src/types/component';
 import {
   isClosedTag,
@@ -55,13 +56,13 @@ const parseElement = (string: string, {
     .map((item) => item.trim().replace(/['|"]/g, ''))
     .filter((item) => item);
 
-  const tag: string | undefined = attributes.shift();
-
-  if (!tag) {
-    return null;
+  if (!attributes.length) {
+    throw new Error('Empty component');
   }
 
-  let element: compiledComponentType = null;
+  const tag: string = attributes.shift() || '';
+
+  let element: compiledComponentType;
 
   if (isComponent(tag) && isObject(components)) {
     const Component: ClassDecorator = components[tag];
@@ -72,14 +73,19 @@ const parseElement = (string: string, {
 
     const componentCtx: PropsType = attributes
       .reduce((acc: Record<string, unknown>, cur: string): PropsType => {
-        const [key, value] = cur.split('=');
+        const [key, value]: string[] = cur.split('=');
 
-        const prop = isVariable(value)
-          ? get(ctx, getVariable(value)) || ''
-          : value || true;
+        let prop: any = '';
+
+        if (isVariable(value)) {
+          const temp: unknown = get(ctx, getVariable(value));
+          prop = String(temp);
+        } else {
+          prop = value;
+        }
 
         if (isEventHandler(key)) {
-          const events = acc.events || {};
+          const events: eventsType = acc.events || {};
           const eventKeyTemp = key.slice(2);
           const eventKey = eventKeyTemp[0].toLowerCase() + eventKeyTemp.slice(1);
 
@@ -128,7 +134,7 @@ export default class Templator {
   }
 
   compileTemplate = (ctx: PropsType): compiledComponentType => {
-    let result: compiledComponentType | null = null;
+    let result: compiledComponentType;
     let current: compiledComponentType | Node | null = null;
     const { components, name, template } = this;
 

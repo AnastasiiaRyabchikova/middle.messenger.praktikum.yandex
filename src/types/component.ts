@@ -11,7 +11,7 @@ export interface ComponentType {
 
 export type eventsType = {
   [key: string]: (e: Event) => void,
-} | undefined;
+};
 
 export type PropsType = {
   class?: string,

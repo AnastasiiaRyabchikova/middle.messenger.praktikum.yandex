@@ -2,7 +2,7 @@ import isObject from './isObject';
 
 export default (object: Record<string, unknown>, path: string): any => {
   const keys: Array<string> = path
-    .split(/[.\[\]]/)
+    .split(/[.[\]]/)
     .map((item: string) => item.trim())
     .filter(Boolean);
   let value: any = object;

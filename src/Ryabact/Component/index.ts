@@ -3,6 +3,7 @@ import {
   compiledComponentType,
   ComponentSettingsInterface,
   interfaceRyabactComponent,
+  ComponentsType,
   PropsType,
 } from '~/src/types/component';
 import EventBus from '../event-bus';
@@ -15,19 +16,19 @@ export default class Component implements interfaceRyabactComponent {
     FLOW_RENDER: 'flow:render',
   };
 
-  _name = '';
+  _name: string = '';
 
-  _element = document.createElement('div');
+  _element: compiledComponentType = document.createElement('div');
 
-  _template = '';
+  _template: string = '';
 
-  _components;
+  _components: ComponentsType;
 
-  _containerTemplate;
+  _containerTemplate: string;
 
-  props;
+  props: PropsType;
 
-  eventBus;
+  eventBus: () => EventBus;
 
   constructor({
     props = {},
@@ -50,14 +51,14 @@ export default class Component implements interfaceRyabactComponent {
     eventBus.emit(Component.EVENTS.INIT);
   }
 
-  _registerEvents(eventBus: EventBus) {
+  _registerEvents(eventBus: EventBus): void {
     eventBus.on(Component.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Component.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Component.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     eventBus.on(Component.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  _createResources() {
+  _createResources(): void {
     const component = {
       name: `${this._name} container`,
       template: this._containerTemplate,
@@ -67,18 +68,20 @@ export default class Component implements interfaceRyabactComponent {
 
   _addEvents() {
     const { events } = this.props;
-    const current = this.element?.firstChild;
+    if (this.element?.firstChild) {
+      const current: compiledComponentType = this.element?.firstChild;
 
-    if (events && current) {
-      Object.keys(events).forEach((eventName) => {
-        if (typeof events[eventName] === 'function') {
-          current.addEventListener(eventName, events[eventName]);
-        }
-      });
+      if (events) {
+        Object.keys(events).forEach((eventName) => {
+          if (typeof events[eventName] === 'function') {
+            current.addEventListener(eventName, events[eventName]);
+          }
+        });
+      }
     }
   }
 
-  _removeEvents() {
+  _removeEvents(): void {
     const { events } = this.props;
     const current = this.element?.firstChild;
 
@@ -89,19 +92,20 @@ export default class Component implements interfaceRyabactComponent {
     }
   }
 
-  init() {
+  init(): void {
     this._createResources();
     this.eventBus().emit(Component.EVENTS.FLOW_CDM);
   }
 
-  _componentDidMount() {
+  _componentDidMount(): void {
     this.componentDidMount();
     this.eventBus().emit(Component.EVENTS.FLOW_RENDER);
   }
 
-  componentDidMount(oldProps: PropsType = {}) {}
+  // eslint-disable-next-line class-methods-use-this
+  componentDidMount(oldProps: PropsType = {}): void { /**/ }
 
-  _componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}) {
+  _componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): void {
     //
     if (this.componentDidUpdate(oldProps, newProps)) {
       this._removeEvents();
@@ -109,11 +113,10 @@ export default class Component implements interfaceRyabactComponent {
     }
   }
 
-  componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean {
-    return true;
-  }
+  // eslint-disable-next-line class-methods-use-this
+  componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean { return true; }
 
-  setProps = (nextProps: PropsType = {}) => {
+  setProps = (nextProps: PropsType = {}): void => {
     if (!nextProps) {
       return;
     }
@@ -151,19 +154,11 @@ export default class Component implements interfaceRyabactComponent {
     return new Templator(component).compile(this.props);
   }
 
-  getContent(): compiledComponentType {
-    return this.element;
-  }
-
   _makePropsProxy(props: PropsType): PropsType {
     const eventBus = this.eventBus();
 
     return new Proxy(props, {
-      get(target: PropsType, prop: string) {
-        const value: any = target[prop];
-        return typeof value === 'function' ? value.bind(target) : value;
-      },
-      set(target: PropsType, prop: string, value: any) {
+      set(target: PropsType, prop: string, value: unknown) {
         const oldTarget = { ...target };
         target[prop] = value;
         eventBus.emit(Component.EVENTS.FLOW_CDU, oldTarget, target);
@@ -173,16 +168,10 @@ export default class Component implements interfaceRyabactComponent {
   }
 
   show(): void {
-    const content = this.getContent();
-    if (content) {
-      content.style.display = 'block';
-    }
+    this._element.style.display = 'block';
   }
 
   hide(): void {
-    const content = this.getContent();
-    if (content) {
-      content.style.display = 'none';
-    }
+    this._element.style.display = 'none';
   }
 }
