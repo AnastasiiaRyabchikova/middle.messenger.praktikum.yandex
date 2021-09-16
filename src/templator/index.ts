@@ -168,7 +168,7 @@ export default class Templator {
         const [item, key] = p1.split(' of ');
         const values = get(ctx, key) || [];
         const resultOfreplace: string = values
-          .map((_1: unknown, index: number) => p2.replace(new RegExp(`{{${item}.(.*?)}}`, 'g'), (_, p12: string) => `{{${key}[${index}].${p12}}}`))
+          .map((_1: unknown, index: number) => p2.replace(new RegExp(`{{${item}.(.*?)}}`, 'g'), (_2, p12: string) => `{{${key}[${index}].${p12}}}`))
           .join('');
         return resultOfreplace;
       })

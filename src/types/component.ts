@@ -1,4 +1,4 @@
-import EventBus from "../Ryabact/event-bus";
+import EventBus from '~/src/Ryabact/event-bus';
 
 export type ComponentsType = {
   [key: string]: ClassDecorator,
