@@ -1,6 +1,10 @@
+import { typeEventHandler } from '~/src/types/component';
 import isObject from './isObject';
 
-export default (object: Record<string, unknown>, path: string): any => {
+export default (
+  object: Record<string, unknown>,
+  path: string,
+): any => {
   const keys: Array<string> = path
     .split(/[.[\]]/)
     .map((item: string) => item.trim())
