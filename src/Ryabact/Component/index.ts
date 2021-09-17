@@ -66,7 +66,7 @@ export default class Component implements interfaceRyabactComponent {
     this._element = new Templator(component).compile();
   }
 
-  _addEvents() {
+  _addEvents(): void {
     const { events } = this.props;
     if (this.element?.firstChild) {
       const current: compiledComponentType = this.element?.firstChild;
@@ -114,6 +114,7 @@ export default class Component implements interfaceRyabactComponent {
   }
 
   // eslint-disable-next-line class-methods-use-this
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean { return true; }
 
   setProps = (nextProps: PropsType = {}): void => {
@@ -128,7 +129,7 @@ export default class Component implements interfaceRyabactComponent {
     return this._element;
   }
 
-  _render() {
+  _render(): void {
     const block: compiledComponentType = this.render();
 
     if (this._element && block) {
@@ -160,6 +161,7 @@ export default class Component implements interfaceRyabactComponent {
     return new Proxy(props, {
       set(target: PropsType, prop: string, value: unknown) {
         const oldTarget = { ...target };
+        // eslint-disable-next-line no-param-reassign
         target[prop] = value;
         eventBus.emit(Component.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
@@ -168,10 +170,12 @@ export default class Component implements interfaceRyabactComponent {
   }
 
   show(): void {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     this._element.style.display = 'block';
   }
 
   hide(): void {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     this._element.style.display = 'none';
   }
 }

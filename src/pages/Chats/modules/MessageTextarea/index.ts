@@ -35,7 +35,11 @@ export default class Component extends Ryabact.Component {
       events: {
         submit: (e: Event) => {
           e.preventDefault();
-          const { required, params } = this.props;
+          const {
+            required = {},
+            params = {},
+            errors = {},
+          } = this.props;
           const {
             text,
           } = params;
@@ -47,11 +51,11 @@ export default class Component extends Ryabact.Component {
             },
           });
 
-          if (hasErrorsCheck(this.props.errors)) {
+          if (hasErrorsCheck(errors)) {
             return;
           }
 
-          context.events?.submit({
+          context.events.submit({
             text,
           });
         },
@@ -70,7 +74,7 @@ export default class Component extends Ryabact.Component {
     });
   }
 
-  componentDidUpdate(oldProps, newProps) {
+  componentDidUpdate(oldProps: PropsType, newProps: PropsType): boolean {
     return !isEqual(oldProps.errors, newProps.errors);
   }
 };

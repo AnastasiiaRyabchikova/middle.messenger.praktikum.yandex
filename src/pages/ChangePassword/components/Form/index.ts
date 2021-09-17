@@ -66,7 +66,7 @@ export default class Page extends Ryabact.Component {
       events: {
         submit: (e: Event) => {
           e.preventDefault();
-          const { required, params } = this.props;
+          const { required = {}, params = {} } = this.props;
           const {
             old_password,
             new_password,
@@ -77,8 +77,12 @@ export default class Page extends Ryabact.Component {
             errors: {
               ...this.props.errors,
               old_password: getRequiredMessage(required.old_password, old_password),
-              new_password: getRequiredMessage(required.new_password, new_password) || validation.password(new_password),
-              new_password_repeat: getRequiredMessage(required.new_password_repeat, new_password_repeat)
+              new_password: getRequiredMessage(required.new_password, new_password)
+                || validation.password(new_password),
+              new_password_repeat: getRequiredMessage(
+                required.new_password_repeat,
+                new_password_repeat,
+              )
                 || validation.passwordRepeat(new_password, new_password_repeat),
             },
           });
@@ -108,7 +112,7 @@ export default class Page extends Ryabact.Component {
     });
   }
 
-  componentDidUpdate(oldProps, newProps) {
+  componentDidUpdate(oldProps: PropsType, newProps: PropsType): boolean {
     return !isEqual(oldProps.errors, newProps.errors);
   }
 };

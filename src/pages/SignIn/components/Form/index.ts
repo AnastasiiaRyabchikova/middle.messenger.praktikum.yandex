@@ -30,6 +30,9 @@ export default class Component extends Ryabact.Component {
       },
       handleInputBlur: (e: Event) => {
         const { name, value }: valuesType = (<HTMLInputElement>e.target);
+        const {
+          params = {},
+        } = this.props;
 
         let message: string = '';
         if (value) {
@@ -44,7 +47,7 @@ export default class Component extends Ryabact.Component {
           } else if (name === 'password') {
             message = validation.password(value);
 
-            if (this.props?.params.password !== this.props?.params.password_repeat) {
+            if (params.password !== params.password_repeat) {
               this.setProps({
                 errors: {
                   ...(this?.props?.errors || {}),
@@ -55,7 +58,7 @@ export default class Component extends Ryabact.Component {
               return;
             }
           } else if (name === 'password_repeat') {
-            if (this.props?.params.password !== this.props?.params.password_repeat) {
+            if (params.password !== params.password_repeat) {
               message = 'Значение должно совпадать с полем ПАРОЛЬ';
             }
           }
@@ -81,7 +84,7 @@ export default class Component extends Ryabact.Component {
       events: {
         submit: (e: Event) => {
           e.preventDefault();
-          const { required, params } = this.props;
+          const { required = {}, params = {} } = this.props;
           const {
             first_name,
             second_name,
@@ -95,17 +98,20 @@ export default class Component extends Ryabact.Component {
           this.setProps({
             errors: {
               ...this.props.errors,
-              first_name: getRequiredMessage(required.first_name, first_name) || validation.name(first_name),
-              second_name: getRequiredMessage(required.second_name, second_name) || validation.name(second_name),
+              first_name: getRequiredMessage(required.first_name, first_name)
+                || validation.name(first_name),
+              second_name: getRequiredMessage(required.second_name, second_name)
+                || validation.name(second_name),
               login: getRequiredMessage(required.login, login) || validation.login(login),
               email: getRequiredMessage(required.email, email) || validation.email(email),
               phone: getRequiredMessage(required.phone, phone) || validation.phone(phone),
-              password: getRequiredMessage(required.password, password) || validation.password(password),
+              password: getRequiredMessage(required.password, password)
+                || validation.password(password),
               password_repeat: getRequiredMessage(required.password_repeat, password_repeat),
             },
           });
 
-          if (hasErrorsCheck(this.props.errors)) {
+          if (hasErrorsCheck(this.props.errors || {})) {
             return;
           }
 
@@ -133,7 +139,7 @@ export default class Component extends Ryabact.Component {
     });
   }
 
-  componentDidUpdate(oldProps, newProps) {
+  componentDidUpdate(oldProps: PropsType, newProps: PropsType): boolean {
     return !isEqual(oldProps.errors, newProps.errors);
   }
 };

@@ -9,7 +9,7 @@ const template: string = `
   />
   <div>
     <div
-       class="${styles.name}"
+      class="${styles.name}"
     >
       {{name}} {{surname}}
     </div>

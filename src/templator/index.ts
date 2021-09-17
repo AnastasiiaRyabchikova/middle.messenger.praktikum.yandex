@@ -26,7 +26,7 @@ const isComponent = (string: string): boolean => (
 
 const getVariable = (string: string): string => {
   const regExp = /^{{(.*?)}}$/;
-  const result: Array<string> | null = string.match(regExp);
+  const result: Array<string> | null = regExp.exec(string);
 
   if (!result) {
     return '';
@@ -63,10 +63,10 @@ const parseElement = (string: string, {
 
   const tag: string = attributes.shift() || '';
 
-  let element: compiledComponentType;
+  let element: compiledComponentType = document.createElement('div');
 
   if (isComponent(tag) && isObject(components)) {
-    const Component: interfaceRyabactComponent | null = components[tag] || null;
+    const Component: interfaceRyabactComponent = components[tag];
 
     if (!Component) {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
@@ -86,7 +86,7 @@ const parseElement = (string: string, {
         }
 
         if (isEventHandler(key)) {
-          const events: eventsType = acc.events || {};
+          const events: eventsType = isObject(acc.events) ? acc.events : {};
           const eventKeyTemp = key.slice(2);
           const eventKey = eventKeyTemp[0].toLowerCase() + eventKeyTemp.slice(1);
 
@@ -107,11 +107,11 @@ const parseElement = (string: string, {
     attributes.forEach((item: string) => {
       const [key, value] = item.split('=');
       if (element) {
-        if (isVariable(value)) {
-          element.setAttribute(key, get(ctx, getVariable(value)) || '');
-        } else {
-          element.setAttribute(key, value);
-        }
+        const valueAttribute: unknown = isVariable(value)
+          ? get(ctx, getVariable(value))
+          : value;
+
+        element.setAttribute(key, valueAttribute || '');
       }
     });
   }
@@ -148,10 +148,10 @@ export default class Templator {
             let value: string = '';
 
             if (/(?=<t-(?:if|else-if))/.test(cur)) {
-              [, key, value] = cur.match(/<t-(?:if|else-if)={{(.*?)}}>([\s\S]*)/);
+              [, key, value] = /<t-(?:if|else-if)={{(.*?)}}>([\s\S]*)/.exec(cur);
             } else if (/(?=<t-else)/.test(cur)) {
               key = '$default';
-              const temp = cur.match(/<t-else>([\s\S]*)/);
+              const temp = /<t-else>([\s\S]*)/.exec(cur);
               value = temp ? temp[1] : '';
             };
 
@@ -173,7 +173,7 @@ export default class Templator {
       })
       .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1: string, p2: string) => {
         const [item, key] = p1.split(' of ');
-        const temp = get(ctx, key);
+        const temp: unknown = get(ctx, key);
         const values = Array.isArray(temp) ? temp : [];
         const resultOfreplace: string = values
           .map((_1: unknown, index: number) => p2.replace(new RegExp(`{{${item}.(.*?)}}`, 'g'), (_2, p12: string) => `{{${key}[${index}].${p12}}}`))

@@ -1,25 +1,36 @@
 import EventBus from '~/src/Ryabact/event-bus';
 
-export type typeEventHandler = (e: Event) => void;
-
-export type ComponentsType = {
-  [key: string]: ClassDecorator,
-} | undefined;
-export interface ComponentType {
-  name: string,
-  template: string,
-  components?: ComponentsType,
-};
+// export type typeEventHandler = () => void;
 
 export type eventsType = {
-  [key: string]: typeEventHandler,
-};
-
-export type PropsType = {
-  class?: string,
-  events?: eventsType,
   [key: string]: unknown,
 };
+
+export interface PropsType {
+  class?: string,
+  events?: eventsType,
+  errors?: Record<string, string>,
+  params?: Record<string, string>,
+  required?: Record<string, boolean>,
+  [key: string]: unknown,
+};
+
+export type compiledComponentType = HTMLElement | SVGElement | ChildNode;
+
+export interface interfaceRyabactComponent {
+  _name: string;
+  _element: compiledComponentType;
+  element: compiledComponentType;
+  _template: string;
+  _components: { [key: string]: interfaceRyabactComponent };
+  _containerTemplate: string;
+  props: PropsType;
+  eventBus: () => EventBus;
+};
+
+export type ComponentsType = {
+  [key: string]: interfaceRyabactComponent,
+} | undefined;
 
 export interface ComponentSettingsInterface {
   props: PropsType,
@@ -29,14 +40,8 @@ export interface ComponentSettingsInterface {
   containerTemplate: string,
 };
 
-export type compiledComponentType = HTMLElement | SVGElement;
-
-export interface interfaceRyabactComponent {
-  _name: string;
-  _element: compiledComponentType;
-  _template: string;
-  _components: ComponentsType;
-  _containerTemplate: string;
-  props: PropsType;
-  eventBus: () => EventBus;
+export interface ComponentType {
+  name: string,
+  template: string,
+  components?: ComponentsType,
 };

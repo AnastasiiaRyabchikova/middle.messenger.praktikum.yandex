@@ -4,7 +4,8 @@
     "start": "npm run clean-dist && parcel build ./src/index.html && cp _redirects ./dist",
     "clean-dist": "rm -rf ./dist",
     "stylelint": "stylelint '**/*{.css,.scss}'",
-    "eslint": "eslint ./ --ext .ts"
+    "eslint": "eslint ./ --ext .ts",
+    "compile": "tsc ./src/**/*.ts"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.31.1",

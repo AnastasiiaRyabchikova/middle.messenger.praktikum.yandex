@@ -1,7 +1,7 @@
 import isObject from './is-object';
 import isArray from './is-array';
 
-export default (value: object | Array<string> | null) => {
+export default (value: unknown): boolean => {
   if (!value) {
     return true;
   }

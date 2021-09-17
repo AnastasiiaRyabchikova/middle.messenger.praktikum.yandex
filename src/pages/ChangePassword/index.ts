@@ -14,6 +14,7 @@ export default class Page extends Ryabact.Component {
     const props: PropsType = {
       ...context,
       handleFormSubmit: (params: Record<string, unknown>) => {
+        // eslint-disable-next-line no-console
         console.log(params);
       },
     };

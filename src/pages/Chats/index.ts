@@ -9,7 +9,7 @@ import Header from './modules/Header';
 import { companions } from './mocks';
 import template from './index.tpl';
 
-const temp = window.location.search.match(/selectedChat=(.*)?/);
+const temp = /selectedChat=(.*)?/.exec(window.location.search);
 const selectedChat = temp && temp[1];
 
 const companionsMapped = companions

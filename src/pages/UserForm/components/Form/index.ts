@@ -71,7 +71,11 @@ export default class Component extends Ryabact.Component {
       events: {
         submit: (e: Event) => {
           e.preventDefault();
-          const { required, params } = this.props;
+          const {
+            required = {},
+            params = {},
+            errors = {},
+          } = this.props;
           const {
             first_name,
             second_name,
@@ -83,16 +87,18 @@ export default class Component extends Ryabact.Component {
 
           this.setProps({
             errors: {
-              ...this.props.errors,
-              first_name: getRequiredMessage(required.first_name, first_name) || validation.name(first_name),
-              second_name: getRequiredMessage(required.second_name, second_name) || validation.name(second_name),
+              ...errors,
+              first_name: getRequiredMessage(required.first_name, first_name)
+                || validation.name(first_name),
+              second_name: getRequiredMessage(required.second_name, second_name)
+                || validation.name(second_name),
               login: getRequiredMessage(required.login, login) || validation.login(login),
               email: getRequiredMessage(required.email, email) || validation.email(email),
               phone: getRequiredMessage(required.phone, phone) || validation.phone(phone),
             },
           });
 
-          if (hasErrorsCheck(this.props.errors)) {
+          if (hasErrorsCheck(errors)) {
             return;
           }
 
@@ -122,7 +128,7 @@ export default class Component extends Ryabact.Component {
     });
   }
 
-  componentDidUpdate(oldProps, newProps) {
+  componentDidUpdate(oldProps: PropsType, newProps: PropsType): boolean {
     return !isEqual(oldProps.errors, newProps.errors);
   }
 };
