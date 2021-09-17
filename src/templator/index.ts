@@ -4,6 +4,7 @@ import {
   compiledComponentType,
   PropsType,
   eventsType,
+  interfaceRyabactComponent,
 } from '~/src/types/component';
 import {
   isClosedTag,
@@ -65,7 +66,7 @@ const parseElement = (string: string, {
   let element: compiledComponentType;
 
   if (isComponent(tag) && isObject(components)) {
-    const Component: ClassDecorator = components[tag];
+    const Component: interfaceRyabactComponent | null = components[tag] || null;
 
     if (!Component) {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
@@ -143,20 +144,20 @@ export default class Templator {
       .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/g, (match: string): string => {
         const values: Record<string, string> = match.split(/(?=<t-(?:if|else|else-if))/)
           .reduce((acc: Record<string, unknown>, cur: string) => {
-            let key = null;
-            let value = null;
+            let key;
+            let value: string = '';
 
             if (/(?=<t-(?:if|else-if))/.test(cur)) {
               [, key, value] = cur.match(/<t-(?:if|else-if)={{(.*?)}}>([\s\S]*)/);
             } else if (/(?=<t-else)/.test(cur)) {
               key = '$default';
               const temp = cur.match(/<t-else>([\s\S]*)/);
-              value = temp && temp[1];
+              value = temp ? temp[1] : '';
             };
-            value = value.replace('</t-if>', '');
+
             return {
               ...acc,
-              [key]: value,
+              [key]: value.replace('</t-if>', ''),
             };
           }, {});
 
@@ -172,7 +173,8 @@ export default class Templator {
       })
       .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1: string, p2: string) => {
         const [item, key] = p1.split(' of ');
-        const values = get(ctx, key) || [];
+        const temp = get(ctx, key);
+        const values = Array.isArray(temp) ? temp : [];
         const resultOfreplace: string = values
           .map((_1: unknown, index: number) => p2.replace(new RegExp(`{{${item}.(.*?)}}`, 'g'), (_2, p12: string) => `{{${key}[${index}].${p12}}}`))
           .join('');
@@ -204,9 +206,14 @@ export default class Templator {
           .split(/(?=\{{2})|(?<=\}{2})/g);
 
         strings.forEach((string) => {
-          const text = isVariable(string)
-            ? get(ctx, getVariable(string)) || ''
-            : string;
+          let text: string;
+
+          if (isVariable(string)) {
+            text = get(ctx, getVariable(string)) ? String(get(ctx, getVariable(string))) : '';
+          } else {
+            text = string;
+          }
+
           if (current) {
             current.appendChild(document.createTextNode(text));
           }
