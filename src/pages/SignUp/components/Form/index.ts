@@ -39,7 +39,6 @@ export default class Component extends Ryabact.Component {
             required = {},
             params = {},
             errors = {},
-            events = {},
           } = this.props;
           const {
             login,
@@ -48,17 +47,17 @@ export default class Component extends Ryabact.Component {
 
           this.setProps({
             errors: {
-              ...this?.props?.errors,
+              ...errors,
               login: getRequiredMessage(required.login, login),
               password: getRequiredMessage(required.password, password),
             },
           });
 
-          if (hasErrorsCheck(errors)) {
+          if (hasErrorsCheck(this.props.errors || {})) {
             return;
           }
 
-          events.submit({
+          context.events.submit({
             login,
             password,
           });
