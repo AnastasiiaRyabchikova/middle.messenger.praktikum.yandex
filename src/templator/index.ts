@@ -79,7 +79,7 @@ const parseElement = (string: string, {
 
         if (isVariable(value)) {
           const temp: unknown = get(ctx, getVariable(value));
-          prop = String(temp || '');
+          prop = temp;
         } else {
           prop = value;
         }
