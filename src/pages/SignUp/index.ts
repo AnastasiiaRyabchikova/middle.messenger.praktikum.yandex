@@ -13,6 +13,7 @@ export default class Component extends Ryabact.Component {
       handleFormSubmit: (params: Record<string, unknown>) => {
         // eslint-disable-next-line no-console
         console.log(params);
+        window.location.href = '/chats';
       },
     };
 
