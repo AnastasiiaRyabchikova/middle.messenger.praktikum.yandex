@@ -175,11 +175,11 @@ export default class Templator {
           })
           .filter((item) => (item))[0] || '';
       })
-      .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1: string, p2: string) => {
+      .replace(/<t-for={{(.*?)}}>([\s\S]*?)<\/t-for>/, (_, p1: string, p2: string): string => {
         const [item, key] = p1.split(' of ');
         const temp: unknown = get(ctx, key);
         const values = Array.isArray(temp) ? temp : [];
-        const resultOfreplace: string = values
+        return values
           .map((_1: unknown, index: number) => (
             p2.replace(
               new RegExp(`{{${item}.(.*?)}}`, 'g'),
@@ -187,7 +187,6 @@ export default class Templator {
             )
           ))
           .join('');
-        return resultOfreplace;
       })
       .split(/(?<=>)|(?=<)/g)
       .map((item) => item.trim())
