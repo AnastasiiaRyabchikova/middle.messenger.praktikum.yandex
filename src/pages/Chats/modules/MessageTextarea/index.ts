@@ -51,7 +51,7 @@ export default class Component extends Ryabact.Component {
             },
           });
 
-          if (hasErrorsCheck(errors)) {
+          if (hasErrorsCheck(this.props.errors || {})) {
             return;
           }
 
