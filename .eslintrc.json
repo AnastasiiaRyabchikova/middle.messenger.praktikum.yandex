@@ -24,6 +24,7 @@
     "@typescript-eslint/no-inferrable-types": "off",
     "camelcase": "off",
     "class-methods-use-this": "off",
+    "consistent-return": "off",
     "import/no-unresolved": "error",
     "import/extensions": [
       "error",
