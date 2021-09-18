@@ -4,7 +4,6 @@ import {
   compiledComponentType,
   PropsType,
   eventsType,
-  interfaceRyabactComponent,
 } from '../types/component';
 import {
   isClosedTag,
@@ -80,7 +79,7 @@ const parseElement = (string: string, {
 
         if (isVariable(value)) {
           const temp: unknown = get(ctx, getVariable(value));
-          prop = String(temp);
+          prop = String(temp || '');
         } else {
           prop = value;
         }
@@ -210,7 +209,7 @@ export default class Templator {
           let text: string;
 
           if (isVariable(string)) {
-            text = get(ctx, getVariable(string)) ? String(get(ctx, getVariable(string))) : '';
+            text = String(get(ctx, getVariable(string)) || '');
           } else {
             text = string;
           }
