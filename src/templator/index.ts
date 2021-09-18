@@ -137,7 +137,11 @@ export default class Templator {
   compileTemplate = (ctx: PropsType): compiledComponentType => {
     let result: compiledComponentType;
     let current: compiledComponentType | Node | null = null;
-    const { components, name, template } = this;
+    const {
+      components = {},
+      name,
+      template,
+    } = this;
 
     const elements: string[] = template
       .replace(/\s+/g, ' ')
@@ -176,7 +180,12 @@ export default class Templator {
         const temp: unknown = get(ctx, key);
         const values = Array.isArray(temp) ? temp : [];
         const resultOfreplace: string = values
-          .map((_1: unknown, index: number) => p2.replace(new RegExp(`{{${item}.(.*?)}}`, 'g'), (_2, p12: string) => `{{${key}[${index}].${p12}}}`))
+          .map((_1: unknown, index: number) => (
+            p2.replace(
+              new RegExp(`{{${item}.(.*?)}}`, 'g'),
+              (_2, p12: string) => `{{${key}[${index}].${p12}}}`,
+            )
+          ))
           .join('');
         return resultOfreplace;
       })
