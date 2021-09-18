@@ -5,7 +5,7 @@ import {
   interfaceRyabactComponent,
   ComponentsType,
   PropsType,
-} from '~/src/types/component';
+} from '../../types/component';
 import EventBus from '../event-bus';
 
 export default class Component implements interfaceRyabactComponent {
@@ -34,7 +34,7 @@ export default class Component implements interfaceRyabactComponent {
     props = {},
     name,
     template,
-    components,
+    components = {},
     containerTemplate,
   } : ComponentSettingsInterface) {
     this._name = name;

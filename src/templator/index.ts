@@ -5,7 +5,7 @@ import {
   PropsType,
   eventsType,
   interfaceRyabactComponent,
-} from '~/src/types/component';
+} from '../types/component';
 import {
   isClosedTag,
   isSelfClosingTag,
@@ -42,7 +42,7 @@ const isEventHandler = (string: string): boolean => {
 
 type parseElementProps = {
   ctx: PropsType,
-  components: ComponentsType,
+  components: { [key: string]: ComponentType },
   name: string,
 };
 
@@ -66,7 +66,7 @@ const parseElement = (string: string, {
   let element: compiledComponentType = document.createElement('div');
 
   if (isComponent(tag) && isObject(components)) {
-    const Component: interfaceRyabactComponent = components[tag];
+    const Component: ComponentType = components[tag];
 
     if (!Component) {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
@@ -98,6 +98,7 @@ const parseElement = (string: string, {
 
         return acc;
       }, {});
+    // eslint-disable-next-line
     element = new Component(componentCtx).element;
   } else {
     element = isSvgTag(tag)
@@ -111,7 +112,7 @@ const parseElement = (string: string, {
           ? get(ctx, getVariable(value))
           : value;
 
-        element.setAttribute(key, valueAttribute || '');
+        element.setAttribute(key, String(valueAttribute || ''));
       }
     });
   }

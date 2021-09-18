@@ -1,4 +1,4 @@
-import { compiledComponentType } from '~/src/types/component';
+import { compiledComponentType } from '../types/component';
 
 const render = (root: HTMLElement | null, Component: compiledComponentType): void => {
   if (!root) {

@@ -1,6 +1,6 @@
 import { render } from 'templator';
 import { interfaceRyabactComponent } from './types/component';
-import ErrorPage from '~/src/pages/Error';
+import ErrorPage from './pages/Error';
 
 import routes from './routes';
 

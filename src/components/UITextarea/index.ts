@@ -1,7 +1,7 @@
-import * as Ryabact from 'ryabact';
-import cx from 'classnames';
-import { PropsType } from '~/src/types/component';
-import Textarea from '~/src/components/Textarea';
+import * as Ryabact from '../../Ryabact';
+import cx from '../../utils/classnames';
+import { PropsType } from '../../types/component';
+import Textarea from '../Textarea';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 

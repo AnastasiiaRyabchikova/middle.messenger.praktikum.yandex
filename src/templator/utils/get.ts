@@ -1,4 +1,3 @@
-import { typeEventHandler } from '~/src/types/component';
 import isObject from './isObject';
 
 export default (

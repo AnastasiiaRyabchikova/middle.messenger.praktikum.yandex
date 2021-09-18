@@ -1,4 +1,4 @@
-import EventBus from '~/src/Ryabact/event-bus';
+import EventBus from '../Ryabact/event-bus';
 
 // export type typeEventHandler = () => void;
 
@@ -15,7 +15,7 @@ export interface PropsType {
   [key: string]: unknown,
 };
 
-export type compiledComponentType = HTMLElement | SVGElement | ChildNode;
+export type compiledComponentType = HTMLElement | SVGElement;
 
 export interface interfaceRyabactComponent {
   _name: string;
@@ -28,20 +28,20 @@ export interface interfaceRyabactComponent {
   eventBus: () => EventBus;
 };
 
+export interface ComponentType extends interfaceRyabactComponent {
+  name: string,
+  template: string,
+  components?: { [key: string]: ComponentType },
+};
+
 export type ComponentsType = {
-  [key: string]: interfaceRyabactComponent,
-} | undefined;
+  [key: string]: ComponentType,
+};
 
 export interface ComponentSettingsInterface {
   props: PropsType,
   name: string,
   template: string,
-  components?: ComponentsType,
+  components?: { [key: string]: ComponentType },
   containerTemplate: string,
-};
-
-export interface ComponentType {
-  name: string,
-  template: string,
-  components?: ComponentsType,
 };
