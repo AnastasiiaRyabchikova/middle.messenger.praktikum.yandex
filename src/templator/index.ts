@@ -11,7 +11,7 @@ import {
   isTag,
   isSvgTag,
 } from './utils/tag';
-import isObject from './utils/isObject';
+import isObject from './utils/is-object';
 import get from './utils/get';
 
 const isVariable = (string: string): boolean => {
