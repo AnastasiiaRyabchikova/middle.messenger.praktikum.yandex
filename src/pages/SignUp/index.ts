@@ -5,6 +5,7 @@ import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
 import Form from './components/Form';
 import template from './index.tpl';
+import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
@@ -27,7 +28,7 @@ export default class Component extends Ryabact.Component {
         Button,
         Form,
       },
-      containerTemplate: '<span />',
+      containerTemplate: `<div class="${styles.container}" />`,
     });
   }
 };
