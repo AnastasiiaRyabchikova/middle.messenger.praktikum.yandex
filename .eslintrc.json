@@ -26,6 +26,8 @@
     "class-methods-use-this": "off",
     "consistent-return": "off",
     "import/no-unresolved": "error",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
     "import/extensions": [
       "error",
       "ignorePackages",
