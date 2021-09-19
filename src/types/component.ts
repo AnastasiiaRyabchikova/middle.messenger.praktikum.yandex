@@ -1,7 +1,5 @@
 import EventBus from '../Ryabact/event-bus';
 
-// export type typeEventHandler = () => void;
-
 export type eventsType = {
   [key: string]: unknown,
 };
