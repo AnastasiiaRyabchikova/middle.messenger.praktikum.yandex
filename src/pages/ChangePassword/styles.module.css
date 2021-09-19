@@ -1,3 +1,7 @@
+.container {
+  height: 100%;
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -11,6 +15,7 @@
 .main {
   display: flex;
   flex-grow: 1;
+  align-items: center;
 }
 
 .account {

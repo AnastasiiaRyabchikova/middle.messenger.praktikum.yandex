@@ -1,3 +1,7 @@
+.container {
+  height: 100%;
+}
+
 .page {
   display: flex;
   flex-direction: column;

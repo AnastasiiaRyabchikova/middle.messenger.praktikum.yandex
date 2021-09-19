@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es5",
+    "declaration": false,
+    "module": "es2015",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "templator": ["./src/templator"],
+      "classnames": ["./src/utils/classnames"],
+      "ryabact": ["./src/Ryabact"],
+      "~/*": ["./*"]
+    },
+    "typeRoots": ["node_modules/@types"],
+  },
+  "include": ["src/**/*"]
+}

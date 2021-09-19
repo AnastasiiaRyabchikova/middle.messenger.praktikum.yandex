@@ -10,7 +10,8 @@
   --color-primary: #6d3f8a;
   --color-primary-opacity: rgba(109, 63, 138, 0.5);
   --color-primary-opacitier: rgba(109, 63, 138, 0.1);
-  --color-error: #f00;
+  --color-error: rgb(255, 110, 42);
+  --color-success: rgb(0, 177, 103);
 
   /* block variables */
   --outer-indent-vertical: 1rem;
