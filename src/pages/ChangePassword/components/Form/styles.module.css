@@ -1,0 +1,23 @@
+.account {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  max-width: var(--account-width);
+}
+
+.avatar {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.field {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.submit {
+  display: block;
+  margin: 2rem auto 0;
+}
