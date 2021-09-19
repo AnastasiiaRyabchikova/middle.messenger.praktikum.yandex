@@ -2,7 +2,6 @@ import * as Ryabact from 'ryabact';
 import { PropsType } from '~/src/types/component';
 import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
@@ -22,7 +21,7 @@ export default class Component extends Ryabact.Component {
       components: {
         Avatar,
       },
-      containerTemplate: `<div class="${styles.container}" />`,
+      containerTemplate: '<div />',
     });
   }
 };
