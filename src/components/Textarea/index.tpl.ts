@@ -1,7 +1,6 @@
 const template: string = `
   <textarea
     class="{{class}}"
-    type="{{type}}"
     placeholder="{{placeholder}}"
     name="{{name}}"
     class="{{class}}"
