@@ -1,8 +1,8 @@
-import { methods } from './constants';
+import { Methods } from './enums';
 import { isArray, isObject } from '../utils/format-checking';
 
 interface Options {
-  method?: string,
+  method?: Methods,
   headers?: Record<string, string>,
   data?: Record<string, unknown>,
 };
@@ -34,7 +34,7 @@ export default class HTTPTransport {
   ): Promise<unknown> => (
     this.request(
       url,
-      { ...options, method: methods.get },
+      { ...options, method: Methods.Get },
       options.timeout,
     )
   );
@@ -42,7 +42,7 @@ export default class HTTPTransport {
   post = (url: string, options = { timeout: 500 }): Promise<unknown> => (
     this.request(
       url,
-      { ...options, method: methods.post },
+      { ...options, method: Methods.Post },
       options.timeout,
     )
   );
@@ -50,7 +50,7 @@ export default class HTTPTransport {
   delete = (url: string, options = { timeout: 500 }): Promise<unknown> => (
     this.request(
       url,
-      { ...options, method: methods.delete },
+      { ...options, method: Methods.Delete },
       options.timeout,
     )
   );
@@ -58,7 +58,7 @@ export default class HTTPTransport {
   put = (url: string, options = { timeout: 500 }): Promise<unknown> => (
     this.request(
       url,
-      { ...options, method: methods.put },
+      { ...options, method: Methods.Put },
       options.timeout,
     )
   );
@@ -69,13 +69,13 @@ export default class HTTPTransport {
     timeout: number = 5000,
   ): Promise<unknown> => {
     const {
-      method = methods.get,
+      method = Methods.Get,
       headers = {},
       data = {},
     } = options;
 
     return new Promise((resolve, reject) => {
-      const requestUrl = method === methods.get
+      const requestUrl = method === Methods.Get
         ? `${url}${queryStringify(data)}`
         : url;
 
@@ -99,7 +99,7 @@ export default class HTTPTransport {
         reject(err);
       };
 
-      if (method === methods.get) {
+      if (method === Methods.Get) {
         xhr.send();
       } else {
         xhr.send(JSON.stringify(data));
