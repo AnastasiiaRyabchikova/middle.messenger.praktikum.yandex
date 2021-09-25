@@ -16,7 +16,7 @@ const template: string = `
         class="${styles.search}"  
       />
       <a
-        href="/${routes.userForm}"
+        href="${routes.userForm}"
         class="${styles.avatarLink}"
       >
         <Avatar

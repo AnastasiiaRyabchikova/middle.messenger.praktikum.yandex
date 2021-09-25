@@ -16,7 +16,7 @@ const companionsMapped = companions
   .map((item) => (
     {
       ...item,
-      link: `/${routes.chats}?selectedChat=${item.id}`,
+      link: `${routes.chats}?selectedChat=${item.id}`,
     }
   ));
 

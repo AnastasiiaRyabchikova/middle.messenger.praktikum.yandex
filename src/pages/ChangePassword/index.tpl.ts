@@ -1,3 +1,4 @@
+import pathnames from '~/src/constants/pathnames';
 import * as styles from './styles.module.css';
 
 const template: string = `
@@ -16,7 +17,7 @@ const template: string = `
       class="${styles.side}"
     >
       <a
-        href="#"
+        href="${pathnames.userForm}"
         class="${styles.left}"
       >
         <IconArrowLeft />
