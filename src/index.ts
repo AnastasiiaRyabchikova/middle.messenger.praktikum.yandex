@@ -1,16 +1,11 @@
-import { render } from 'templator';
-import { interfaceRyabactComponent } from './types/component';
-import ErrorPage from './pages/Error';
-
+import Router from '~/src/Router';
 import routes from './routes';
-
 import './theme/index.css';
 
-const { pathname } = window.location;
+const root = document.getElementById('root');
 
-const name = pathname.slice(1);
-const Page: interfaceRyabactComponent = routes[name] || new ErrorPage({ code: 404 });
+const router = new Router(root);
 
-if (Page) {
-  render(document.getElementById('root'), Page.element);
-}
+router
+  .use(routes)
+  .start();
