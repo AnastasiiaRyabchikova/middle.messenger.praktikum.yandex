@@ -1,6 +1,4 @@
-import {
-  interfaceRyabactComponent,
-} from '../types/component';
+import routeSettings from './interfaces/route-settings';
 import Route from './Route';
 
 export default class Router {
@@ -26,9 +24,10 @@ export default class Router {
     Router.__instance = this;
   }
 
-  use(pathname: string, block: interfaceRyabactComponent): this {
-    const route = new Route(pathname, block, { rootQuery: this._rootQuery });
-    this.routes.push(route);
+  use(routes: Array<routeSettings>): this {
+    routes.forEach(({ pathname, component }) => {
+      this.routes.push(new Route(pathname, component, { rootQuery: this._rootQuery }));
+    });
     return this;
   }
 
