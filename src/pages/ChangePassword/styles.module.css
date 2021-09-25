@@ -18,12 +18,8 @@
   align-items: center;
 }
 
-.account {
-  display: flex;
-  flex-direction: column;
+.form {
   flex-grow: 1;
-  align-items: center;
-  justify-content: center;
   max-width: var(--account-width);
 }
 

@@ -23,9 +23,11 @@ const template: string = `
         <IconArrowLeft />
       </a>
     </div>
-    <Form
-      onSubmit="{{handleFormSubmit}}"
-    />
+    <div class="${styles.form}">
+      <Form
+        onSubmit="{{handleFormSubmit}}"
+      />
+    </div>
   </main>
 </div>
 `;
