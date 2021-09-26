@@ -1,7 +1,7 @@
 import * as Ryabact from 'ryabact';
 import cx from 'classnames';
 import { PropsType } from '~/src/types/component';
-import ChatHistory from '~/src/modules/ChatHistory';
+import ChatHistory from '../ChatHistory';
 import MessageTextarea from '../MessageTextarea';
 import Header from '../Header';
 import template from './index.tpl';
