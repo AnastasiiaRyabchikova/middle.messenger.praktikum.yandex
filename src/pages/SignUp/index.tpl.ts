@@ -37,7 +37,7 @@ const template: string = `
     </a>
     <a
       class="${styles.shredinger}"
-      href="/${routes.error500}"
+      href="${routes.error500}"
     >
       Страница с ошибкой 500
     </a>

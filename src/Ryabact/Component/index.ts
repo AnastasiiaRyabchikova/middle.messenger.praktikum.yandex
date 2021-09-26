@@ -117,6 +117,8 @@ export default class Component implements interfaceRyabactComponent {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean { return true; }
 
+  componentDidRender(): void { /* */ }
+
   setProps = (nextProps: PropsType = {}): void => {
     if (!nextProps) {
       return;
@@ -137,6 +139,7 @@ export default class Component implements interfaceRyabactComponent {
       this._element.appendChild(block);
     }
 
+    this.componentDidRender();
     this._addEvents();
   }
 

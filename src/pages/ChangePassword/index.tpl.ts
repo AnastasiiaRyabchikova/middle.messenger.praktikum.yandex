@@ -17,7 +17,9 @@ const template: string = `
       class="${styles.side}"
     >
       <a
+        data-type="router-link"
         href="${pathnames.userForm}"
+        data-to="${pathnames.userForm}"
         class="${styles.left}"
       >
         <IconArrowLeft />

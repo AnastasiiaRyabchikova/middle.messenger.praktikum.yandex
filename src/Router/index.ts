@@ -8,11 +8,11 @@ export default class Router {
 
   history: History;
 
-  _currentRoute: Route | null;
+  _currentRoute: Route | null ;
 
   _rootQuery: HTMLElement | null;
 
-  constructor(rootQuery: HTMLElement | null) {
+  constructor(rootQuery?: HTMLElement | null) {
     if (Router.__instance) {
       return Router.__instance;
     }
