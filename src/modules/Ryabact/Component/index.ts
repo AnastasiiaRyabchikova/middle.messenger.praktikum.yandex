@@ -6,7 +6,7 @@ import {
   ComponentsType,
   PropsType,
 } from '../../../types/component';
-import EventBus from '../event-bus';
+import EventBus from '~/src/modules/event-bus';
 
 export default class Component implements interfaceRyabactComponent {
   static EVENTS = {
