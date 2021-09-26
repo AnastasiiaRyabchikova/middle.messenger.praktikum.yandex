@@ -4,7 +4,7 @@ import {
   compiledComponentType,
   PropsType,
   eventsType,
-} from '../types/component';
+} from '../../types/component';
 import {
   isClosedTag,
   isSelfClosingTag,

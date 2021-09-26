@@ -33,9 +33,9 @@
     "typescript": "^4.3.5"
   },
   "alias": {
-    "templator": "./src/templator",
+    "templator": "./src/modules/templator",
     "classnames": "./src/utils/classnames",
-    "ryabact": "./src/Ryabact"
+    "ryabact": "./src/modules/Ryabact"
   },
   "browserslist": [
     "> 1%"

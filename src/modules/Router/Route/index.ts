@@ -1,7 +1,7 @@
 import { render } from 'templator';
 import {
   interfaceRyabactComponent,
-} from '../../types/component';
+} from '~/src/types/component';
 
 interface Props {
   rootQuery: HTMLElement | null,

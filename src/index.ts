@@ -1,4 +1,4 @@
-import Router from '~/src/Router';
+import Router from '~/src/modules/Router';
 import routes from './routes';
 import './theme/index.css';
 

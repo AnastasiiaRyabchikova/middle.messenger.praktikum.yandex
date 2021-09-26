@@ -1,7 +1,6 @@
-import { compiledComponentType } from '../types/component';
+import { compiledComponentType } from '../../types/component';
 
 const render = (root: HTMLElement | null | undefined, Component: compiledComponentType): void => {
-  console.log(root);
   if (!root) {
     throw new Error('Не определен корень проекта');
   }

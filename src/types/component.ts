@@ -1,4 +1,4 @@
-import EventBus from '../Ryabact/event-bus';
+import EventBus from '../modules/Ryabact/event-bus';
 
 export type eventsType = {
   [key: string]: unknown,

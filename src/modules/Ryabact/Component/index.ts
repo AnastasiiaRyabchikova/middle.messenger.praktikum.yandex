@@ -5,7 +5,7 @@ import {
   interfaceRyabactComponent,
   ComponentsType,
   PropsType,
-} from '../../types/component';
+} from '../../../types/component';
 import EventBus from '../event-bus';
 
 export default class Component implements interfaceRyabactComponent {
