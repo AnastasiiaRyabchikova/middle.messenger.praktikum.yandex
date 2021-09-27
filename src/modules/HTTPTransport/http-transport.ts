@@ -28,6 +28,12 @@ const queryStringify = (data: Record<string, unknown>): string => (
 );
 
 export default class HTTPTransport {
+  private baseUrl: string
+
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl;
+  }
+
   get = (
     url: string,
     options: OptionsHTTPTransport,
@@ -76,7 +82,7 @@ export default class HTTPTransport {
 
     return new Promise((resolve, reject) => {
       const requestUrl = method === Methods.Get
-        ? `${url}${queryStringify(data)}`
+        ? `${this.baseUrl}/${url}${queryStringify(data)}`
         : url;
 
       const xhr = new XMLHttpRequest();
