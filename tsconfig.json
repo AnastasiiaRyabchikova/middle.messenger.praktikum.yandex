@@ -14,8 +14,9 @@
     "baseUrl": ".",
     "paths": {
       "templator": ["src/modules/templator"],
-      "classnames": ["./src/utils/classnames"],
+      "classnames": ["src/utils/classnames"],
       "ryabact": ["src/modules/Ryabact"],
+      "http-transport": ["src/modules/HTTPTransport"],
       "~/*": ["./*"]
     },
     "typeRoots": ["node_modules/@types"],
