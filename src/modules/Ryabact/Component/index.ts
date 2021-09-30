@@ -14,6 +14,7 @@ export default class Component implements interfaceRyabactComponent {
     FLOW_CDM: 'flow:component-did-mount',
     FLOW_CDU: 'flow:component-did-update',
     FLOW_RENDER: 'flow:render',
+    FLOW_CDUM: 'flow:component-did-unmount',
   };
 
   _name: string = '';
@@ -135,7 +136,7 @@ export default class Component implements interfaceRyabactComponent {
     const block: compiledComponentType = this.render();
 
     if (this._element && block) {
-      this._clearElement();
+      this.clearElement();
       this._element.appendChild(block);
     }
 
@@ -143,10 +144,26 @@ export default class Component implements interfaceRyabactComponent {
     this._addEvents();
   }
 
-  _clearElement(): void {
+  clearElement(): void {
     if (this._element) {
       this._element.textContent = '';
     }
+  }
+
+  componentDidUnmount(): void { /* */ }
+
+  _componentDidUnmount(): void {
+    this.componentDidUnmount();
+    this.eventBus().emit(Component.EVENTS.FLOW_CDUM);
+  }
+
+  deleteElement(): void {
+    this._element.parentNode.removeChild();
+  }
+
+  componentDelete(): void {
+    this._componentDidUnmount();
+    this.deleteElement();
   }
 
   render(): compiledComponentType {
