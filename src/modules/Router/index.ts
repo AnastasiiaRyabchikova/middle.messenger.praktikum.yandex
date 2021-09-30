@@ -1,3 +1,4 @@
+import { interfaceRyabactComponent } from '~/src/types';
 import routeSettings from './interfaces/route-settings';
 import Route from './Route';
 
@@ -8,11 +9,16 @@ export default class Router {
 
   history: History;
 
+  private fallbackPage: interfaceRyabactComponent | undefined;
+
   _currentRoute: Route | null ;
 
-  _rootQuery: HTMLElement | null;
+  _rootQuery: HTMLElement | undefined;
 
-  constructor(rootQuery?: HTMLElement | null) {
+  constructor(
+    rootQuery?: HTMLElement | undefined,
+    fallbackPage?: interfaceRyabactComponent,
+  ) {
     if (Router.__instance) {
       return Router.__instance;
     }
@@ -20,6 +26,7 @@ export default class Router {
     this.history = window.history;
     this._currentRoute = null;
     this._rootQuery = rootQuery;
+    this.fallbackPage = new Route('', fallbackPage, { rootQuery });
 
     Router.__instance = this;
   }
@@ -42,7 +49,10 @@ export default class Router {
   _onRoute(pathname: string): void {
     const route = this.getRoute(pathname);
 
+    console.log(route);
+
     if (!route) {
+      this.fallbackPage.render();
       return;
     }
 

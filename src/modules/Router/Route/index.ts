@@ -4,7 +4,7 @@ import {
 } from '~/src/types/component';
 
 interface Props {
-  rootQuery: HTMLElement | null,
+  rootQuery: HTMLElement | undefined,
   [key: string]: unknown,
 };
 
@@ -37,7 +37,7 @@ export default class Route {
 
   leave(): void {
     if (this._block) {
-      this._block.hide();
+      this._block.componentDelete();
     }
   }
 
@@ -46,13 +46,7 @@ export default class Route {
   }
 
   render(): void {
-    // console.log('render');
-    if (!this._block) {
-      this._block = new this._blockClass();
-      render(this._props.rootQuery, this._block.element);
-      return;
-    }
-
-    this._block.show();
+    this._block = new this._blockClass();
+    render(this._props.rootQuery, this._block.element);
   }
 };
