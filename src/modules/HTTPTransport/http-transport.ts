@@ -30,8 +30,10 @@ const queryStringify = (data: Record<string, unknown>): string => (
 export default class HTTPTransport {
   private baseUrl: string
 
+  static apiUrl = 'https://ya-praktikum.tech/api/v2';
+
   constructor(baseUrl: string) {
-    this.baseUrl = baseUrl;
+    this.baseUrl = `${HTTPTransport.apiUrl}${baseUrl}`;
   }
 
   get = (
@@ -82,8 +84,8 @@ export default class HTTPTransport {
 
     return new Promise((resolve, reject) => {
       const requestUrl = method === Methods.Get
-        ? `${this.baseUrl}/${url}${queryStringify(data)}`
-        : url;
+        ? `${this.baseUrl}${url}${queryStringify(data)}`
+        : `${this.baseUrl}${url}`;
 
       const xhr = new XMLHttpRequest();
       xhr.timeout = timeout;
