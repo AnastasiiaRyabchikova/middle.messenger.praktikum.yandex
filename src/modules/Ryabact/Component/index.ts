@@ -56,6 +56,7 @@ export default class Component {
     eventBus.on(Component.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Component.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     eventBus.on(Component.EVENTS.FLOW_RENDER, this._render.bind(this));
+    eventBus.on(Component.EVENTS.FLOW_CDUM, this._componentDidUnmount.bind(this));
   }
 
   _createResources(): void {
@@ -153,11 +154,11 @@ export default class Component {
 
   _componentDidUnmount(): void {
     this.componentDidUnmount();
-    this.eventBus().emit(Component.EVENTS.FLOW_CDUM);
   }
 
   deleteElement(): void {
-    this._element.parentNode.removeChild();
+    this._element.parentNode.removeChild(this._element);
+    this.eventBus().emit(Component.EVENTS.FLOW_CDUM);
   }
 
   componentDelete(): void {
