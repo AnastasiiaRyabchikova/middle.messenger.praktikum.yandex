@@ -38,7 +38,7 @@ export default class HTTPTransport {
 
   get = (
     url: string,
-    options: OptionsHTTPTransport,
+    options: OptionsHTTPTransport = { timeout: 500 },
   ): Promise<unknown> => (
     this.request(
       url,
@@ -106,6 +106,8 @@ export default class HTTPTransport {
       xhr.onerror = (err) => {
         reject(err);
       };
+
+      xhr.setRequestHeader('Content-Type', 'application/json');
 
       if (method === Methods.Get) {
         xhr.send();
