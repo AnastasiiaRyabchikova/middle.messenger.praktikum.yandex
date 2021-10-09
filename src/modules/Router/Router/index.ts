@@ -49,15 +49,13 @@ export default class Router {
   _onRoute(pathname: string): void {
     const route = this.getRoute(pathname);
 
-    console.log(route);
+    if (this._currentRoute) {
+      this._currentRoute.leave();
+    }
 
     if (!route) {
       this.fallbackPage.render();
       return;
-    }
-
-    if (this._currentRoute) {
-      this._currentRoute.leave();
     }
 
     this._currentRoute = route;
