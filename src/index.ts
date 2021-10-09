@@ -1,4 +1,4 @@
-import Router from '~/src/modules/Router';
+import Router from '~/src/modules/router';
 import Page404 from '~/src/pages/Page404';
 import { routesForUnknownUser } from './routes';
 import './theme/index.css';
