@@ -1,10 +1,10 @@
 const pathnames: {
   [key: string]: string
 } = {
-  signIn: '/sign-in',
+  signIn: '/',
   signUp: '/sign-up',
   changePassword: '/change-password',
-  chats: '/chats',
+  chats: '/',
   userForm: '/user-form',
 };
 
