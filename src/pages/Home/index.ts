@@ -4,19 +4,15 @@ import { AuthControler } from '~/src/controlers';
 import * as Ryabact from '~/src/modules/Ryabact';
 import { PropsType } from '~/src/types/component';
 import Logo from '../../components/Logo';
+import { routesForUnknownUser, routesForUser } from '~/src/routes';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
-import user from '~/src/store/user';
-
-console.log(111111);
 
 class HomePage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
     };
-
-    console.log('HomePage');
 
     super({
       props,
@@ -29,13 +25,21 @@ class HomePage extends Ryabact.Component {
     });
   }
 
-  componentDidMount() {
-    // AuthControler.fetchUser();
+  async componentDidMount() {
+    await AuthControler.fetchUser();
+    if (!this.props.user) {
+      this.router
+        .use(routesForUnknownUser)
+        .start();
+    } else {
+      this.router
+        .use(routesForUser)
+        .start();
+    }
   }
 };
 
 export default withRouter(
-  // HomePage,
   connect(
     state => ({ user: state.user.profile }),
     HomePage,
