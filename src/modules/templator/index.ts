@@ -1,5 +1,5 @@
+import { Component as RyabactComponent } from 'ryabact';
 import {
-  ComponentType,
   ComponentsType,
   compiledComponentType,
   PropsType,
@@ -41,7 +41,7 @@ const isEventHandler = (string: string): boolean => {
 
 type parseElementProps = {
   ctx: PropsType,
-  components: { [key: string]: ComponentType },
+  components: { [key: string]: RyabactComponent },
   name: string,
 };
 
@@ -65,7 +65,7 @@ const parseElement = (string: string, {
   let element: compiledComponentType = document.createElement('div');
 
   if (isComponent(tag) && isObject(components)) {
-    const Component: ComponentType = components[tag];
+    const Component: RyabactComponent = components[tag];
 
     if (!Component) {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
@@ -124,7 +124,7 @@ export default class Templator {
 
   public components?: ComponentsType;
 
-  constructor(settings: ComponentType) {
+  constructor(settings: RyabactComponent) {
     this.template = settings.template;
     this.components = settings.components || {};
     this.name = settings.name || 'nameless component';

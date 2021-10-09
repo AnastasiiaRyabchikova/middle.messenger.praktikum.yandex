@@ -2,13 +2,12 @@ import Templator from 'templator';
 import {
   compiledComponentType,
   ComponentSettingsInterface,
-  interfaceRyabactComponent,
   ComponentsType,
   PropsType,
 } from '../../../types/component';
 import EventBus from '~/src/modules/event-bus';
 
-export default class Component implements interfaceRyabactComponent {
+export default class Component {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',

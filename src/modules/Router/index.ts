@@ -1,4 +1,4 @@
-import { interfaceRyabactComponent } from '~/src/types';
+import { Component } from 'ryabact';
 import routeSettings from './interfaces/route-settings';
 import Route from './Route';
 
@@ -9,7 +9,7 @@ export default class Router {
 
   history: History;
 
-  private fallbackPage: interfaceRyabactComponent | undefined;
+  private fallbackPage: Component | undefined;
 
   _currentRoute: Route | null ;
 
@@ -17,7 +17,7 @@ export default class Router {
 
   constructor(
     rootQuery?: HTMLElement | undefined,
-    fallbackPage?: interfaceRyabactComponent,
+    fallbackPage?: Component,
   ) {
     if (Router.__instance) {
       return Router.__instance;
