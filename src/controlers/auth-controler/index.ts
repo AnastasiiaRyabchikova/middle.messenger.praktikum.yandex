@@ -1,35 +1,50 @@
-import AuthApi from '~/src/api/auth-api';
+import AuthAPI, { LoginData, SignupData, UserData } from '~/src/api/auth-api';
+import { store } from '~/src/store';
+import { deleteUser, setError, setUser } from '~/src/store/user';
 
-class AuthControler {
-  private api: AuthApi;
+class AuthController {
+  private api: AuthAPI;
 
   constructor() {
-    this.api = new AuthApi();
+    this.api = new AuthAPI();
   }
 
-  signIn(params) {
+  async signUp(data: SignupData) {
     try {
-      this.api.signIn(params);
-    } catch (err) {
-      console.error(err);
+      await this.api.signUp(data);
+      await this.fetchUser();
+    } catch (e) {
+      store.dispatch(setError(e as { reason: string }));
     }
   }
 
-  signUp(params) {
+  async signIn(data: LoginData) {
     try {
-      this.api.signUp(params);
-    } catch (err) {
-      console.error(err);
+      await this.api.signIn(data);
+      await this.fetchUser();
+    } catch (e) {
+      store.dispatch(setError(e as { reason: string }));
     }
   }
 
-  getUser() {
+  async logout() {
     try {
-      this.api.getUser();
-    } catch (err) {
-      console.error(err);
+      await this.api.logOut();
+      store.dispatch(deleteUser());
+    } catch (e) {
+      store.dispatch(setError(e as { reason: string }));
     }
   }
-};
 
-export default new AuthControler();
+  async fetchUser(): Promise<UserData | void> {
+    try {
+      const user = await this.api.getUser();
+      store.dispatch(setUser(user));
+      return user;
+    } catch (e) {
+      store.dispatch(deleteUser());
+    }
+  }
+}
+
+export default new AuthController();
