@@ -36,6 +36,7 @@
     "templator": "./src/modules/templator",
     "classnames": "./src/utils/classnames",
     "ryabact": "./src/modules/Ryabact",
+    "router": "./src/modules/router",
     "http-transport": "./src/modules/HTTPTransport"
   },
   "browserslist": [
