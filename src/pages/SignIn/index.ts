@@ -2,6 +2,7 @@ import { withRouter } from 'router';
 import * as Ryabact from '~/src/modules/Ryabact';
 import pathnames from '~/src/constants/pathnames';
 import { PropsType } from '~/src/types/component';
+import RouterLink from '~/src/components/RouterLink';
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
@@ -29,6 +30,7 @@ class SignInPage extends Ryabact.Component {
         UIInput,
         Button,
         Form,
+        RouterLink,
       },
       containerTemplate: `<div class="${styles.container}" />`,
     });

@@ -23,14 +23,11 @@ const template: string = `
     <Form
       onSubmit="{{handleFormSubmit}}"
     />
-    <a
-      data-type="router-link"
-      data-to="${routes.signUp}"
-      href="${routes.signUp}"
+    <RouterLink
+      to="${routes.signUp}"
       class="${styles.join}"
-    >
-      Войти
-    </a>
+      text="Войти"
+    />
   </main>
 </div>
 `;
