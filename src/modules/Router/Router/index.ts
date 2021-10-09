@@ -32,8 +32,15 @@ export default class Router {
   }
 
   use(routes: Array<routeSettings>): this {
+    this.routes = [];
     routes.forEach(({ pathname, component }) => {
-      this.routes.push(new Route(pathname, component, { rootQuery: this._rootQuery }));
+      this.routes.push(
+        new Route(
+          pathname,
+          component,
+          { rootQuery: this._rootQuery },
+        ),
+      );
     });
     return this;
   }
