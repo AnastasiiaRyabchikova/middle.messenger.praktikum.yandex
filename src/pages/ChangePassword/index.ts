@@ -9,7 +9,7 @@ import Form from './components/Form';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-export default class Page extends Ryabact.ComponentWithRouter {
+export default class Page extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
@@ -29,17 +29,6 @@ export default class Page extends Ryabact.ComponentWithRouter {
         IconArrowLeft,
       },
       containerTemplate: `<div class="${styles.container}" />`,
-    });
-  }
-
-  componentDidRender() {
-    const links = this.element.querySelectorAll('a[data-type="router-link"]');
-    links.forEach((link) => {
-      link.addEventListener('click', (e: Event) => {
-        e.preventDefault();
-        const { to } = <HTMLLinkElement>e.currentTarget.dataset;
-        this.router.go(to);
-      });
     });
   }
 };

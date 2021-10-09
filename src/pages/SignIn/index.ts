@@ -1,3 +1,4 @@
+import { withRouter } from 'router';
 import * as Ryabact from '~/src/modules/Ryabact';
 import pathnames from '~/src/constants/pathnames';
 import { PropsType } from '~/src/types/component';
@@ -8,7 +9,7 @@ import template from './index.tpl';
 import * as styles from './styles.module.css';
 import Form from './components/Form';
 
-export default class Component extends Ryabact.ComponentWithRouter {
+class SignInPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
@@ -33,3 +34,5 @@ export default class Component extends Ryabact.ComponentWithRouter {
     });
   }
 };
+
+export default withRouter(SignInPage);

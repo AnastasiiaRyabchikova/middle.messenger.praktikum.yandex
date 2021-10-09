@@ -24,6 +24,8 @@ const template: string = `
       onSubmit="{{handleFormSubmit}}"
     />
     <a
+      data-type="router-link"
+      data-to="${routes.signUp}"
       href="${routes.signUp}"
       class="${styles.join}"
     >
