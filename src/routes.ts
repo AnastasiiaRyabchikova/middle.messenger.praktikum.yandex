@@ -6,7 +6,7 @@ import ChangePassword from './pages/ChangePassword';
 import Chats from './pages/Chats';
 import UserForm from './pages/UserForm';
 
-const routes: Array<routeSettings> = [
+export const routesForUnknownUser: Array<routeSettings> = [
   {
     pathname: pathnames.signIn,
     component: SignIn,
@@ -15,6 +15,9 @@ const routes: Array<routeSettings> = [
     pathname: pathnames.signUp,
     component: SignUp,
   },
+];
+
+export const routesForUser: Array<routeSettings> = [
   {
     pathname: pathnames.changePassword,
     component: ChangePassword,
@@ -28,5 +31,3 @@ const routes: Array<routeSettings> = [
     component: UserForm,
   },
 ];
-
-export default routes;
