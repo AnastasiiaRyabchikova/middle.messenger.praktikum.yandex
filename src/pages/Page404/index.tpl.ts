@@ -28,12 +28,11 @@ const template: string = `
       <div>
         Страница не найдена
       </div>
-      <a
-        href="/"
+      <RouterLink
+        to="/"
         class="${styles.link}"
-      >
-        Вернуться
-      </a>
+        text="Вернуться"
+      />
     </div>
   </main>
 </div>

@@ -1,6 +1,7 @@
 import * as Ryabact from 'ryabact';
 import { PropsType } from '~/src/types/component';
 import Logo from '~/src/components/Logo';
+import RouterLink from '~/src/components/RouterLink';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -15,6 +16,7 @@ export default class PageError extends Ryabact.Component {
       name: 'PageError',
       template,
       components: {
+        RouterLink,
         Logo,
       },
       containerTemplate: `<div class="${styles.container}" />`,
