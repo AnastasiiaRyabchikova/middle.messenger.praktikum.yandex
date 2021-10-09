@@ -23,24 +23,16 @@ const template: string = `
     <Form
       onSubmit="{{handleFormSubmit}}"
     />
-    <a
-      href="${routes.signIn}"
+    <RouterLink
+      to="${routes.signIn}"
       class="${styles.join}"
-    >
-      Присоединиться
-    </a>
-    <a
+      text="Присоединиться"
+    />
+    <RouterLink
       class="${styles.shredinger}"
-      href="/i-am-exist"
-    >
-      Страница Шредингера
-    </a>
-    <a
-      class="${styles.shredinger}"
-      href="${routes.error500}"
-    >
-      Страница с ошибкой 500
-    </a>
+      to="/i-am-exist"
+      text="Страница Шредингера"
+    />
   </main>
 </div>
 `;

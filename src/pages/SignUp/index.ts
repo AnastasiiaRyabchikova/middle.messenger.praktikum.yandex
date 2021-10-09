@@ -1,6 +1,7 @@
 import * as Ryabact from 'ryabact';
 import pathnames from '~/src/constants/pathnames';
 import { PropsType } from '~/src/types/component';
+import RouterLink from '~/src/components/RouterLink';
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
@@ -24,6 +25,7 @@ export default class Component extends Ryabact.Component {
       name: 'SignUpPage',
       template,
       components: {
+        RouterLink,
         Logo,
         UIInput,
         Button,
