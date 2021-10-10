@@ -34,7 +34,7 @@ export default class AuthApi extends BaseApi {
     return this.http.post('/logout');
   }
 
-  getUser(): Promise<UserData> {
+  getUser(): Promise<string> {
     return this.http.get('/user');
   }
 };

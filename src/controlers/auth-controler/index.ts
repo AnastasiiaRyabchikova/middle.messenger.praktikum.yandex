@@ -39,7 +39,7 @@ class AuthController {
   async fetchUser(): Promise<UserData | void> {
     try {
       const user = await this.api.getUser();
-      store.dispatch(setUser(user));
+      store.dispatch(setUser(JSON.parse(user)));
       return user;
     } catch (e) {
       store.dispatch(deleteUser());
