@@ -90,6 +90,8 @@ export default class HTTPTransport {
       const xhr = new XMLHttpRequest();
       xhr.timeout = timeout;
 
+      xhr.withCredentials = true;
+
       Object.keys(headers)
         .forEach((item: string) => {
           xhr.setRequestHeader(item, headers[item]);
