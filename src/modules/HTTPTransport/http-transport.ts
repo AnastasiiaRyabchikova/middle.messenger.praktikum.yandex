@@ -107,6 +107,16 @@ export default class HTTPTransport {
         reject(err);
       };
 
+      xhr.onreadystatechange = (e) => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status < 400) {
+            resolve(xhr.response);
+          } else {
+            reject(xhr.response);
+          }
+        }
+      };
+
       xhr.setRequestHeader('Content-Type', 'application/json');
 
       if (method === Methods.Get) {
