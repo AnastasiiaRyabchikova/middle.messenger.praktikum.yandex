@@ -20,8 +20,8 @@ export function connect(
 
       store.on('changed', () => {
         this.setProps({
-          ...stateToProps(store.getState()),
           ...this.props,
+          ...stateToProps(store.getState()),
         });
       });
     }
