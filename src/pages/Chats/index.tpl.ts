@@ -1,5 +1,3 @@
-import routes from '~/src/constants/pathnames';
-
 import * as styles from './styles.module.css';
 
 const template: string = `
@@ -15,14 +13,9 @@ const template: string = `
       <Search
         class="${styles.search}"  
       />
-      <a
-        href="${routes.userForm}"
-        class="${styles.avatarLink}"
-      >
-        <Avatar
-          class="${styles.avatar}"  
-        />
-      </a>
+      <ToUserFormLink
+        evClick="{{handleToUserFormLinkClick}}"
+      />
     </div>
     <div
       class="${styles.companions}"
