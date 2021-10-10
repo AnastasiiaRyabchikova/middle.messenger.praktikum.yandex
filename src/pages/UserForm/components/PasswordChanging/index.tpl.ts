@@ -8,12 +8,11 @@ const template: string = `
     >
       Пароль
     </span>
-    <a
-      href="${routes.changePassword}"
+    <RouterLink
+      to="${routes.changePassword}"
       class="${styles.link}"
-    >
-      Изменить пароль
-    </a>
+      text="Изменить пароль"
+    />
   </div>
 `;
 
