@@ -1,7 +1,11 @@
 import { withRouter } from 'router';
 import * as Ryabact from '~/src/modules/Ryabact';
+import { connect } from '~/src/store';
+import { SignupData } from '~/src/api/auth-api';
+import { AuthControler } from '~/src/controlers';
 import pathnames from '~/src/constants/pathnames';
 import { PropsType } from '~/src/types/component';
+import { routesForUser } from '~/src/routes';
 import RouterLink from '~/src/components/RouterLink';
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';
@@ -14,10 +18,14 @@ class SignInPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      handleFormSubmit: (params: Record<string, unknown>) => {
+      handleFormSubmit: async (params: SignupData) => {
         // eslint-disable-next-line no-console
         console.log(params);
-        this.router.go(pathnames.chats);
+        await AuthControler.signUp(params);
+        if (this.props.user) {
+          this.router.use(routesForUser).start();
+          this.router.go(pathnames.chats);
+        }
       },
     };
 
@@ -35,6 +43,15 @@ class SignInPage extends Ryabact.Component {
       containerTemplate: `<div class="${styles.container}" />`,
     });
   }
+
+  componentDidUpdate() {
+    return false;
+  }
 };
 
-export default withRouter(SignInPage);
+export default withRouter(
+  connect(
+    (state) => ({ user: state.user.profile }),
+    withRouter(SignInPage)
+  ),
+);
