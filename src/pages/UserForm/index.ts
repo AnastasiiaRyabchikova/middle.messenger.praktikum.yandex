@@ -3,6 +3,7 @@ import { PropsType } from '~/src/types/component';
 import { IconArrowLeft } from '~/src/icons';
 import Logo from '~/src/components/Logo';
 import Form from './components/Form';
+import LogoutButton from './components/LogoutButton';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -24,6 +25,7 @@ export default class Component extends Ryabact.Component {
         Logo,
         IconArrowLeft,
         Form,
+        LogoutButton,
       },
       containerTemplate: `<div class="${styles.container}"/>`,
     });

@@ -27,12 +27,7 @@ const template: string = `
       <Form
         onSubmit="{{handleFormSubmit}}"
       />
-      <a
-        href="${routes.signUp}"
-        class="${styles.logout}"
-      >
-        Выйти
-      </a>
+      <LogoutButton />
     </div>
   </main>
 </div>
