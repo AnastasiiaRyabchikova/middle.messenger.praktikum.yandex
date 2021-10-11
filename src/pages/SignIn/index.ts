@@ -20,7 +20,6 @@ class SignInPage extends Ryabact.Component {
       ...context,
       handleFormSubmit: async (params: SignupData) => {
         // eslint-disable-next-line no-console
-        console.log(params);
         await AuthControler.signUp(params);
         if (this.props.user) {
           this.router.use(routesForUser).start();
