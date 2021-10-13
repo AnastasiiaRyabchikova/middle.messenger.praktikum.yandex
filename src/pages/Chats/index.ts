@@ -1,5 +1,6 @@
 import * as Ryabact from 'ryabact';
 import { withRouter } from 'router';
+import { ChatControler } from '~/src/controlers';
 import { PropsType } from '~/src/types/component';
 import routes from '~/src/constants/pathnames';
 import Search from './components/Search';
@@ -7,29 +8,27 @@ import Companion from './components/Companion';
 import Chat from './modules/Chat';
 import Header from './modules/Header';
 import ToUserFormLink from './components/ToUserFormLink';
-import { companions } from './mocks';
+import CreateNewChatButton from './components/CreateNewChatButton';
 import template from './index.tpl';
 
 const temp = /selectedChat=(.*)?/.exec(window.location.search);
 const selectedChat = temp && temp[1];
 
-const companionsMapped = companions
-  .map((item) => (
-    {
-      ...item,
-      link: `${routes.chats}?selectedChat=${item.id}`,
-    }
-  ));
-
 class ChatsPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      companions: companionsMapped,
+      chats: [],
       selectedChat,
+      shouldShowCreateChatModal: false,
       handleToUserFormLinkClick: (e: Event) => {
         e.preventDefault();
         this.router.go(routes.userForm);
+      },
+      handleCreateNewChatButtonClick: (e: Event) => {
+        this.setProps({
+          shouldShowCreateChatModal: true,
+        });
       },
     };
 
@@ -43,9 +42,14 @@ class ChatsPage extends Ryabact.Component {
         Chat,
         Header,
         ToUserFormLink,
+        CreateNewChatButton,
       },
       containerTemplate: '<div />',
     });
+  }
+
+  componentDidMount() {
+    ChatControler.read();
   }
 };
 

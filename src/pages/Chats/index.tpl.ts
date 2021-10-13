@@ -20,17 +20,17 @@ const template: string = `
     <div
       class="${styles.companions}"
     >
-      <t-for={{companion of companions}}>
+      <t-for={{chat of chats}}>
         <a
-          href="{{companion.link}}"
+          href="{{chat.link}}"
           class="${styles.companionLink}"
         >
           <Companion
-            name="{{companion.name}}"
-            surname="{{companion.surname}}"
-            unreadMessagesCount="{{companion.unreadMessagesCount}}"
-            date="{{companion.date}}"
-            message="{{companion.message}}"
+            name="{{chat.name}}"
+            surname="{{chat.surname}}"
+            unreadMessagesCount="{{chat.unreadMessagesCount}}"
+            date="{{chat.date}}"
+            message="{{chat.message}}"
           />
         </a>
       </t-for>
@@ -51,12 +51,15 @@ const template: string = `
     >
       <div>
         Выберите чат или 
-        <a
-          class="${styles.link}"
-        >
-          cоздайте новый
-        </a>
+        <CreateNewChatButton
+          onClick="{{handleCreateNewChatButtonClick}}"
+        />
       </div>
+    </div>
+  </t-if>
+  <t-if={{shouldShowCreateChatModal}}>
+    <div>
+       Модалка
     </div>
   </t-if>
 </div>
