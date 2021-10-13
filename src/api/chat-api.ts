@@ -9,6 +9,29 @@ export interface DeleateChatData {
   chatId: number,
 }
 
+export interface FilterChatsParams {
+  chatId: number,
+}
+
+export interface ChatData {
+  id: number,
+  title: string,
+  avatar: string,
+  unread_count: number,
+  last_message: {
+    user: {
+      first_name: string,
+      second_name: string,
+      avatar: string,
+      email: string,
+      login: string,
+      phone: string,
+    },
+    time: string,
+    content: string,
+  },
+}
+
 export default class ChatsApi extends BaseApi {
   constructor() {
     super(new HTTP('/chats'));
@@ -22,7 +45,7 @@ export default class ChatsApi extends BaseApi {
     return this.http.delete('', { data });
   }
 
-  read(): Promise<string> {
-    return this.http.get('');
+  read(data: FilterChatsParams): Promise<ChatData[]> {
+    return this.http.get('', { data });
   }
 };
