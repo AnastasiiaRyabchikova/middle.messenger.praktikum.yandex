@@ -7,7 +7,7 @@ import LogoutButton from './components/LogoutButton';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-export default class Component extends Ryabact.Component {
+export default class UserFormPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
