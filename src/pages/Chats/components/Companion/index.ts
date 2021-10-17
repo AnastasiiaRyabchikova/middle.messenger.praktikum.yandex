@@ -7,6 +7,7 @@ export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       src: context.src,
+      initials: context.name[0],
       name: context.name,
       surname: context.surname,
       unreadMessagesCount: context.unreadMessagesCount,

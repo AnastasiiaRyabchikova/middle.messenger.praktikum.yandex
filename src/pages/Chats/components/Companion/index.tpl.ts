@@ -6,12 +6,13 @@ const template: string = `
 >
   <Avatar
     src="{{src}}"
+    initials="{{initials}}"
   />
   <div>
     <div
       class="${styles.name}"
     >
-      {{name}} {{surname}}
+      {{name}}
     </div>
     <div
       class="${styles.message}"
