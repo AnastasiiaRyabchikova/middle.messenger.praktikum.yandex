@@ -26,7 +26,8 @@ const template: string = `
           class="${styles.companionLink}"
         >
           <Companion
-            name="{{chat.name}}"
+            src="{{chat.avatar}}"
+            name="{{chat.title}}"
             surname="{{chat.surname}}"
             unreadMessagesCount="{{chat.unreadMessagesCount}}"
             date="{{chat.date}}"
@@ -58,9 +59,10 @@ const template: string = `
     </div>
   </t-if>
   <t-if={{shouldShowCreateChatModal}}>
-    <div>
-       Модалка
-    </div>
+    <CreateNewChatModal
+      evClose="{{handleCloseModalClick}}"
+      evSubmit="{{handleCreateNewChatSubmit}}"
+    />
   </t-if>
 </div>
 `;

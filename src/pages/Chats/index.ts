@@ -9,6 +9,7 @@ import Chat from './modules/Chat';
 import Header from './modules/Header';
 import ToUserFormLink from './components/ToUserFormLink';
 import CreateNewChatButton from './components/CreateNewChatButton';
+import CreateNewChatModal from './components/CreateNewChatModal';
 import template from './index.tpl';
 
 const temp = /selectedChat=(.*)?/.exec(window.location.search);
@@ -25,9 +26,20 @@ class ChatsPage extends Ryabact.Component {
         e.preventDefault();
         this.router.go(routes.userForm);
       },
-      handleCreateNewChatButtonClick: (e: Event) => {
+      handleCreateNewChatButtonClick: () => {
         this.setProps({
           shouldShowCreateChatModal: true,
+        });
+      },
+      handleCloseModalClick: () => {
+        this.setProps({
+          shouldShowCreateChatModal: false,
+        });
+      },
+      handleCreateNewChatSubmit: async () => {
+        const chats = await ChatControler.read();
+        this.setProps({
+          chats,
         });
       },
     };
@@ -43,13 +55,17 @@ class ChatsPage extends Ryabact.Component {
         Header,
         ToUserFormLink,
         CreateNewChatButton,
+        CreateNewChatModal,
       },
       containerTemplate: '<div />',
     });
   }
 
-  componentDidMount() {
-    ChatControler.read();
+  async componentDidMount() {
+    const chats = await ChatControler.read();
+    this.setProps({
+      chats,
+    });
   }
 };
 
