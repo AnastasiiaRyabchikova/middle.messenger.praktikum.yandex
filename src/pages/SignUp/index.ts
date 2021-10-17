@@ -2,6 +2,7 @@ import * as Ryabact from 'ryabact';
 import { withRouter } from 'router';
 import pathnames from '~/src/constants/pathnames';
 import { PropsType } from '~/src/types/component';
+import Page404 from '~/src/pages/Page404';
 import RouterLink from '~/src/components/RouterLink';
 import { AuthControler } from '~/src/controlers';
 import { routesForUser } from '~/src/routes';
@@ -20,8 +21,12 @@ class SignUpPage extends Ryabact.Component {
       handleFormSubmit: async (params: Record<string, unknown>) => {
         // eslint-disable-next-line no-console
         await AuthControler.signIn(params);
+        console.log();
         if (this.props.user) {
-          this.router.use(routesForUser).start();
+          this.router
+            .use(routesForUser)
+            .setFallbackPage(Page404)
+            .start();
           this.router.go(pathnames.chats);
         }
       },

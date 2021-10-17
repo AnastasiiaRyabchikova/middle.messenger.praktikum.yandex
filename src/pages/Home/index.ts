@@ -3,6 +3,7 @@ import { connect } from '~/src/store';
 import { AuthControler } from '~/src/controlers';
 import * as Ryabact from '~/src/modules/Ryabact';
 import { PropsType } from '~/src/types/component';
+import Page404 from '~/src/pages/Page404';
 import Logo from '../../components/Logo';
 import { routesForUnknownUser, routesForUser } from '~/src/routes';
 import template from './index.tpl';
@@ -30,10 +31,12 @@ class HomePage extends Ryabact.Component {
     if (!this.props.user) {
       this.router
         .use(routesForUnknownUser)
+        .setFallbackPage(Page404)
         .start();
     } else {
       this.router
         .use(routesForUser)
+        .setFallbackPage(Page404)
         .start();
     }
   }
