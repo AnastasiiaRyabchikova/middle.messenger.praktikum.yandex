@@ -31,7 +31,7 @@ class ChatsController {
   async read(data: FilterChatsParams): Promise<ChatData[]> {
     try {
       const response = await this.api.read(data);
-      return response;
+      return JSON.parse(response);
     } catch (err) {
       console.error(err);
     }
