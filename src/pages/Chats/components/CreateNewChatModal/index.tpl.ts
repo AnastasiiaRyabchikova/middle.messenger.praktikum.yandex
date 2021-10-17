@@ -2,7 +2,17 @@ import * as styles from './styles.module.css';
 
 const template: string = `
 <div class="${styles.modal}">
-111
+  <div class="${styles.header}">
+    <div class="${styles.title}">
+      Создание нового чата
+    </div>
+    <CloseButton
+      onClick="{{handleCloseButtonClick}}"
+    />
+  </div>
+  <Form
+    onSubmit="{{handleFormSubmit}}"
+  />
 </div>
 `;
 

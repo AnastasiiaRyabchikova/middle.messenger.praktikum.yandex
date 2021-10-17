@@ -1,22 +1,35 @@
 import * as Ryabact from 'ryabact';
 import { PropsType } from '~/src/types/component';
-import Avatar from '~/src/components/Avatar';
+import CloseButton from '~/src/components/CloseButton';
+import { CreateChatData } from '~/src/api/chat-api';
+import ChatControler from '~/src/controlers/chat-controler';
+import Form from './Form';
 import template from './index.tpl';
+import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
+      handleCloseButtonClick() {
+        context.evClose();
+      },
+      async handleFormSubmit(params: CreateChatData) {
+        await ChatControler.create(params);
+        await context.evSubmit();
+        context.evClose();
+      },
     };
 
     super({
       props,
-      name: 'ChatCompanion',
+      name: 'CreateNewChatModal',
       template,
       components: {
-        Avatar,
+        CloseButton,
+        Form,
       },
-      containerTemplate: '<div />',
+      containerTemplate: `<div class="${styles.container}" />`,
     });
   }
 };
