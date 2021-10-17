@@ -2,6 +2,7 @@ import * as Ryabact from 'ryabact';
 import { PropsType } from '~/src/types/component';
 import { IconArrowLeft } from '~/src/icons';
 import Logo from '~/src/components/Logo';
+import UserControler from '~/src/controlers/user-controler';
 import Form from './components/Form';
 import LogoutButton from './components/LogoutButton';
 import template from './index.tpl';
@@ -12,8 +13,7 @@ export default class UserFormPage extends Ryabact.Component {
     const props: PropsType = {
       ...context,
       handleFormSubmit: (params: Record<string, unknown>) => {
-        // eslint-disable-next-line no-console
-        console.log(params);
+        UserControler.edit(params);
       },
     };
 
