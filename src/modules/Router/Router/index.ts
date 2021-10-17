@@ -15,10 +15,7 @@ export default class Router {
 
   _rootQuery: HTMLElement | undefined;
 
-  constructor(
-    rootQuery?: HTMLElement | undefined,
-    fallbackPage?: Component,
-  ) {
+  constructor(rootQuery?: HTMLElement | undefined) {
     if (Router.__instance) {
       return Router.__instance;
     }
@@ -26,7 +23,6 @@ export default class Router {
     this.history = window.history;
     this._currentRoute = null;
     this._rootQuery = rootQuery;
-    this.fallbackPage = new Route('', fallbackPage, { rootQuery });
 
     Router.__instance = this;
   }
@@ -82,5 +78,10 @@ export default class Router {
 
   getRoute(pathname: string): Route| undefined {
     return this.routes.find((route: Route) => route.match(pathname));
+  }
+
+  setFallbackPage(fallbackPage?: Component): void {
+    this.fallbackPage = new Route('', fallbackPage, { rootQuery: this._rootQuery });
+    return this;
   }
 };
