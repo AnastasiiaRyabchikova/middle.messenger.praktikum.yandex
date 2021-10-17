@@ -15,7 +15,10 @@ export default class Component extends Ryabact.Component {
       name: context.name,
       error: context.error,
       shouldShowError: Boolean(context.error),
-      inputClass: styles.input,
+      inputClass: cx([
+        context.inputClass as string,
+        styles.input,
+      ]),
       class: cx([
         context.class,
         { [styles.solid]: context.appearance === 'solid' },
