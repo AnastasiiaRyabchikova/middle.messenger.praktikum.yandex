@@ -1,0 +1,8 @@
+.button {
+  color: var(--color-black);
+}
+
+.button:hover,
+.button:focus {
+  color: var(--color-gray-darkest);
+}
