@@ -20,6 +20,10 @@ const template: string = `
       />
     </div>
     <div class="${styles.form_wrapper}">
+      <AddAvatar
+        class="${styles.avatar}"
+        onSubmit="{{handleAddAvatarSubmit}}"
+      />
       <Form
         onSubmit="{{handleFormSubmit}}"
       />
