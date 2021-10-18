@@ -21,19 +21,18 @@ const template: string = `
       class="${styles.companions}"
     >
       <t-for={{chat of chats}}>
-        <a
-          href="{{chat.link}}"
+        <Companion
+          id="{{chat.id}}"
           class="${styles.companionLink}"
-        >
-          <Companion
-            src="{{chat.avatar}}"
-            name="{{chat.title}}"
-            surname="{{chat.surname}}"
-            unreadMessagesCount="{{chat.unreadMessagesCount}}"
-            date="{{chat.date}}"
-            message="{{chat.message}}"
-          />
-        </a>
+          src="{{chat.avatar}}"
+          name="{{chat.title}}"
+          surname="{{chat.surname}}"
+          unreadMessagesCount="{{chat.unreadMessagesCount}}"
+          date="{{chat.date}}"
+          message="{{chat.message}}"
+          link="{{chat.link}}"
+          onClick="{{handleCompanionClick}}"
+        />
       </t-for>
     </div>
   </div>
