@@ -1,4 +1,6 @@
 import * as Ryabact from 'ryabact';
+import UserControler from '~/src/controlers/user-controler';
+import { EditPasswordData } from '~/src/api/user-api';
 import { PropsType } from '~/src/types/component';
 
 import { IconArrowLeft } from '~/src/icons';
@@ -13,10 +15,9 @@ export default class Page extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      handleFormSubmit: (params: Record<string, unknown>) => {
-        // eslint-disable-next-line no-console
-        console.log(params);
-      },
+      handleFormSubmit: (params: EditPasswordData) => (
+        UserControler.editPassword(params)
+      ),
     };
 
     super({
