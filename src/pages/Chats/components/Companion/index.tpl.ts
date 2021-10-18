@@ -1,8 +1,10 @@
+import * as general from '~/src/theme/general.css';
 import * as styles from './styles.module.css';
 
 const template: string = `
-<div
-  class="${styles.companion}"
+<button
+  class="${general.buttonReset} ${styles.companion}"
+  data-id="{{id}}"
 >
   <Avatar
     src="{{src}}"
@@ -34,7 +36,7 @@ const template: string = `
       </div>
     </t-if>
   </div>
-</div>
+</button>
 `;
 
 export default template;

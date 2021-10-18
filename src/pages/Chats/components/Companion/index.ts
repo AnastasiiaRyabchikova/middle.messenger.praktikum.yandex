@@ -6,8 +6,10 @@ import template from './index.tpl';
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
+      ...context,
+      id: context.id,
       src: context.src,
-      initials: context.name[0],
+      initials: (context.name as string)[0],
       name: context.name,
       surname: context.surname,
       unreadMessagesCount: context.unreadMessagesCount,
