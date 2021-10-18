@@ -19,14 +19,14 @@ export default class Page extends Ryabact.Component {
       ...context,
       name: context.name,
       params: {
-        old_password: '',
-        new_password: '',
-        new_password_repeat: '',
+        oldPassword: '',
+        newPassword: '',
+        newPassword_repeat: '',
       },
       required: {
-        old_password: true,
-        new_password: true,
-        new_password_repeat: false,
+        oldPassword: true,
+        newPassword: true,
+        newPasswordRepeat: false,
       },
       errors: {},
       handleInputBlur: (e: Event) => {
@@ -34,13 +34,13 @@ export default class Page extends Ryabact.Component {
         const { params } = this.props;
         let message: string = '';
         if (value) {
-          if (name === 'new_password') {
+          if (name === 'newPassword') {
             message = validation.password(value);
-          } else if (name === 'new_password_repeat') {
-            message = validation.passwordRepeat(params.new_password, params.new_password_repeat);
+          } else if (name === 'newPasswordRepeat') {
+            message = validation.passwordRepeat(params.newPassword, params.newPasswordRepeat);
             this.setProps({
               errors: {
-                new_password: message,
+                newPassword: message,
                 [name]: message,
               },
             });
@@ -68,22 +68,22 @@ export default class Page extends Ryabact.Component {
           e.preventDefault();
           const { required = {}, params = {} } = this.props;
           const {
-            old_password,
-            new_password,
-            new_password_repeat,
+            oldPassword,
+            newPassword,
+            newPasswordRepeat,
           } = params;
 
           this.setProps({
             errors: {
               ...this.props.errors,
-              old_password: getRequiredMessage(required.old_password, old_password),
-              new_password: getRequiredMessage(required.new_password, new_password)
-                || validation.password(new_password),
-              new_password_repeat: getRequiredMessage(
-                required.new_password_repeat,
-                new_password_repeat,
+              oldPassword: getRequiredMessage(required.oldPassword, oldPassword),
+              newPassword: getRequiredMessage(required.newPassword, newPassword)
+                || validation.password(newPassword),
+              newPasswordRepeat: getRequiredMessage(
+                required.newPasswordRepeat,
+                newPasswordRepeat,
               )
-                || validation.passwordRepeat(new_password, new_password_repeat),
+                || validation.passwordRepeat(newPassword, newPasswordRepeat),
             },
           });
 
@@ -92,8 +92,8 @@ export default class Page extends Ryabact.Component {
           }
 
           context.events?.submit({
-            old_password,
-            new_password,
+            oldPassword,
+            newPassword,
           });
         },
       },
