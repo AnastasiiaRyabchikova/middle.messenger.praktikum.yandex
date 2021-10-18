@@ -6,7 +6,6 @@ import { PropsType } from '~/src/types/component';
 import isEqual from '~/src/utils/is-equal';
 import UIInput from '~/src/components/UIInput';
 import Button from '~/src/components/Button';
-import AddAvatar from '../AddAvatar';
 import PasswordChanging from '../PasswordChanging';
 import template from './index.tpl';
 
@@ -123,7 +122,6 @@ class UserFormPageForm extends Ryabact.Component {
       components: {
         UIInput,
         Button,
-        AddAvatar,
         PasswordChanging,
       },
       containerTemplate: '<div />',
