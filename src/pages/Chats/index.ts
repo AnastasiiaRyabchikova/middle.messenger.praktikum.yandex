@@ -12,15 +12,12 @@ import CreateNewChatButton from './components/CreateNewChatButton';
 import CreateNewChatModal from './components/CreateNewChatModal';
 import template from './index.tpl';
 
-const temp = /selectedChat=(.*)?/.exec(window.location.search);
-const selectedChat = temp && temp[1];
-
 class ChatsPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       chats: [],
-      selectedChat,
+      selectedChat: undefined,
       shouldShowCreateChatModal: false,
       handleToUserFormLinkClick: (e: Event) => {
         e.preventDefault();
@@ -40,6 +37,15 @@ class ChatsPage extends Ryabact.Component {
         const chats = await ChatControler.read();
         this.setProps({
           chats,
+        });
+      },
+      handleCompanionClick: (e: Event) => {
+        const { id } = (e.target as HTMLButtonElement).dataset;
+        if (!id) {
+          return;
+        }
+        this.setProps({
+          selectedChat: id,
         });
       },
     };
