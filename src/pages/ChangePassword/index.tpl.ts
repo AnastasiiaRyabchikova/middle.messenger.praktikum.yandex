@@ -1,4 +1,5 @@
 import pathnames from '~/src/constants/pathnames';
+import * as general from '~/src/theme/general.css';
 import * as styles from './styles.module.css';
 
 const template: string = `
@@ -16,14 +17,9 @@ const template: string = `
     <div
       class="${styles.side}"
     >
-      <a
-        data-type="router-link"
-        href="${pathnames.userForm}"
-        data-to="${pathnames.userForm}"
-        class="${styles.left}"
-      >
-        <IconArrowLeft />
-      </a>
+      <ButtonBack
+        onClick="{{handleBackClick}}"
+      />
     </div>
     <div class="${styles.form}">
       <Form
