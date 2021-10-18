@@ -5,8 +5,10 @@ import { IconArrowLeft } from '~/src/icons';
 import Logo from '~/src/components/Logo';
 import ButtonBack from '~/src/components/ButtonBack';
 import UserControler from '~/src/controlers/user-controler';
+import { EditUserData } from '~/src/api/user-api';
 import Form from './components/Form';
 import LogoutButton from './components/LogoutButton';
+import AddAvatar from './components/AddAvatar';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -14,12 +16,15 @@ class UserFormPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      handleFormSubmit: (params: Record<string, unknown>) => {
-        UserControler.edit(params);
-      },
+      handleFormSubmit: (params: EditUserData) => (
+        UserControler.edit(params)
+      ),
       handleBackClick: () => {
         this.router.back();
       },
+      handleAddAvatarSubmit: (params: FormData) => (
+        UserControler.editAvatar(params)
+      ),
     };
 
     super({
@@ -32,6 +37,7 @@ class UserFormPage extends Ryabact.Component {
         Form,
         LogoutButton,
         ButtonBack,
+        AddAvatar,
       },
       containerTemplate: `<div class="${styles.container}"/>`,
     });
