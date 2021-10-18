@@ -119,12 +119,15 @@ export default class HTTPTransport {
         }
       };
 
-      xhr.setRequestHeader('Content-Type', 'application/json');
+      const contentType = data.entries ? 'multipart/form-data' : 'application/json';
+      const query = data.entries ? data : JSON.stringify(data);
+
+      xhr.setRequestHeader('Content-Type', contentType);
 
       if (method === Methods.Get) {
         xhr.send();
       } else {
-        xhr.send(JSON.stringify(data));
+        xhr.send(query);
       }
     });
   };
