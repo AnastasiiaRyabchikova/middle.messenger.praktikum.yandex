@@ -60,6 +60,17 @@ class ChatsPage extends Ryabact.Component {
           chatId: Number(selectedChat),
         });
       },
+      handleRemoveUserSubmit: async (users: number[]) => {
+        const { selectedChat } = this.props;
+
+        if (!user.length || !selectedChat) {
+          return;
+        }
+        await ChatControler.removeUsers({
+          users,
+          chatId: Number(selectedChat),
+        });
+      },
     };
 
     super({
