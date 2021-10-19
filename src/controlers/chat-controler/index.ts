@@ -45,6 +45,14 @@ class ChatsController {
       console.error(err);
     }
   }
+
+  async removeUsers(data: AddUsersToChatData): Promise<void> {
+    try {
+      return await this.api.removeUsers(data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
 };
 
 export default new ChatsController();
