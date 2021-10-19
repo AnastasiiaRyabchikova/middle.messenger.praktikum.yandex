@@ -32,6 +32,11 @@ export interface ChatData {
   },
 }
 
+export interface AddUsersToChatData {
+  users: number[],
+  chatId: number,
+}
+
 export default class ChatsApi extends BaseApi {
   constructor() {
     super(new HTTP('/chats'));
@@ -47,5 +52,9 @@ export default class ChatsApi extends BaseApi {
 
   read(data: FilterChatsParams): Promise<ChatData[]> {
     return this.http.get('', { data });
+  }
+
+  addUsers(data: AddUsersToChatData): Promise<void> {
+    return this.http.put('', { data });
   }
 };
