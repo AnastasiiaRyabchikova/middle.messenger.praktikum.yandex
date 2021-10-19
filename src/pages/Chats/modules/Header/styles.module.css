@@ -18,6 +18,10 @@
 
 .addUser {
   margin-right: 2rem;
+  margin-left: 1rem;
+}
+
+.removeUser {
   margin-left: auto;
 }
 

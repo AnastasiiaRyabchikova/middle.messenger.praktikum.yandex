@@ -17,6 +17,11 @@ const template: string = `
       onClick="{{handleAddUserButton}}"
     />
   </div>
+  <div class="${styles.removeUser}">
+    <RemoveUserButton
+      onClick="{{handleRemoveUserButton}}"
+    />
+  </div>
   <button
     class="${general.buttonReset}"
   >
@@ -26,6 +31,12 @@ const template: string = `
     <AddUserModal
       evClose="{{handleAddUserModalClose}}"
       evSubmit="{{handleAddUserSubmit}}"
+    />
+  </t-if>
+  <t-if={{shouldShowRemoveUserModal}}>
+    <RemoveUserModal
+      evClose="{{handleRemoveUserModalClose}}"
+      evSubmit="{{handleRemoveUserSubmit}}"
     />
   </t-if>
 </div>
