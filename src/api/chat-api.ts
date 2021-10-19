@@ -55,6 +55,10 @@ export default class ChatsApi extends BaseApi {
   }
 
   addUsers(data: AddUsersToChatData): Promise<void> {
-    return this.http.put('', { data });
+    return this.http.put('/users', { data });
+  }
+
+  removeUsers(data: AddUsersToChatData): Promise<void> {
+    return this.http.delete('/users', { data });
   }
 };
