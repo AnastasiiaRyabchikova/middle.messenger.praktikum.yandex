@@ -48,9 +48,11 @@ export default class Component extends Ryabact.Component {
             return;
           }
 
-          context.events?.submit({
-            ids,
-          });
+          const users = ids
+            .split(',')
+            .map(Number);
+
+          context.events?.submit(users);
         },
       },
     };
