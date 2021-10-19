@@ -12,17 +12,22 @@ const template: string = `
   >
     Александр
   </div>
-  <button
-    type="button"
-    class="${general.buttonReset} ${styles.search}"
-  >
-    Поиск
-  </button>
+  <div class="${styles.addUser}">
+    <AddUserButton
+      onClick="{{handleAddUserButton}}"
+    />
+  </div>
   <button
     class="${general.buttonReset}"
   >
     <IconEllipsisVAlt />
   </button>
+  <t-if={{shouldShowAddUserModal}}>
+    <AddUserModal
+      evClose="{{handleAddUserModalClose}}"
+      evSubmit="{{handleAddUserSubmit}}"
+    />
+  </t-if>
 </div>
 `;
 
