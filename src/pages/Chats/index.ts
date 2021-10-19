@@ -11,6 +11,7 @@ import ToUserFormLink from './components/ToUserFormLink';
 import CreateNewChatButton from './components/CreateNewChatButton';
 import CreateNewChatModal from './components/CreateNewChatModal';
 import template from './index.tpl';
+import user from '~/src/store/user';
 
 class ChatsPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
@@ -46,6 +47,17 @@ class ChatsPage extends Ryabact.Component {
         }
         this.setProps({
           selectedChat: id,
+        });
+      },
+      handleAddUserSubmit: async (users: number[]) => {
+        const { selectedChat } = this.props;
+
+        if (!user.length || !selectedChat) {
+          return;
+        }
+        await ChatControler.addUsers({
+          users,
+          chatId: Number(selectedChat),
         });
       },
     };

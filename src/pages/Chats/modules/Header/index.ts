@@ -20,8 +20,8 @@ export default class Component extends Ryabact.Component {
           shouldShowAddUserModal: false,
         });
       },
-      handleAddUserSubmit: (params) => {
-        console.log(params);
+      handleAddUserSubmit: (users: number[]) => {
+        context.evAddUserSubmit(users);
       },
     };
 

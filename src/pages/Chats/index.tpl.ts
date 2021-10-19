@@ -40,7 +40,9 @@ const template: string = `
     <div
       class="${styles.chatWrapper}"
     >
-      <Header />
+      <Header
+        evAddUserSubmit="{{handleAddUserSubmit}}"
+      />
       <Chat
         class="${styles.chat}"
       />
