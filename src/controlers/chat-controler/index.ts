@@ -3,6 +3,7 @@ import ChatAPI, {
   DeleateChatData,
   FilterChatsParams,
   ChatData,
+  AddUsersToChatData,
 } from '~/src/api/chat-api';
 
 class ChatsController {
@@ -32,6 +33,14 @@ class ChatsController {
     try {
       const response = await this.api.read(data);
       return JSON.parse(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async addUsers(data: AddUsersToChatData): Promise<void> {
+    try {
+      return await this.api.addUsers(data);
     } catch (err) {
       console.error(err);
     }
