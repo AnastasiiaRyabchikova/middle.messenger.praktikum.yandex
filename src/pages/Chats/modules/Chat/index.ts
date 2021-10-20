@@ -7,7 +7,6 @@ import ChatHistory from '../ChatHistory';
 import MessageTextarea from '../MessageTextarea';
 import Header from '../Header';
 import template from './index.tpl';
-import { messages } from './mocks';
 import * as styles from './styles.module.css';
 
 class Chat extends Ryabact.Component {
@@ -17,7 +16,7 @@ class Chat extends Ryabact.Component {
       chatId: context.chatId,
       token: '',
       socket: null,
-      messages,
+      messages: [],
       class: cx([styles.chat, context.class]),
       handleFormSubmit: ({ text }: { text: string }) => {
         const { socket }: { socket: WebSocket } = this.props;
@@ -49,29 +48,25 @@ class Chat extends Ryabact.Component {
     this.setProps({ socket });
 
     socket.addEventListener('open', () => {
-      console.log('Соединение установлено');
       socket.send(JSON.stringify({
         content: 'Моё первое сообщение миру!',
         type: 'message',
       }));
     });
-
-    socket.addEventListener('close', (e: Event) => {
-      if (e.wasClean) {
-        console.log('Соединение закрыто чисто');
-      } else {
-        console.log('Обрыв соединения');
-      }
-
-      console.log(`Код: ${e.code} | Причина: ${e.reason}`);
-    });
-
     socket.addEventListener('message', (e: Event) => {
-      console.log('Получены данные', e.data);
-    });
-
-    socket.addEventListener('error', (e: Event) => {
-      console.log('Ошибка', e.message);
+      const { messages } = this.props;
+      const data = JSON.parse(e.data);
+      const message = {
+        text: data.content,
+        time: data.time,
+        isMine: userId === data.user_id,
+      };
+      this.setProps({
+        messages: [
+          ...messages,
+          message,
+        ],
+      });
     });
   }
 };
