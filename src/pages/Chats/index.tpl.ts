@@ -41,9 +41,12 @@ const template: string = `
       class="${styles.chatWrapper}"
     >
       <Header
+        title="{{currentChat.title}}"
         evAddUserSubmit="{{handleAddUserSubmit}}"
+        evARemoveUserSubmit="{{handleRemoveUserSubmit}}"
       />
       <Chat
+        chatId="{{selectedChat}}"
         class="${styles.chat}"
       />
     </div>
