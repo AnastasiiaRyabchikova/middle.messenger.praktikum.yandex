@@ -55,9 +55,7 @@ export default class Component extends Ryabact.Component {
             return;
           }
 
-          context.events.submit({
-            text,
-          });
+          context.events.submit({ text });
         },
       },
     };
