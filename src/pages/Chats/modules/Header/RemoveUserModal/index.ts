@@ -12,8 +12,8 @@ export default class Component extends Ryabact.Component {
       handleCloseButtonClick() {
         context.evClose();
       },
-      async handleFormSubmit() {
-        await context.evSubmit();
+      async handleFormSubmit(users: number[]) {
+        await context.evSubmit(users);
         context.evClose();
       },
     };
