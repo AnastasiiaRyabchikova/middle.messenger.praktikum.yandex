@@ -47,14 +47,16 @@ class ChatsPage extends Ryabact.Component {
         }
         this.setProps({
           selectedChat: id,
+          currentChat: this.props.chats.find((item) => (item.id === Number(id))),
         });
       },
       handleAddUserSubmit: async (users: number[]) => {
         const { selectedChat } = this.props;
 
-        if (!user.length || !selectedChat) {
+        if (!users.length || !selectedChat) {
           return;
         }
+
         await ChatControler.addUsers({
           users,
           chatId: Number(selectedChat),
