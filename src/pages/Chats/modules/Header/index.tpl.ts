@@ -10,16 +10,16 @@ const template: string = `
   <div
     class="${styles.name}"
   >
-    Александр
-  </div>
-  <div class="${styles.addUser}">
-    <AddUserButton
-      onClick="{{handleAddUserButton}}"
-    />
+    {{title}}
   </div>
   <div class="${styles.removeUser}">
     <RemoveUserButton
       onClick="{{handleRemoveUserButton}}"
+    />
+  </div>
+  <div class="${styles.addUser}">
+    <AddUserButton
+      onClick="{{handleAddUserButton}}"
     />
   </div>
   <button
