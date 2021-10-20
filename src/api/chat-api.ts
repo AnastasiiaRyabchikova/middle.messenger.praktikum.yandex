@@ -37,6 +37,10 @@ export interface AddUsersToChatData {
   chatId: number,
 }
 
+export interface TokenData {
+  token: string,
+}
+
 export default class ChatsApi extends BaseApi {
   constructor() {
     super(new HTTP('/chats'));
@@ -60,5 +64,9 @@ export default class ChatsApi extends BaseApi {
 
   removeUsers(data: AddUsersToChatData): Promise<void> {
     return this.http.delete('/users', { data });
+  }
+
+  getToken(chatId: number): Promise<TokenData> {
+    return this.http.post(`/token/${chatId}`);
   }
 };
