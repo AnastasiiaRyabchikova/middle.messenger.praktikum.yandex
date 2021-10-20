@@ -53,6 +53,16 @@ class ChatsController {
       console.error(err);
     }
   }
+
+  async getToken(chatId: number): string {
+    try {
+      const response = await this.api.getToken(chatId);
+      const data: Record<string, string> = JSON.parse(response);
+      return data.token;
+    } catch (err) {
+      console.error(err);
+    }
+  }
 };
 
 export default new ChatsController();
