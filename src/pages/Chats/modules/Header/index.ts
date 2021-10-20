@@ -4,14 +4,15 @@ import Avatar from '~/src/components/Avatar';
 import { IconEllipsisVAlt } from '~/src/icons';
 import AddUserButton from './AddUserButton';
 import RemoveUserButton from './RemoveUserButton';
-import AddUserModal from './RemoveUserModal';
-import RemoveUserModal from './AddUserModal';
+import AddUserModal from './AddUserModal';
+import RemoveUserModal from './RemoveUserModal';
 import template from './index.tpl';
 
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
+      title: context.title,
       handleAddUserButton: () => {
         this.setProps({
           shouldShowAddUserModal: true,
