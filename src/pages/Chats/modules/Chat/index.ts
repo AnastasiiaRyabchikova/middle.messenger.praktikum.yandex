@@ -16,11 +16,12 @@ class Chat extends Ryabact.Component {
       ...context,
       chatId: context.chatId,
       token: '',
+      socket: null,
       messages,
       class: cx([styles.chat, context.class]),
-      handleFormSubmit: (params: Record<string, unknown>) => {
-        // eslint-disable-next-line no-console
-        console.log(params);
+      handleFormSubmit: ({ text }: { text: string }) => {
+        const { socket }: { socket: WebSocket } = this.props;
+        socket.send(JSON.stringify({ content: text, type: 'message' }));
       },
     };
 
@@ -45,6 +46,7 @@ class Chat extends Ryabact.Component {
     const userId = this.props?.user?.id;
 
     const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${String(userId)}/${String(chatId)}/${token}`);
+    this.setProps({ socket });
 
     socket.addEventListener('open', () => {
       console.log('Соединение установлено');
