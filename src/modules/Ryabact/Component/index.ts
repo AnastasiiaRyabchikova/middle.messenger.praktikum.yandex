@@ -70,12 +70,13 @@ export default class Component {
   _addEvents(): void {
     const { events } = this.props;
     if (this.element?.firstChild) {
-      const current: compiledComponentType = this.element?.firstChild;
+      const current: compiledComponentType = this.element?.firstChild as compiledComponentType;
 
       if (events) {
         Object.keys(events).forEach((eventName) => {
-          if (typeof events[eventName] === 'function') {
-            current.addEventListener(eventName, events[eventName]);
+          const handleEvent = events[eventName];
+          if (typeof handleEvent === 'function') {
+            current.addEventListener(eventName, handleEvent as () => void);
           }
         });
       }
@@ -88,7 +89,10 @@ export default class Component {
 
     if (events && current) {
       Object.keys(events).forEach((eventName) => {
-        current.removeEventListener(eventName, events[eventName]);
+        const handleEvent = events[eventName];
+        if (typeof handleEvent === 'function') {
+          current.removeEventListener(eventName, handleEvent as () => void);
+        }
       });
     }
   }
