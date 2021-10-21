@@ -13,16 +13,20 @@ export interface PropsType {
   [key: string]: unknown,
 };
 
+export interface ComponentConstructable {
+  new(props: PropsType): Component;
+}
+
 export type compiledComponentType = HTMLElement | SVGElement;
 
 export type ComponentsType = {
-  [key: string]: Component,
+  [key: string]: ComponentConstructable,
 };
 
 export interface ComponentSettingsInterface {
   props: PropsType,
   name: string,
   template: string,
-  components?: { [key: string]: Component },
+  components?: ComponentsType,
   containerTemplate: string,
 };
