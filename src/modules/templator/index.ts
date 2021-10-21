@@ -1,5 +1,6 @@
 import { Component as RyabactComponent } from 'ryabact';
 import {
+  // ComponentConstructable,
   ComponentsType,
   compiledComponentType,
   PropsType,
@@ -41,7 +42,7 @@ const isEventHandler = (string: string): boolean => {
 
 type parseElementProps = {
   ctx: PropsType,
-  components: { [key: string]: RyabactComponent },
+  components: ComponentsType,
   name: string,
 };
 
@@ -124,10 +125,14 @@ export default class Templator {
 
   public components?: ComponentsType;
 
-  constructor(settings: RyabactComponent) {
-    this.template = settings.template;
-    this.components = settings.components || {};
-    this.name = settings.name || 'nameless component';
+  constructor({ template, components, name }: {
+    template: string,
+    components: ComponentsType,
+    name: string | undefined,
+  }) {
+    this.template = template;
+    this.components = components || {};
+    this.name = name || 'nameless component';
   }
 
   compile(ctx: PropsType = {}): compiledComponentType {
