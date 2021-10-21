@@ -6,7 +6,7 @@
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "eslint": "eslint ./ --ext .ts",
     "compile": "tsc  -t es5 ./src/**/*.ts",
-    "test": "mocha"
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'src/**/*.spec.ts'"
   },
   "devDependencies": {
     "@types/chai": "^4.2.22",
