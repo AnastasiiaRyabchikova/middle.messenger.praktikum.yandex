@@ -14,10 +14,10 @@ export interface PropsType {
 };
 
 export interface ComponentConstructable {
-  new(props: PropsType): Component;
+  new(props?: PropsType): Component;
 }
 
-export type compiledComponentType = HTMLElement | SVGElement;
+export type compiledComponentType = HTMLElement;
 
 export type ComponentsType = {
   [key: string]: ComponentConstructable,
