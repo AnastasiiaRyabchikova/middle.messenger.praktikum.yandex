@@ -1,6 +1,6 @@
-import { Component } from 'ryabact';
+import { ComponentConstructable } from '~/src/types/component';
 
 export default interface routeSettings {
   pathname: string,
-  component: Component,
+  component: ComponentConstructable,
 };
