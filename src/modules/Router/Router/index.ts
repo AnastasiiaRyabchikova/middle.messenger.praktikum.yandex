@@ -1,4 +1,4 @@
-import { Component } from 'ryabact';
+import { ComponentConstructable } from '~/src/types/component';
 import routeSettings from '../interfaces/route-settings';
 import Route from '../Route';
 
@@ -9,20 +9,22 @@ export default class Router {
 
   history: History;
 
-  private fallbackPage: Component | undefined;
+  private fallbackPage: Route;
 
   _currentRoute: Route | null ;
 
   _rootQuery: HTMLElement | undefined;
 
-  constructor(rootQuery?: HTMLElement | undefined) {
+  constructor(rootQuery?: HTMLElement) {
     if (Router.__instance) {
       return Router.__instance;
     }
 
     this.history = window.history;
     this._currentRoute = null;
-    this._rootQuery = rootQuery;
+    if (rootQuery) {
+      this._rootQuery = rootQuery;
+    }
 
     Router.__instance = this;
   }
@@ -50,7 +52,7 @@ export default class Router {
   }
 
   _onRoute(pathname: string): void {
-    const route = this.getRoute(pathname) || this.fallbackPage;
+    const route: Route = this.getRoute(pathname) || this.fallbackPage;
 
     if (this._currentRoute) {
       this._currentRoute.leave();
@@ -80,7 +82,7 @@ export default class Router {
     return this.routes.find((route: Route) => route.match(pathname));
   }
 
-  setFallbackPage(fallbackPage?: Component): void {
+  setFallbackPage(fallbackPage: ComponentConstructable): this {
     this.fallbackPage = new Route('', fallbackPage, { rootQuery: this._rootQuery });
     return this;
   }
