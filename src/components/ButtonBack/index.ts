@@ -2,7 +2,6 @@ import * as Ryabact from 'ryabact';
 import { PropsType } from '~/src/types/component';
 import { IconArrowLeft } from '~/src/icons';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
 
 export default class Page extends Ryabact.Component {
   constructor(context: PropsType = {}) {
@@ -12,12 +11,12 @@ export default class Page extends Ryabact.Component {
 
     super({
       props,
-      name: 'BottunBack',
+      name: 'ButtonBack',
       template,
       components: {
         IconArrowLeft,
       },
-      containerTemplate: `<div class="${styles.container}" />`,
+      containerTemplate: '<div />',
     });
   }
 };
