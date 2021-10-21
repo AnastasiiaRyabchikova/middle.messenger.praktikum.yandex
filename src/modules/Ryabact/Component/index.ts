@@ -157,8 +157,10 @@ export default class Component {
   }
 
   deleteElement(): void {
-    this._element.parentNode.removeChild(this._element);
-    this.eventBus().emit(Component.EVENTS.FLOW_CDUM);
+    if (this._element.parentNode) {
+      this._element.parentNode.removeChild(this._element);
+      this.eventBus().emit(Component.EVENTS.FLOW_CDUM);
+    }
   }
 
   componentDelete(): void {
