@@ -1,5 +1,6 @@
 import { render } from 'templator';
 import { Component } from 'ryabact';
+import { ComponentConstructable } from '~/src/types/component';
 
 interface Props {
   rootQuery: HTMLElement | undefined,
@@ -9,15 +10,15 @@ interface Props {
 export default class Route {
   _pathname: string = '';
 
-  _blockClass: Component;
+  _blockClass: ComponentConstructable;
 
   _block: Component | null;
 
-  _props: Record<string, unknown>;
+  _props: Props;
 
   constructor(
     pathname: string,
-    view: Component,
+    view: ComponentConstructable,
     props: Props,
   ) {
     this._pathname = pathname;
