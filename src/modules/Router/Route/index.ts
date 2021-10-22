@@ -1,5 +1,5 @@
-import { Component } from '~/src/modules/Ryabact';
-import { render } from '~/src/modules/templator';
+import { render } from '../../templator';
+import { Component } from '../../Ryabact';
 import { ComponentConstructable } from '~/src/types/component';
 
 interface Props {
