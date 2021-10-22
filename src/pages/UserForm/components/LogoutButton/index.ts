@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import authControler from '~/src/controlers/auth-controler';
 import { PropsType } from '~/src/types/component';
 import template from './index.tpl';

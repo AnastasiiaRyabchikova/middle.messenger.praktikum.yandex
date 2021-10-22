@@ -1,4 +1,4 @@
-import Templator from 'templator';
+import Templator from '~/src/modules/templator';
 import {
   compiledComponentType,
   ComponentSettingsInterface,

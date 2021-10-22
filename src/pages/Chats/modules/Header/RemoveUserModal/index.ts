@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import { PropsType } from '~/src/types/component';
 import CloseButton from '~/src/components/CloseButton';
 import Form from './Form';

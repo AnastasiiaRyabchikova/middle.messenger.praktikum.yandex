@@ -1,4 +1,4 @@
-import { Component as RyabactComponent } from 'ryabact';
+import { Component as RyabactComponent } from '~/src/modules/Ryabact';
 import {
   // ComponentConstructable,
   ComponentsType,

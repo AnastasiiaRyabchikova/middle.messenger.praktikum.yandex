@@ -1,4 +1,4 @@
-import { Component } from 'ryabact';
+import { Component } from '~/src/modules/Ryabact';
 
 export type eventsType = {
   [key: string]: unknown,

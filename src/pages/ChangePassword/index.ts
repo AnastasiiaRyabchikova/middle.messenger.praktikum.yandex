@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import { withRouter } from 'router';
 import UserControler from '~/src/controlers/user-controler';
 import { EditPasswordData } from '~/src/api/user-api';

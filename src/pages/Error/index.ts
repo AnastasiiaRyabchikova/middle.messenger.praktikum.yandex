@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import { PropsType } from '~/src/types/component';
 import Logo from '~/src/components/Logo';
 import template from './index.tpl';

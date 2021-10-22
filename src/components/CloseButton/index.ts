@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import cx from 'classnames';
 import IconTimes from '~/src/icons/Times';
 import * as general from '~/src/theme/general.css';

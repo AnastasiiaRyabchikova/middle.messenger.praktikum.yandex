@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import cx from '../../utils/classnames';
 import { PropsType } from '../../types/component';
 import Textarea from '../Textarea';

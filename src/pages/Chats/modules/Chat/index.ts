@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import cx from 'classnames';
 import { connect } from '~/src/store';
 import { PropsType } from '~/src/types/component';

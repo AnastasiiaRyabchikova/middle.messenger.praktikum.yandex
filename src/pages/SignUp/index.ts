@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import { withRouter } from 'router';
 import pathnames from '~/src/constants/pathnames';
 import { PropsType } from '~/src/types/component';

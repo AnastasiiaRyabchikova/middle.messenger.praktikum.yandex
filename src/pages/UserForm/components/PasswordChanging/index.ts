@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import cx from 'classnames';
 import { PropsType } from '~/src/types/component';
 import UIInput from '~/src/components/UIInput';
