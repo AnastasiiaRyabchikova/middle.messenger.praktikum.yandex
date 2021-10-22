@@ -1,11 +1,11 @@
-import Templator from '~/src/modules/templator';
+import Templator from '../../templator';
 import {
   compiledComponentType,
   ComponentSettingsInterface,
   ComponentsType,
   PropsType,
 } from '../../../types/component';
-import EventBus from '~/src/modules/event-bus';
+import EventBus from '../../event-bus';
 
 export default class Component {
   static EVENTS = {
@@ -108,7 +108,9 @@ export default class Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  componentDidMount(oldProps: PropsType = {}): void { /**/ }
+  componentDidMount(oldProps: PropsType = {}): void {
+    console.log(oldProps);
+  }
 
   _componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): void {
     //
@@ -120,7 +122,10 @@ export default class Component {
 
   // eslint-disable-next-line class-methods-use-this
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean { return true; }
+  componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean {
+    console.log(oldProps, newProps);
+    return true;
+  }
 
   componentDidRender(): void { /* */ }
 
