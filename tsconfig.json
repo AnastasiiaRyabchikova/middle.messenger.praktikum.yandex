@@ -13,11 +13,6 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "templator": ["src/modules/templator"],
-      "classnames": ["src/utils/classnames"],
-      "ryabact": ["src/modules/Ryabact"],
-      "http-transport": ["src/modules/HTTPTransport"],
-      "router": ["src/modules/router"],
       "~/*": ["./*"]
     },
     "typeRoots": ["node_modules/@types"],
