@@ -1,6 +1,5 @@
-import { Component as RyabactComponent } from '~/src/modules/Ryabact';
 import {
-  // ComponentConstructable,
+  ComponentConstructable,
   ComponentsType,
   compiledComponentType,
   PropsType,
@@ -66,7 +65,7 @@ const parseElement = (string: string, {
   let element: compiledComponentType = document.createElement('div');
 
   if (isComponent(tag) && isObject(components)) {
-    const Component: RyabactComponent = components[tag];
+    const Component: ComponentConstructable = components[tag];
 
     if (!Component) {
       throw new Error(`Found an unregistered component ${tag} in ${name}`);
@@ -140,7 +139,7 @@ export default class Templator {
   }
 
   compileTemplate = (ctx: PropsType): compiledComponentType => {
-    let result: compiledComponentType;
+    let result: compiledComponentType = document.createElement('div');
     let current: compiledComponentType | Node | null = null;
     const {
       components = {},
@@ -152,12 +151,15 @@ export default class Templator {
       .replace(/\s+/g, ' ')
       .replace(/<t-if={{(.*?)}}>([\s\S]*?)<\/t-if>/g, (match: string): string => {
         const values: Record<string, string> = match.split(/(?=<t-(?:if|else|else-if))/)
-          .reduce((acc: Record<string, unknown>, cur: string) => {
+          .reduce((acc: Record<string, string>, cur: string) => {
             let key;
             let value: string = '';
 
             if (/(?=<t-(?:if|else-if))/.test(cur)) {
-              [, key, value] = /<t-(?:if|else-if)={{(.*?)}}>([\s\S]*)/.exec(cur);
+              const array = /<t-(?:if|else-if)={{(.*?)}}>([\s\S]*)/.exec(cur);
+              if (Array.isArray(array)) {
+                [, key, value] = array;
+              }
             } else if (/(?=<t-else)/.test(cur)) {
               key = '$default';
               const temp = /<t-else>([\s\S]*)/.exec(cur);
@@ -166,7 +168,7 @@ export default class Templator {
 
             return {
               ...acc,
-              [key]: value.replace('</t-if>', ''),
+              [String(key)]: value.replace('</t-if>', ''),
             };
           }, {});
 
