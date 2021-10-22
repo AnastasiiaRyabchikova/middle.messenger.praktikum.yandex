@@ -11,7 +11,7 @@ export default class Router {
 
   private fallbackPage: Route;
 
-  _currentRoute: Route | null ;
+  currentRoute: Route | null ;
 
   _rootQuery: HTMLElement | undefined;
 
@@ -21,7 +21,7 @@ export default class Router {
     }
 
     this.history = window.history;
-    this._currentRoute = null;
+    this.currentRoute = null;
     if (rootQuery) {
       this._rootQuery = rootQuery;
     }
@@ -54,11 +54,11 @@ export default class Router {
   _onRoute(pathname: string): void {
     const route: Route = this.getRoute(pathname) || this.fallbackPage;
 
-    if (this._currentRoute) {
-      this._currentRoute.leave();
+    if (this.currentRoute) {
+      this.currentRoute.leave();
     }
 
-    this._currentRoute = route;
+    this.currentRoute = route;
     route.render();
   }
 
