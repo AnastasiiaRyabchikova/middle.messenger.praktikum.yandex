@@ -1,3 +1,3 @@
-type typeEventCallback = (param1: unknown, ...param2: unknown[]) => void;
+type typeEventCallback = (...param: unknown[]) => void;
 
 export default typeEventCallback;
