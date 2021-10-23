@@ -28,7 +28,7 @@ router
 describe('Роутер', () => {
   it('Не должно быть повторной инициализации роутера', () => {
     const newRouter = new Router(document.createElement('div'));
-    return router === newRouter;
+    expect(router).to.equal(newRouter);
   });
 
   it('Если роутер не найдет активную страницу, должна быть FallBackPage', () => {
