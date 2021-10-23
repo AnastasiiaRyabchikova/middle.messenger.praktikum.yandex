@@ -1,4 +1,4 @@
-***PR:*** https://github.com/AnastasiiaRyabchikova/middle.messenger.praktikum.yandex/pull/2
+***PR:*** https://github.com/AnastasiiaRyabchikova/middle.messenger.praktikum.yandex/pull/3
 
 # Довекот / Голубятня
 
