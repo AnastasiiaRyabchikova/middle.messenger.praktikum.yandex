@@ -11,30 +11,30 @@ chai
   .use(chaiDom)
   .use(chaiSpies);
 
-class Button extends Component {
-  constructor(context: PropsType = {}) {
-    const props: PropsType = {
-      ...context,
-    };
-
-    super({
-      props,
-      name: 'Button',
-      template: '<button type="button" class="button">{{label}}</button>',
-      containerTemplate: '<div />',
-    });
-  }
-};
-
-const button = new Button({ label: 'Кнопка' });
-const root = document.createElement('div');
-render(root, button.element);
-
 describe('Компонент', () => {
-  const spyComponentDidUpdate = chai.spy.on(button, 'componentDidUpdate');
-  const spyComponentInit= chai.spy.on(button, 'componentInit');
-  const spyComponentDidMount = chai.spy.on(button, 'componentDidMount');
-  const spyComponentRender = chai.spy.on(button, 'componentDidRender');
+  const spyComponentDidUpdate = chai.spy.on(Component.prototype, 'componentDidUpdate');
+  const spyComponentInit= chai.spy.on(Component.prototype, 'init');
+  const spyComponentDidMount = chai.spy.on(Component.prototype, 'componentDidMount');
+  const spyComponentRender = chai.spy.on(Component.prototype, 'componentDidRender');
+
+  class Button extends Component {
+    constructor(context: PropsType = {}) {
+      const props: PropsType = {
+        ...context,
+      };
+
+      super({
+        props,
+        name: 'Button',
+        template: '<button type="button" class="button">{{label}}</button>',
+        containerTemplate: '<div />',
+      });
+    }
+  };
+
+  const button = new Button({ label: 'Кнопка' });
+  const root = document.createElement('div');
+  render(root, button.element);
 
   it('Инициализируется элемент компонента', () => {
     expect(button.element).to.have.html('<button type="button" class="button">Кнопка</button>');

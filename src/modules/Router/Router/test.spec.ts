@@ -1,7 +1,14 @@
+import { JSDOM } from 'jsdom';
 import { expect } from 'chai';
 import { PropsType } from '../../../types/component';
 import * as Ryabact from '../../Ryabact';
 import Router from './index';
+
+const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>', { url: 'http://localhost' });
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+global.window = dom.window as any;
+global.document = dom.window.document;
 
 class FallBackPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
@@ -42,6 +49,6 @@ describe('Роутер', () => {
     router.back();
     router.forward();
     router.go('/page-3');
-    expect(router.history.length).to.eq(4);
+    expect(router.history.length).to.eq(5);
   });
 });
