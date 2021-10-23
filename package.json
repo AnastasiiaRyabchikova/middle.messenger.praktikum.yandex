@@ -46,6 +46,13 @@
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },
+  "alias": {
+    "templator": "./src/modules/templator",
+    "classnames": "./src/utils/classnames",
+    "ryabact": "./src/modules/Ryabact",
+    "http-transport": "./src/modules/HTTPTransport",
+    "router": "./src/modules/Router"
+  },
   "browserslist": [
     "> 1%"
   ]
