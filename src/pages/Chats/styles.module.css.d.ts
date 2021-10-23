@@ -9,4 +9,3 @@ export const chatWrapper: string;
 export const chat: string;
 export const content: string;
 export const link: string;
-export const companionLink: string;
