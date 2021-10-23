@@ -109,7 +109,7 @@ export default class HTTPTransport {
         reject(err);
       };
 
-      xhr.onreadystatechange = (e) => {
+      xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           if (xhr.status < 400) {
             resolve(xhr.response);
@@ -127,7 +127,7 @@ export default class HTTPTransport {
       if (method === Methods.Get) {
         xhr.send();
       } else {
-        xhr.send(query);
+        xhr.send(query as any);
       }
     });
   };
