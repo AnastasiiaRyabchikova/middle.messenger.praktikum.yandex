@@ -1,6 +1,6 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import { IconArrowLeft } from '~/src/icons';
+import * as Ryabact from '../../modules/Ryabact';
+import { PropsType } from '../../types/component';
+import { IconArrowLeft } from '../../icons';
 import template from './index.tpl';
 
 export default class Page extends Ryabact.Component {

@@ -1,5 +1,5 @@
-import routeSettings from '~/src/modules/Router/interfaces/route-settings';
-import pathnames from '~/src/constants/pathnames';
+import routeSettings from './modules/Router/interfaces/route-settings';
+import pathnames from './constants/pathnames';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ChangePassword from './pages/ChangePassword';

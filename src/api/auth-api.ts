@@ -1,4 +1,4 @@
-import HTTP from 'http-transport';
+import HTTP from '../modules/HTTPTransport';
 import BaseApi from '../utils/base-api';
 
 export interface SignupData {
