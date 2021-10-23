@@ -1,4 +1,4 @@
-import HTTPTransport from 'http-transport';
+import HTTPTransport from '../../modules/HTTPTransport';
 
 export default class BaseApi {
   http: HTTPTransport;
