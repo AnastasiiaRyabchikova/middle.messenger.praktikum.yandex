@@ -2,7 +2,6 @@ import * as styles from './styles.module.css';
 
 const template: string = `
   <form
-    class="${styles.body}"
     novalidate="novalidate"
   >
     <UIInput
