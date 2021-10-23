@@ -1,0 +1,11 @@
+.logout {
+  display: block;
+  margin-top: 1rem;
+  margin-left: auto;
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+.logout:hover {
+  text-decoration: underline;
+}

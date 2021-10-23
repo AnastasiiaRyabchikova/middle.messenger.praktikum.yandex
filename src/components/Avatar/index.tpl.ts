@@ -10,10 +10,6 @@ const template: string = `
       <div>
         {{initials}}
       </div>
-    <t-else>
-      <div>
-        ДЛ
-      </div>
     </t-if>
   </div>
 `;

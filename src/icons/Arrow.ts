@@ -1,5 +1,5 @@
+import * as Ryabact from '~/src/modules/Ryabact';
 import { PropsType } from '../types/component';
-import * as Ryabact from '../Ryabact';
 
 const template: string = `
   <svg

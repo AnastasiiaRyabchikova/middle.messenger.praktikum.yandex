@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import validation, { getRequiredMessage } from '~/src/validation';
 import isEqual from '~/src/utils/is-equal';
 import { PropsType } from '~/src/types/component';

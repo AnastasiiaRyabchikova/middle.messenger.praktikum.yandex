@@ -1,0 +1,10 @@
+.input {
+  width: 100%;
+  background-color: var(--color-gray);
+}
+
+.footer {
+  display: flex;
+  justify-content: end;
+  margin-top: 1rem;
+}

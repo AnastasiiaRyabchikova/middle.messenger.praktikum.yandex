@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import { PropsType } from '~/src/types/component';
 import Avatar from '~/src/components/Avatar';
 import template from './index.tpl';
@@ -6,7 +6,10 @@ import template from './index.tpl';
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
+      ...context,
+      id: context.id,
       src: context.src,
+      initials: (context.name as string)[0],
       name: context.name,
       surname: context.surname,
       unreadMessagesCount: context.unreadMessagesCount,

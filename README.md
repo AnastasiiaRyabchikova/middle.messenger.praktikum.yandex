@@ -1,5 +1,8 @@
-// TODO: Добавить возможность использования глобальных классов
-// TODO: Исправить ошибку eslint на глобальные переменные
+// TODO: разобраться с интерфейсов компонентов
+// TODO: сделать данимаческие пути
+
+***PR:*** https://github.com/AnastasiiaRyabchikova/middle.messenger.praktikum.yandex/pull/2
+
 # Довекот / Голубятня
 
 **Netlify:** https://determined-pare-26635e.netlify.app/
