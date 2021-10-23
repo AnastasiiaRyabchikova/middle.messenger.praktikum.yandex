@@ -1,4 +1,4 @@
-import routeSettings from '~/src/modules/router/interfaces/route-settings';
+import routeSettings from '~/src/modules/Router/interfaces/route-settings';
 import pathnames from '~/src/constants/pathnames';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
