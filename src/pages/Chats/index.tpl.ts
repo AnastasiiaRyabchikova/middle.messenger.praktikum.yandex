@@ -23,7 +23,6 @@ const template: string = `
       <t-for={{chat of chats}}>
         <Companion
           id="{{chat.id}}"
-          class="${styles.companionLink}"
           src="{{chat.avatar}}"
           name="{{chat.title}}"
           surname="{{chat.surname}}"
