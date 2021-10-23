@@ -1,4 +1,4 @@
-import Router from '~/src/modules/router';
+import Router from '~/src/modules/Router';
 import Home from './pages/Home';
 import './theme/index.css';
 
