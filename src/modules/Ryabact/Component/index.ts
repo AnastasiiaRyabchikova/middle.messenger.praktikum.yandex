@@ -153,7 +153,7 @@ export default class Component {
     this._addEvents();
   }
 
-  clearElement(): void {
+  private clearElement(): void {
     if (this._element) {
       this._element.textContent = '';
     }
