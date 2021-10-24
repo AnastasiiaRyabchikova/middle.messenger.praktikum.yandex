@@ -108,9 +108,7 @@ export default class Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  componentDidMount(oldProps: PropsType = {}): void {
-    console.log(oldProps);
-  }
+  componentDidMount(oldProps: PropsType = {}): void { /* */ }
 
   _componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): void {
     //
@@ -120,10 +118,8 @@ export default class Component {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line
   componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean {
-    console.log(oldProps, newProps);
     return true;
   }
 
