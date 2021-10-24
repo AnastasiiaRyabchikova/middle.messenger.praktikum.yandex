@@ -1,4 +1,3 @@
-import HTTP from '../modules/HTTPTransport';
 import BaseApi from '../utils/base-api';
 import {
   UserData,
@@ -8,7 +7,7 @@ import {
 
 export default class ChatsApi extends BaseApi {
   constructor() {
-    super(new HTTP('/user'));
+    super('/user');
   }
 
   edit(data: EditUserData): Promise<UserData> {

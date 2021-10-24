@@ -1,4 +1,3 @@
-import HTTP from '../modules/HTTPTransport';
 import BaseApi from '../utils/base-api';
 
 export interface CreateChatData {
@@ -43,7 +42,7 @@ export interface TokenData {
 
 export default class ChatsApi extends BaseApi {
   constructor() {
-    super(new HTTP('/chats'));
+    super('/chats');
   }
 
   create(data: CreateChatData): Promise<void> {
