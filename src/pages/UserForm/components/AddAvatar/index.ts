@@ -22,7 +22,7 @@ export default class Component extends Ryabact.Component {
 
         const file = files[0];
         const formData = new FormData();
-        formData.append('file', file, 'avatar');
+        formData.append('avatar', file, 'avatar');
 
         context.events.submit(formData);
       },
