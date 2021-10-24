@@ -8,10 +8,10 @@ import { store } from '~/src/store';
 import { deleteUser, setError, setUser } from '~/src/store/user';
 
 class AuthController {
-  private api: AuthAPI;
+  private api: typeof AuthAPI;
 
   constructor() {
-    this.api = new AuthAPI();
+    this.api = AuthAPI;
   }
 
   async signUp(data: SignUpUserData) {

@@ -8,10 +8,10 @@ import {
 } from '~/src/api/user-interfaces';
 
 class UserController {
-  private api: UserAPI;
+  private api: typeof UserAPI;
 
   constructor() {
-    this.api = new UserAPI();
+    this.api = UserAPI;
   }
 
   async edit(data: EditUserData): Promise<UserData> {

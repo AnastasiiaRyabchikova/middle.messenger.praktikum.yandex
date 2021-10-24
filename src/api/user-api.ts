@@ -5,7 +5,7 @@ import {
   EditPasswordData,
 } from './user-interfaces';
 
-export default class ChatsApi extends BaseApi {
+class UserApi extends BaseApi {
   constructor() {
     super('/user');
   }
@@ -22,3 +22,5 @@ export default class ChatsApi extends BaseApi {
     return this.http.put('/password', { data });
   }
 };
+
+export default new UserApi();

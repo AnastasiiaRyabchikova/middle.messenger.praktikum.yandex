@@ -4,7 +4,7 @@ import {
   SignInUserData,
 } from './user-interfaces';
 
-export default class AuthApi extends BaseApi {
+class AuthApi extends BaseApi {
   constructor() {
     super('/auth');
   }
@@ -25,3 +25,5 @@ export default class AuthApi extends BaseApi {
     return this.http.get('/user');
   }
 };
+
+export default new AuthApi();

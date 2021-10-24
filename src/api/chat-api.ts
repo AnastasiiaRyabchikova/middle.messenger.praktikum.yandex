@@ -40,7 +40,7 @@ export interface TokenData {
   token: string,
 }
 
-export default class ChatsApi extends BaseApi {
+class ChatsApi extends BaseApi {
   constructor() {
     super('/chats');
   }
@@ -69,3 +69,5 @@ export default class ChatsApi extends BaseApi {
     return this.http.post(`/token/${chatId}`);
   }
 };
+
+export default new ChatsApi();
