@@ -82,6 +82,8 @@ export default class HTTPTransport {
       data = {},
     } = options;
 
+    const isFile = Boolean(data.entries);
+
     return new Promise((resolve, reject) => {
       const requestUrl = method === Methods.Get
         ? `${this.baseUrl}${url}${queryStringify(data)}`
@@ -119,10 +121,11 @@ export default class HTTPTransport {
         }
       };
 
-      const contentType = data.entries ? 'multipart/form-data' : 'application/json';
-      const query = data.entries ? data : JSON.stringify(data);
+      if (!isFile) {
+        xhr.setRequestHeader('Content-Type', 'application/json');
+      }
 
-      xhr.setRequestHeader('Content-Type', contentType);
+      const query = isFile ? data : JSON.stringify(data);
 
       if (method === Methods.Get) {
         xhr.send();
