@@ -1,5 +1,5 @@
 import * as Ryabact from '~/src/modules/Ryabact';
-import cx from 'classnames';
+import cx from '~/src/utils/classnames';
 import { PropsType } from '~/src/types/component';
 import Avatar from '~/src/components/Avatar';
 import Input from '~/src/components/Input';
