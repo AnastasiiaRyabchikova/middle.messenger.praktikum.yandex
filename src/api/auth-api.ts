@@ -1,32 +1,20 @@
 import HTTP from '../modules/HTTPTransport';
 import BaseApi from '../utils/base-api';
-
-export interface SignupData {
-  first_name: string;
-  second_name: string;
-  login: string;
-  email: string;
-  password: string;
-  phone: string;
-}
-
-export interface LoginData {
-  login: string;
-  password: string;
-}
-
-export type UserData = Omit<SignupData, 'password'> & { avatar: string; display_name: string; };
+import {
+  SignUpUserData,
+  SignInUserData,
+} from './user-interfaces';
 
 export default class AuthApi extends BaseApi {
   constructor() {
     super(new HTTP('/auth'));
   }
 
-  signUp(data: SignupData): Promise<{ id: number }> {
+  signUp(data: SignUpUserData): Promise<{ id: number }> {
     return this.http.post('/signup', { data });
   }
 
-  signIn(data: LoginData): Promise<void> {
+  signIn(data: SignInUserData): Promise<void> {
     return this.http.post('/signin', { data });
   }
 

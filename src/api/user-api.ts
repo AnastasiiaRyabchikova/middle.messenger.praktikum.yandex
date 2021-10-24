@@ -1,24 +1,10 @@
 import HTTP from '../modules/HTTPTransport';
 import BaseApi from '../utils/base-api';
-
-export interface EditUserData {
-  first_name: string,
-  second_name: string,
-  display_name: string,
-  login: string,
-  email: string,
-  phone: string
-}
-
-export interface UserData extends EditUserData {
-  id: string,
-  avatar: string,
-}
-
-export interface EditPasswordData {
-  oldPassword: string,
-  newPassword: string,
-}
+import {
+  UserData,
+  EditUserData,
+  EditPasswordData,
+} from './user-interfaces';
 
 export default class ChatsApi extends BaseApi {
   constructor() {

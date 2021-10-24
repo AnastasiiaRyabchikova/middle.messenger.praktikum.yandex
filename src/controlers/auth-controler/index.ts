@@ -1,4 +1,9 @@
-import AuthAPI, { LoginData, SignupData, UserData } from '~/src/api/auth-api';
+import AuthAPI from '~/src/api/auth-api';
+import {
+  SignUpUserData,
+  SignInUserData,
+  UserData,
+} from '~/src/api/user-interfaces';
 import { store } from '~/src/store';
 import { deleteUser, setError, setUser } from '~/src/store/user';
 
@@ -9,7 +14,7 @@ class AuthController {
     this.api = new AuthAPI();
   }
 
-  async signUp(data: SignupData) {
+  async signUp(data: SignUpUserData) {
     try {
       await this.api.signUp(data);
       await this.fetchUser();
@@ -18,7 +23,7 @@ class AuthController {
     }
   }
 
-  async signIn(data: LoginData) {
+  async signIn(data: SignInUserData) {
     try {
       await this.api.signIn(data);
       await this.fetchUser();
@@ -40,7 +45,7 @@ class AuthController {
     try {
       const user = await this.api.getUser();
       store.dispatch(setUser(JSON.parse(user)));
-      return user;
+      return JSON.parse(user);
     } catch (e) {
       store.dispatch(deleteUser());
     }

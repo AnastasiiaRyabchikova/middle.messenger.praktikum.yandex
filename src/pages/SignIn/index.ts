@@ -2,7 +2,7 @@ import { withRouter } from 'router';
 import * as Ryabact from '~/src/modules/Ryabact';
 import { connect } from '~/src/store';
 import Page404 from '~/src/pages/Page404';
-import { SignupData } from '~/src/api/auth-api';
+import { SignUpUserData } from '~/src/api/user-interfaces';
 import { AuthControler } from '~/src/controlers';
 import pathnames from '~/src/constants/pathnames';
 import { PropsType } from '~/src/types/component';
@@ -19,7 +19,7 @@ class SignInPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      handleFormSubmit: async (params: SignupData) => {
+      handleFormSubmit: async (params: SignUpUserData) => {
         // eslint-disable-next-line no-console
         await AuthControler.signUp(params);
         if (this.props.user) {

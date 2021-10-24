@@ -1,5 +1,5 @@
 import * as Ryabact from '~/src/modules/Ryabact';
-import cx from 'classnames';
+import cx from '~/src/utils/classnames';
 import { PropsType } from '~/src/types/component';
 import Avatar from '~/src/components/Avatar';
 import Input from '~/src/components/Input';
@@ -22,7 +22,7 @@ export default class Component extends Ryabact.Component {
 
         const file = files[0];
         const formData = new FormData();
-        formData.append('file', file, 'avatar');
+        formData.append('avatar', file, 'avatar');
 
         context.events.submit(formData);
       },
