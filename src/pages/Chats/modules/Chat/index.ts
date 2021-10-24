@@ -1,13 +1,32 @@
 import * as Ryabact from '~/src/modules/Ryabact';
-import cx from 'classnames';
+import cx from '~/src/utils/classnames';
 import { connect } from '~/src/store';
 import { PropsType } from '~/src/types/component';
 import { ChatControler } from '~/src/controlers';
+import { isArray, isObject } from '~/src/utils/format-checking';
 import ChatHistory from '../ChatHistory';
 import MessageTextarea from '../MessageTextarea';
 import Header from '../Header';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
+
+type chatMessage = {
+  content: string;
+  time: string;
+  user_id: number,
+};
+
+type outputMessage = {
+  text: string;
+  time: string;
+  isMine: boolean,
+};
+
+const messageFormat = (message: chatMessage, userId: number): outputMessage => ({
+  text: message.content,
+  time: message.time,
+  isMine: userId === message.user_id,
+});
 
 class Chat extends Ryabact.Component {
   constructor(context: PropsType = {}) {
@@ -49,24 +68,30 @@ class Chat extends Ryabact.Component {
 
     socket.addEventListener('open', () => {
       socket.send(JSON.stringify({
-        content: 'Моё первое сообщение миру!',
-        type: 'message',
+        content: '0',
+        type: 'get old',
       }));
     });
+
     socket.addEventListener('message', (e: Event) => {
       const { messages } = this.props;
       const data = JSON.parse(e.data);
-      const message = {
-        text: data.content,
-        time: data.time,
-        isMine: userId === data.user_id,
-      };
-      this.setProps({
-        messages: [
-          ...messages,
-          message,
-        ],
-      });
+      if (isArray(data)) {
+        this.setProps({
+          messages: [
+            ...messages,
+            ...data.map((item) => messageFormat(item, userId)),
+          ],
+        });
+      } else if (isObject(data)) {
+        const message = messageFormat(data, userId);
+        this.setProps({
+          messages: [
+            ...messages,
+            message,
+          ],
+        });
+      }
     });
   }
 };
