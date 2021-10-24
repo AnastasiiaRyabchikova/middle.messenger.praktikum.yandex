@@ -1,13 +1,12 @@
-import HTTP from '../modules/HTTPTransport';
 import BaseApi from '../utils/base-api';
 import {
   SignUpUserData,
   SignInUserData,
 } from './user-interfaces';
 
-export default class AuthApi extends BaseApi {
+class AuthApi extends BaseApi {
   constructor() {
-    super(new HTTP('/auth'));
+    super('/auth');
   }
 
   signUp(data: SignUpUserData): Promise<{ id: number }> {
@@ -26,3 +25,5 @@ export default class AuthApi extends BaseApi {
     return this.http.get('/user');
   }
 };
+
+export default new AuthApi();

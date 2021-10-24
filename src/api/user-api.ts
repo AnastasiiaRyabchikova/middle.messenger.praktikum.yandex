@@ -1,4 +1,3 @@
-import HTTP from '../modules/HTTPTransport';
 import BaseApi from '../utils/base-api';
 import {
   UserData,
@@ -6,9 +5,9 @@ import {
   EditPasswordData,
 } from './user-interfaces';
 
-export default class ChatsApi extends BaseApi {
+class UserApi extends BaseApi {
   constructor() {
-    super(new HTTP('/user'));
+    super('/user');
   }
 
   edit(data: EditUserData): Promise<UserData> {
@@ -23,3 +22,5 @@ export default class ChatsApi extends BaseApi {
     return this.http.put('/password', { data });
   }
 };
+
+export default new UserApi();

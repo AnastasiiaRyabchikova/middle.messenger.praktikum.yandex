@@ -2,13 +2,13 @@ import { Methods } from './enums';
 import { isArray, isObject } from '../../utils/format-checking';
 
 interface Options {
-  method?: Methods,
-  headers?: Record<string, string>,
-  data?: Record<string, unknown>,
+  method?: Methods;
+  headers?: Record<string, string>;
+  data?: Record<string, unknown>;
 };
 
 interface OptionsHTTPTransport extends Options {
-  timeout: number,
+  timeout: number;
 };
 
 const queryStringify = (data: Record<string, unknown>): string => (

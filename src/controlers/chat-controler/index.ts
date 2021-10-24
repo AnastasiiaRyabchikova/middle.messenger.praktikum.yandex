@@ -7,10 +7,10 @@ import ChatAPI, {
 } from '~/src/api/chat-api';
 
 class ChatsController {
-  private api: ChatAPI;
+  private api: typeof ChatAPI;
 
   constructor() {
-    this.api = new ChatAPI();
+    this.api = ChatAPI;
   }
 
   async create(data: CreateChatData): Promise<void> {

@@ -5,12 +5,12 @@ export type eventsType = {
 };
 
 export interface PropsType {
-  class?: string,
-  events?: eventsType,
-  errors?: Record<string, string>,
-  params?: Record<string, string>,
-  required?: Record<string, boolean>,
-  [key: string]: unknown,
+  class?: string;
+  events?: eventsType;
+  errors?: Record<string, string>;
+  params?: Record<string, string>;
+  required?: Record<string, boolean>;
+  [key: string]: unknown;
 };
 
 export interface ComponentConstructable {
@@ -24,9 +24,9 @@ export type ComponentsType = {
 };
 
 export interface ComponentSettingsInterface {
-  props: PropsType,
-  name: string,
-  template: string,
-  components?: ComponentsType,
-  containerTemplate: string,
+  props: PropsType;
+  name: string;
+  template: string;
+  components?: ComponentsType;
+  containerTemplate: string;
 };
