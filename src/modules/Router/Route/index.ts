@@ -3,8 +3,8 @@ import { Component } from '../../Ryabact';
 import { ComponentConstructable } from '~/src/types/component';
 
 interface Props {
-  rootQuery: HTMLElement | undefined,
-  [key: string]: unknown,
+  rootQuery: HTMLElement | undefined;
+  [key: string]: unknown;
 };
 
 export default class Route {

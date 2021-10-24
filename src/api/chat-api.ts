@@ -1,39 +1,39 @@
 import BaseApi from '../utils/base-api';
 
 export interface CreateChatData {
-  title: string,
+  title: string;
 }
 
 export interface DeleateChatData {
-  chatId: number,
+  chatId: number;
 }
 
 export interface FilterChatsParams {
-  chatId: number,
+  chatId: number;
 }
 
 export interface ChatData {
-  id: number,
-  title: string,
-  avatar: string,
-  unread_count: number,
+  id: number;
+  title: string;
+  avatar: string;
+  unread_count: number;
   last_message: {
     user: {
-      first_name: string,
-      second_name: string,
-      avatar: string,
-      email: string,
-      login: string,
-      phone: string,
+      first_name: string;
+      second_name: string;
+      avatar: string;
+      email: string;
+      login: string;
+      phone: string;
     },
-    time: string,
-    content: string,
+    time: string;
+    content: string;
   },
 }
 
 export interface AddUsersToChatData {
-  users: number[],
-  chatId: number,
+  users: number[];
+  chatId: number;
 }
 
 export interface TokenData {

@@ -20,12 +20,12 @@ export const setError = (error: { reason: string }): Action => ({
 });
 
 interface UserProfile {
-  [key: string]: any,
+  [key: string]: any;
 };
 
 interface UserState {
-  profile: Record<string, any> | null,
-  error: Record<string, any> | null,
+  profile: Record<string, any> | null;
+  error: Record<string, any> | null;
 };
 
 const initialState: UserState = {
