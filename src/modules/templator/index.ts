@@ -126,8 +126,8 @@ export default class Templator {
 
   constructor({ template, components, name }: {
     template: string,
-    components?: ComponentsType | undefined,
-    name: string | undefined,
+    components?: ComponentsType,
+    name?: string,
   }) {
     this.template = template;
     this.components = components || {};

@@ -13,7 +13,7 @@ export default class Router {
 
   currentRoute: Route | null ;
 
-  _rootQuery: HTMLElement | undefined;
+  _rootQuery?: HTMLElement;
 
   constructor(rootQuery?: HTMLElement) {
     if (Router.__instance) {

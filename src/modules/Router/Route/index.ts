@@ -3,7 +3,7 @@ import { Component } from '../../Ryabact';
 import { ComponentConstructable } from '~/src/types/component';
 
 interface Props {
-  rootQuery: HTMLElement | undefined;
+  rootQuery?: HTMLElement;
   [key: string]: unknown;
 };
 
