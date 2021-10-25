@@ -1,6 +1,7 @@
 export const container: string;
 export const page: string;
 export const main: string;
+export const form: string;
 export const account: string;
 export const avatar: string;
 export const field: string;

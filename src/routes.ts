@@ -1,24 +1,33 @@
-import { interfaceRyabactComponent } from './types/component';
-import pathnames from '~/src/constants/pathnames';
-
+import routeSettings from './modules/Router/interfaces/route-settings';
+import pathnames from './constants/pathnames';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ChangePassword from './pages/ChangePassword';
 import Chats from './pages/Chats';
 import UserForm from './pages/UserForm';
-import ErrorPage from './pages/Error';
 
-type pageByRoutes = {
-  [pathname: string]: interfaceRyabactComponent,
-};
+export const routesForUnknownUser: Array<routeSettings> = [
+  {
+    pathname: pathnames.signIn,
+    component: SignIn,
+  },
+  {
+    pathname: pathnames.signUp,
+    component: SignUp,
+  },
+];
 
-const routes: pageByRoutes = {
-  [pathnames.signIn]: new SignIn(),
-  [pathnames.signUp]: new SignUp(),
-  [pathnames.changePassword]: new ChangePassword(),
-  [pathnames.chats]: new Chats(),
-  [pathnames.userForm]: new UserForm(),
-  [pathnames.error500]: new ErrorPage({ code: 500 }),
-};
-
-export default routes;
+export const routesForUser: Array<routeSettings> = [
+  {
+    pathname: pathnames.changePassword,
+    component: ChangePassword,
+  },
+  {
+    pathname: pathnames.chats,
+    component: Chats,
+  },
+  {
+    pathname: pathnames.userForm,
+    component: UserForm,
+  },
+];

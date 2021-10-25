@@ -4,9 +4,6 @@ const template: string = `
   <form
     name="{{name}}"
   >
-    <AddAvatar
-      class="${styles.avatar}"
-    />
     <UIInput
       class="${styles.field}"
       label="Почта"

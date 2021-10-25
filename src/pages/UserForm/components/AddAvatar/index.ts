@@ -1,7 +1,8 @@
-import * as Ryabact from 'ryabact';
-import cx from 'classnames';
+import * as Ryabact from '~/src/modules/Ryabact';
+import cx from '~/src/utils/classnames';
 import { PropsType } from '~/src/types/component';
 import Avatar from '~/src/components/Avatar';
+import Input from '~/src/components/Input';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -13,6 +14,18 @@ export default class Component extends Ryabact.Component {
         styles.wrapper,
         context.class,
       ]),
+      handleFileInputChange(e: Event) {
+        const { files } = (e.target as HTMLInputElement);
+        if (!files) {
+          return;
+        }
+
+        const file = files[0];
+        const formData = new FormData();
+        formData.append('avatar', file, 'avatar');
+
+        context.events.submit(formData);
+      },
     };
 
     super({
@@ -21,6 +34,7 @@ export default class Component extends Ryabact.Component {
       template,
       components: {
         Avatar,
+        Input,
       },
       containerTemplate: `<div class="${styles.container}" />`,
     });

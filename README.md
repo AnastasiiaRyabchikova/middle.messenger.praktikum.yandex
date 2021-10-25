@@ -1,3 +1,6 @@
+// TODO: разобраться с интерфейсов компонентов
+// TODO: сделать данимаческие пути
+
 ***PR:*** https://github.com/AnastasiiaRyabchikova/middle.messenger.praktikum.yandex/pull/2
 
 # Довекот / Голубятня

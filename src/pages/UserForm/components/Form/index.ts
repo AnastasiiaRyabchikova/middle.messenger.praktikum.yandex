@@ -1,10 +1,11 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
+import { withRouter } from 'router';
 import validation, { getRequiredMessage } from '~/src/validation';
+import { connect } from '~/src/store';
 import { PropsType } from '~/src/types/component';
 import isEqual from '~/src/utils/is-equal';
 import UIInput from '~/src/components/UIInput';
 import Button from '~/src/components/Button';
-import AddAvatar from '../AddAvatar';
 import PasswordChanging from '../PasswordChanging';
 import template from './index.tpl';
 
@@ -14,18 +15,18 @@ const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
 
 type valuesType = { name: string, value: string };
 
-export default class Component extends Ryabact.Component {
+class UserFormPageForm extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       params: {
         image: '',
-        email: 'test@test.ru',
-        login: 'tetya_glasha',
-        first_name: 'Глаша',
-        second_name: 'Тетя',
-        display_name: 'Радость ваша',
-        phone: '+79851264245',
+        email: '',
+        login: '',
+        first_name: '',
+        second_name: '',
+        display_name: '',
+        phone: '',
       },
       required: {
         image: true,
@@ -121,7 +122,6 @@ export default class Component extends Ryabact.Component {
       components: {
         UIInput,
         Button,
-        AddAvatar,
         PasswordChanging,
       },
       containerTemplate: '<div />',
@@ -131,4 +131,26 @@ export default class Component extends Ryabact.Component {
   componentDidUpdate(oldProps: PropsType, newProps: PropsType): boolean {
     return !isEqual(oldProps.errors, newProps.errors);
   }
+
+  componentDidMount() {
+    const { user } = this.props;
+    this.setProps({
+      params: {
+        image: user.avatar,
+        email: user.email,
+        login: user.login,
+        first_name: user.first_name,
+        second_name: user.second_name,
+        display_name: user.display_name,
+        phone: user.phone,
+      },
+    });
+  }
 };
+
+export default withRouter(
+  connect(
+    (state) => ({ user: state.user.profile }),
+    UserFormPageForm,
+  ),
+);

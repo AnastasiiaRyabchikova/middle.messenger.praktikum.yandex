@@ -1,0 +1,22 @@
+.container {
+  height: 100%;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--outer-indent-vertical) var(--outer-indent-horizontal);
+  background-color: var(--color-gray);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 25rem;
+  margin: 0 auto;
+}
