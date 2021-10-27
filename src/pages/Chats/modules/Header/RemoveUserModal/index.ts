@@ -3,7 +3,7 @@ import { PropsType } from '@/types/component';
 import CloseButton from '@/components/CloseButton';
 import Form from './Form';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
   constructor(context: any = {}) {

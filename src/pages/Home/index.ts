@@ -6,7 +6,7 @@ import Page404 from '@/pages/Page404';
 import Logo from '../../components/Logo';
 import { routesForUnknownUser, routesForUser } from '@/routes';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 class HomePage extends WithRouter {
   constructor(context: PropsType = {}) {

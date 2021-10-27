@@ -2,7 +2,7 @@ import * as Ryabact from 'ryabact';
 import { PropsType } from '@/types/component';
 import Logo from '@/components/Logo';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 const messages: {
   [key: string]: string,

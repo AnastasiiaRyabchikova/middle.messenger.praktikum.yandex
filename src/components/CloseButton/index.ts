@@ -4,7 +4,7 @@ import IconTimes from '@/icons/Times';
 import * as general from '@/theme/general.css';
 import { PropsType } from '../../types/component';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 export default class CloseButton extends Ryabact.Component {
   constructor(context: PropsType = {}) {

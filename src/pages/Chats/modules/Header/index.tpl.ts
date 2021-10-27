@@ -1,6 +1,6 @@
 import * as general from '@/theme/general.css';
 
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 const template: string = `
 <div

@@ -9,7 +9,7 @@ import Form from './components/Form';
 import LogoutButton from './components/LogoutButton';
 import AddAvatar from './components/AddAvatar';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 class UserFormPage extends WithRouter {
   constructor(context: PropsType = {}) {

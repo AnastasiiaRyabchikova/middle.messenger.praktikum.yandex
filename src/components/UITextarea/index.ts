@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { PropsType } from '../../types/component';
 import Textarea from '../Textarea';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {

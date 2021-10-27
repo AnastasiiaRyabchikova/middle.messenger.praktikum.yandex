@@ -11,7 +11,7 @@ import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
 import Form from './components/Form';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 import { connect } from '@/store';
 
 class SignUpPage extends WithRouter {

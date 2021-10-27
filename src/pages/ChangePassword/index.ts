@@ -8,7 +8,7 @@ import ButtonBack from '@/components/ButtonBack';
 import Form from './components/Form';
 
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 class ChangePasswordPage extends WithRouter {
   constructor(context: PropsType = {}) {
