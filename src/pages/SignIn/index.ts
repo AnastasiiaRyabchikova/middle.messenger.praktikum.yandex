@@ -20,7 +20,6 @@ class SignInPage extends Ryabact.Component {
     const props: PropsType = {
       ...context,
       handleFormSubmit: async (params: SignUpUserData) => {
-        // eslint-disable-next-line no-console
         await AuthControler.signUp(params);
         if (this.props.user) {
           this.router
