@@ -4,7 +4,7 @@ import { isArray, isObject } from '../../utils/format-checking';
 interface Options {
   method?: Methods;
   headers?: Record<string, string>;
-  data?: Record<string, unknown> | File;
+  data?: Record<string, unknown> | FormData;
 };
 
 interface OptionsHTTPTransport extends Options {
@@ -27,10 +27,10 @@ const queryStringify = (data: Record<string, unknown>): string => (
     }, '?')
 );
 
-const isFileCalc = (value: unknown): value is File => (
+const isFormData = (value: unknown): value is FormData => (
   Boolean(value)
   // eslint-disable-next-line
-  && (value as object).toString() === '[object File]'
+  && (value as object).toString() === '[object FormData]'
 );
 
 export default class HTTPTransport {
@@ -109,10 +109,10 @@ export default class HTTPTransport {
       data = {},
     } = options;
 
-    const isFile = isFileCalc(data);
+    const isFormDataParam = isFormData(data);
 
     return new Promise((resolve, reject) => {
-      const requestUrl = method === Methods.Get && !isFile
+      const requestUrl = method === Methods.Get && !isFormDataParam
         ? `${this.baseUrl}${url}${queryStringify(data)}`
         : `${this.baseUrl}${url}`;
 
@@ -148,11 +148,11 @@ export default class HTTPTransport {
         }
       };
 
-      if (!isFile) {
+      if (!isFormDataParam) {
         xhr.setRequestHeader('Content-Type', 'application/json');
       }
 
-      const query = isFile ? data : JSON.stringify(data);
+      const query = isFormDataParam ? data : JSON.stringify(data);
 
       if (method === Methods.Get) {
         xhr.send();
