@@ -1,6 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+// const cssRegex = /\.css$/
+// const cssModuleRegex = /\.module\.css$/
+// const postcssConfigPath = "postcss.config.js"
 
 module.exports = {
   entry: {
@@ -22,15 +26,30 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/i,
-        exclude: /node_modules/,
+        test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader',
           {
-            loader: "postcss-loader",
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
           },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'postcss-preset-env',
+                  ],
+                ],
+              },
+            }
+          }
         ],
+        // include: cssModuleRegex
       },
     ],
   },
