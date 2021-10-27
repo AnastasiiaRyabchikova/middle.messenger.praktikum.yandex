@@ -1,5 +1,5 @@
 import { store } from '@/store';
-import { deleteUser, setError, setUser } from '@/store/user';
+import { setUser } from '@/store/user';
 import UserAPI from '@/api/user-api';
 import {
   EditUserData,
