@@ -1,5 +1,6 @@
 import * as Ryabact from 'ryabact';
 import { withRouter } from 'router';
+import { SignInUserData } from '@/api/user-interfaces';
 import pathnames from '@/constants/pathnames';
 import { PropsType } from '@/types/component';
 import Page404 from '@/pages/Page404';
@@ -18,7 +19,7 @@ class SignUpPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      handleFormSubmit: async (params: Record<string, unknown>) => {
+      handleFormSubmit: async (params: SignInUserData) => {
         await AuthControler.signIn(params);
         if (this.props.user) {
           this.router
