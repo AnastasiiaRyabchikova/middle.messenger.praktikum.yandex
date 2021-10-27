@@ -38,12 +38,15 @@ export default class HTTPTransport {
 
   get = (
     url: string,
-    options: OptionsHTTPTransport = { timeout: 500 },
+    {
+      timeout = 500,
+      ...options
+    }: OptionsHTTPTransport = { timeout: 500 },
   ): Promise<unknown> => (
     this.request(
       url,
       { ...options, method: Methods.Get },
-      options.timeout,
+      timeout,
     )
   );
 
