@@ -1,7 +1,7 @@
-import { Component } from 'ryabact';
+import { ComponentConstructable } from '@/types/component';
 import Router from './Router';
 
-export default function withRouter(Block: typeof Component): typeof Component {
+export default function withRouter(Block: ComponentConstructable): ComponentConstructable {
   return class WithRouter extends Block {
     router: Router;
 
