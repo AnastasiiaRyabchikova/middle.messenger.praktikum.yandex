@@ -1,4 +1,3 @@
-import * as Ryabact from 'ryabact';
 import { WithRouter } from 'router';
 import validation, { getRequiredMessage } from '@/validation';
 import { connect } from '@/store';

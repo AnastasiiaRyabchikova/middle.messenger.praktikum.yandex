@@ -1,4 +1,3 @@
-import * as Ryabact from 'ryabact';
 import { WithRouter } from 'router';
 import UserControler from '@/controlers/user-controler';
 import { EditPasswordData } from '@/api/user-interfaces';

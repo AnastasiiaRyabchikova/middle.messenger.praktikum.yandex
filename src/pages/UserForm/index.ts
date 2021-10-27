@@ -1,5 +1,4 @@
 import { WithRouter } from 'router';
-import * as Ryabact from 'ryabact';
 import { PropsType } from '@/types/component';
 import { IconArrowLeft } from '@/icons';
 import Logo from '@/components/Logo';

@@ -1,4 +1,3 @@
-// import * as Ryabact from 'ryabact';
 import { WithRouter } from 'router';
 import cx from 'classnames';
 import { PropsType } from '../../types/component';
