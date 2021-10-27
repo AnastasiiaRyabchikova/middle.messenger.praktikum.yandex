@@ -50,27 +50,45 @@ export default class HTTPTransport {
     )
   );
 
-  post = (url: string, options = { timeout: 500 }): Promise<unknown> => (
+  post = (
+    url: string,
+    {
+      timeout = 500,
+      ...options
+    }: OptionsHTTPTransport = { timeout: 500 },
+  ): Promise<unknown> => (
     this.request(
       url,
       { ...options, method: Methods.Post },
-      options.timeout,
+      timeout,
     )
   );
 
-  delete = (url: string, options = { timeout: 500 }): Promise<unknown> => (
+  delete = (
+    url: string,
+    {
+      timeout = 500,
+      ...options
+    }: OptionsHTTPTransport = { timeout: 500 },
+  ): Promise<unknown> => (
     this.request(
       url,
       { ...options, method: Methods.Delete },
-      options.timeout,
+      timeout,
     )
   );
 
-  put = (url: string, options = { timeout: 500 }): Promise<unknown> => (
+  put = (
+    url: string,
+    {
+      timeout = 500,
+      ...options
+    }: OptionsHTTPTransport = { timeout: 500 },
+  ): Promise<unknown> => (
     this.request(
       url,
       { ...options, method: Methods.Put },
-      options.timeout,
+      timeout,
     )
   );
 
