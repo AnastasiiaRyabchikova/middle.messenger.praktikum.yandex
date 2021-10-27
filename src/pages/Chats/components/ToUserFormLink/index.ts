@@ -1,7 +1,7 @@
-import * as Ryabact from '~/src/modules/Ryabact';
+import * as Ryabact from 'ryabact';
 import { withRouter } from 'router';
-import { PropsType } from '~/src/types/component';
-import Avatar from '~/src/components/Avatar';
+import { PropsType } from '@/types/component';
+import Avatar from '@/components/Avatar';
 import template from './index.tpl';
 
 class ToUserFormLink extends Ryabact.Component {

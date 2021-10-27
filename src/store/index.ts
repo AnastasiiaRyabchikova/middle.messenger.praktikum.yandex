@@ -1,5 +1,5 @@
-import { Component } from '~/src/modules/Ryabact';
-import { Store } from '~/src/modules/Store';
+import { Component } from 'ryabact';
+import { Store } from '@/modules/Store';
 import user from './user';
 
 export const store = new Store({

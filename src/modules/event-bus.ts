@@ -1,4 +1,4 @@
-import { typeEventCallback } from '~/src/types';
+import { typeEventCallback } from '@/types';
 
 export default class EventBus {
   listeners: {

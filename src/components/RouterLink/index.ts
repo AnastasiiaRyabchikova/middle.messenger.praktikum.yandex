@@ -1,6 +1,6 @@
-import * as Ryabact from '~/src/modules/Ryabact';
+import * as Ryabact from 'ryabact';
 import { withRouter } from 'router';
-import cx from '../../utils/classnames';
+import cx from 'classnames';
 import { PropsType } from '../../types/component';
 import template from './index.tpl';
 

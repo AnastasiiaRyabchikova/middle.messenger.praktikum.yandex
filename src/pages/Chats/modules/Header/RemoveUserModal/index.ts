@@ -1,6 +1,6 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import CloseButton from '~/src/components/CloseButton';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
+import CloseButton from '@/components/CloseButton';
 import Form from './Form';
 import template from './index.tpl';
 import * as styles from './styles.module.css';

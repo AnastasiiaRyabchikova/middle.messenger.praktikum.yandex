@@ -1,8 +1,8 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import cx from '~/src/utils/classnames';
-import { PropsType } from '~/src/types/component';
-import Avatar from '~/src/components/Avatar';
-import Input from '~/src/components/Input';
+import * as Ryabact from 'ryabact';
+import cx from 'classnames';
+import { PropsType } from '@/types/component';
+import Avatar from '@/components/Avatar';
+import Input from '@/components/Input';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 

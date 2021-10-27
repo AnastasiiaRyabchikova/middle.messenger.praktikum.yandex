@@ -1,13 +1,11 @@
+import * as Ryabact from 'ryabact';
 import { withRouter } from 'router';
-import * as Ryabact from '~/src/modules/Ryabact';
-import UserControler from '~/src/controlers/user-controler';
-import { EditPasswordData } from '~/src/api/user-interfaces';
-import { PropsType } from '~/src/types/component';
-
-import { IconArrowLeft } from '~/src/icons';
-
-import Logo from '~/src/components/Logo';
-import ButtonBack from '~/src/components/ButtonBack';
+import UserControler from '@/controlers/user-controler';
+import { EditPasswordData } from '@/api/user-interfaces';
+import { PropsType } from '@/types/component';
+import { IconArrowLeft } from '@/icons';
+import Logo from '@/components/Logo';
+import ButtonBack from '@/components/ButtonBack';
 import Form from './components/Form';
 
 import template from './index.tpl';

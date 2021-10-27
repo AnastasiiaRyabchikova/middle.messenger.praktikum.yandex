@@ -4,7 +4,7 @@ import ChatAPI, {
   FilterChatsParams,
   ChatData,
   AddUsersToChatData,
-} from '~/src/api/chat-api';
+} from '@/api/chat-api';
 
 class ChatsController {
   private api: typeof ChatAPI;

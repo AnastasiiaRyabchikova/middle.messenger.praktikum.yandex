@@ -1,4 +1,4 @@
-import { Component } from '~/src/modules/Ryabact';
+import { Component } from 'ryabact';
 import Router from './Router';
 
 export default function withRouter(Block: typeof Component): typeof Component {

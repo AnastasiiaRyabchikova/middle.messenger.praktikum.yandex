@@ -1,11 +1,11 @@
-import * as Ryabact from '~/src/modules/Ryabact';
+import * as Ryabact from 'ryabact';
 import { withRouter } from 'router';
-import validation, { getRequiredMessage } from '~/src/validation';
-import { connect } from '~/src/store';
-import { PropsType } from '~/src/types/component';
-import isEqual from '~/src/utils/is-equal';
-import UIInput from '~/src/components/UIInput';
-import Button from '~/src/components/Button';
+import validation, { getRequiredMessage } from '@/validation';
+import { connect } from '@/store';
+import { PropsType } from '@/types/component';
+import isEqual from '@/utils/is-equal';
+import UIInput from '@/components/UIInput';
+import Button from '@/components/Button';
 import PasswordChanging from '../PasswordChanging';
 import template from './index.tpl';
 

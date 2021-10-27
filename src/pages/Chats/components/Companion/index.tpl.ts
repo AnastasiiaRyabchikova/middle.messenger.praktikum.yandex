@@ -1,4 +1,4 @@
-import * as general from '~/src/theme/general.css';
+import * as general from '@/theme/general.css';
 import * as styles from './styles.module.css';
 
 const template: string = `

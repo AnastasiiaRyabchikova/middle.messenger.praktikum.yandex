@@ -1,5 +1,5 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import cx from '../../utils/classnames';
+import * as Ryabact from 'ryabact';
+import cx from 'classnames';
 import { PropsType } from '../../types/component';
 import Input from '../Input';
 import template from './index.tpl';

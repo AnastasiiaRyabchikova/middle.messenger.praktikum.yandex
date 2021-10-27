@@ -1,8 +1,8 @@
-import * as Ryabact from '~/src/modules/Ryabact';
+import * as Ryabact from 'ryabact';
 import { withRouter } from 'router';
-import { ChatControler } from '~/src/controlers';
-import { PropsType } from '~/src/types/component';
-import routes from '~/src/constants/pathnames';
+import { ChatControler } from '@/controlers';
+import { PropsType } from '@/types/component';
+import routes from '@/constants/pathnames';
 import Search from './components/Search';
 import Companion from './components/Companion';
 import Chat from './modules/Chat';
@@ -11,7 +11,7 @@ import ToUserFormLink from './components/ToUserFormLink';
 import CreateNewChatButton from './components/CreateNewChatButton';
 import CreateNewChatModal from './components/CreateNewChatModal';
 import template from './index.tpl';
-import user from '~/src/store/user';
+import user from '@/store/user';
 
 class ChatsPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {

@@ -1,6 +1,6 @@
+import { Component } from 'ryabact';
 import { render } from '../../templator';
-import { Component } from '../../Ryabact';
-import { ComponentConstructable } from '~/src/types/component';
+import { ComponentConstructable } from '@/types/component';
 
 interface Props {
   rootQuery?: HTMLElement;

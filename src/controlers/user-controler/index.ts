@@ -1,11 +1,11 @@
-import { store } from '~/src/store';
-import { deleteUser, setError, setUser } from '~/src/store/user';
-import UserAPI from '~/src/api/user-api';
+import { store } from '@/store';
+import { deleteUser, setError, setUser } from '@/store/user';
+import UserAPI from '@/api/user-api';
 import {
   EditUserData,
   EditPasswordData,
   UserData,
-} from '~/src/api/user-interfaces';
+} from '@/api/user-interfaces';
 
 class UserController {
   private api: typeof UserAPI;

@@ -1,7 +1,7 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import Avatar from '~/src/components/Avatar';
-import { IconEllipsisVAlt } from '~/src/icons';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
+import Avatar from '@/components/Avatar';
+import { IconEllipsisVAlt } from '@/icons';
 import AddUserButton from './AddUserButton';
 import RemoveUserButton from './RemoveUserButton';
 import AddUserModal from './AddUserModal';

@@ -1,11 +1,11 @@
-import AuthAPI from '~/src/api/auth-api';
+import AuthAPI from '@/api/auth-api';
 import {
   SignUpUserData,
   SignInUserData,
   UserData,
-} from '~/src/api/user-interfaces';
-import { store } from '~/src/store';
-import { deleteUser, setError, setUser } from '~/src/store/user';
+} from '@/api/user-interfaces';
+import { store } from '@/store';
+import { deleteUser, setError, setUser } from '@/store/user';
 
 class AuthController {
   private api: typeof AuthAPI;

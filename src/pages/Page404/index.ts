@@ -1,7 +1,7 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import Logo from '~/src/components/Logo';
-import RouterLink from '~/src/components/RouterLink';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
+import Logo from '@/components/Logo';
+import RouterLink from '@/components/RouterLink';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 

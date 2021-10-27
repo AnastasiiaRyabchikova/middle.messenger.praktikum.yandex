@@ -1,7 +1,7 @@
-import * as Ryabact from '~/src/modules/Ryabact';
 import cx from 'classnames';
-import IconTimes from '~/src/icons/Times';
-import * as general from '~/src/theme/general.css';
+import * as Ryabact from 'ryabact';
+import IconTimes from '@/icons/Times';
+import * as general from '@/theme/general.css';
 import { PropsType } from '../../types/component';
 import template from './index.tpl';
 import * as styles from './styles.module.css';

@@ -1,10 +1,10 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import validation, { getRequiredMessage } from '~/src/validation';
-import isEqual from '~/src/utils/is-equal';
-import UIInput from '~/src/components/UIInput';
-import Button from '~/src/components/Button';
-import Avatar from '~/src/components/Avatar';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
+import validation, { getRequiredMessage } from '@/validation';
+import isEqual from '@/utils/is-equal';
+import UIInput from '@/components/UIInput';
+import Button from '@/components/Button';
+import Avatar from '@/components/Avatar';
 import template from './index.tpl';
 
 const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (

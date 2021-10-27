@@ -1,9 +1,9 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import cx from '~/src/utils/classnames';
-import { connect } from '~/src/store';
-import { PropsType } from '~/src/types/component';
-import { ChatControler } from '~/src/controlers';
-import { isArray, isObject } from '~/src/utils/format-checking';
+import * as Ryabact from 'ryabact';
+import cx from 'classnames';
+import { connect } from '@/store';
+import { PropsType } from '@/types/component';
+import { ChatControler } from '@/controlers';
+import { isArray, isObject } from '@/utils/format-checking';
 import ChatHistory from '../ChatHistory';
 import MessageTextarea from '../MessageTextarea';
 import Header from '../Header';
