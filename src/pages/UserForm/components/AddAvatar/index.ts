@@ -7,7 +7,8 @@ import template from './index.tpl';
 import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
+  /* eslint-disable */
+  constructor(context: any = {}) {
     const props: PropsType = {
       ...context,
       class: cx([
@@ -27,6 +28,7 @@ export default class Component extends Ryabact.Component {
         context.events.submit(formData);
       },
     };
+    /* eslint-disable */
 
     super({
       props,

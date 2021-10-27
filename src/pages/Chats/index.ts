@@ -14,6 +14,7 @@ import user from '@/store/user';
 
 class ChatsPage extends WithRouter {
   constructor(context: PropsType = {}) {
+    /* eslint-disable */
     const props: PropsType = {
       ...context,
       chats: [],
@@ -46,7 +47,7 @@ class ChatsPage extends WithRouter {
         }
         this.setProps({
           selectedChat: id,
-          currentChat: this.props.chats.find((item) => (item.id === Number(id))),
+          currentChat: (this.props as object).chats.find((item) => (item.id === Number(id))),
         });
       },
       handleAddUserSubmit: async (users: number[]) => {
@@ -73,6 +74,7 @@ class ChatsPage extends WithRouter {
         });
       },
     };
+    /* eslint-disable */
 
     super({
       props,

@@ -9,7 +9,8 @@ import RemoveUserModal from './RemoveUserModal';
 import template from './index.tpl';
 
 export default class Component extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
+  constructor(context: any = {}) {
+    /* eslint-disable */
     const props: PropsType = {
       ...context,
       title: context.title,
@@ -39,6 +40,7 @@ export default class Component extends Ryabact.Component {
       handleRemoveUserSubmit: (users: number[]) => {
         context.evRemoveUserSubmit(users);
       },
+      /* eslint-disable */
     };
 
     super({

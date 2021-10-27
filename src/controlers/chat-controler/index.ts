@@ -29,7 +29,7 @@ class ChatsController {
     }
   }
 
-  async read(data: FilterChatsParams): Promise<ChatData[]> {
+  async read(data: FilterChatsParams = {}): Promise<ChatData[]> {
     try {
       const response = await this.api.read(data);
       return JSON.parse(response);
@@ -54,7 +54,7 @@ class ChatsController {
     }
   }
 
-  async getToken(chatId: number): string {
+  async getToken(chatId: number): Promise<string> {
     try {
       const response = await this.api.getToken(chatId);
       const data: Record<string, string> = JSON.parse(response);

@@ -1,20 +1,24 @@
 import * as Ryabact from 'ryabact';
 import { PropsType } from '@/types/component';
 import validation, { getRequiredMessage } from '@/validation';
+import { EditPasswordData } from '@/api/user-interfaces';
 import isEqual from '@/utils/is-equal';
 import UIInput from '@/components/UIInput';
 import Button from '@/components/Button';
 import Avatar from '@/components/Avatar';
 import template from './index.tpl';
 
-const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
+const hasErrorsCheck = (errors: { [key: string]: unknown }): boolean => (
   Object.values(errors).filter(Boolean).length > 0
 );
 
 type valuesType = { name: string, value: string };
 
+type FormEditPasswordData = EditPasswordData & { newPasswordRepeat: string }
+
 export default class Page extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
+  constructor(context: any = {}) {
+    /* eslint-disable */
     const props: PropsType = {
       ...context,
       name: context.name,
@@ -37,7 +41,10 @@ export default class Page extends Ryabact.Component {
           if (name === 'newPassword') {
             message = validation.password(value);
           } else if (name === 'newPasswordRepeat') {
-            message = validation.passwordRepeat(params.newPassword, params.newPasswordRepeat);
+            message = validation.passwordRepeat(
+              (params as FormEditPasswordData).newPassword,
+              (params as FormEditPasswordData).newPasswordRepeat,
+            );
             this.setProps({
               errors: {
                 newPassword: message,
@@ -87,7 +94,7 @@ export default class Page extends Ryabact.Component {
             },
           });
 
-          if (hasErrorsCheck(this.props.errors)) {
+          if (hasErrorsCheck(this.props.errors || {})) {
             return;
           }
 
@@ -97,6 +104,7 @@ export default class Page extends Ryabact.Component {
           });
         },
       },
+      /* eslint-disable */
     };
 
     super({

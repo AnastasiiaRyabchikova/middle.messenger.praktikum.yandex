@@ -13,7 +13,8 @@ const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
 type valuesType = { name: string, value: string };
 
 export default class Component extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
+  /* eslint-disable */
+  constructor(context: any = {}) {
     const props: PropsType = {
       name: context.name,
       errors: {},
@@ -64,6 +65,7 @@ export default class Component extends Ryabact.Component {
         },
       },
     };
+    /* eslint-disable */
 
     super({
       props,

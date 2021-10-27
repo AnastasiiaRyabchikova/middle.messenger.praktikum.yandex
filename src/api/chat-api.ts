@@ -9,7 +9,7 @@ export interface DeleateChatData {
 }
 
 export interface FilterChatsParams {
-  chatId: number;
+  chatId?: number;
 }
 
 export interface ChatData {
@@ -53,7 +53,7 @@ class ChatsApi extends BaseApi {
     return this.http.delete('', { data });
   }
 
-  read(data: FilterChatsParams): Promise<ChatData[]> {
+  read(data: FilterChatsParams = {}): Promise<ChatData[]> {
     return this.http.get('', { data });
   }
 

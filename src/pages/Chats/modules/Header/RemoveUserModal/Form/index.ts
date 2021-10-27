@@ -10,6 +10,8 @@ const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
   Object.values(errors).filter(Boolean).length > 0
 );
 
+type valuesType = { name: string, value: string };
+
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
