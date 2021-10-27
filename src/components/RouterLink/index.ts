@@ -1,10 +1,10 @@
-import * as Ryabact from 'ryabact';
-import { withRouter } from 'router';
+// import * as Ryabact from 'ryabact';
+import { WithRouter } from 'router';
 import cx from 'classnames';
 import { PropsType } from '../../types/component';
 import template from './index.tpl';
 
-class RouterLink extends Ryabact.Component {
+class RouterLink extends WithRouter {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       class: cx([context.class]),
@@ -14,7 +14,7 @@ class RouterLink extends Ryabact.Component {
         ...context.events,
         click: (e: Event) => {
           e.preventDefault();
-          const { to } = (e.target as HTMLLinkElement).dataset;
+          const { to = '' } = (e.target as HTMLLinkElement).dataset;
           this.router.go(to);
         },
       },
@@ -29,4 +29,4 @@ class RouterLink extends Ryabact.Component {
   }
 };
 
-export default withRouter(RouterLink);
+export default RouterLink;

@@ -1,4 +1,4 @@
-import { withRouter } from 'router';
+import { WithRouter } from 'router';
 import * as Ryabact from 'ryabact';
 import { PropsType } from '@/types/component';
 import { IconArrowLeft } from '@/icons';
@@ -12,7 +12,7 @@ import AddAvatar from './components/AddAvatar';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-class UserFormPage extends Ryabact.Component {
+class UserFormPage extends WithRouter {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
@@ -44,4 +44,4 @@ class UserFormPage extends Ryabact.Component {
   }
 };
 
-export default withRouter(UserFormPage);
+export default UserFormPage;

@@ -1,5 +1,4 @@
-import * as Ryabact from 'ryabact';
-import { withRouter } from 'router';
+import { WithRouter } from 'router';
 import { connect } from '@/store';
 import { AuthControler } from '@/controlers';
 import { PropsType } from '@/types/component';
@@ -9,7 +8,7 @@ import { routesForUnknownUser, routesForUser } from '@/routes';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-class HomePage extends Ryabact.Component {
+class HomePage extends WithRouter {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
@@ -42,9 +41,7 @@ class HomePage extends Ryabact.Component {
   }
 };
 
-export default withRouter(
-  connect(
-    state => ({ user: state.user.profile }),
-    HomePage,
-  ),
+export default connect(
+  state => ({ user: state.user.profile }),
+  HomePage,
 );

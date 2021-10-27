@@ -1,5 +1,5 @@
 import * as Ryabact from 'ryabact';
-import { withRouter } from 'router';
+import { WithRouter } from 'router';
 import validation, { getRequiredMessage } from '@/validation';
 import { connect } from '@/store';
 import { PropsType } from '@/types/component';
@@ -15,7 +15,7 @@ const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
 
 type valuesType = { name: string, value: string };
 
-class UserFormPageForm extends Ryabact.Component {
+class UserFormPageForm extends WithRouter {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
@@ -148,9 +148,7 @@ class UserFormPageForm extends Ryabact.Component {
   }
 };
 
-export default withRouter(
-  connect(
-    (state) => ({ user: state.user.profile }),
-    UserFormPageForm,
-  ),
+export default connect(
+  (state) => ({ user: state.user.profile }),
+  UserFormPageForm,
 );

@@ -1,5 +1,5 @@
 import * as Ryabact from 'ryabact';
-import { withRouter } from 'router';
+import { WithRouter } from 'router';
 import UserControler from '@/controlers/user-controler';
 import { EditPasswordData } from '@/api/user-interfaces';
 import { PropsType } from '@/types/component';
@@ -11,7 +11,7 @@ import Form from './components/Form';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
-class ChangePasswordPage extends Ryabact.Component {
+class ChangePasswordPage extends WithRouter {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
@@ -38,4 +38,4 @@ class ChangePasswordPage extends Ryabact.Component {
   }
 };
 
-export default withRouter(ChangePasswordPage);
+export default ChangePasswordPage;

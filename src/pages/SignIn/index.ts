@@ -1,5 +1,4 @@
-import * as Ryabact from 'ryabact';
-import { withRouter } from 'router';
+import { WithRouter } from 'router';
 import { connect } from '@/store';
 import Page404 from '@/pages/Page404';
 import { SignUpUserData } from '@/api/user-interfaces';
@@ -15,7 +14,7 @@ import template from './index.tpl';
 import * as styles from './styles.module.css';
 import Form from './components/Form';
 
-class SignInPage extends Ryabact.Component {
+class SignInPage extends WithRouter {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
@@ -51,9 +50,7 @@ class SignInPage extends Ryabact.Component {
   }
 };
 
-export default withRouter(
-  connect(
-    (state) => ({ user: state.user.profile }),
-    withRouter(SignInPage)
-  ),
+export default connect(
+  (state) => ({ user: state.user.profile }),
+  SignInPage,
 );

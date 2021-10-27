@@ -1,5 +1,4 @@
-import * as Ryabact from 'ryabact';
-import { withRouter } from 'router';
+import { WithRouter } from 'router';
 import { ChatControler } from '@/controlers';
 import { PropsType } from '@/types/component';
 import routes from '@/constants/pathnames';
@@ -13,7 +12,7 @@ import CreateNewChatModal from './components/CreateNewChatModal';
 import template from './index.tpl';
 import user from '@/store/user';
 
-class ChatsPage extends Ryabact.Component {
+class ChatsPage extends WithRouter {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
@@ -100,4 +99,4 @@ class ChatsPage extends Ryabact.Component {
   }
 };
 
-export default withRouter(ChatsPage);
+export default ChatsPage;
