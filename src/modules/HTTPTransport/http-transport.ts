@@ -4,11 +4,11 @@ import { isArray, isObject } from '../../utils/format-checking';
 interface Options {
   method?: Methods;
   headers?: Record<string, string>;
-  data?: Record<string, unknown>;
+  data?: Record<string, unknown> | File;
 };
 
 interface OptionsHTTPTransport extends Options {
-  timeout: number;
+  timeout?: number;
 };
 
 const queryStringify = (data: Record<string, unknown>): string => (
@@ -25,6 +25,12 @@ const queryStringify = (data: Record<string, unknown>): string => (
       }
       return `${acc}${index > 0 ? '&' : ''}${cur}=${String(value)}`;
     }, '?')
+);
+
+const isFileCalc = (value: unknown): value is File => (
+  Boolean(value)
+  // eslint-disable-next-line
+  && (value as object).toString() === '[object File]'
 );
 
 export default class HTTPTransport {
@@ -103,10 +109,10 @@ export default class HTTPTransport {
       data = {},
     } = options;
 
-    const isFile = Boolean(data.entries);
+    const isFile = isFileCalc(data);
 
     return new Promise((resolve, reject) => {
-      const requestUrl = method === Methods.Get
+      const requestUrl = method === Methods.Get && !isFile
         ? `${this.baseUrl}${url}${queryStringify(data)}`
         : `${this.baseUrl}${url}`;
 
