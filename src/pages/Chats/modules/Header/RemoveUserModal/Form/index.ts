@@ -54,7 +54,8 @@ export default class Component extends Ryabact.Component {
             .split(',')
             .map(Number);
 
-          context.events?.submit(users);
+          // eslint-disable-next-line
+          (context.events as any)?.submit(users);
         },
       },
     };

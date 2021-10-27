@@ -39,7 +39,6 @@ export default class Component extends Ryabact.Component {
           const {
             required = {},
             params = {},
-            errors = {},
           } = this.props;
           const {
             text,

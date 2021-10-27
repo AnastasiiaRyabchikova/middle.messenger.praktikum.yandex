@@ -13,11 +13,11 @@ const messages: {
 
 export default class PageError extends Ryabact.Component {
   constructor(context: PropsType = {}) {
-    const { code = '404' }: { code?: string } = context;
+    const { code } = context;
     const props: PropsType = {
       ...context,
       code,
-      message: messages[code],
+      message: messages[code as string || '404'],
     };
 
     super({

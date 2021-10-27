@@ -1,6 +1,6 @@
 import { WithRouter } from 'router';
 import { ChatControler } from '@/controlers';
-import { PropsType } from '@/types/component';
+// import { PropsType } from '@/types/component';
 import routes from '@/constants/pathnames';
 import Search from './components/Search';
 import Companion from './components/Companion';
@@ -12,10 +12,23 @@ import CreateNewChatModal from './components/CreateNewChatModal';
 import template from './index.tpl';
 import user from '@/store/user';
 
+type PropsType = {
+  chats: Record<string, any>[],
+  selectedChat: number,
+  shouldShowCreateChatModal: boolean,
+  handleToUserFormLinkClick: (e: Event) => void,
+  handleCreateNewChatButtonClick: (e: Event) => void,
+  handleCloseModalClick: () => void,
+  handleCreateNewChatSubmit: (e: Event) => void,
+  handleCompanionClick: (e: Event) => void,
+  handleAddUserSubmit: (e: Event) => void,
+  handleRemoveUserSubmit: (users: number[]) => void,
+};
+
 class ChatsPage extends WithRouter {
-  constructor(context: PropsType = {}) {
+  constructor(context: any = {}) {
     /* eslint-disable */
-    const props: PropsType = {
+    const props: any = {
       ...context,
       chats: [],
       selectedChat: undefined,
@@ -47,7 +60,7 @@ class ChatsPage extends WithRouter {
         }
         this.setProps({
           selectedChat: id,
-          currentChat: (this.props as object).chats.find((item) => (item.id === Number(id))),
+          currentChat: (this.props as PropsType).chats.find((item) => (item.id === Number(id))),
         });
       },
       handleAddUserSubmit: async (users: number[]) => {

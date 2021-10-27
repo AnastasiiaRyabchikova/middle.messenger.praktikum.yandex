@@ -6,7 +6,8 @@ import template from './index.tpl';
 import * as styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
+  constructor(context: any = {}) {
+    /* eslint-disable */
     const props: PropsType = {
       ...context,
       handleCloseButtonClick() {
@@ -17,6 +18,7 @@ export default class Component extends Ryabact.Component {
         context.evClose();
       },
     };
+    /* eslint-disable */
 
     super({
       props,

@@ -40,6 +40,7 @@ export interface TokenData {
   token: string,
 }
 
+/* eslint-disable */
 class ChatsApi extends BaseApi {
   constructor() {
     super('/chats');
@@ -53,7 +54,7 @@ class ChatsApi extends BaseApi {
     return this.http.delete('', { data });
   }
 
-  read(data: FilterChatsParams = {}): Promise<ChatData[]> {
+  read(data: FilterChatsParams = {}): Promise<string> {
     return this.http.get('', { data });
   }
 
@@ -65,7 +66,7 @@ class ChatsApi extends BaseApi {
     return this.http.delete('/users', { data });
   }
 
-  getToken(chatId: number): Promise<TokenData> {
+  getToken(chatId: number): Promise<string> {
     return this.http.post(`/token/${chatId}`);
   }
 };

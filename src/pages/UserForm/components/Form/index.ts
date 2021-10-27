@@ -1,5 +1,6 @@
 import { WithRouter } from 'router';
 import validation, { getRequiredMessage } from '@/validation';
+import { UserData } from '@/api/user-interfaces';
 import { connect } from '@/store';
 import { PropsType } from '@/types/component';
 import isEqual from '@/utils/is-equal';
@@ -15,8 +16,9 @@ const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
 type valuesType = { name: string, value: string };
 
 class UserFormPageForm extends WithRouter {
-  constructor(context: PropsType = {}) {
-    const props: PropsType = {
+  constructor(context: any = {}) {
+    /* eslint-disable */
+    const props: PropsType & { user: UserData } = {
       ...context,
       params: {
         image: '',
@@ -125,6 +127,7 @@ class UserFormPageForm extends WithRouter {
       },
       containerTemplate: '<div />',
     });
+    /* eslint-disable */
   }
 
   componentDidUpdate(oldProps: PropsType, newProps: PropsType): boolean {
@@ -135,13 +138,13 @@ class UserFormPageForm extends WithRouter {
     const { user } = this.props;
     this.setProps({
       params: {
-        image: user.avatar,
-        email: user.email,
-        login: user.login,
-        first_name: user.first_name,
-        second_name: user.second_name,
-        display_name: user.display_name,
-        phone: user.phone,
+        image: (user as UserData).avatar,
+        email: (user as UserData).email,
+        login: (user as UserData).login,
+        first_name: (user as UserData).first_name,
+        second_name: (user as UserData).second_name,
+        display_name: (user as UserData).display_name,
+        phone: (user as UserData).phone,
       },
     });
   }

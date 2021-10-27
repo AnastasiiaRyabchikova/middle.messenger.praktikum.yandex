@@ -45,6 +45,7 @@ class AuthController {
     try {
       const user = await this.api.getUser();
       store.dispatch(setUser(JSON.parse(user)));
+      // eslint-disable-next-line
       return JSON.parse(user);
     } catch (e) {
       store.dispatch(deleteUser());

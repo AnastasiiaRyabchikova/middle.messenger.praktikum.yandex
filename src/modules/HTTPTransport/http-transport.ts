@@ -48,7 +48,7 @@ export default class HTTPTransport {
       timeout = 500,
       ...options
     }: OptionsHTTPTransport = { timeout: 500 },
-  ): Promise<unknown> => (
+  ): Promise<any> => (
     this.request(
       url,
       { ...options, method: Methods.Get },
@@ -62,7 +62,7 @@ export default class HTTPTransport {
       timeout = 500,
       ...options
     }: OptionsHTTPTransport = { timeout: 500 },
-  ): Promise<unknown> => (
+  ): Promise<any> => (
     this.request(
       url,
       { ...options, method: Methods.Post },
@@ -76,7 +76,7 @@ export default class HTTPTransport {
       timeout = 500,
       ...options
     }: OptionsHTTPTransport = { timeout: 500 },
-  ): Promise<unknown> => (
+  ): Promise<any> => (
     this.request(
       url,
       { ...options, method: Methods.Delete },
@@ -90,7 +90,7 @@ export default class HTTPTransport {
       timeout = 500,
       ...options
     }: OptionsHTTPTransport = { timeout: 500 },
-  ): Promise<unknown> => (
+  ): Promise<any> => (
     this.request(
       url,
       { ...options, method: Methods.Put },
@@ -102,7 +102,7 @@ export default class HTTPTransport {
     url: string,
     options: Options,
     timeout: number = 5000,
-  ): Promise<unknown> => {
+  ): Promise<any> => {
     const {
       method = Methods.Get,
       headers = {},

@@ -29,9 +29,10 @@ class ChatsController {
     }
   }
 
-  async read(data: FilterChatsParams = {}): Promise<ChatData[]> {
+  async read(data: FilterChatsParams = {}): Promise<ChatData[] | undefined> {
     try {
       const response = await this.api.read(data);
+      // eslint-disable-next-line
       return JSON.parse(response);
     } catch (err) {
       console.error(err);
@@ -54,9 +55,10 @@ class ChatsController {
     }
   }
 
-  async getToken(chatId: number): Promise<string> {
+  async getToken(chatId: number): Promise<string | void> {
     try {
       const response = await this.api.getToken(chatId);
+      // eslint-disable-next-line
       const data: Record<string, string> = JSON.parse(response);
       return data.token;
     } catch (err) {

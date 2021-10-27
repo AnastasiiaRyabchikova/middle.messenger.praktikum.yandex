@@ -14,20 +14,22 @@ class UserController {
     this.api = UserAPI;
   }
 
-  async edit(data: EditUserData): Promise<UserData> {
+  async edit(data: EditUserData): Promise<UserData | undefined> {
     try {
       const user = await this.api.edit(data);
       store.dispatch(setUser(JSON.parse(user)));
+      // eslint-disable-next-line
       return JSON.parse(user);
     } catch (err) {
       console.error(err);
     }
   }
 
-  async editAvatar(data: FormData): Promise<UserData> {
+  async editAvatar(data: FormData): Promise<UserData | undefined> {
     try {
       const user = await this.api.editAvatar(data);
       store.dispatch(setUser(JSON.parse(user)));
+      // eslint-disable-next-line
       return JSON.parse(user);
     } catch (err) {
       console.error(err);

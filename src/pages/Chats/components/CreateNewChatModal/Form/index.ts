@@ -49,8 +49,8 @@ export default class Component extends Ryabact.Component {
           if (hasErrorsCheck(this.props.errors || {})) {
             return;
           }
-
-          context.events?.submit({
+          // eslint-disable-next-line
+          (context.events as any).submit({
             title,
           });
         },

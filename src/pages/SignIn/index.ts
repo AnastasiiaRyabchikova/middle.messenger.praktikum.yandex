@@ -51,6 +51,7 @@ class SignInPage extends WithRouter {
 };
 
 export default connect(
+  // eslint-disable-next-line
   (state) => ({ user: state.user.profile }),
   SignInPage,
 );
