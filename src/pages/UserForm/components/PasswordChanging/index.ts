@@ -1,10 +1,10 @@
-import * as Ryabact from '~/src/modules/Ryabact';
+import * as Ryabact from 'ryabact';
 import cx from 'classnames';
-import { PropsType } from '~/src/types/component';
-import UIInput from '~/src/components/UIInput';
-import RouterLink from '~/src/components/RouterLink';
+import { PropsType } from '@/types/component';
+import UIInput from '@/components/UIInput';
+import RouterLink from '@/components/RouterLink';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {

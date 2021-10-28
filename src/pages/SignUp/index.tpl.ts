@@ -1,7 +1,7 @@
-import routes from '~/src/constants/pathnames';
-import * as general from '~/src/theme/general.css';
+import routes from '@/constants/pathnames';
+import general from '@/theme/general.css';
 
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 const template: string = `
 <div

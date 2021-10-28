@@ -1,11 +1,11 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { withRouter } from 'router';
-import validation, { getRequiredMessage } from '~/src/validation';
-import { connect } from '~/src/store';
-import { PropsType } from '~/src/types/component';
-import isEqual from '~/src/utils/is-equal';
-import UIInput from '~/src/components/UIInput';
-import Button from '~/src/components/Button';
+import { WithRouter } from 'router';
+import validation, { getRequiredMessage } from '@/validation';
+import { UserData } from '@/api/user-interfaces';
+import { connect } from '@/store';
+import { PropsType } from '@/types/component';
+import isEqual from '@/utils/is-equal';
+import UIInput from '@/components/UIInput';
+import Button from '@/components/Button';
 import PasswordChanging from '../PasswordChanging';
 import template from './index.tpl';
 
@@ -15,9 +15,10 @@ const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
 
 type valuesType = { name: string, value: string };
 
-class UserFormPageForm extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
-    const props: PropsType = {
+class UserFormPageForm extends WithRouter {
+  constructor(context: any = {}) {
+    /* eslint-disable */
+    const props: PropsType & { user: UserData } = {
       ...context,
       params: {
         image: '',
@@ -126,6 +127,7 @@ class UserFormPageForm extends Ryabact.Component {
       },
       containerTemplate: '<div />',
     });
+    /* eslint-disable */
   }
 
   componentDidUpdate(oldProps: PropsType, newProps: PropsType): boolean {
@@ -136,21 +138,19 @@ class UserFormPageForm extends Ryabact.Component {
     const { user } = this.props;
     this.setProps({
       params: {
-        image: user.avatar,
-        email: user.email,
-        login: user.login,
-        first_name: user.first_name,
-        second_name: user.second_name,
-        display_name: user.display_name,
-        phone: user.phone,
+        image: (user as UserData).avatar,
+        email: (user as UserData).email,
+        login: (user as UserData).login,
+        first_name: (user as UserData).first_name,
+        second_name: (user as UserData).second_name,
+        display_name: (user as UserData).display_name,
+        phone: (user as UserData).phone,
       },
     });
   }
 };
 
-export default withRouter(
-  connect(
-    (state) => ({ user: state.user.profile }),
-    UserFormPageForm,
-  ),
+export default connect(
+  (state) => ({ user: state.user.profile }),
+  UserFormPageForm,
 );

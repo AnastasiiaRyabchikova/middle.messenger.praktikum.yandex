@@ -1,4 +1,4 @@
-import { ComponentConstructable } from '~/src/types/component';
+import { ComponentConstructable } from '@/types/component';
 
 export default interface routeSettings {
   pathname: string;

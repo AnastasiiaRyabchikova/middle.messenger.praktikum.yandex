@@ -1,9 +1,9 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import validation, { getRequiredMessage } from '~/src/validation';
-import isEqual from '~/src/utils/is-equal';
-import { PropsType } from '~/src/types/component';
-import UIInput from '~/src/components/UIInput';
-import Button from '~/src/components/Button';
+import * as Ryabact from 'ryabact';
+import validation, { getRequiredMessage } from '@/validation';
+import isEqual from '@/utils/is-equal';
+import { PropsType } from '@/types/component';
+import UIInput from '@/components/UIInput';
+import Button from '@/components/Button';
 import template from './index.tpl';
 
 const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
@@ -13,7 +13,8 @@ const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
 type valuesType = { name: string, value: string };
 
 export default class Component extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
+  constructor(context: any = {}) {
+    /* eslint-disable */
     const props: PropsType = {
       ...context,
       name: context.name,
@@ -126,6 +127,7 @@ export default class Component extends Ryabact.Component {
         },
       },
     };
+    /* eslint-disable */
 
     super({
       props,

@@ -1,9 +1,9 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { getRequiredMessage } from '~/src/validation';
-import isEqual from '~/src/utils/is-equal';
-import UITextarea from '~/src/components/UITextarea';
-import { PropsType } from '~/src/types/component';
-import { IconArrow } from '~/src/icons';
+import * as Ryabact from 'ryabact';
+import { getRequiredMessage } from '@/validation';
+import isEqual from '@/utils/is-equal';
+import UITextarea from '@/components/UITextarea';
+import { PropsType } from '@/types/component';
+import { IconArrow } from '@/icons';
 import template from './index.tpl';
 
 const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
@@ -13,7 +13,8 @@ const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
 type valuesType = { name: string, value: string };
 
 export default class Component extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
+  constructor(context: any = {}) {
+    /* eslint-disable */
     const props: PropsType = {
       ...context,
       name: context.name,
@@ -38,7 +39,6 @@ export default class Component extends Ryabact.Component {
           const {
             required = {},
             params = {},
-            errors = {},
           } = this.props;
           const {
             text,
@@ -59,6 +59,7 @@ export default class Component extends Ryabact.Component {
         },
       },
     };
+    /* eslint-disable */
 
     super({
       props,

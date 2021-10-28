@@ -1,8 +1,8 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import Logo from '~/src/components/Logo';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
+import Logo from '@/components/Logo';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 const messages: {
   [key: string]: string,
@@ -13,11 +13,11 @@ const messages: {
 
 export default class PageError extends Ryabact.Component {
   constructor(context: PropsType = {}) {
-    const { code = '404' }: { code?: string } = context;
+    const { code } = context;
     const props: PropsType = {
       ...context,
       code,
-      message: messages[code],
+      message: messages[code as string || '404'],
     };
 
     super({

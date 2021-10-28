@@ -1,26 +1,24 @@
-import { withRouter } from 'router';
-import * as Ryabact from '~/src/modules/Ryabact';
-import { connect } from '~/src/store';
-import Page404 from '~/src/pages/Page404';
-import { SignUpUserData } from '~/src/api/user-interfaces';
-import { AuthControler } from '~/src/controlers';
-import pathnames from '~/src/constants/pathnames';
-import { PropsType } from '~/src/types/component';
-import { routesForUser } from '~/src/routes';
-import RouterLink from '~/src/components/RouterLink';
+import { WithRouter } from 'router';
+import { connect } from '@/store';
+import Page404 from '@/pages/Page404';
+import { SignUpUserData } from '@/api/user-interfaces';
+import { AuthControler } from '@/controlers';
+import pathnames from '@/constants/pathnames';
+import { PropsType } from '@/types/component';
+import { routesForUser } from '@/routes';
+import RouterLink from '@/components/RouterLink';
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 import Form from './components/Form';
 
-class SignInPage extends Ryabact.Component {
+class SignInPage extends WithRouter {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
       handleFormSubmit: async (params: SignUpUserData) => {
-        // eslint-disable-next-line no-console
         await AuthControler.signUp(params);
         if (this.props.user) {
           this.router
@@ -52,9 +50,8 @@ class SignInPage extends Ryabact.Component {
   }
 };
 
-export default withRouter(
-  connect(
-    (state) => ({ user: state.user.profile }),
-    withRouter(SignInPage)
-  ),
+export default connect(
+  // eslint-disable-next-line
+  (state) => ({ user: state.user.profile }),
+  SignInPage,
 );

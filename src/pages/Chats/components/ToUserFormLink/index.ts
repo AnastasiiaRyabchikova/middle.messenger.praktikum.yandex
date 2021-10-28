@@ -1,10 +1,9 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { withRouter } from 'router';
-import { PropsType } from '~/src/types/component';
-import Avatar from '~/src/components/Avatar';
+import { WithRouter } from 'router';
+import { PropsType } from '@/types/component';
+import Avatar from '@/components/Avatar';
 import template from './index.tpl';
 
-class ToUserFormLink extends Ryabact.Component {
+class ToUserFormLink extends WithRouter {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
@@ -26,4 +25,4 @@ class ToUserFormLink extends Ryabact.Component {
   }
 };
 
-export default withRouter(ToUserFormLink);
+export default ToUserFormLink;

@@ -5,9 +5,9 @@ export interface Action {
   payload?: any;
 }
 
-type Reducer<S = any> = (state: S, action: Action) => S;
-
 type Indexed = {[key: string]: any};
+
+type Reducer<S = Indexed> = (state: S, action: Action) => S;
 
 export class Store extends EventBus {
   private state: Indexed = {};
@@ -28,15 +28,16 @@ export class Store extends EventBus {
     this.emit('changed');
   }
 
-  public getState() {
+  public getState(): Indexed {
     return this.state;
   }
 
   private combineReducers(reducers: Indexed): Reducer {
-    return (state: any, action: Action) => {
+    return (action: Action) => {
       const newState: Indexed = {};
 
       Object.entries(reducers).forEach(([key, reducer]) => {
+        // eslint-disable-next-line
         newState[key] = reducer(this.state[key], action);
       });
 

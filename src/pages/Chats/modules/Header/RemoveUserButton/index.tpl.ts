@@ -1,4 +1,4 @@
-import * as general from '~/src/theme/general.css';
+import general from '@/theme/general.css';
 
 const template: string = `
   <button

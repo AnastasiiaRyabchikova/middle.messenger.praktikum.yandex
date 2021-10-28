@@ -1,6 +1,6 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import UIInput from '~/src/components/UIInput';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
+import UIInput from '@/components/UIInput';
 import template from './index.tpl';
 
 export default class Component extends Ryabact.Component {

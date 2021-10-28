@@ -1,5 +1,5 @@
-import { Action } from '~/src/modules/Store';
-import { UserData } from '~/src/api/user-interfaces';
+import { Action } from '@/modules/Store';
+import { UserData } from '@/api/user-interfaces';
 
 const SET_USER = 'user/SET';
 const DELETE_USER = 'user/DELETE';

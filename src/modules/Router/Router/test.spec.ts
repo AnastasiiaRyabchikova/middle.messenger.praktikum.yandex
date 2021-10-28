@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 import { expect } from 'chai';
+import * as Ryabact from 'ryabact';
 import { PropsType } from '../../../types/component';
-import * as Ryabact from '../../Ryabact';
 import Router from './index';
 
 const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>', { url: 'http://localhost' });

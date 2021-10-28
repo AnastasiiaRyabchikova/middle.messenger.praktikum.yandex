@@ -107,8 +107,10 @@ export default class Component {
     this.eventBus().emit(Component.EVENTS.FLOW_RENDER);
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  componentDidMount(oldProps: PropsType = {}): void { /* */ }
+  // eslint-disable-next-line
+  componentDidMount(oldProps: PropsType = {}): void {
+    console.log(oldProps);
+  }
 
   _componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): void {
     //
@@ -120,6 +122,7 @@ export default class Component {
 
   // eslint-disable-next-line
   componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean {
+    console.log(oldProps, newProps);
     return true;
   }
 

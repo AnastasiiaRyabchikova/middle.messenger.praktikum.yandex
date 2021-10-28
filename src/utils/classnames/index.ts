@@ -13,10 +13,11 @@ const stringFromObject = (value: ClassnameObject): string => (
     .map((key: string) => (
       value[key] ? key : ''
     ))
+    .filter(Boolean)
     .join(' ')
 );
 
-export default (value: ClassnameObject | Array<ClassnameObject | string | undefined>): string => {
+export default (value?: ClassnameObject | Array<ClassnameObject | string | undefined>): string => {
   if (isEmpty(value)) {
     return '';
   }
@@ -27,10 +28,11 @@ export default (value: ClassnameObject | Array<ClassnameObject | string | undefi
 
   if (isArray(value)) {
     return value
+      .filter(Boolean)
       .reduce((acc: string, cur: ClassnameObject | string) => {
         const rezult = isObject(cur) ? stringFromObject(cur) : cur;
         return `${acc} ${rezult}`;
-      }, '');
+      }, '') as string;
   }
 
   return '';
