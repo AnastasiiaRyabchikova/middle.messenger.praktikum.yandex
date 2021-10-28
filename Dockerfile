@@ -8,4 +8,4 @@ COPY package.json /var/www/package.json
 CMD npm install
 COPY . /var/www
 EXPOSE 3000
-CMD npm run dev
+CMD npm run start
