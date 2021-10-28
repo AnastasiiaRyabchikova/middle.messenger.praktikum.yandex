@@ -1,5 +1,5 @@
-import pathnames from '../../constants/pathnames';
-import * as general from '../../theme/general.css';
+import pathnames from '@/constants/pathnames';
+import general from '@/theme/general.css';
 import styles from './styles.module.css';
 
 const template: string = `

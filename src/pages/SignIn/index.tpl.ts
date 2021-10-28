@@ -1,5 +1,5 @@
 import routes from '@/constants/pathnames';
-import * as general from '@/theme/general.css';
+import general from '@/theme/general.css';
 
 import styles from './styles.module.css';
 

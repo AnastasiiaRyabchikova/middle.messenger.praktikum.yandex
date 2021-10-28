@@ -20,7 +20,7 @@
       "http-transport": ["./src/modules/HTTPTransport"],
       "router": ["./src/modules/Router"]
     },
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["node_modules/@types"]
   },
   "include": ["src/**/*"]
 }
