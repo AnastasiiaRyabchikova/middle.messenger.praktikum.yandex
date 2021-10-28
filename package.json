@@ -5,7 +5,7 @@
     "clean-dist": "rm -rf ./dist",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "eslint": "eslint ./ --ext .ts",
-    "lint": "npm run stylelint && npm run lint",
+    "lint": "npm run stylelint && npm run eslint",
     "compile": "tsc  -t es5 ./src/**/*.ts",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r jsdom-global/register -r ts-node/register 'src/**/*.spec.ts'",
     "clean": "rm -rf node_modules/"
