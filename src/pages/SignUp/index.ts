@@ -5,6 +5,7 @@ import { PropsType } from '@/types/component';
 import Page404 from '@/pages/Page404';
 import RouterLink from '@/components/RouterLink';
 import { AuthControler } from '@/controlers';
+// eslint-disable-next-line
 import { routesForUser } from '@/routes';
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';
@@ -51,6 +52,7 @@ class SignUpPage extends WithRouter {
 };
 
 export default connect(
+  // eslint-disable-next-line
   (state) => ({ user: state.user.profile }),
   SignUpPage,
 );

@@ -1,7 +1,9 @@
 {
   "scripts": {
     "dev": "webpack serve",
-    "start": "webpack",
+    "start": "npm run build && npm run server",
+    "build": "webpack",
+    "server": "node ./server.js",
     "clean-dist": "rm -rf ./dist",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "eslint": "eslint ./ --ext .ts",
