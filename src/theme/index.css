@@ -12,7 +12,8 @@ html {
 
 html,
 body,
-#root {
+/* stylelint-disable */
+:global(#root) {
   height: 100%;
 }
 
