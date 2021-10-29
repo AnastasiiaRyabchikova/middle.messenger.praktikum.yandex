@@ -1,25 +1,31 @@
 // TODO: разобраться с интерфейсов компонентов
 // TODO: сделать данимаческие пути
 
-***PR:*** https://github.com/AnastasiiaRyabchikova/middle.messenger.praktikum.yandex/pull/2
-
+***PR:*** https://github.com/AnastasiiaRyabchikova/middle.messenger.praktikum.yandex/pull/4
+ 
 # Довекот / Голубятня
 
+***Heroku:*** https://my-dovecote.herokuapp.com/
 **Netlify:** https://determined-pare-26635e.netlify.app/
 
 **Figma:** https://www.figma.com/file/plWTradeVJ4ur1v6IR8vq9/Chat-Y.Praktikum?node-id=0%3A1
 
-Проект находится в разработке, но его уже можно потыкать
+Проект все еще сыроват =(
 
 **Довекот** - очередной мессенджер, но этот с изюминкой
 ## Команды
 
 - `npm install` — установка зависимостей;
 - `npm run dev` - запуск проекта в режиме разработки;
-- `npm run start` - сборка проекта, подготовка бандлов для выкладки;
-- `npm run eslint` - проверка js на соответствие стайл гайду;
-- `npm run stylelint` - проверка css на соответствие стайл гайду;
-- `npm run compile` - компиляция проекта;
+- `npm run start` - сборка и запуск сервера;
+- `npm run build` - сборка проекта;
+- `npm run server` - запуск сервера;
+- `npm run clean` - очистить папку node_modules;
+- `npm run stylelint` - линтинг стилей;
+- `npm run eslint` - линтинг скриптов;
+- `npm run lint` - линтинг проекта;
+- `npm run compile` - компиляция JS в TS;
+- `npm run test` - запуск тестов;
 
 ## Реализованные страницы
 
