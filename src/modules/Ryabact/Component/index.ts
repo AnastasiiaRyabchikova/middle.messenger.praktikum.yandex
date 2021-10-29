@@ -109,7 +109,9 @@ export default class Component {
   }
 
   // eslint-disable-next-line
-  componentDidMount(oldProps?: PropsType = {}): void {
+  componentDidMount(oldProps: PropsType = {}): void {
+    // Я не придумала как обойти noUnusedParameters
+    console.log(oldProps);
   }
 
   _componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): void {
