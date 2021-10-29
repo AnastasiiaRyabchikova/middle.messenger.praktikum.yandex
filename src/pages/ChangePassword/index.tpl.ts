@@ -1,3 +1,5 @@
+import pathnames from '~/src/constants/pathnames';
+import * as general from '~/src/theme/general.css';
 import * as styles from './styles.module.css';
 
 const template: string = `
@@ -15,16 +17,15 @@ const template: string = `
     <div
       class="${styles.side}"
     >
-      <a
-        href="#"
-        class="${styles.left}"
-      >
-        <IconArrowLeft />
-      </a>
+      <ButtonBack
+        onClick="{{handleBackClick}}"
+      />
     </div>
-    <Form
-      onSubmit="{{handleFormSubmit}}"
-    />
+    <div class="${styles.form}">
+      <Form
+        onSubmit="{{handleFormSubmit}}"
+      />
+    </div>
   </main>
 </div>
 `;

@@ -1,7 +1,8 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import cx from 'classnames';
 import { PropsType } from '~/src/types/component';
 import UIInput from '~/src/components/UIInput';
+import RouterLink from '~/src/components/RouterLink';
 import template from './index.tpl';
 import * as styles from './styles.module.css';
 
@@ -21,6 +22,7 @@ export default class Component extends Ryabact.Component {
       template,
       components: {
         UIInput,
+        RouterLink,
       },
       containerTemplate: '<span />',
     });

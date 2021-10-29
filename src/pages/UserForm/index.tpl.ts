@@ -1,4 +1,3 @@
-import routes from '~/src/constants/pathnames';
 import * as styles from './styles.module.css';
 
 const template: string = `
@@ -16,23 +15,19 @@ const template: string = `
     <div
       class="${styles.side}"
     >
-      <a
-        href="${routes.chats}"
-        class="${styles.left}"
-      >
-        <IconArrowLeft />
-      </a>
+      <ButtonBack
+        onClick="{{handleBackClick}}"
+      />
     </div>
     <div class="${styles.form_wrapper}">
+      <AddAvatar
+        class="${styles.avatar}"
+        onSubmit="{{handleAddAvatarSubmit}}"
+      />
       <Form
         onSubmit="{{handleFormSubmit}}"
       />
-      <a
-        href="/${routes.signUp}"
-        class="${styles.logout}"
-      >
-        Выйти
-      </a>
+      <LogoutButton />
     </div>
   </main>
 </div>

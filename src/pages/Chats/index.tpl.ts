@@ -1,5 +1,3 @@
-import routes from '~/src/constants/pathnames';
-
 import * as styles from './styles.module.css';
 
 const template: string = `
@@ -15,31 +13,25 @@ const template: string = `
       <Search
         class="${styles.search}"  
       />
-      <a
-        href="/${routes.userForm}"
-        class="${styles.avatarLink}"
-      >
-        <Avatar
-          class="${styles.avatar}"  
-        />
-      </a>
+      <ToUserFormLink
+        evClick="{{handleToUserFormLinkClick}}"
+      />
     </div>
     <div
       class="${styles.companions}"
     >
-      <t-for={{companion of companions}}>
-        <a
-          href="{{companion.link}}"
-          class="${styles.companionLink}"
-        >
-          <Companion
-            name="{{companion.name}}"
-            surname="{{companion.surname}}"
-            unreadMessagesCount="{{companion.unreadMessagesCount}}"
-            date="{{companion.date}}"
-            message="{{companion.message}}"
-          />
-        </a>
+      <t-for={{chat of chats}}>
+        <Companion
+          id="{{chat.id}}"
+          src="{{chat.avatar}}"
+          name="{{chat.title}}"
+          surname="{{chat.surname}}"
+          unreadMessagesCount="{{chat.unreadMessagesCount}}"
+          date="{{chat.date}}"
+          message="{{chat.message}}"
+          link="{{chat.link}}"
+          onClick="{{handleCompanionClick}}"
+        />
       </t-for>
     </div>
   </div>
@@ -47,8 +39,13 @@ const template: string = `
     <div
       class="${styles.chatWrapper}"
     >
-      <Header />
+      <Header
+        title="{{currentChat.title}}"
+        evAddUserSubmit="{{handleAddUserSubmit}}"
+        evARemoveUserSubmit="{{handleRemoveUserSubmit}}"
+      />
       <Chat
+        chatId="{{selectedChat}}"
         class="${styles.chat}"
       />
     </div>
@@ -58,13 +55,17 @@ const template: string = `
     >
       <div>
         Выберите чат или 
-        <a
-          class="${styles.link}"
-        >
-          cоздайте новый
-        </a>
+        <CreateNewChatButton
+          onClick="{{handleCreateNewChatButtonClick}}"
+        />
       </div>
     </div>
+  </t-if>
+  <t-if={{shouldShowCreateChatModal}}>
+    <CreateNewChatModal
+      evClose="{{handleCloseModalClick}}"
+      evSubmit="{{handleCreateNewChatSubmit}}"
+    />
   </t-if>
 </div>
 `;

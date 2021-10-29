@@ -1,4 +1,4 @@
-import * as Ryabact from 'ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import { getRequiredMessage } from '~/src/validation';
 import isEqual from '~/src/utils/is-equal';
 import UITextarea from '~/src/components/UITextarea';
@@ -55,9 +55,7 @@ export default class Component extends Ryabact.Component {
             return;
           }
 
-          context.events.submit({
-            text,
-          });
+          context.events.submit({ text });
         },
       },
     };

@@ -39,6 +39,7 @@
 .chatWrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100%;
 }
 
@@ -51,19 +52,4 @@
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-}
-
-.link {
-  padding-left: 0.5em;
-  color: var(--color-primary);
-  text-decoration: underline;
-}
-
-.link:hover {
-  text-decoration: none;
-}
-
-.companionLink {
-  color: inherit;
-  text-decoration: none;
 }

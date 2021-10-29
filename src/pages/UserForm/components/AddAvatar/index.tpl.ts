@@ -1,14 +1,17 @@
 import * as general from '~/src/theme/general.css';
 
 const template: string = `
-  <label class="{{class}}">
-    <Avatar />
-    <input
-      type="file"
-      class="${general.visuallyHidden}"
-      name="avatar"
-    />
-  </label>
+  <form>
+    <label class="{{class}}">
+      <Avatar />
+      <Input
+        type="file"
+        class="${general.visuallyHidden}"
+        name="avatar"
+        onChange="{{handleFileInputChange}}"
+      />
+    </label>
+  </form>
 `;
 
 export default template;

@@ -1,5 +1,13 @@
-import * as Ryabact from 'ryabact';
+import { withRouter } from 'router';
+import * as Ryabact from '~/src/modules/Ryabact';
+import { connect } from '~/src/store';
+import Page404 from '~/src/pages/Page404';
+import { SignUpUserData } from '~/src/api/user-interfaces';
+import { AuthControler } from '~/src/controlers';
+import pathnames from '~/src/constants/pathnames';
 import { PropsType } from '~/src/types/component';
+import { routesForUser } from '~/src/routes';
+import RouterLink from '~/src/components/RouterLink';
 import Logo from '../../components/Logo';
 import UIInput from '../../components/UIInput';
 import Button from '../../components/Button';
@@ -7,14 +15,20 @@ import template from './index.tpl';
 import * as styles from './styles.module.css';
 import Form from './components/Form';
 
-export default class Component extends Ryabact.Component {
+class SignInPage extends Ryabact.Component {
   constructor(context: PropsType = {}) {
     const props: PropsType = {
       ...context,
-      handleFormSubmit: (params: Record<string, unknown>) => {
+      handleFormSubmit: async (params: SignUpUserData) => {
         // eslint-disable-next-line no-console
-        console.log(params);
-        window.location.href = '/chats';
+        await AuthControler.signUp(params);
+        if (this.props.user) {
+          this.router
+            .use(routesForUser)
+            .setFallbackPage(Page404)
+            .start();
+          this.router.go(pathnames.chats);
+        }
       },
     };
 
@@ -27,8 +41,20 @@ export default class Component extends Ryabact.Component {
         UIInput,
         Button,
         Form,
+        RouterLink,
       },
       containerTemplate: `<div class="${styles.container}" />`,
     });
   }
+
+  componentDidUpdate() {
+    return false;
+  }
 };
+
+export default withRouter(
+  connect(
+    (state) => ({ user: state.user.profile }),
+    withRouter(SignInPage)
+  ),
+);

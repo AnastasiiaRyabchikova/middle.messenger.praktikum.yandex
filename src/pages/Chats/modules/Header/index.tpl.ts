@@ -10,19 +10,35 @@ const template: string = `
   <div
     class="${styles.name}"
   >
-    Александр
+    {{title}}
   </div>
-  <button
-    type="button"
-    class="${general.buttonReset} ${styles.search}"
-  >
-    Поиск
-  </button>
+  <div class="${styles.removeUser}">
+    <RemoveUserButton
+      onClick="{{handleRemoveUserButton}}"
+    />
+  </div>
+  <div class="${styles.addUser}">
+    <AddUserButton
+      onClick="{{handleAddUserButton}}"
+    />
+  </div>
   <button
     class="${general.buttonReset}"
   >
     <IconEllipsisVAlt />
   </button>
+  <t-if={{shouldShowAddUserModal}}>
+    <AddUserModal
+      evClose="{{handleAddUserModalClose}}"
+      evSubmit="{{handleAddUserSubmit}}"
+    />
+  </t-if>
+  <t-if={{shouldShowRemoveUserModal}}>
+    <RemoveUserModal
+      evClose="{{handleRemoveUserModalClose}}"
+      evSubmit="{{handleRemoveUserSubmit}}"
+    />
+  </t-if>
 </div>
 `;
 

@@ -1,4 +1,4 @@
-import * as Ryabact from '../Ryabact';
+import * as Ryabact from '~/src/modules/Ryabact';
 import { PropsType } from '../types/component';
 
 const template: string = `
