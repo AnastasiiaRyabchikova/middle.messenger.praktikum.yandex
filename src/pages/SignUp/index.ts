@@ -7,9 +7,9 @@ import RouterLink from '@/components/RouterLink';
 import { AuthControler } from '@/controlers';
 // eslint-disable-next-line
 import { routesForUser } from '@/routes';
-import Logo from '../../components/Logo';
-import UIInput from '../../components/UIInput';
-import Button from '../../components/Button';
+import Logo from '@/components/Logo';
+import UIInput from '@/components/UIInput';
+import Button from '@/components/Button';
 import Form from './components/Form';
 import template from './index.tpl';
 import styles from './styles.module.css';

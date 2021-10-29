@@ -5,11 +5,12 @@ import { SignUpUserData } from '@/api/user-interfaces';
 import { AuthControler } from '@/controlers';
 import pathnames from '@/constants/pathnames';
 import { PropsType } from '@/types/component';
+// eslint-disable-next-line
 import { routesForUser } from '@/routes';
 import RouterLink from '@/components/RouterLink';
-import Logo from '../../components/Logo';
-import UIInput from '../../components/UIInput';
-import Button from '../../components/Button';
+import Logo from '@/components/Logo';
+import UIInput from '@/components/UIInput';
+import Button from '@/components/Button';
 import template from './index.tpl';
 import styles from './styles.module.css';
 import Form from './components/Form';

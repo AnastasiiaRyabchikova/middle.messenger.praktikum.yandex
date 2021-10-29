@@ -1,5 +1,5 @@
 import { Methods } from './enums';
-import { isArray, isObject } from '../../utils/format-checking';
+import { isArray, isObject } from '@/utils/format-checking';
 
 interface Options {
   method?: Methods;

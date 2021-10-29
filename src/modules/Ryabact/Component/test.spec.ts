@@ -1,9 +1,9 @@
 import * as chai from 'chai';
 import * as chaiDom from 'chai-dom';
 import * as chaiSpies from 'chai-spies';
-import { PropsType } from '../../../types/component';
+import { render } from 'templator';
+import { PropsType } from '@/types/component';
 import Component from './index';
-import { render } from '../../templator';
 
 const { expect } = chai;
 

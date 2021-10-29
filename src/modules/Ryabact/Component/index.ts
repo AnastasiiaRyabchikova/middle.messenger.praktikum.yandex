@@ -1,10 +1,10 @@
-import Templator from '../../templator';
+import Templator from 'templator';
 import {
   compiledComponentType,
   ComponentSettingsInterface,
   ComponentsType,
   PropsType,
-} from '../../../types/component';
+} from '@/types/component';
 import EventBus from '../../event-bus';
 
 export default class Component {
