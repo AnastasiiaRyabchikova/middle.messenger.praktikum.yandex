@@ -1,4 +1,5 @@
 import Templator from 'templator';
+import isEqual from '@/utils/is-equal';
 import {
   compiledComponentType,
   ComponentSettingsInterface,
@@ -108,8 +109,7 @@ export default class Component {
   }
 
   // eslint-disable-next-line
-  componentDidMount(oldProps: PropsType = {}): void {
-    console.log(oldProps);
+  componentDidMount(oldProps?: PropsType = {}): void {
   }
 
   _componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): void {
@@ -122,8 +122,7 @@ export default class Component {
 
   // eslint-disable-next-line
   componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean {
-    console.log(oldProps, newProps);
-    return true;
+    return isEqual(oldProps, newProps);
   }
 
   componentDidRender(): void { /* */ }
