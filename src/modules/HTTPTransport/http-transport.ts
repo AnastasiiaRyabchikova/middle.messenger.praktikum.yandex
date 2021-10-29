@@ -7,10 +7,6 @@ interface Options {
   data?: Record<string, any> | FormData;
 };
 
-interface OptionsHTTPTransport extends Options {
-  timeout?: number;
-};
-
 const queryStringify = (data: Record<string, unknown>): string => (
   Object.keys(data)
     .reduce((acc: string, cur: string, index) => {
@@ -44,10 +40,8 @@ export default class HTTPTransport {
 
   get = (
     url: string,
-    {
-      timeout = 500,
-      ...options
-    }: OptionsHTTPTransport = { timeout: 500 },
+    options?: Options,
+    timeout?: number,
   ): Promise<any> => (
     this.request(
       url,
@@ -58,10 +52,8 @@ export default class HTTPTransport {
 
   post = (
     url: string,
-    {
-      timeout = 500,
-      ...options
-    }: OptionsHTTPTransport = { timeout: 500 },
+    options?: Options,
+    timeout?: number,
   ): Promise<any> => (
     this.request(
       url,
@@ -72,10 +64,8 @@ export default class HTTPTransport {
 
   delete = (
     url: string,
-    {
-      timeout = 500,
-      ...options
-    }: OptionsHTTPTransport = { timeout: 500 },
+    options?: Options,
+    timeout?: number,
   ): Promise<any> => (
     this.request(
       url,
@@ -86,10 +76,8 @@ export default class HTTPTransport {
 
   put = (
     url: string,
-    {
-      timeout = 500,
-      ...options
-    }: OptionsHTTPTransport = { timeout: 500 },
+    options?: Options,
+    timeout?: number,
   ): Promise<any> => (
     this.request(
       url,
