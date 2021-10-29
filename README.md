@@ -1,7 +1,4 @@
-// TODO: разобраться с интерфейсов компонентов
-// TODO: сделать данимаческие пути
-
-***PR:*** https://github.com/AnastasiiaRyabchikova/middle.messenger.praktikum.yandex/pull/2
+***PR:*** https://github.com/AnastasiiaRyabchikova/middle.messenger.praktikum.yandex/pull/3
 
 # Довекот / Голубятня
 
@@ -20,6 +17,7 @@
 - `npm run eslint` - проверка js на соответствие стайл гайду;
 - `npm run stylelint` - проверка css на соответствие стайл гайду;
 - `npm run compile` - компиляция проекта;
+- `npm run test` - тестирование проекта;
 
 ## Реализованные страницы
 
