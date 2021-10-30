@@ -5,5 +5,10 @@ module.exports = {
     'stylelint-prettier/recommended'
   ],
   plugins: ['stylelint-order'],
-  rules: {}
+  rules: {
+    'selector-pseudo-class-no-unknown': [
+      true,
+      { ignorePseudoClasses: ['global'] },
+    ]
+  }
 };
