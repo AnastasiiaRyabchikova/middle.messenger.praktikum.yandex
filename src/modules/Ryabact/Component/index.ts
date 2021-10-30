@@ -1,10 +1,11 @@
-import Templator from '../../templator';
+import Templator from 'templator';
+import isEqual from '@/utils/is-equal';
 import {
   compiledComponentType,
   ComponentSettingsInterface,
   ComponentsType,
   PropsType,
-} from '../../../types/component';
+} from '@/types/component';
 import EventBus from '../../event-bus';
 
 export default class Component {
@@ -109,6 +110,7 @@ export default class Component {
 
   // eslint-disable-next-line
   componentDidMount(oldProps: PropsType = {}): void {
+    // Я не придумала как обойти noUnusedParameters
     console.log(oldProps);
   }
 
@@ -122,8 +124,7 @@ export default class Component {
 
   // eslint-disable-next-line
   componentDidUpdate(oldProps: PropsType = {}, newProps: PropsType = {}): boolean {
-    console.log(oldProps, newProps);
-    return true;
+    return isEqual(oldProps, newProps);
   }
 
   componentDidRender(): void { /* */ }

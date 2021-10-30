@@ -1,5 +1,5 @@
 import { Component } from 'ryabact';
-import { render } from '../../templator';
+import { render } from 'templator';
 import { ComponentConstructable } from '@/types/component';
 
 interface Props {

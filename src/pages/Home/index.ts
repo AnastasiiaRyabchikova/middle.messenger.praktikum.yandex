@@ -3,7 +3,7 @@ import { connect } from '@/store';
 import { AuthControler } from '@/controlers';
 import { PropsType } from '@/types/component';
 import Page404 from '@/pages/Page404';
-import Logo from '../../components/Logo';
+import Logo from '@/components/Logo';
 import { routesForUnknownUser, routesForUser } from '@/routes';
 import template from './index.tpl';
 import styles from './styles.module.css';

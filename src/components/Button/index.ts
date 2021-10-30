@@ -1,6 +1,6 @@
 import * as Ryabact from 'ryabact';
 import cx from 'classnames';
-import { PropsType } from '../../types/component';
+import { PropsType } from '@/types/component';
 import template from './index.tpl';
 import styles from './styles.module.css';
 

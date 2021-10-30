@@ -1,4 +1,4 @@
-import { ComponentConstructable } from '../../../types/component';
+import { ComponentConstructable } from '@/types/component';
 import routeSettings from '../interfaces/route-settings';
 import Route from '../Route';
 

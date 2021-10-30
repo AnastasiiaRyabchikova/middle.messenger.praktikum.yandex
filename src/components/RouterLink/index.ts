@@ -1,6 +1,6 @@
 import { WithRouter } from 'router';
 import cx from 'classnames';
-import { PropsType } from '../../types/component';
+import { PropsType } from '@/types/component';
 import template from './index.tpl';
 
 class RouterLink extends WithRouter {

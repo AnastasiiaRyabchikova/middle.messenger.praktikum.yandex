@@ -4,13 +4,13 @@
     "start": "npm run build && npm run server",
     "build": "webpack",
     "server": "node ./server.js",
-    "clean-dist": "rm -rf ./dist",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "eslint": "eslint ./ --ext .ts",
     "lint": "npm run stylelint && npm run eslint",
     "compile": "tsc  -t es5 ./src/**/*.ts",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r jsdom-global/register -r ts-node/register 'src/**/*.spec.ts'",
-    "clean": "rm -rf node_modules/"
+    "clean": "rimraf node_modules/",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -53,6 +53,7 @@
     "postcss-modules": "^3.2.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
     "sinon": "^11.1.2",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
