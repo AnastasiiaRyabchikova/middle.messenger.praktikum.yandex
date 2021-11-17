@@ -1,11 +1,11 @@
-import { store } from '~/src/store';
-import { deleteUser, setError, setUser } from '~/src/store/user';
-import UserAPI from '~/src/api/user-api';
+import { store } from '@/store';
+import { setUser } from '@/store/user';
+import UserAPI from '@/api/user-api';
 import {
   EditUserData,
   EditPasswordData,
   UserData,
-} from '~/src/api/user-interfaces';
+} from '@/api/user-interfaces';
 
 class UserController {
   private api: typeof UserAPI;
@@ -14,20 +14,22 @@ class UserController {
     this.api = UserAPI;
   }
 
-  async edit(data: EditUserData): Promise<UserData> {
+  async edit(data: EditUserData): Promise<UserData | undefined> {
     try {
       const user = await this.api.edit(data);
       store.dispatch(setUser(JSON.parse(user)));
+      // eslint-disable-next-line
       return JSON.parse(user);
     } catch (err) {
       console.error(err);
     }
   }
 
-  async editAvatar(data: FormData): Promise<UserData> {
+  async editAvatar(data: FormData): Promise<UserData | undefined> {
     try {
       const user = await this.api.editAvatar(data);
       store.dispatch(setUser(JSON.parse(user)));
+      // eslint-disable-next-line
       return JSON.parse(user);
     } catch (err) {
       console.error(err);

@@ -1,8 +1,7 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { withRouter } from 'router';
-import { ChatControler } from '~/src/controlers';
-import { PropsType } from '~/src/types/component';
-import routes from '~/src/constants/pathnames';
+import { WithRouter } from 'router';
+import { ChatControler } from '@/controlers';
+// import { PropsType } from '@/types/component';
+import routes from '@/constants/pathnames';
 import Search from './components/Search';
 import Companion from './components/Companion';
 import Chat from './modules/Chat';
@@ -11,11 +10,25 @@ import ToUserFormLink from './components/ToUserFormLink';
 import CreateNewChatButton from './components/CreateNewChatButton';
 import CreateNewChatModal from './components/CreateNewChatModal';
 import template from './index.tpl';
-import user from '~/src/store/user';
+import user from '@/store/user';
 
-class ChatsPage extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
-    const props: PropsType = {
+type PropsType = {
+  chats: Record<string, any>[],
+  selectedChat: number,
+  shouldShowCreateChatModal: boolean,
+  handleToUserFormLinkClick: (e: Event) => void,
+  handleCreateNewChatButtonClick: (e: Event) => void,
+  handleCloseModalClick: () => void,
+  handleCreateNewChatSubmit: (e: Event) => void,
+  handleCompanionClick: (e: Event) => void,
+  handleAddUserSubmit: (e: Event) => void,
+  handleRemoveUserSubmit: (users: number[]) => void,
+};
+
+class ChatsPage extends WithRouter {
+  constructor(context: any = {}) {
+    /* eslint-disable */
+    const props: any = {
       ...context,
       chats: [],
       selectedChat: undefined,
@@ -47,7 +60,7 @@ class ChatsPage extends Ryabact.Component {
         }
         this.setProps({
           selectedChat: id,
-          currentChat: this.props.chats.find((item) => (item.id === Number(id))),
+          currentChat: (this.props as PropsType).chats.find((item) => (item.id === Number(id))),
         });
       },
       handleAddUserSubmit: async (users: number[]) => {
@@ -74,6 +87,7 @@ class ChatsPage extends Ryabact.Component {
         });
       },
     };
+    /* eslint-disable */
 
     super({
       props,
@@ -100,4 +114,4 @@ class ChatsPage extends Ryabact.Component {
   }
 };
 
-export default withRouter(ChatsPage);
+export default ChatsPage;

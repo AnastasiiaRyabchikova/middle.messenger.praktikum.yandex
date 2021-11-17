@@ -4,12 +4,13 @@ import {
   SignInUserData,
 } from './user-interfaces';
 
+/* eslint-disable */
 class AuthApi extends BaseApi {
   constructor() {
     super('/auth');
   }
 
-  signUp(data: SignUpUserData): Promise<{ id: number }> {
+  signUp(data: SignUpUserData): Promise<string> {
     return this.http.post('/signup', { data });
   }
 

@@ -1,5 +1,5 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
 import Message from './components/Message';
 import template from './index.tpl';
 

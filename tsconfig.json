@@ -13,14 +13,14 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
+      "@/*": ["./src/*"],
       "templator": ["./src/modules/templator"],
       "classnames": ["./src/utils/classnames"],
       "ryabact": ["./src/modules/Ryabact"],
       "http-transport": ["./src/modules/HTTPTransport"],
       "router": ["./src/modules/Router"]
     },
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["node_modules/@types"]
   },
   "include": ["src/**/*"]
 }

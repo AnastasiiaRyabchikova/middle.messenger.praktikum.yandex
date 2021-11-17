@@ -1,14 +1,10 @@
 import { Methods } from './enums';
-import { isArray, isObject } from '../../utils/format-checking';
+import { isArray, isObject } from '@/utils/format-checking';
 
 interface Options {
   method?: Methods;
   headers?: Record<string, string>;
-  data?: Record<string, unknown>;
-};
-
-interface OptionsHTTPTransport extends Options {
-  timeout: number;
+  data?: Record<string, any> | FormData;
 };
 
 const queryStringify = (data: Record<string, unknown>): string => (
@@ -27,6 +23,12 @@ const queryStringify = (data: Record<string, unknown>): string => (
     }, '?')
 );
 
+const isFormData = (value: unknown): value is FormData => (
+  Boolean(value)
+  // eslint-disable-next-line
+  && (value as object).toString() === '[object FormData]'
+);
+
 export default class HTTPTransport {
   private baseUrl: string
 
@@ -38,36 +40,49 @@ export default class HTTPTransport {
 
   get = (
     url: string,
-    options: OptionsHTTPTransport = { timeout: 500 },
-  ): Promise<unknown> => (
+    options?: Options,
+    timeout?: number,
+  ): Promise<any> => (
     this.request(
       url,
       { ...options, method: Methods.Get },
-      options.timeout,
+      timeout,
     )
   );
 
-  post = (url: string, options = { timeout: 500 }): Promise<unknown> => (
+  post = (
+    url: string,
+    options?: Options,
+    timeout?: number,
+  ): Promise<any> => (
     this.request(
       url,
       { ...options, method: Methods.Post },
-      options.timeout,
+      timeout,
     )
   );
 
-  delete = (url: string, options = { timeout: 500 }): Promise<unknown> => (
+  delete = (
+    url: string,
+    options?: Options,
+    timeout?: number,
+  ): Promise<any> => (
     this.request(
       url,
       { ...options, method: Methods.Delete },
-      options.timeout,
+      timeout,
     )
   );
 
-  put = (url: string, options = { timeout: 500 }): Promise<unknown> => (
+  put = (
+    url: string,
+    options?: Options,
+    timeout?: number,
+  ): Promise<any> => (
     this.request(
       url,
       { ...options, method: Methods.Put },
-      options.timeout,
+      timeout,
     )
   );
 
@@ -75,17 +90,17 @@ export default class HTTPTransport {
     url: string,
     options: Options,
     timeout: number = 5000,
-  ): Promise<unknown> => {
+  ): Promise<any> => {
     const {
       method = Methods.Get,
       headers = {},
       data = {},
     } = options;
 
-    const isFile = Boolean(data.entries);
+    const isFormDataParam = isFormData(data);
 
     return new Promise((resolve, reject) => {
-      const requestUrl = method === Methods.Get
+      const requestUrl = method === Methods.Get && !isFormDataParam
         ? `${this.baseUrl}${url}${queryStringify(data)}`
         : `${this.baseUrl}${url}`;
 
@@ -121,11 +136,11 @@ export default class HTTPTransport {
         }
       };
 
-      if (!isFile) {
+      if (!isFormDataParam) {
         xhr.setRequestHeader('Content-Type', 'application/json');
       }
 
-      const query = isFile ? data : JSON.stringify(data);
+      const query = isFormDataParam ? data : JSON.stringify(data);
 
       if (method === Methods.Get) {
         xhr.send();

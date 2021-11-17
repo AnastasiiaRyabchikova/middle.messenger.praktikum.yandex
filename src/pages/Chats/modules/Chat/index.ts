@@ -1,14 +1,15 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import cx from '~/src/utils/classnames';
-import { connect } from '~/src/store';
-import { PropsType } from '~/src/types/component';
-import { ChatControler } from '~/src/controlers';
-import { isArray, isObject } from '~/src/utils/format-checking';
+import * as Ryabact from 'ryabact';
+import cx from 'classnames';
+import { UserData } from '@/api/user-interfaces';
+import { connect } from '@/store';
+import { PropsType } from '@/types/component';
+import { ChatControler } from '@/controlers';
+import { isArray, isObject } from '@/utils/format-checking';
 import ChatHistory from '../ChatHistory';
 import MessageTextarea from '../MessageTextarea';
 import Header from '../Header';
 import template from './index.tpl';
-import * as styles from './styles.module.css';
+import styles from './styles.module.css';
 
 type chatMessage = {
   content: string;
@@ -38,7 +39,8 @@ class Chat extends Ryabact.Component {
       messages: [],
       class: cx([styles.chat, context.class]),
       handleFormSubmit: ({ text }: { text: string }) => {
-        const { socket }: { socket: WebSocket } = this.props;
+        // eslint-disable-next-line
+        const { socket }: { socket: WebSocket } = this.props as any;
         socket.send(JSON.stringify({ content: text, type: 'message' }));
       },
     };
@@ -59,11 +61,12 @@ class Chat extends Ryabact.Component {
   async componentDidMount() {
     const { chatId } = this.props;
 
-    const token = await ChatControler.getToken(chatId);
+    const token = await ChatControler.getToken(chatId as number);
 
-    const userId = this.props?.user?.id;
+    // eslint-disable-next-line
+    const userId = (this.props?.user as UserData).id;
 
-    const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${String(userId)}/${String(chatId)}/${token}`);
+    const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${String(userId)}/${String(chatId)}/${String(token)}`);
     this.setProps({ socket });
 
     socket.addEventListener('open', () => {
@@ -73,21 +76,23 @@ class Chat extends Ryabact.Component {
       }));
     });
 
-    socket.addEventListener('message', (e: Event) => {
+    // eslint-disable-next-line
+    socket.addEventListener('message', (e: any) => {
       const { messages } = this.props;
+      // eslint-disable-next-line
       const data = JSON.parse(e.data);
       if (isArray(data)) {
         this.setProps({
           messages: [
-            ...messages,
+            ...(messages as []),
             ...data.map((item) => messageFormat(item, userId)),
           ],
         });
       } else if (isObject(data)) {
-        const message = messageFormat(data, userId);
+        const message = messageFormat(data as any, userId);
         this.setProps({
           messages: [
-            ...messages,
+            ...(messages as []),
             message,
           ],
         });
@@ -97,6 +102,7 @@ class Chat extends Ryabact.Component {
 };
 
 export default connect(
+  // eslint-disable-next-line
   (state) => ({ user: state.user.profile }),
   Chat,
 );

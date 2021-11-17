@@ -1,14 +1,16 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import isEqual from '~/src/utils/is-equal';
-import { getRequiredMessage } from '~/src/validation';
-import UIInput from '~/src/components/UIInput';
-import Button from '~/src/components/Button';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
+import isEqual from '@/utils/is-equal';
+import { getRequiredMessage } from '@/validation';
+import UIInput from '@/components/UIInput';
+import Button from '@/components/Button';
 import template from './index.tpl';
 
 const hasErrorsCheck = (errors: { [key: string]: string | null }): boolean => (
   Object.values(errors).filter(Boolean).length > 0
 );
+
+type valuesType = { name: string, value: string };
 
 export default class Component extends Ryabact.Component {
   constructor(context: PropsType = {}) {
@@ -47,8 +49,8 @@ export default class Component extends Ryabact.Component {
           if (hasErrorsCheck(this.props.errors || {})) {
             return;
           }
-
-          context.events?.submit({
+          // eslint-disable-next-line
+          (context.events as any).submit({
             title,
           });
         },

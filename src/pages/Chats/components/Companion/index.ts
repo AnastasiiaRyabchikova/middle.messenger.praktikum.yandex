@@ -1,6 +1,6 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import Avatar from '~/src/components/Avatar';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
+import Avatar from '@/components/Avatar';
 import template from './index.tpl';
 
 export default class Component extends Ryabact.Component {

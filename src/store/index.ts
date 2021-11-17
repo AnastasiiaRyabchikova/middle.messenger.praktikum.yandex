@@ -1,5 +1,5 @@
-import { Component } from '~/src/modules/Ryabact';
-import { Store } from '~/src/modules/Store';
+import { ComponentConstructable } from '@/types/component';
+import { Store } from '@/modules/Store';
 import user from './user';
 
 export const store = new Store({
@@ -8,9 +8,9 @@ export const store = new Store({
 
 export function connect(
   stateToProps: (state: any) => any,
-  Element: typeof Component,
-): Component {
-  return class WithStore extends Element {
+  Component: ComponentConstructable,
+): ComponentConstructable {
+  return class WithStore extends Component {
     constructor(props: any) {
       super({ ...props, ...stateToProps(store.getState()) });
     }

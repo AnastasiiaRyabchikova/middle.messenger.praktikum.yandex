@@ -1,7 +1,7 @@
-import * as Ryabact from '~/src/modules/Ryabact';
-import { PropsType } from '~/src/types/component';
-import Avatar from '~/src/components/Avatar';
-import { IconEllipsisVAlt } from '~/src/icons';
+import * as Ryabact from 'ryabact';
+import { PropsType } from '@/types/component';
+import Avatar from '@/components/Avatar';
+import { IconEllipsisVAlt } from '@/icons';
 import AddUserButton from './AddUserButton';
 import RemoveUserButton from './RemoveUserButton';
 import AddUserModal from './AddUserModal';
@@ -9,7 +9,8 @@ import RemoveUserModal from './RemoveUserModal';
 import template from './index.tpl';
 
 export default class Component extends Ryabact.Component {
-  constructor(context: PropsType = {}) {
+  constructor(context: any = {}) {
+    /* eslint-disable */
     const props: PropsType = {
       ...context,
       title: context.title,
@@ -39,6 +40,7 @@ export default class Component extends Ryabact.Component {
       handleRemoveUserSubmit: (users: number[]) => {
         context.evRemoveUserSubmit(users);
       },
+      /* eslint-disable */
     };
 
     super({
